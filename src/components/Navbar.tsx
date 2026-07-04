@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { Github, Menu, X } from 'lucide-react'
 import { GITHUB_URL } from '../data/site'
+import { useLanguage } from '../i18n/LanguageContext'
 import VGOLogo from './VGOLogo'
 
 const navLinks = [
-  { label: '产品', href: '#products' },
-  { label: '关于', href: '#about' },
-  { label: '联系', href: '#contact' },
+  { key: 'nav.products', href: '#products' },
+  { key: 'nav.about', href: '#about' },
+  { key: 'nav.contact', href: '#contact' },
 ]
 
 export default function Navbar() {
+  const { language, setLanguage, t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -77,13 +79,20 @@ export default function Navbar() {
                 href={link.href}
                 className="text-sm text-vgo-muted hover:text-white motion-safe:transition-colors"
               >
-                {link.label}
+                {t(link.key)}
               </a>
             </li>
           ))}
         </ul>
 
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
+            className="text-sm text-vgo-muted hover:text-white px-2 py-1 rounded-lg hover:bg-white/[0.08] motion-safe:transition-colors"
+            aria-label={t('language.label')}
+          >
+            {t(`language.${language === 'zh' ? 'en' : 'zh'}`)}
+          </button>
           <a
             href={GITHUB_URL}
             target="_blank"
@@ -100,7 +109,7 @@ export default function Navbar() {
           className="md:hidden p-2 rounded-xl hover:bg-white/[0.08]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
-          aria-label="切换菜单"
+          aria-label={t('nav.toggleMenu')}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -116,10 +125,19 @@ export default function Navbar() {
                   className="block text-vgo-muted hover:text-white motion-safe:transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {link.label}
+                  {t(link.key)}
                 </a>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
+                className="text-vgo-muted hover:text-white motion-safe:transition-colors"
+                aria-label={t('language.label')}
+              >
+                {t(`language.${language === 'zh' ? 'en' : 'zh'}`)}
+              </button>
+            </li>
             <li>
               <a
                 href={GITHUB_URL}

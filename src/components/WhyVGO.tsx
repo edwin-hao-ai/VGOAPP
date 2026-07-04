@@ -1,26 +1,28 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { HardDrive, Bot, Code2 } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const values = [
   {
     icon: HardDrive,
-    title: '本地优先',
-    description: '你的数据默认留在设备上，不上传、不锁定，随时带走。',
+    titleKey: 'why.localFirst.title',
+    descKey: 'why.localFirst.description',
   },
   {
     icon: Bot,
-    title: 'AI 原生',
-    description: '不是后期加功能，而是从设计之初就为 AI 工作流打造。',
+    titleKey: 'why.aiNative.title',
+    descKey: 'why.aiNative.description',
   },
   {
     icon: Code2,
-    title: '开发者品味',
-    description: '追求性能、隐私和细节，拒绝臃肿，做真正好用的工具。',
+    titleKey: 'why.developerTaste.title',
+    descKey: 'why.developerTaste.description',
   },
 ]
 
 export default function WhyVGO() {
   const shouldReduceMotion = useReducedMotion()
+  const { t } = useLanguage()
 
   return (
     <section id="about" className="py-24 px-6">
@@ -32,9 +34,9 @@ export default function WhyVGO() {
           transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">为什么选 VGO</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('why.title')}</h2>
           <p className="text-vgo-muted max-w-2xl mx-auto">
-            我们相信好的工具应该安静、可靠、为你工作，而不是反过来。
+            {t('why.description')}
           </p>
         </motion.div>
 
@@ -43,7 +45,7 @@ export default function WhyVGO() {
             const Icon = value.icon
             return (
               <motion.div
-                key={value.title}
+                key={value.titleKey}
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -53,8 +55,8 @@ export default function WhyVGO() {
                 <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center mx-auto mb-5">
                   <Icon size={24} className="text-vgo-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                <p className="text-vgo-muted leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold mb-3">{t(value.titleKey)}</h3>
+                <p className="text-vgo-muted leading-relaxed">{t(value.descKey)}</p>
               </motion.div>
             )
           })}

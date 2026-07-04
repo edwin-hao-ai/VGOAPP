@@ -1,9 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { products } from '../data/products'
+import { useLanguage } from '../i18n/LanguageContext'
 import ProductCard from './ProductCard'
 
 export default function Products() {
   const shouldReduceMotion = useReducedMotion()
+  const { t } = useLanguage()
 
   return (
     <section id="products" className="py-24 px-6">
@@ -15,9 +17,9 @@ export default function Products() {
           transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">我们的产品</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('products.title')}</h2>
           <p className="text-vgo-muted max-w-2xl mx-auto">
-            每一款都从真实的工作流痛点出发，追求本地、快速、可信赖。
+            {t('products.description')}
           </p>
         </motion.div>
 

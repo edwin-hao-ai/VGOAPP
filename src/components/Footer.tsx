@@ -1,3 +1,4 @@
+import { useLanguage } from '../i18n/LanguageContext'
 import VGOLogo from './VGOLogo'
 
 const YEAR = new Date().getFullYear()
@@ -9,6 +10,8 @@ const footerLinks = [
 ]
 
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="border-t border-white/[0.08] py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -32,7 +35,7 @@ export default function Footer() {
           ))}
         </ul>
 
-        <p className="text-sm text-vgo-muted">© {YEAR} VGO. All rights reserved.</p>
+        <p className="text-sm text-vgo-muted">{t('footer.copyright', { year: YEAR })}</p>
       </div>
     </footer>
   )

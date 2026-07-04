@@ -6,6 +6,7 @@ export const translations = {
       products: '产品',
       about: '关于',
       contact: '联系',
+      toggleMenu: '切换菜单',
     },
     hero: {
       subtitle: '做你真正会用的工具',
@@ -51,6 +52,7 @@ export const translations = {
       products: 'Products',
       about: 'About',
       contact: 'Contact',
+      toggleMenu: 'Toggle menu',
     },
     hero: {
       subtitle: 'Tools you actually use.',
