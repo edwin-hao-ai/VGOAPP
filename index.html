@@ -3,19 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VGO — 做你真正会用的工具</title>
-    <meta name="description" content="VGO 工作室官网，展示 MDDock、MacSlim、MouseClaw 等本地优先、AI 原生的效率工具。" />
-    <meta property="og:title" content="VGO — 做你真正会用的工具" />
-    <meta property="og:description" content="本地优先、AI 原生的效率工具工作室。" />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="VGO — 做你真正会用的工具" />
-    <meta name="twitter:description" content="本地优先、AI 原生的效率工具工作室。" />
-    <meta name="twitter:image" content="/og-image.png" />
+    <title>VGO — 做你真正会用的工具 | Tools you actually use.</title>
+    <meta name="description" content="VGO 工作室官网，展示 MDDock、MacSlim、MouseClaw 等本地优先、AI 原生的效率工具。Local-first, AI-native tools for developers and efficiency lovers." />
+    <link rel="canonical" href="https://vgoapp.com/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a0a0f" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="VGO — 做你真正会用的工具 | Tools you actually use." />
+    <meta property="og:description" content="VGO 工作室官网，展示 MDDock、MacSlim、MouseClaw 等本地优先、AI 原生的效率工具。" />
+    <meta property="og:image" content="https://vgoapp.com/og-image.png" />
+    <meta property="og:url" content="https://vgoapp.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VGO — 做你真正会用的工具 | Tools you actually use." />
+    <meta name="twitter:description" content="VGO 工作室官网，展示 MDDock、MacSlim、MouseClaw 等本地优先、AI 原生的效率工具。" />
+    <meta name="twitter:image" content="https://vgoapp.com/og-image.png" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "VGO",
+          "url": "https://vgoapp.com/",
+          "sameAs": ["https://github.com/edwin-hao-ai"]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "MDDock",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Web, Windows, macOS",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "url": "https://mddock.com/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "MacSlim",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "macOS",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "url": "https://github.com/edwin-hao-ai/MacSlim"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "MouseClaw",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "macOS, Windows",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "url": "https://github.com/edwin-hao-ai/MouseClaw"
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="bg-vgo-bg text-vgo-text antialiased">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

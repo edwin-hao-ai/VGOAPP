@@ -1,0 +1,16 @@
+{
+  "name": "VGO",
+  "short_name": "VGO",
+  "description": "VGO studio — local-first, AI-native tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
