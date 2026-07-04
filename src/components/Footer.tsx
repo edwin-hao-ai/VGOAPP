@@ -1,5 +1,6 @@
-import { useMemo } from 'react'
 import VGOLogo from './VGOLogo'
+
+const YEAR = new Date().getFullYear()
 
 const footerLinks = [
   { label: 'MDDock', href: 'https://mddock.com/' },
@@ -8,8 +9,6 @@ const footerLinks = [
 ]
 
 export default function Footer() {
-  const year = useMemo(() => new Date().getFullYear(), [])
-
   return (
     <footer className="border-t border-white/[0.08] py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -33,7 +32,7 @@ export default function Footer() {
           ))}
         </ul>
 
-        <p className="text-sm text-vgo-muted">© {year} VGO. All rights reserved.</p>
+        <p className="text-sm text-vgo-muted">© {YEAR} VGO. All rights reserved.</p>
       </div>
     </footer>
   )

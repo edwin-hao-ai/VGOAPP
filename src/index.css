@@ -42,7 +42,7 @@
 }
 
 @utility glass-hover {
-  @apply transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.14] hover:-translate-y-2 hover:shadow-2xl;
+  @apply transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.14] motion-safe:hover:-translate-y-2 hover:shadow-2xl;
 }
 
 @utility gradient-text {

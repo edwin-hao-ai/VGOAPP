@@ -47,7 +47,7 @@ export default function GlowBackground() {
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <div
         ref={glowRef}
-        className="absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-20 transition-all duration-700 ease-out"
+        className="absolute w-[800px] h-[800px] rounded-full blur-[120px] opacity-20"
         style={{
           background: 'radial-gradient(circle, #60a5fa 0%, transparent 70%)',
           left: 'var(--glow-x, 50%)',
