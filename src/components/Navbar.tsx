@@ -87,6 +87,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <button
+            type="button"
             onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
             className="text-sm text-vgo-muted hover:text-white px-2 py-1 rounded-lg hover:bg-white/[0.08] motion-safe:transition-colors"
             aria-label={t('language.label')}
@@ -131,6 +132,7 @@ export default function Navbar() {
             ))}
             <li>
               <button
+                type="button"
                 onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
                 className="text-vgo-muted hover:text-white motion-safe:transition-colors"
                 aria-label={t('language.label')}

@@ -3,7 +3,7 @@ export type Language = 'zh' | 'en'
 export const translations = {
   zh: {
     site: {
-      title: 'VGO — 做你真正会用的工具',
+      title: 'VGO — 做你真正会用的工具 | Tools you actually use.',
     },
     nav: {
       products: '产品',
@@ -87,7 +87,7 @@ export const translations = {
   },
   en: {
     site: {
-      title: 'VGO — Tools you actually use.',
+      title: 'VGO — 做你真正会用的工具 | Tools you actually use.',
     },
     nav: {
       products: 'Products',
