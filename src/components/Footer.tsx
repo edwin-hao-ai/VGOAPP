@@ -24,7 +24,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
+                className="hover:text-white motion-safe:transition-colors"
               >
                 {link.label}
               </a>
