@@ -1,10 +1,17 @@
-import VGOLogo from './components/VGOLogo'
+import GlowBackground from './components/GlowBackground'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <VGOLogo size={120} />
-    </main>
+    <>
+      <GlowBackground />
+      <Navbar />
+      <main className="min-h-screen pt-16">
+        <section className="h-[80vh] flex items-center justify-center">
+          <p className="text-vgo-muted">Navbar & background ready</p>
+        </section>
+      </main>
+    </>
   )
 }
 
