@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Github, Menu, X } from 'lucide-react'
+import { GITHUB_URL } from '../data/site'
 import VGOLogo from './VGOLogo'
 
 const navLinks = [
@@ -16,7 +17,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -74,7 +75,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="https://github.com/edwin-hao-ai"
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl hover:bg-white/[0.08] motion-safe:transition-colors"
@@ -111,7 +112,7 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="https://github.com/edwin-hao-ai"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-vgo-muted hover:text-white"

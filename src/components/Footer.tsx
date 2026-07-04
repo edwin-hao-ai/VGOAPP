@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import VGOLogo from './VGOLogo'
 
 const footerLinks = [
@@ -7,7 +8,7 @@ const footerLinks = [
 ]
 
 export default function Footer() {
-  const year = new Date().getFullYear()
+  const year = useMemo(() => new Date().getFullYear(), [])
 
   return (
     <footer className="border-t border-white/[0.08] py-12 px-6">

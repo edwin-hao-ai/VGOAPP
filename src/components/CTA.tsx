@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Github } from 'lucide-react'
+import { GITHUB_URL } from '../data/site'
 
 export default function CTA() {
   const shouldReduceMotion = useReducedMotion()
@@ -18,11 +19,11 @@ export default function CTA() {
           在 GitHub 上关注我们，第一时间获取新产品、更新和源码。
         </p>
         <motion.a
-          href="https://github.com/edwin-hao-ai"
+          href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
           className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-vgo-bg font-semibold hover:bg-vgo-text transition-colors"
         >
           <Github size={20} /> 在 GitHub 上关注
