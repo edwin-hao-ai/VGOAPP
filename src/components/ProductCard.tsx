@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
 import type { Product } from '../data/products'
 
@@ -9,13 +9,18 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, index }: ProductCardProps) {
   const Icon = product.icon
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { duration: 0.5, delay: index * 0.1 }
+      }
       className="glass glass-hover p-8 flex flex-col h-full"
     >
       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center mb-6">
@@ -28,7 +33,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
 
       <ul className="space-y-3 mb-8 flex-1">
         {product.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3 text-sm text-vgo-text/90">
+          <li key={`${product.id}-${feature}`} className="flex items-start gap-3 text-sm text-vgo-text/90">
             <Sparkles size={16} className="text-vgo-secondary mt-0.5 shrink-0" />
             <span>{feature}</span>
           </li>
