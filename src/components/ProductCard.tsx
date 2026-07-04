@@ -24,7 +24,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       className="glass glass-hover p-8 flex flex-col h-full"
     >
       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center mb-6">
-        <Icon size={28} className="text-vgo-primary" />
+        <Icon size={28} />
       </div>
 
       <h3 className="text-2xl font-bold mb-2">{product.name}</h3>

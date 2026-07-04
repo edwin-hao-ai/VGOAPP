@@ -1,11 +1,14 @@
-import { FileText, Monitor, MousePointerClick, type LucideIcon } from 'lucide-react'
+import type { ComponentType } from 'react'
+import MDDockIcon from '../components/icons/MDDockIcon'
+import MacSlimIcon from '../components/icons/MacSlimIcon'
+import MouseClawIcon from '../components/icons/MouseClawIcon'
 
 export interface Product {
   id: string
   name: string
   tagline: string
   description: string
-  icon: LucideIcon
+  icon: ComponentType<{ size?: number; className?: string }>
   features: string[]
   link: string
   linkLabel: string
@@ -17,7 +20,7 @@ export const products: Product[] = [
     name: 'MDDock',
     tagline: '本地优先的 Markdown 办公套件',
     description: '把 Word、Excel、PPT 和 Markdown 连成一条工作流，AI 能真正读懂你的笔记。',
-    icon: FileText,
+    icon: MDDockIcon,
     features: [
       'Word / Excel / PPT ↔ Markdown 双向转换',
       'AI 知识库，文件永远在本机',
@@ -31,7 +34,7 @@ export const products: Product[] = [
     name: 'MacSlim',
     tagline: '开发者信任的 Mac 清理工具',
     description: 'Rust + Tauri 打造的 Mac 清理工具，轻巧、快速、透明，不会碰不该碰的文件。',
-    icon: Monitor,
+    icon: MacSlimIcon,
     features: [
       'Rust + Tauri，安装包仅 ~12 MB',
       '支持 npm、Docker、Xcode、Homebrew 等开发者缓存',
@@ -45,7 +48,7 @@ export const products: Product[] = [
     name: 'MouseClaw',
     tagline: '像素风桌面 AI 宠物',
     description: '一只睡在屏幕角落的像素老鼠，按住说话就能让 AI 帮你干活。',
-    icon: MousePointerClick,
+    icon: MouseClawIcon,
     features: [
       '按住说话即可调用 Claude / Codex / 通义千问等 14+ AI',
       '100% 本地语音识别，零数据上传',
