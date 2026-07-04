@@ -1,6 +1,7 @@
 import { LanguageProvider } from './i18n/LanguageContext'
 import GlowBackground from './components/GlowBackground'
 import CTA from './components/CTA'
+import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
@@ -15,6 +16,7 @@ function App() {
       <main className="min-h-screen">
         <Hero />
         <Products />
+        <FAQ />
         <WhyVGO />
         <CTA />
       </main>
