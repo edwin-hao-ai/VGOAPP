@@ -1,0 +1,128 @@
+import type { SVGProps } from 'react'
+
+interface MacSlimIconProps extends SVGProps<SVGSVGElement> {
+  size?: number
+}
+
+export default function MacSlimIcon({ size = 28, className, ...props }: MacSlimIconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 1024 1024"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+      {...props}
+    >
+      <defs>
+        <linearGradient id="macslim-bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#0e1a23" />
+          <stop offset="45%" stopColor="#0b4152" />
+          <stop offset="100%" stopColor="#0891b2" />
+        </linearGradient>
+        <linearGradient id="macslim-gloss" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.22" />
+          <stop offset="60%" stopColor="#ffffff" stopOpacity="0.05" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="macslim-sparkle" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="60%" stopColor="#ecfeff" />
+          <stop offset="100%" stopColor="#67e8f9" />
+        </linearGradient>
+        <linearGradient id="macslim-sparkle-alt" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#cffafe" />
+          <stop offset="100%" stopColor="#22d3ee" />
+        </linearGradient>
+        <radialGradient id="macslim-sparkle-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.55" />
+          <stop offset="55%" stopColor="#0891b2" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#0891b2" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect x="0" y="0" width="1024" height="1024" rx="228" ry="228" fill="url(#macslim-bg)" />
+      <rect x="0" y="0" width="1024" height="540" rx="228" ry="228" fill="url(#macslim-gloss)" />
+      <circle cx="512" cy="512" r="420" fill="url(#macslim-sparkle-glow)" />
+      <path
+        d="M 512 134
+           C 520 134, 528 140, 530 150
+           L 568 338
+           C 578 390, 622 434, 674 444
+           L 862 482
+           C 872 484, 878 492, 878 500
+           C 878 508, 872 516, 862 518
+           L 674 556
+           C 622 566, 578 610, 568 662
+           L 530 850
+           C 528 860, 520 866, 512 866
+           C 504 866, 496 860, 494 850
+           L 456 662
+           C 446 610, 402 566, 350 556
+           L 162 518
+           C 152 516, 146 508, 146 500
+           C 146 492, 152 484, 162 482
+           L 350 444
+           C 402 434, 446 390, 456 338
+           L 494 150
+           C 496 140, 504 134, 512 134 Z"
+        fill="url(#macslim-sparkle)"
+      />
+      <g transform="translate(808, 224)">
+        <path
+          d="M 0 -68
+             C 3 -68, 6 -66, 7 -62
+             L 20 -20
+             C 22 -12, 32 -2, 40 0
+             L 62 7
+             C 66 8, 68 11, 68 14
+             C 68 17, 66 20, 62 21
+             L 40 28
+             C 32 30, 22 40, 20 48
+             L 7 74
+             C 6 78, 3 80, 0 80
+             C -3 80, -6 78, -7 74
+             L -20 48
+             C -22 40, -32 30, -40 28
+             L -62 21
+             C -66 20, -68 17, -68 14
+             C -68 11, -66 8, -62 7
+             L -40 0
+             C -32 -2, -22 -12, -20 -20
+             L -7 -62
+             C -6 -66, -3 -68, 0 -68 Z"
+          fill="url(#macslim-sparkle-alt)"
+          opacity="0.92"
+        />
+      </g>
+      <g transform="translate(220, 808)">
+        <path
+          d="M 0 -42
+             C 1.8 -42, 3.6 -40.8, 4.2 -38.4
+             L 12 -12
+             C 13.2 -7.2, 19.2 -1.2, 24 0
+             L 38 4.2
+             C 40.4 4.8, 41.6 6.6, 41.6 8.4
+             C 41.6 10.2, 40.4 12, 38 12.6
+             L 24 16.8
+             C 19.2 18, 13.2 24, 12 28.8
+             L 4.2 44.4
+             C 3.6 46.8, 1.8 48, 0 48
+             C -1.8 48, -3.6 46.8, -4.2 44.4
+             L -12 28.8
+             C -13.2 24, -19.2 18, -24 16.8
+             L -38 12.6
+             C -40.4 12, -41.6 10.2, -41.6 8.4
+             C -41.6 6.6, -40.4 4.8, -38 4.2
+             L -24 0
+             C -19.2 -1.2, -13.2 -7.2, -12 -12
+             L -4.2 -38.4
+             C -3.6 -40.8, -1.8 -42, 0 -42 Z"
+          fill="url(#macslim-sparkle-alt)"
+          opacity="0.82"
+        />
+      </g>
+    </svg>
+  )
+}
