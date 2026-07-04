@@ -1,14 +1,16 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Github } from 'lucide-react'
 
 export default function CTA() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section id="contact" className="py-24 px-6">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
         className="max-w-4xl mx-auto glass p-10 md:p-16 text-center"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4">关注 VGO 的下一款工具</h2>
