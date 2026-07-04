@@ -1,6 +1,11 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { translations, type Language } from './translations'
 
+function setPageTitle(language: Language) {
+  if (typeof document === 'undefined') return
+  document.title = translations[language].site.title
+}
+
 const STORAGE_KEY = 'vgo-language'
 
 function getBrowserLanguage(): Language {
@@ -33,10 +38,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguageState(next)
     window.localStorage.setItem(STORAGE_KEY, next)
     document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en'
+    setPageTitle(next)
   }, [])
 
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
+    setPageTitle(language)
   }, [language])
 
   const t = useCallback(
