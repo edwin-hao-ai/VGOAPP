@@ -1,3 +1,4 @@
+import { LanguageProvider } from './i18n/LanguageContext'
 import GlowBackground from './components/GlowBackground'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
@@ -8,7 +9,7 @@ import WhyVGO from './components/WhyVGO'
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <GlowBackground />
       <Navbar />
       <main className="min-h-screen">
@@ -18,7 +19,7 @@ function App() {
         <CTA />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   )
 }
 
