@@ -1,11 +1,13 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { products } from '../data/products'
+import { useMemo } from 'react'
+import { getProducts } from '../data/products'
 import { useLanguage } from '../i18n/LanguageContext'
 import ProductCard from './ProductCard'
 
 export default function Products() {
   const shouldReduceMotion = useReducedMotion()
-  const { t } = useLanguage()
+  const { language, t } = useLanguage()
+  const products = useMemo(() => getProducts(language), [language])
 
   return (
     <section id="products" className="py-24 px-6">

@@ -46,6 +46,41 @@ export const translations = {
       en: 'En',
       label: '切换语言',
     },
+    productsList: {
+      mddock: {
+        name: 'MDDock',
+        tagline: '本地优先的 Markdown 办公套件',
+        description: '把 Word、Excel、PPT 和 Markdown 连成一条工作流，AI 能真正读懂你的笔记。',
+        features: [
+          'Word / Excel / PPT ↔ Markdown 双向转换',
+          'AI 知识库，文件永远在本机',
+          '免费浏览器工具 + 桌面端深度体验',
+        ],
+        linkLabel: '访问官网',
+      },
+      macslim: {
+        name: 'MacSlim',
+        tagline: '开发者信任的 Mac 清理工具',
+        description: 'Rust + Tauri 打造的 Mac 清理工具，轻巧、快速、透明，不会碰不该碰的文件。',
+        features: [
+          'Rust + Tauri，安装包仅 ~12 MB',
+          '支持 npm、Docker、Xcode、Homebrew 等开发者缓存',
+          '三层安全保护，零上传隐私',
+        ],
+        linkLabel: '查看 GitHub',
+      },
+      mouseclaw: {
+        name: 'MouseClaw',
+        tagline: '像素风桌面 AI 宠物',
+        description: '一只睡在屏幕角落的像素老鼠，按住说话就能让 AI 帮你干活。',
+        features: [
+          '按住说话即可调用 Claude / Codex / 通义千问等 14+ AI',
+          '100% 本地语音识别，零数据上传',
+          '9 款皮肤、长期记忆、定时任务',
+        ],
+        linkLabel: '查看 GitHub',
+      },
+    },
   },
   en: {
     nav: {
@@ -91,6 +126,41 @@ export const translations = {
       zh: '中',
       en: 'En',
       label: 'Switch language',
+    },
+    productsList: {
+      mddock: {
+        name: 'MDDock',
+        tagline: 'Local-first Markdown office suite',
+        description: 'Connect Word, Excel, PowerPoint, and Markdown into one workflow that AI can actually understand.',
+        features: [
+          'Word / Excel / PPT ↔ Markdown two-way conversion',
+          'AI knowledge base, files stay on your machine',
+          'Free browser tools + deep desktop experience',
+        ],
+        linkLabel: 'Visit website',
+      },
+      macslim: {
+        name: 'MacSlim',
+        tagline: 'The Mac cleaner developers trust',
+        description: 'A lightweight, fast, and transparent Mac cleaner built with Rust + Tauri — it never touches what it should not.',
+        features: [
+          'Rust + Tauri, installer only ~12 MB',
+          'Cleans npm, Docker, Xcode, Homebrew, and other dev caches',
+          'Triple safety protection, zero-upload privacy',
+        ],
+        linkLabel: 'View on GitHub',
+      },
+      mouseclaw: {
+        name: 'MouseClaw',
+        tagline: 'Pixel-art desktop AI pet',
+        description: 'A pixel mouse that sleeps in the corner of your screen. Hold to talk and let AI do the work.',
+        features: [
+          'Hold to talk with Claude / Codex / Qwen and 14+ AIs',
+          '100% local voice recognition, no data uploads',
+          '9 skins, long-term memory, scheduled tasks',
+        ],
+        linkLabel: 'View on GitHub',
+      },
     },
   },
 } as const
