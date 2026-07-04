@@ -20,6 +20,35 @@ export const translations = {
       title: '我们的产品',
       description: '每一款都从真实的工作流痛点出发，追求本地、快速、可信赖。',
     },
+    faq: {
+      title: '常见问题',
+      items: [
+        {
+          question: 'VGO 是做什么的？',
+          answer: 'VGO 是一个本地优先、AI 原生的效率工具工作室，为开发者和效率爱好者打造真正好用的软件。',
+        },
+        {
+          question: 'MDDock 和 Obsidian / Notion 有什么区别？',
+          answer: 'MDDock 专注于把 Word、Excel、PPT 与 Markdown 连成工作流，文件默认保存在本地，AI 知识库不会上传你的隐私文档。',
+        },
+        {
+          question: 'MacSlim 会误删文件吗？',
+          answer: 'MacSlim 有三层安全保护，只清理已识别的缓存和日志，不会触碰用户个人文件、项目代码或系统关键文件。',
+        },
+        {
+          question: 'MouseClaw 支持哪些 AI 模型？',
+          answer: 'MouseClaw 支持 Claude、Codex、通义千问等 14+ 主流 AI 模型，按住说话即可调用。',
+        },
+        {
+          question: 'VGO 的产品是免费的吗？',
+          answer: '目前 MDDock、MacSlim 和 MouseClaw 都提供免费版本，核心功能无需付费即可使用。',
+        },
+        {
+          question: '为什么 VGO 坚持本地优先？',
+          answer: '我们相信数据应该属于用户。本地优先意味着数据默认留在设备上，不上传、不锁定、随时带走。',
+        },
+      ],
+    },
     why: {
       title: '为什么选 VGO',
       description: '我们相信好的工具应该安静、可靠、为你工作，而不是反过来。',
@@ -103,6 +132,35 @@ export const translations = {
     products: {
       title: 'Our Products',
       description: 'Each one is built from real workflow pain points — local, fast, and trustworthy.',
+    },
+    faq: {
+      title: 'FAQ',
+      items: [
+        {
+          question: 'What does VGO do?',
+          answer: 'VGO is a local-first, AI-native studio building practical tools for developers and efficiency lovers.',
+        },
+        {
+          question: 'What makes MDDock different from Obsidian or Notion?',
+          answer: 'MDDock bridges Word, Excel, PPT and Markdown in one workflow. Your files stay local by default, and the AI knowledge base never uploads private documents.',
+        },
+        {
+          question: 'Is MacSlim safe? Will it delete important files?',
+          answer: 'MacSlim uses three layers of safety protection and only removes identified caches and logs. It never touches personal files, project code, or critical system files.',
+        },
+        {
+          question: 'Which AI models does MouseClaw support?',
+          answer: 'MouseClaw supports 14+ leading AI models including Claude, Codex, and Tongyi Qianwen. Hold to talk and dispatch any of them.',
+        },
+        {
+          question: "Are VGO's products free?",
+          answer: 'MDDock, MacSlim, and MouseClaw all offer free versions with core features available without payment.',
+        },
+        {
+          question: 'Why does VGO build local-first tools?',
+          answer: 'We believe data belongs to users. Local-first means data stays on your device by default: no uploads, no lock-in, take it anywhere.',
+        },
+      ],
     },
     why: {
       title: 'Why VGO',
