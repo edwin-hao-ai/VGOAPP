@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vgo-bg: #0a0a0f;
+  --color-vgo-card: #12121a;
+  --color-vgo-primary: #60a5fa;
+  --color-vgo-secondary: #a78bfa;
+  --color-vgo-text: #f8fafc;
+  --color-vgo-muted: #94a3b8;
+
+  --font-sans: Inter, "SF Pro Display", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-vgo-bg text-vgo-text font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-vgo-primary/30 text-white;
+  }
+}
+
+@utility glass {
+  @apply backdrop-blur-xl bg-white/[0.04] border border-white/[0.08] rounded-3xl;
+}
+
+@utility glass-hover {
+  @apply transition-all duration-300 hover:bg-white/[0.07] hover:border-white/[0.14] hover:-translate-y-2 hover:shadow-2xl;
+}
+
+@utility gradient-text {
+  @apply bg-gradient-to-r from-vgo-primary to-vgo-secondary bg-clip-text text-transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
