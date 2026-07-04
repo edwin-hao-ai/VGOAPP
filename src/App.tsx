@@ -1,4 +1,5 @@
 import GlowBackground from './components/GlowBackground'
+import CTA from './components/CTA'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Products from './components/Products'
@@ -13,6 +14,7 @@ function App() {
         <Hero />
         <Products />
         <WhyVGO />
+        <CTA />
       </main>
     </>
   )
