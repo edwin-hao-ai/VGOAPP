@@ -7,6 +7,7 @@ const footerLinks = [
   { label: 'MDDock', href: 'https://mddock.com/' },
   { label: 'MacSlim', href: 'https://github.com/edwin-hao-ai/MacSlim' },
   { label: 'MouseClaw', href: 'https://github.com/edwin-hao-ai/MouseClaw' },
+  { label: 'RemoteCrab', href: '/remotecrab/' },
 ]
 
 export default function Footer() {
@@ -25,8 +26,9 @@ export default function Footer() {
             <li key={link.href}>
               <a
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(link.href.startsWith('http')
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
                 className="hover:text-white motion-safe:transition-colors"
               >
                 {link.label}

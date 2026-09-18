@@ -112,6 +112,17 @@ export const translations = {
         ],
         linkLabel: '查看 GitHub',
       },
+      remotecrab: {
+        name: 'RemoteCrab',
+        tagline: '把 iPhone 变成 Mac 的外设',
+        description: '让 iPhone 当 Mac 的摄像头、麦克风、触控板和键盘，本地 WiFi 直连，无云端、无账号。',
+        features: [
+          '1080p 无线摄像头，Zoom / Teams / OBS 直接可选',
+          '虚拟麦克风 + 全功能触控板 + 系统输入法键盘',
+          '纯本地局域网，无账号、无订阅、零上传',
+        ],
+        linkLabel: '了解更多',
+      },
     },
   },
   en: {
@@ -224,6 +235,17 @@ export const translations = {
           '9 skins, long-term memory, scheduled tasks',
         ],
         linkLabel: 'View on GitHub',
+      },
+      remotecrab: {
+        name: 'RemoteCrab',
+        tagline: 'Your iPhone as a Mac peripheral',
+        description: 'Use your iPhone as a camera, microphone, trackpad and keyboard for your Mac over local WiFi — no cloud, no account.',
+        features: [
+          '1080p wireless camera, selectable in Zoom / Teams / OBS',
+          'Virtual microphone + full trackpad + system keyboard',
+          'Pure local network: no account, no subscription, no uploads',
+        ],
+        linkLabel: 'Learn more',
       },
     },
   },

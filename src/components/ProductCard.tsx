@@ -10,6 +10,7 @@ interface ProductCardProps {
 export default function ProductCard({ product, index }: ProductCardProps) {
   const Icon = product.icon
   const shouldReduceMotion = useReducedMotion()
+  const isExternal = product.link.startsWith('http')
 
   return (
     <motion.article
@@ -42,8 +43,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
 
       <a
         href={product.link}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className="inline-flex items-center gap-2 text-vgo-primary hover:text-white transition-colors font-medium"
       >
         {product.linkLabel} <ArrowUpRight size={18} />

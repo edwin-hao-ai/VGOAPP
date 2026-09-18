@@ -9,4 +9,15 @@ declare const process: {
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: process.env.VITE_BASE_URL || '/',
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        // Standalone product page served at /remotecrab/ (VGO Studio).
+        // Static multi-page build — no SPA fallback needed on Caddy.
+        remotecrab: 'remotecrab/index.html',
+        remotecrabPrivacy: 'remotecrab/privacy/index.html',
+      },
+    },
+  },
 })

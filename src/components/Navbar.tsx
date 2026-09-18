@@ -10,7 +10,14 @@ const navLinks = [
   { key: 'nav.contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  /** Prefix for in-page anchors and the logo target (e.g. "/" on a standalone page). */
+  homeHref?: string
+  /** When set, replace the section links with a back-to-home link. */
+  backLabel?: string
+}
+
+export default function Navbar({ homeHref = '', backLabel }: NavbarProps) {
   const { language, setLanguage, t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -67,23 +74,32 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
+        <a href={homeHref || '#'} className="flex items-center gap-3 group">
           <VGOLogo size={36} className="motion-safe:transition-transform motion-safe:group-hover:scale-105" />
           <span className="text-xl font-bold tracking-tight">VGO</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-vgo-muted hover:text-white motion-safe:transition-colors"
-              >
-                {t(link.key)}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {backLabel ? (
+          <a
+            href={homeHref || '/'}
+            className="hidden md:block text-sm text-vgo-muted hover:text-white motion-safe:transition-colors"
+          >
+            {backLabel}
+          </a>
+        ) : (
+          <ul className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={`${homeHref}${link.href}`}
+                  className="text-sm text-vgo-muted hover:text-white motion-safe:transition-colors"
+                >
+                  {t(link.key)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
         <div className="hidden md:flex items-center gap-4">
           <button
@@ -119,17 +135,29 @@ export default function Navbar() {
       {mobileOpen && (
         <div ref={menuRef} className="md:hidden glass mx-4 mb-4 p-4">
           <ul className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+            {backLabel ? (
+              <li>
                 <a
-                  href={link.href}
+                  href={homeHref || '/'}
                   className="block text-vgo-muted hover:text-white motion-safe:transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {t(link.key)}
+                  {backLabel}
                 </a>
               </li>
-            ))}
+            ) : (
+              navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={`${homeHref}${link.href}`}
+                    className="block text-vgo-muted hover:text-white motion-safe:transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {t(link.key)}
+                  </a>
+                </li>
+              ))
+            )}
             <li>
               <button
                 type="button"

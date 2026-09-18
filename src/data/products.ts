@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import MDDockIcon from '../components/icons/MDDockIcon'
 import MacSlimIcon from '../components/icons/MacSlimIcon'
 import MouseClawIcon from '../components/icons/MouseClawIcon'
+import RemoteCrabIcon from '../components/icons/RemoteCrabIcon'
 import { translations, type Language } from '../i18n/translations'
 
 export interface Product {
@@ -47,6 +48,16 @@ export function getProducts(language: Language): Product[] {
       features: t.mouseclaw.features,
       link: 'https://github.com/edwin-hao-ai/MouseClaw',
       linkLabel: t.mouseclaw.linkLabel,
+    },
+    {
+      id: 'remotecrab',
+      name: t.remotecrab.name,
+      tagline: t.remotecrab.tagline,
+      description: t.remotecrab.description,
+      icon: RemoteCrabIcon,
+      features: t.remotecrab.features,
+      link: '/remotecrab/',
+      linkLabel: t.remotecrab.linkLabel,
     },
   ]
 }
