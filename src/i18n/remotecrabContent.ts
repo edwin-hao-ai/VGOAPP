@@ -38,17 +38,17 @@ export interface RemoteCrabContent {
 export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
   zh: {
     meta: {
-      title: 'RemoteCrab — 把 iPhone 变成 Mac 的摄像头、麦克风、触控板和键盘',
+      title: 'RemoteCrab — 把 iPhone 变成电脑的摄像头、麦克风、触控板和键盘',
       description:
-        'RemoteCrab 把你的 iPhone / iPad 变成 Mac 的摄像头、麦克风、触控板和键盘，通过本地 WiFi 直连，无云端、无账号、无订阅。',
+        'RemoteCrab 把你的 iPhone / iPad 变成电脑的摄像头、麦克风、触控板和键盘，通过本地 WiFi 直连，无云端、无账号、无订阅。',
     },
     nav: { back: '← 返回 VGO' },
     hero: {
       badge: 'macOS 桌面端 · 免费',
-      tagline: '你的 iPhone，就是 Mac 缺失的外设',
+      tagline: '你的 iPhone，就是电脑缺失的外设',
       description:
-        '把 iPhone / iPad 变成 Mac 的摄像头、麦克风、触控板和键盘 —— 通过本地 WiFi 直连。没有云端、没有账号、没有订阅，数据永远不出局域网。',
-      downloadMac: '下载 Mac 版',
+        '把 iPhone / iPad 变成电脑的摄像头、麦克风、触控板和键盘 —— 通过本地 WiFi 直连。没有云端、没有账号、没有订阅，数据永远不出局域网。',
+      downloadMac: '下载电脑版',
       downloadIOS: 'App Store 下载 iPhone 版',
       free: '免费 · 无账号 · 无订阅 · 数据不出局域网',
       requirementsNote: '需要 macOS 26+（Apple 芯片）与 iOS 26+',
@@ -75,17 +75,17 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         {
           icon: 'keyboard',
           title: '系统输入法键盘',
-          body: '中文输入法与听写都能用；文字直接出现在 Mac 光标处，⌘C / ⌘V / ⌘Z 照常工作。',
+          body: '中文输入法与听写都能用；文字直接出现在电脑光标处，⌘C / ⌘V / ⌘Z 照常工作。',
         },
         {
           icon: 'voice',
           title: '按住说话',
-          body: '端侧语音识别，把你说的话直接变成 Mac 上的文字，无需上传云端。',
+          body: '端侧语音识别，把你说的话直接变成电脑上的文字，无需上传云端。',
         },
         {
           icon: 'files',
           title: 'AirDrop 式传文件',
-          body: '照片和文件直发 Mac，自动存入下载文件夹并在 Finder 中高亮显示。',
+          body: '照片和文件直发电脑，自动存入下载文件夹并在 Finder 中高亮显示。',
         },
         {
           icon: 'clipboard',
@@ -95,7 +95,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         {
           icon: 'appSwitcher',
           title: '应用切换器',
-          body: '在 iPhone 上点一下，Mac 上对应的 App 立即置前。',
+          body: '在 iPhone 上点一下，电脑 上对应的 App 立即置前。',
         },
       ],
     },
@@ -103,7 +103,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       title: '四步就能用上',
       description: '从下载到连上，通常不到两分钟。',
       items: [
-        { title: '下载 Mac 端', body: '下载 RemoteCrab.dmg，拖进「应用程序」并打开。' },
+        { title: '下载电脑端', body: '下载 RemoteCrab.dmg，拖进「应用程序」并打开。' },
         { title: '装上 iPhone 端', body: '从 App Store 下载 RemoteCrab，让两台设备连上同一个 WiFi。' },
         {
           title: '按引导授权',
@@ -117,13 +117,13 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     requirements: {
       title: '系统要求',
-      mac: { title: 'Mac', items: ['macOS 26 或更高', 'Apple 芯片（M 系列）'] },
+      mac: { title: 'computer', items: ['macOS 26 或更高', 'Apple 芯片（M 系列）'] },
       ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 或更高', 'iPhone 或 iPad 均可'] },
       note: '两台设备需要在同一个局域网里 —— 家里的 WiFi 就够了。',
     },
     privacy: {
       title: '纯本地，是真的',
-      body: 'RemoteCrab 不跑服务器、不收集分析数据、不需要账号。视频、音频和按键只在你的 iPhone 与 Mac 之间传输，永远不离开局域网。',
+      body: 'RemoteCrab 不跑服务器、不收集分析数据、不需要账号。视频、音频和按键只在你的 iPhone 与电脑之间传输，永远不离开局域网。',
       points: ['无云端、无账号、无订阅', '源码开放，可自行审计', '所有权限都能在系统设置里随时关闭'],
     },
     faq: {
@@ -140,30 +140,30 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           answer: '不需要。两台设备在同一个 WiFi 里直连即可，数据不经过任何服务器。',
         },
         {
-          question: '我的 Mac 能装吗？',
-          answer: '需要 macOS 26 或更高的 Apple 芯片 Mac。目前暂不支持 Intel Mac。',
+          question: '我的电脑能装吗？',
+          answer: '需要 macOS 26 或更高的 Apple 芯片电脑。目前暂不支持 Intel电脑。',
         },
       ],
     },
     cta: {
       title: '今天就试试',
-      body: '下载 Mac 端，再用 iPhone 装上 App，两台设备几秒就能连上。',
-      download: '下载 Mac 版',
+      body: '下载电脑端，再用 iPhone 装上 App，两台设备几秒就能连上。',
+      download: '下载电脑版',
     },
   },
   en: {
     meta: {
-      title: 'RemoteCrab — Turn your iPhone into a camera, mic, trackpad and keyboard for your Mac',
+      title: 'RemoteCrab — Turn your iPhone into a camera, mic, trackpad and keyboard for your computer',
       description:
-        'RemoteCrab turns your iPhone or iPad into a camera, microphone, trackpad and keyboard for your Mac over local WiFi — no cloud, no account, no subscription.',
+        'RemoteCrab turns your iPhone or iPad into a camera, microphone, trackpad and keyboard for your computer over local WiFi — no cloud, no account, no subscription.',
     },
     nav: { back: '← Back to VGO' },
     hero: {
       badge: 'macOS desktop app · Free',
-      tagline: 'Your iPhone is the peripheral your Mac is missing',
+      tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
-        'Turn your iPhone or iPad into a camera, microphone, trackpad and keyboard for your Mac — over local WiFi. No cloud, no account, no subscription. Your data never leaves your network.',
-      downloadMac: 'Download for Mac',
+        'Turn your iPhone or iPad into a camera, microphone, trackpad and keyboard for your computer — over local WiFi. No cloud, no account, no subscription. Your data never leaves your network.',
+      downloadMac: 'Download for computer',
       downloadIOS: 'Get the iPhone app',
       free: 'Free · No account · No subscription · Stays on your LAN',
       requirementsNote: 'Requires macOS 26+ (Apple silicon) and iOS 26+',
@@ -190,17 +190,17 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         {
           icon: 'keyboard',
           title: 'System keyboard',
-          body: 'Full IME and dictation work. Text lands at the Mac cursor, and ⌘C / ⌘V / ⌘Z behave exactly as you expect.',
+          body: 'Full IME and dictation work. Text lands at the computer cursor, and ⌘C / ⌘V / ⌘Z behave exactly as you expect.',
         },
         {
           icon: 'voice',
           title: 'Hold to talk',
-          body: 'On-device speech recognition turns your voice straight into text on the Mac — nothing is uploaded.',
+          body: 'On-device speech recognition turns your voice straight into text on the computer — nothing is uploaded.',
         },
         {
           icon: 'files',
           title: 'AirDrop-style file transfer',
-          body: 'Send photos and files straight to your Mac. They land in Downloads and reveal in Finder.',
+          body: 'Send photos and files straight to your computer. They land in Downloads and reveal in Finder.',
         },
         {
           icon: 'clipboard',
@@ -210,7 +210,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         {
           icon: 'appSwitcher',
           title: 'App switcher',
-          body: 'Tap an app on your iPhone and bring it to the front on your Mac.',
+          body: 'Tap an app on your iPhone and bring it to the front on your computer.',
         },
       ],
     },
@@ -218,7 +218,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       title: 'Up and running in four steps',
       description: 'From download to connected usually takes under two minutes.',
       items: [
-        { title: 'Get the Mac app', body: 'Download RemoteCrab.dmg, drag it into Applications and open it.' },
+        { title: 'Get the desktop app', body: 'Download RemoteCrab.dmg, drag it into Applications and open it.' },
         { title: 'Get the iPhone app', body: 'Download RemoteCrab from the App Store, and put both devices on the same WiFi.' },
         {
           title: 'Grant permissions',
@@ -232,13 +232,13 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     requirements: {
       title: 'Requirements',
-      mac: { title: 'Mac', items: ['macOS 26 or later', 'Apple silicon (M-series)'] },
+      mac: { title: 'computer', items: ['macOS 26 or later', 'Apple silicon (M-series)'] },
       ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 or later', 'iPhone or iPad'] },
       note: 'Both devices must be on the same local network — a home WiFi router is enough.',
     },
     privacy: {
       title: 'Local-first, for real',
-      body: 'RemoteCrab runs no servers, collects no analytics and needs no account. Video, audio and keystrokes travel only between your iPhone and your Mac — never off your local network.',
+      body: 'RemoteCrab runs no servers, collects no analytics and needs no account. Video, audio and keystrokes travel only between your iPhone and your computer — never off your local network.',
       points: ['No cloud, no account, no subscription', 'Open source and auditable', 'Every permission can be revoked in System Settings'],
     },
     faq: {
@@ -255,15 +255,15 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           answer: 'No. The two devices talk directly over your local WiFi; nothing goes through a server.',
         },
         {
-          question: 'Will it run on my Mac?',
-          answer: 'It needs an Apple-silicon Mac on macOS 26 or later. Intel Macs are not supported yet.',
+          question: 'Will it run on my computer?',
+          answer: 'It needs an Apple-silicon computer on macOS 26 or later. Intel computers are not supported yet.',
         },
       ],
     },
     cta: {
       title: 'Try it today',
-      body: 'Download the Mac app, install the iPhone app, and the two connect in seconds.',
-      download: 'Download for Mac',
+      body: 'Download the desktop app, install the iPhone app, and the two connect in seconds.',
+      download: 'Download for computer',
     },
   },
 }

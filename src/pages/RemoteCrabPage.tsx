@@ -156,6 +156,23 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
+        {/* Screenshots */}
+        <section className="px-6 py-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+              {['01-concept', '02-trackpad', '03-keyboard'].map((n) => (
+                <img
+                  key={n}
+                  src={`/remotecrab/${n}.png`}
+                  alt="RemoteCrab"
+                  loading="lazy"
+                  className="w-full rounded-2xl border border-white/10 shadow-lg"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Steps */}
         <section className="px-6 py-16">
           <div className="max-w-6xl mx-auto">
