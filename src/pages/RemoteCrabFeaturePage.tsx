@@ -88,16 +88,20 @@ export default function RemoteCrabFeaturePage() {
   const Icon = FEATURE_ICONS[slug] ?? Sparkles
 
   // Per-feature art is optional: a real capture of the app sits at
-  // public/remotecrab/features/<slug>.{png,jpg}. Written by
+  // public/remotecrab/features/<slug>.jpg. Written by
   // `scripts/capture-feature-shots.sh` in the iBridge repo, so the page
-  // always shows the shipping UI rather than a mock. Falls back to a panel
-  // until the capture exists.
+  // always shows the shipping UI rather than a mock.
+  //
+  // The product UI is localised, so there is one capture per language: an
+  // English page showing a Chinese screenshot reads as a different app. The
+  // localised file is `<slug>-en.jpg`; the un-suffixed one is zh-Hans. Falls
+  // back through the other locale, then to the typographic panel.
   const [artSrc, setArtSrc] = useState<string | null>(null)
-  // Try jpg first (the camera capture is a smooth gradient, so PNG would be
-  // 2.5 MB), then png, then give up and show the typographic panel.
   useEffect(() => {
-    setArtSrc(`/remotecrab/features/${slug}.jpg`)
-  }, [slug])
+    setArtSrc(
+      `/remotecrab/features/${slug}${language === 'en' ? '-en' : ''}.jpg`,
+    )
+  }, [slug, language])
 
   useEffect(() => {
     document.title = `${c.hero.title} — RemoteCrab`
@@ -189,13 +193,17 @@ export default function RemoteCrabFeaturePage() {
                   <img
                     src={artSrc}
                     alt={c.hero.title}
-                    onError={() =>
+                    onError={() => {
+                      // Missing the localised capture: fall back to the other
+                      // locale, then to the typographic panel.
+                      const wanted = language === 'en' ? '-en' : ''
+                      const other = language === 'en' ? '' : '-en'
                       setArtSrc(
-                        artSrc.endsWith('.jpg')
-                          ? `/remotecrab/features/${slug}.png`
+                        artSrc.includes(wanted)
+                          ? `/remotecrab/features/${slug}${other}.jpg`
                           : null,
                       )
-                    }
+                    }}
                     className="w-[260px] sm:w-[300px] rounded-[2.25rem] block"
                   />
                 </div>

@@ -242,7 +242,7 @@ export default function RemoteCrabSuitesPage() {
             <div className="relative rounded-[2.75rem] p-2.5 bg-gradient-to-b from-white/25 to-white/5 border border-white/15 shadow-2xl shadow-black/60">
               <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 rounded-full bg-black/80 z-10" />
               <img
-                src="/remotecrab/features/automation.jpg"
+                src={`/remotecrab/features/automation${language === 'en' ? '-en' : ''}.jpg`}
                 alt={c.hero.title}
                 onError={(e) => {
                   ;(e.currentTarget as HTMLImageElement).style.display = 'none'
