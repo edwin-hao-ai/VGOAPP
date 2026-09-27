@@ -12,6 +12,8 @@ import {
   Laptop,
   LayoutGrid,
   Mic,
+  Monitor,
+  MonitorPlay,
   MousePointer2,
   ShieldCheck,
   Smartphone,
@@ -29,6 +31,8 @@ export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 
 const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+  display: Monitor,
+  mirror: MonitorPlay,
   camera: Camera,
   mic: Mic,
   trackpad: MousePointer2,
@@ -130,7 +134,7 @@ export default function RemoteCrabPage() {
         </section>
 
         {/* Features */}
-        <section className="px-6 py-16">
+        <section id="features" className="px-6 py-16 scroll-mt-20">
           <div className="max-w-6xl mx-auto">
             <motion.h2 {...fade()} className="text-3xl md:text-4xl font-bold text-center">
               {c.features.title}
@@ -143,13 +147,24 @@ export default function RemoteCrabPage() {
               {c.features.items.map((item: FeatureItem, i: number) => {
                 const Icon = FEATURE_ICONS[item.icon] ?? Sparkles
                 return (
-                  <motion.article key={item.title} {...fade(i * 0.04)} className="glass glass-hover p-6">
+                  <motion.a
+                    key={item.title}
+                    href={item.href}
+                    {...fade(i * 0.04)}
+                    className="glass glass-hover p-6 group flex flex-col"
+                  >
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center mb-4">
                       <Icon size={22} />
                     </div>
-                    <h3 className="font-semibold mb-2">{item.title}</h3>
+                    <h3 className="font-semibold mb-2 flex items-center gap-1.5">
+                      {item.title}
+                      <ArrowRight
+                        size={15}
+                        className="text-vgo-muted opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 motion-safe:transition-all shrink-0"
+                      />
+                    </h3>
                     <p className="text-sm text-vgo-muted leading-relaxed">{item.body}</p>
-                  </motion.article>
+                  </motion.a>
                 )
               })}
             </div>
@@ -252,6 +267,30 @@ export default function RemoteCrabPage() {
               </ul>
             </motion.div>
           </div>
+        </section>
+
+        {/* Context modes / app compatibility — the 18-suite registry gets its
+            own page; this is the hook that makes people go there. */}
+        <section className="px-6 pb-16">
+          <motion.a
+            href="/remotecrab/suites/"
+            {...fade()}
+            className="max-w-5xl mx-auto block glass glass-hover p-8 md:p-10 group"
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center">
+                <LayoutGrid size={24} />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-xl md:text-2xl font-bold">{c.compatibility.title}</h2>
+                <p className="mt-2 text-vgo-muted leading-relaxed">{c.compatibility.body}</p>
+              </div>
+              <span className="inline-flex items-center gap-2 text-vgo-secondary font-medium shrink-0">
+                {c.compatibility.cta}
+                <ArrowRight size={16} className="transition-transform motion-safe:group-hover:translate-x-1" />
+              </span>
+            </div>
+          </motion.a>
         </section>
 
         {/* FAQ */}

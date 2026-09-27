@@ -17,6 +17,21 @@ export default defineConfig({
         // Static multi-page build — no SPA fallback needed on Caddy.
         remotecrab: 'remotecrab/index.html',
         remotecrabPrivacy: 'remotecrab/privacy/index.html',
+        // The context-mode / app-compatibility page: the 18-suite registry
+        // that the main page only summarises.
+        remotecrabSuites: 'remotecrab/suites/index.html',
+        // One landing page per feature. The slug is read from the URL by
+        // RemoteCrabFeaturePage, so all entries share a single JS bundle.
+        remotecrabFeatureExtendedDisplay: 'remotecrab/features/extended-display/index.html',
+        remotecrabFeatureCamera: 'remotecrab/features/camera/index.html',
+        remotecrabFeatureMicrophone: 'remotecrab/features/microphone/index.html',
+        remotecrabFeatureScreenMirror: 'remotecrab/features/screen-mirror/index.html',
+        remotecrabFeatureTrackpad: 'remotecrab/features/trackpad/index.html',
+        remotecrabFeatureKeyboard: 'remotecrab/features/keyboard/index.html',
+        remotecrabFeatureVoice: 'remotecrab/features/voice/index.html',
+        remotecrabFeatureAppSwitcher: 'remotecrab/features/app-switcher/index.html',
+        remotecrabFeatureTransfer: 'remotecrab/features/transfer/index.html',
+        remotecrabFeatureAutomation: 'remotecrab/features/automation/index.html',
       },
     },
   },
