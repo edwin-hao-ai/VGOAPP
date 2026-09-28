@@ -29,6 +29,7 @@ export interface FeaturePageContent {
 }
 
 const ORDER = [
+  'notifications',
   'extended-display',
   'camera',
   'microphone',
@@ -46,6 +47,7 @@ export type FeatureSlug = (typeof ORDER)[number]
 export const FEATURE_ORDER: FeatureSlug[] = [...ORDER]
 
 export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
+  notifications: 'notifications',
   'extended-display': 'extended-display',
   camera: 'camera',
   microphone: 'microphone',
@@ -59,6 +61,80 @@ export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
 }
 
 const zh: Record<FeatureSlug, FeaturePageContent> = {
+  notifications: {
+    slug: 'notifications',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '通知中继',
+      title: '电脑上的通知,手机上收;点一下就跳回去',
+      subtitle:
+        '不用再盯着电脑。通知像本机通知一样弹在 iPhone 上;点一下,电脑立刻切回发通知的那个应用和窗口。',
+      bullets: [
+        '通知横幅实时送到 iPhone,不丢不延迟',
+        '点通知,电脑切到对应应用,并把你带到那个窗口',
+        '隐私类应用默认不转发,名单可以自己改',
+      ],
+    },
+    problem: {
+      title: '「刚才电脑上弹了什么?」',
+      body:
+        '跑一个长任务、等一次构建、等同事回消息,你却不敢离开电脑 —— 走开就错过,回来还得一个个窗口翻。手机上明明有通知中心,为什么电脑上的通知来不了?',
+    },
+    how: {
+      title: '打开开关就行',
+      description: '在电脑端偏好设置里打开「转发通知到 iPhone」,之后完全自动。',
+      steps: [
+        { title: '打开开关', body: '电脑端 → 偏好设置 → 通知,打开「转发通知到 iPhone」。' },
+        { title: '照常工作', body: '电脑上出现的通知横幅会同时出现在 iPhone 上,并进入 App 内的通知列表。' },
+        { title: '点一下就回去', body: '点通知,电脑立刻切到发通知的应用和它当时那个窗口,接着干活。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '基于系统通知横幅,实时、无感。',
+      items: [
+        { title: '实时转发', body: '电脑上弹出的横幅,同一时刻出现在手机上 —— 不是轮询,也不是延迟汇总。' },
+        { title: '点在应用上,而不只是应用', body: '点通知会激活发通知的应用,并把它当时那个窗口取消最小化、提到最前;应用已经退出则什么都不做,不打扰你。' },
+        { title: '隐私应用默认不转发', body: '信息、邮件、微信、1Password 等默认不进转发名单,可在偏好设置里增删。' },
+        { title: '只转发横幅', body: '专注模式(勿扰)下不弹出的通知不会被捕获 —— 和你屏幕上看到的一致。' },
+        { title: '内容不出局域网', body: '通知只在你自己的 WiFi 里传输,不经过任何服务器。' },
+        { title: 'App 里还有一个收件箱', body: '错过也没关系:转发过的通知都在 App 的通知列表里,点任意一条同样能跳回那个窗口。' },
+      ],
+    },
+    tips: {
+      title: '什么时候最好用',
+      description: '尤其是「等一个后台任务」。',
+      items: [
+        '**等 Agent / 等构建**:任务跑完的通知落到手机上,点一下直接回到那个窗口,接着下一条指令。',
+        '**离开工位**:在会议室、厨房、沙发上,重要通知一条都不漏。',
+        '**多机切换**:手机就在手上,不用反复走回电脑前。',
+        '**专注不被打断**:通知收在手机上,电脑屏幕保持干净,不弹窗打断你。',
+      ],
+    },
+    requires: {
+      title: '需要什么',
+      items: [
+        'macOS 26 或更高,Apple 芯片(M 系列)',
+        'iOS / iPadOS 26 或更高',
+        '两台设备在同一个 WiFi 下',
+        '电脑需要授予「辅助功能」权限(用于读取通知横幅)',
+      ],
+      note: '通知文本只在你的两台设备之间传输,不经过任何服务器;不想用了,关掉开关即可。',
+    },
+    next: {
+      title: '通知能追着你走,顺便还能控制电脑',
+      body: '通知让你不用回电脑前看结果;而应用切换器让你直接在手机上把电脑上那个 App 提到面前。',
+      cta: '看应用切换器 →',
+      href: '/remotecrab/features/app-switcher/',
+    },
+    cta: {
+      title: '让通知找到你',
+      body: '下载电脑版,打开通知转发,把手机放到一边试试。',
+      download: '下载电脑版',
+      ios: 'App Store 下载 iPhone 版',
+    },
+  },
+
   'extended-display': {
     slug: 'extended-display',
     nav: { back: '← 所有功能' },
@@ -141,10 +217,11 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: '虚拟摄像头',
       title: '让你的 iPhone 出现在摄像头列表里',
       subtitle:
-        '在 Zoom、Teams、FaceTime、OBS 里,「RemoteCrab Camera」和任何普通摄像头一模一样 —— 1080p 30 帧,硬件编码,不占用 CPU。',
+        '在 Zoom、Teams、FaceTime、OBS 里,「RemoteCrab Camera」和任何普通摄像头一模一样 —— 以 1080p 30 帧输出,视频用硬件编码,不占用 CPU。',
       bullets: [
         '任何 App 都能直接选到,不用改任何设置',
-        '1080p 30 帧,视频用硬件 H.264 编码',
+        '以 1080p 30 帧输出,视频用硬件 H.264 编码',
+        '采集最高支持 4K,下采样到 1080p 输出,画面更锐利',
         '手机架在哪儿,画面就从哪儿拍',
       ],
     },
@@ -168,6 +245,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       items: [
         { title: '真正的系统级摄像头', body: '通过 macOS 的相机扩展机制注册,系统、App Store 的 App、第三方软件都认。' },
         { title: '硬件编码,不烧 CPU', body: '用 iPhone 的硬件编码器压成 H.264 再传,所以电脑这边几乎不吃性能。' },
+        { title: '4K 采集,1080p 输出', body: '摄像头对外的标准格式是 1080p 30 帧(和应用兼容性最好);采集端最高支持 4K,再下采样到 1080p,细节比直接拍 1080p 更清楚。' },
         { title: '前后摄像头随时切', body: '在手机上切换前后摄像头,电脑端的 App 立刻跟着变。' },
         { title: '也能当直播输入', body: 'OBS 里把它加进「视频采集设备」,就是一个真实的第二机位。' },
         { title: '延迟很低', body: '局域网直连 + 硬件编解码,实测延迟在一两百毫秒量级,日常开会完全够用。' },
@@ -804,6 +882,80 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
 }
 
 const en: Record<FeatureSlug, FeaturePageContent> = {
+  notifications: {
+    slug: 'notifications',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Notification relay',
+      title: "Your computer's notifications, on your iPhone",
+      subtitle:
+        'Stop watching the screen. Banners arrive on your iPhone like local notifications — tap one and your computer jumps back to the app and window that sent it.',
+      bullets: [
+        'Banners relayed to the iPhone in real time',
+        'Tap one to switch your computer to that app — and that window',
+        'Privacy-sensitive apps are excluded by default; the list is yours to edit',
+      ],
+    },
+    problem: {
+      title: '“What just popped up on my computer?”',
+      body:
+        'You are waiting on a long task, a build, a reply — so you cannot leave the desk. Walk away and you miss it; come back and you dig through windows. Your phone has a notification centre. Why can’t your computer’s notifications reach it?',
+    },
+    how: {
+      title: 'Flip one switch',
+      description: 'Turn on “Forward notifications to iPhone” in the computer app’s preferences and it is fully automatic.',
+      steps: [
+        { title: 'Turn it on', body: 'Computer app → Preferences → Notifications → “Forward notifications to iPhone”.' },
+        { title: 'Work as usual', body: 'Banners that appear on the computer also appear on the iPhone and land in the in-app inbox.' },
+        { title: 'Tap to go back', body: 'Tap the notification and the computer switches to that app — and un-minimises and raises the window it was showing.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: 'Built on the system notification banners: live, and out of your way.',
+      items: [
+        { title: 'Relayed live', body: 'A banner that appears on the computer shows up on the phone at the same moment — not polled, not batched.' },
+        { title: 'It lands on the window, not just the app', body: 'Tapping activates the sending app and brings the window it was showing to the front. If you already quit that app, nothing happens — no surprise launches.' },
+        { title: 'Private apps are excluded by default', body: 'Messages, Mail, WeChat, 1Password and similar are not forwarded unless you add them. Edit the list in Preferences.' },
+        { title: 'Banners only', body: 'Notifications suppressed by Do Not Disturb / Focus are not captured — the relay matches what you actually saw.' },
+        { title: 'Nothing leaves your network', body: 'Notification text travels only over your own WiFi; there is no server in the path.' },
+        { title: 'An inbox in the app', body: 'Missed one? Every relayed notification is in the app’s list, and tapping a row does the same jump.' },
+      ],
+    },
+    tips: {
+      title: 'When it shines',
+      description: 'Especially “I am waiting on a background task”.',
+      items: [
+        '**Waiting on an agent or a build**: the finished-task banner reaches your phone; one tap puts you back in that window for the next instruction.',
+        '**Away from the desk**: meetings, kitchen, sofa — nothing important slips by.',
+        '**Less walking**: your phone is already in your hand.',
+        '**Fewer interruptions**: notifications collect on the phone while the computer screen stays clean.',
+      ],
+    },
+    requires: {
+      title: 'What it needs',
+      items: [
+        'macOS 26 or later on Apple silicon',
+        'iOS / iPadOS 26 or later',
+        'Both devices on the same WiFi',
+        'Accessibility permission on the computer (it reads the banners)',
+      ],
+      note: 'Notification text travels only between your own devices — never through a server. Turn the switch off and it stops.',
+    },
+    next: {
+      title: 'Notifications follow you — and you can drive the computer too',
+      body: 'The relay means you never have to walk back just to see a result; the app switcher brings that app to the front from your phone.',
+      cta: 'See the app switcher →',
+      href: '/remotecrab/features/app-switcher/',
+    },
+    cta: {
+      title: 'Let notifications find you',
+      body: 'Download the computer app, turn on forwarding, and leave the phone on the desk.',
+      download: 'Download for computer',
+      ios: 'Get RemoteCrab on the App Store',
+    },
+  },
+
   'extended-display': {
     slug: 'extended-display',
     nav: { back: '← All features' },

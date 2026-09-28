@@ -22,6 +22,7 @@ export default defineConfig({
         remotecrabSuites: 'remotecrab/suites/index.html',
         // One landing page per feature. The slug is read from the URL by
         // RemoteCrabFeaturePage, so all entries share a single JS bundle.
+        remotecrabFeatureNotifications: 'remotecrab/features/notifications/index.html',
         remotecrabFeatureExtendedDisplay: 'remotecrab/features/extended-display/index.html',
         remotecrabFeatureCamera: 'remotecrab/features/camera/index.html',
         remotecrabFeatureMicrophone: 'remotecrab/features/microphone/index.html',
@@ -32,6 +33,10 @@ export default defineConfig({
         remotecrabFeatureAppSwitcher: 'remotecrab/features/app-switcher/index.html',
         remotecrabFeatureTransfer: 'remotecrab/features/transfer/index.html',
         remotecrabFeatureAutomation: 'remotecrab/features/automation/index.html',
+        // MacSlim: the signed + notarized macOS cleaner, plus its privacy page.
+        // Screenshots are served from public/downloads/macslim/ at runtime.
+        macslim: 'macslim/index.html',
+        macslimPrivacy: 'macslim/privacy/index.html',
       },
     },
   },

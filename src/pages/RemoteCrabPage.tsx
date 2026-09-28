@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import {
   ArrowRight,
   AudioLines,
+  Bell,
   Camera,
   Check,
   ClipboardList,
@@ -31,6 +32,7 @@ export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 
 const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+  bell: Bell,
   display: Monitor,
   mirror: MonitorPlay,
   camera: Camera,

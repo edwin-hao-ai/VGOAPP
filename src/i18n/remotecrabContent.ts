@@ -50,7 +50,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       badge: 'macOS 桌面端 · 免费',
       tagline: '你的 iPhone,就是电脑缺失的外设',
       description:
-        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 扩展屏、躺着操作、摄像头、麦克风,一个 App 全都有。通过本地 WiFi 直连,没有云端、没有账号、没有订阅。',
+        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 再把电脑上的通知送到你手机上,点一下就跳回那个应用。通过本地 WiFi 直连,没有云端、没有账号、没有订阅。',
       downloadMac: '下载电脑版',
       downloadIOS: 'App Store 下载 iPhone 版',
       free: '免费 · 无账号 · 无订阅 · 数据不出局域网',
@@ -62,9 +62,15 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     cta: '看看全部 18 套',
   },
     features: {
-      title: '一个 App,十种用法',
+      title: '一个 App,十一种用法',
       description: '不用买副屏、摄像头、麦克风或触控板 —— 你本来就有的 iPhone 就够了。',
       items: [
+        {
+          icon: 'bell',
+          href: '/remotecrab/features/notifications/',
+          title: '电脑通知到手机',
+          body: '电脑上的通知实时送到 iPhone；点一下，电脑立刻切回发通知的那个应用和窗口。',
+        },
         {
           icon: 'display',
           href: '/remotecrab/features/extended-display/',
@@ -81,7 +87,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           icon: 'camera',
           href: '/remotecrab/features/camera/',
           title: '1080p 无线摄像头',
-          body: 'iPhone 的镜头在 Zoom、Teams、FaceTime、OBS 里作为标准摄像头出现，1080p 30fps，硬件 H.264 编码。',
+          body: '作为标准摄像头出现在 Zoom、Teams、FaceTime、OBS 里，以 1080p 30fps 输出；采集最高支持 4K，下采样后画面更锐利。',
         },
         {
           icon: 'mic',
@@ -206,6 +212,12 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       description:
         'You do not need a second monitor, a webcam, a microphone or a trackpad. The iPhone you already own is enough.',
       items: [
+        {
+          icon: 'bell',
+          href: '/remotecrab/features/notifications/',
+          title: 'Computer notifications on your phone',
+          body: "Your computer's banners reach your iPhone — tap one and the computer jumps back to that app and window.",
+        },
         {
           icon: 'display',
           href: '/remotecrab/features/extended-display/',
