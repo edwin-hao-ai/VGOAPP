@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MacSlim — 懂开发者的 Mac 系统运维工具</title>
+    <meta
+      name="description"
+      content="MacSlim 一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾，管理进程与应用卸载。每步都有日志，破坏性操作前先问你。无账号、无遥测、数据不出你的 Mac。"
+    />
+    <meta name="keywords" content="Mac 清理,缓存清理,NPM 缓存,Docker 清理,Xcode DerivedData,进程管理,应用卸载,系统优化,MacSlim" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://vgoapp.com/macslim/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://vgoapp.com/macslim/" />
+    <link rel="alternate" hreflang="en" href="https://vgoapp.com/macslim/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0f" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MacSlim — 懂开发者的 Mac 系统运维工具" />
+    <meta
+      property="og:description"
+      content="一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾。每步都有日志，破坏性操作前先问你。"
+    />
+    <meta property="og:image" content="https://vgoapp.com/remotecrab-icon.png" />
+    <meta property="og:url" content="https://vgoapp.com/macslim/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MacSlim — 懂开发者的 Mac 系统运维工具" />
+    <meta
+      name="twitter:description"
+      content="一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾。每步都有日志，破坏性操作前先问你。"
+    />
+    <meta name="twitter:image" content="https://vgoapp.com/remotecrab-icon.png" />
+
+    <!-- JSON-LD
+         ⚠️ PLACEHOLDER: downloadUrl below must be kept in sync with
+         DOWNLOAD_URL in src/pages/MacSlimPage.tsx when the real .dmg name is confirmed. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MacSlim",
+      "description": "懂开发者的 Mac 系统运维工具：一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存，管理进程与应用卸载。A macOS maintenance tool with one-click system health scan, deep support for developer caches (NPM, Docker, Xcode), process management and app uninstalls.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "macOS 13.0+, Apple silicon",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://vgoapp.com/macslim/",
+      "downloadUrl": "https://vgoapp.com/downloads/MacSlim-1.0.0-aarch64.dmg"
+    }
+    </script>
+  </head>
+  <body class="bg-vgo-bg text-vgo-text antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/macslim-main.tsx"></script>
+  </body>
+</html>
