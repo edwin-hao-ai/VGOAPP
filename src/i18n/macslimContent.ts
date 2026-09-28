@@ -160,7 +160,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         'Developer ID Application 签名',
         '已通过 Apple 公证（notarization）',
       ],
-      note: '安装包约 12 MB。如果你看到 Gatekeeper 提示「未知开发者」，说明手上的不是官网版本 —— 请从本页的按钮下载。',
+      note: '安装包约 8.3 MB。如果你看到 Gatekeeper 提示「未知开发者」，说明手上的不是官网版本 —— 请从本页的按钮下载。',
     },
     safety: {
       title: '破坏性操作之前，一定先问你',
@@ -206,7 +206,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
       items: [
         {
           question: 'MacSlim 收费吗？',
-          answer: '核心功能免费。安装包约 12 MB，不订阅、不看广告。',
+          answer: '核心功能免费。安装包约 8.3 MB，不订阅、不看广告。',
         },
         {
           question: '它会删我的个人文件吗？',
@@ -360,7 +360,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         'Signed with a Developer ID Application certificate',
         'Notarized by Apple',
       ],
-      note: 'The installer is about 12 MB. If Gatekeeper tells you the developer is "unknown", the file did not come from the official site — download it from the button on this page.',
+      note: 'The installer is about 8.3 MB. If Gatekeeper tells you the developer is "unknown", the file did not come from the official site — download it from the button on this page.',
     },
     safety: {
       title: 'Anything destructive asks first',
@@ -410,7 +410,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
       items: [
         {
           question: 'Is MacSlim free?',
-          answer: 'The core features are free. The installer is about 12 MB, with no subscription and no ads.',
+          answer: 'The core features are free. The installer is about 8.3 MB, with no subscription and no ads.',
         },
         {
           question: 'Will it delete my personal files?',
