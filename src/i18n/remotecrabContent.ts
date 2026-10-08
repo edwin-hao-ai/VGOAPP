@@ -16,6 +16,7 @@ export interface RemoteCrabContent {
     tagline: string
     description: string
     downloadMac: string
+    downloadWindows: string
     downloadIOS: string
     testflight: string
     free: string
@@ -48,11 +49,12 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     nav: { back: '← 返回 VGO' },
     hero: {
-      badge: 'macOS 桌面端 · 免费',
+      badge: 'macOS / Windows 桌面端 · 免费',
       tagline: '你的 iPhone,就是电脑缺失的外设',
       description:
         '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 再把电脑上的通知送到你手机上,点一下就跳回那个应用。通过本地 WiFi 直连,没有云端、没有账号、没有订阅。',
       downloadMac: '下载电脑版',
+      downloadWindows: '下载 Windows 版',
       downloadIOS: 'App Store 下载 iPhone 版',
       testflight: 'TestFlight 公测（抢先体验）',
       free: '免费 · 无账号 · 无订阅 · 数据不出局域网',
@@ -195,11 +197,12 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     nav: { back: '← Back to VGO' },
     hero: {
-      badge: 'macOS desktop app · Free',
+      badge: 'macOS / Windows desktop app · Free',
       tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
         'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer — extended screen, control from the sofa, camera and mic, all in one app. Over local WiFi. No cloud, no account, no subscription.',
       downloadMac: 'Download for computer',
+      downloadWindows: 'Download for Windows',
       downloadIOS: 'Get the iPhone app',
       testflight: 'Join the TestFlight beta',
       free: 'Free · No account · No subscription · Stays on your LAN',

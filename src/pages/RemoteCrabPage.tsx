@@ -29,6 +29,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
+export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/6VNNHAyx'
 
@@ -117,6 +118,12 @@ export default function RemoteCrabPage() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-vgo-primary to-vgo-secondary text-white font-semibold shadow-lg shadow-vgo-primary/25 hover:shadow-vgo-primary/40 transition-shadow"
             >
               <Download size={18} /> {c.hero.downloadMac}
+            </a>
+            <a
+              href={DOWNLOAD_WINDOWS_URL}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
+            >
+              <Laptop size={18} /> {c.hero.downloadWindows}
             </a>
             <a
               href={APP_STORE_URL}
