@@ -30,6 +30,7 @@ import Footer from '../components/Footer'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
+export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/6VNNHAyx'
 
 const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   bell: Bell,
@@ -124,6 +125,14 @@ export default function RemoteCrabPage() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
             >
               <Smartphone size={18} /> {c.hero.downloadIOS}
+            </a>
+            <a
+              href={TESTFLIGHT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
+            >
+              <Sparkles size={18} /> {c.hero.testflight}
             </a>
           </motion.div>
 

@@ -17,6 +17,7 @@ export interface RemoteCrabContent {
     description: string
     downloadMac: string
     downloadIOS: string
+    testflight: string
     free: string
     requirementsNote: string
   }
@@ -53,6 +54,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 再把电脑上的通知送到你手机上,点一下就跳回那个应用。通过本地 WiFi 直连,没有云端、没有账号、没有订阅。',
       downloadMac: '下载电脑版',
       downloadIOS: 'App Store 下载 iPhone 版',
+      testflight: 'TestFlight 公测（抢先体验）',
       free: '免费 · 无账号 · 无订阅 · 数据不出局域网',
       requirementsNote: '需要 macOS 26+（Apple 芯片）与 iOS 26+',
     },
@@ -199,6 +201,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer — extended screen, control from the sofa, camera and mic, all in one app. Over local WiFi. No cloud, no account, no subscription.',
       downloadMac: 'Download for computer',
       downloadIOS: 'Get the iPhone app',
+      testflight: 'Join the TestFlight beta',
       free: 'Free · No account · No subscription · Stays on your LAN',
       requirementsNote: 'Requires macOS 26+ (Apple silicon) and iOS 26+',
     },
