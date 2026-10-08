@@ -74,8 +74,8 @@ const zh: Copy = {
   },
   cta: {
     title: '把它接到你的电脑上看',
-    body: '下载电脑版,连上手机,打开情景模式 —— 按键会自己变。',
-    download: '下载电脑版',
+    body: '下载 Mac 版,连上手机,打开情景模式 —— 按键会自己变。',
+    download: '下载 Mac 版',
     ios: 'App Store 下载 iPhone 版',
   },
   next: {
@@ -138,7 +138,7 @@ const en: Copy = {
   cta: {
     title: 'Connect it and watch it switch',
     body: 'Download the desktop app, connect the phone, open the modes — the buttons change on their own.',
-    download: 'Download for computer',
+    download: 'Download for Mac',
     ios: 'Get the iPhone app',
   },
   next: {

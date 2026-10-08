@@ -129,8 +129,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '让通知找到你',
-      body: '下载电脑版,打开通知转发,把手机放到一边试试。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,打开通知转发,把手机放到一边试试。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -204,8 +204,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '现在就把那块副屏省下来',
-      body: '下载电脑版,在 iPhone 上装好,两台设备几秒就能连上。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,在 iPhone 上装好,两台设备几秒就能连上。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -280,8 +280,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '把手机接进你的会议软件',
-      body: '下载电脑版,授权一次,之后在摄像头列表里就能看到它。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,授权一次,之后在摄像头列表里就能看到它。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -354,8 +354,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '让所有人都听清你',
-      body: '下载电脑版,跟着引导装一次驱动,之后在任何会议软件里都能直接选到。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,跟着引导装一次驱动,之后在任何会议软件里都能直接选到。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -428,8 +428,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '把电脑装进口袋',
-      body: '下载电脑版,把当前窗口搬到手上,试试直接在上面拖一下。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,把当前窗口搬到手上,试试直接在上面拖一下。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -502,8 +502,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '试试离合拖拽',
-      body: '下载电脑版,把手机变成触控板,先试着选一段长文字。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,把手机变成触控板,先试着选一段长文字。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -576,8 +576,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '试着用它打一段中文',
-      body: '下载电脑版,连上手机,点一下输入框试试。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,连上手机,点一下输入框试试。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -650,8 +650,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '按住说一句话试试',
-      body: '下载电脑版,连上手机,按住底部的按钮说一句话。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,连上手机,按住底部的按钮说一句话。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -723,8 +723,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '把它当电脑遥控器',
-      body: '下载电脑版,连上手机,试试从手机上切 App。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,连上手机,试试从手机上切 App。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -797,8 +797,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '试试从手机发一张照片',
-      body: '下载电脑版,连上手机,发一张照片到电脑试试。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,连上手机,发一张照片到电脑试试。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -874,8 +874,8 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
     cta: {
       title: '把手机当成遥控器',
-      body: '下载电脑版,连上手机,打开情景模式看看。',
-      download: '下载电脑版',
+      body: '下载 Mac 版,连上手机,打开情景模式看看。',
+      download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
   },
@@ -951,7 +951,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Let notifications find you',
       body: 'Download the computer app, turn on forwarding, and leave the phone on the desk.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get RemoteCrab on the App Store',
     },
   },
@@ -1026,7 +1026,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Skip that second monitor',
       body: 'Download the desktop app, install it on your iPhone, and the two connect in seconds.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1100,7 +1100,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Plug your phone into your meeting apps',
       body: 'Download the desktop app, approve once, and it will be waiting in the camera list.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1174,7 +1174,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Make sure everyone can hear you',
       body: 'Download the desktop app, install the driver once, and it will be selectable in every meeting app.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1248,7 +1248,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Put the computer in your pocket',
       body: 'Download the desktop app, pull a window onto your phone, and try dragging something on it.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1322,7 +1322,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Try the drag clutch',
       body: 'Download the desktop app, turn the phone into a trackpad, and try selecting a long passage of text.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1396,7 +1396,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Try typing some Chinese',
       body: 'Download the desktop app, connect the phone, and tap into a field.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1470,7 +1470,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Hold the button and say something',
       body: 'Download the desktop app, connect the phone, hold the button at the bottom and say a sentence.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1543,7 +1543,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Use it as a remote control',
       body: 'Download the desktop app, connect the phone, and try switching apps from it.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1617,7 +1617,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Try sending a photo',
       body: 'Download the desktop app, connect the phone and send a photo across.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },
@@ -1694,7 +1694,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: 'Use the phone as a remote',
       body: 'Download the desktop app, connect the phone, and open the context modes.',
-      download: 'Download for computer',
+      download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
   },

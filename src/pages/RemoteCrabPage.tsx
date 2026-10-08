@@ -126,14 +126,6 @@ export default function RemoteCrabPage() {
               <Laptop size={18} /> {c.hero.downloadWindows}
             </a>
             <a
-              href={APP_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
-            >
-              <Smartphone size={18} /> {c.hero.downloadIOS}
-            </a>
-            <a
               href={TESTFLIGHT_URL}
               target="_blank"
               rel="noopener noreferrer"
