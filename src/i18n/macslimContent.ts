@@ -83,7 +83,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'trash',
           title: '缓存清理',
-          body: '开发者缓存深度适配：NPM、pnpm、Yarn、Cargo、Go、pip、Homebrew、Xcode DerivedData、Docker；再加上系统垃圾 —— 废纸篓、崩溃报告、应用缓存与日志。',
+          body: '开发者缓存深度适配：NPM、pnpm、Yarn、Cargo、Go、pip、Homebrew、Xcode DerivedData、Docker；再加上系统垃圾 —— 废纸篓、崩溃报告、应用缓存与日志。每项都标注「可安全清理 / 需先复核」，可按此筛选（⌘1–3）。',
         },
         {
           icon: 'uninstall',
@@ -93,7 +93,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'history',
           title: '历史记录',
-          body: '每一次清理、每一次终止进程都留痕：时间、对象、释放了多少体积。回头查得到，才叫可控。',
+          body: '每一次清理、每一次终止进程都留痕，并且区分「实测释放」与「已删除但未能测量」—— 不拿扫描体积冒充已释放空间。回头查得到，才叫可控。',
         },
         {
           icon: 'settings',
@@ -160,7 +160,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         'Developer ID Application 签名',
         '已通过 Apple 公证（notarization）',
       ],
-      note: '安装包约 8.3 MB。如果你看到 Gatekeeper 提示「未知开发者」，说明手上的不是官网版本 —— 请从本页的按钮下载。',
+      note: '安装包约 8.6 MB。如果你看到 Gatekeeper 提示「未知开发者」，说明手上的不是官网版本 —— 请从本页的按钮下载。',
     },
     safety: {
       title: '破坏性操作之前，一定先问你',
@@ -172,6 +172,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         '重建成本高的项目（例如完整 Docker 镜像、大型 node_modules）默认不勾选',
         '系统核心进程与 SIP 保护项默认隐藏，不会出现在列表里',
         '每一次操作都写进历史记录',
+        '清理结果如实区分「实测释放」与「已删除但未能测量」，不夸大战果',
       ],
     },
     risk: {
@@ -206,7 +207,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
       items: [
         {
           question: 'MacSlim 收费吗？',
-          answer: '核心功能免费。安装包约 8.3 MB，不订阅、不看广告。',
+          answer: '核心功能免费。安装包约 8.6 MB，不订阅、不看广告。',
         },
         {
           question: '它会删我的个人文件吗？',
@@ -280,7 +281,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'trash',
           title: 'Cache cleaner',
-          body: 'Deep support for developer caches: NPM, pnpm, Yarn, Cargo, Go, pip, Homebrew, Xcode DerivedData and Docker — plus system junk such as the Trash, crash reports, app caches and logs.',
+          body: 'Deep support for developer caches: NPM, pnpm, Yarn, Cargo, Go, pip, Homebrew, Xcode DerivedData and Docker — plus system junk such as the Trash, crash reports, app caches and logs. Each item is labelled "safe to clean" or "check first", and you can filter by that (⌘1–3).',
         },
         {
           icon: 'uninstall',
@@ -290,7 +291,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'history',
           title: 'History',
-          body: 'Every cleanup and every terminated process is recorded: when, what, and how much space it freed. You can look it up afterwards — that is what makes it controllable.',
+          body: 'Every cleanup and every terminated process is recorded: when, what, and how much space it freed. It separates measured reclaimed space from "deleted, not measured" — it never passes scanned size off as space released. You can look it up afterwards — that is what makes it controllable.',
         },
         {
           icon: 'settings',
@@ -360,7 +361,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         'Signed with a Developer ID Application certificate',
         'Notarized by Apple',
       ],
-      note: 'The installer is about 8.3 MB. If Gatekeeper tells you the developer is "unknown", the file did not come from the official site — download it from the button on this page.',
+      note: 'The installer is about 8.6 MB. If Gatekeeper tells you the developer is "unknown", the file did not come from the official site — download it from the button on this page.',
     },
     safety: {
       title: 'Anything destructive asks first',
@@ -372,6 +373,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         'Expensive-to-rebuild items (full Docker images, large node_modules) are left unticked',
         'System-critical and SIP-protected processes are hidden by default and never listed',
         'Every action is written to the history log',
+        'Results honestly separate measured reclaimed space from "deleted, not measured" — no inflated numbers',
       ],
     },
     risk: {
@@ -410,7 +412,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
       items: [
         {
           question: 'Is MacSlim free?',
-          answer: 'The core features are free. The installer is about 8.3 MB, with no subscription and no ads.',
+          answer: 'The core features are free. The installer is about 8.6 MB, with no subscription and no ads.',
         },
         {
           question: 'Will it delete my personal files?',

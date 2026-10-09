@@ -28,6 +28,16 @@
     @apply bg-vgo-bg text-vgo-text font-sans antialiased;
   }
 
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
   ::selection {
     @apply bg-vgo-primary/30 text-white;
   }

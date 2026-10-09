@@ -29,11 +29,10 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 /**
- * ⚠️ PLACEHOLDER — the release file name is not final yet.
- * This is the single place to edit when the real .dmg name is confirmed.
- * Both the hero CTA and the bottom CTA resolve through this constant.
+ * The release file name. Keep in sync with the JSON-LD `downloadUrl` in
+ * `macslim/index.html` and the DMG published under /downloads/ on the VPS.
  */
-export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/MacSlim-1.0.0-aarch64.dmg'
+export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/MacSlim-1.0.1-aarch64.dmg'
 
 export const PRIVACY_URL = '/macslim/privacy/'
 
@@ -156,6 +155,19 @@ export default function MacSlimPage() {
           <motion.p {...fade(0.6)} className="mt-2 text-xs text-vgo-muted/80">
             {c.hero.requirementsNote}
           </motion.p>
+
+          {/* Product shot — a real screenshot, framed, right under the hero copy */}
+          <motion.div {...fade(0.7)} className="mt-14 w-full max-w-4xl">
+            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-vgo-primary/20 bg-vgo-card">
+              <img
+                src={`${SCREENSHOT_DIR}/macslim-${screenshotLang}-scan.png`}
+                alt={c.screenshots.items[0]?.caption ?? 'MacSlim'}
+                width={1800}
+                height={1200}
+                className="w-full block"
+              />
+            </div>
+          </motion.div>
         </section>
 
         {/* Features — the seven screens */}
