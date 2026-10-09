@@ -95,11 +95,11 @@ export const translations = {
         tagline: '开发者信任的 Mac 清理工具',
         description: 'Rust + Tauri 打造的 Mac 清理工具，轻巧、快速、透明，不会碰不该碰的文件。',
         features: [
-          'Rust + Tauri，安装包仅 ~8.3 MB',
+          'Rust + Tauri，安装包仅 ~8.6 MB',
           '支持 npm、Docker、Xcode、Homebrew 等开发者缓存',
           '三层安全保护，零上传隐私',
         ],
-        linkLabel: '查看 GitHub',
+        linkLabel: '了解 MacSlim',
       },
       mouseclaw: {
         name: 'MouseClaw',
@@ -219,11 +219,11 @@ export const translations = {
         tagline: 'The Mac cleaner developers trust',
         description: 'A lightweight, fast, and transparent Mac cleaner built with Rust + Tauri — it never touches what it should not.',
         features: [
-          'Rust + Tauri, installer only ~8.3 MB',
+          'Rust + Tauri, installer only ~8.6 MB',
           'Cleans npm, Docker, Xcode, Homebrew, and other dev caches',
           'Triple safety protection, zero-upload privacy',
         ],
-        linkLabel: 'View on GitHub',
+        linkLabel: 'Learn more about MacSlim',
       },
       mouseclaw: {
         name: 'MouseClaw',

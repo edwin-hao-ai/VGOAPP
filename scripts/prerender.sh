@@ -32,6 +32,10 @@ if [ ! -x "$CHROME" ]; then
   exit 0
 fi
 
+# 先为每个中文路由生成 /en/ 英文镜像 + hreflang（必须在预渲染之前）
+echo "==> 生成 /en/ 英文镜像 + hreflang"
+python3 "$ROOT/scripts/i18n-routes.py" "$DIST"
+
 # 路由 = dist 下所有含 index.html 的目录（相对 dist）
 ROUTES=()
 while IFS= read -r line; do

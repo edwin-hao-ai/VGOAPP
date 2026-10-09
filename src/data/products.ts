@@ -36,7 +36,7 @@ export function getProducts(language: Language): Product[] {
       description: t.macslim.description,
       icon: MacSlimIcon,
       features: t.macslim.features,
-      link: 'https://github.com/edwin-hao-ai/MacSlim',
+      link: '/macslim/',
       linkLabel: t.macslim.linkLabel,
     },
     {
