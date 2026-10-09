@@ -217,11 +217,11 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: '虚拟摄像头',
       title: '让你的 iPhone 出现在摄像头列表里',
       subtitle:
-        '在 Zoom、Teams、FaceTime、OBS 里,「RemoteCrab Camera」和任何普通摄像头一模一样 —— 以 1080p 30 帧输出,视频用硬件编码,不占用 CPU。',
+        '在 Zoom、Teams、FaceTime、OBS 里,「RemoteCrab Camera」和任何普通摄像头一模一样 —— 以 4K(3840×2160)30 帧输出,视频用硬件编码,不占用 CPU。',
       bullets: [
         '任何 App 都能直接选到,不用改任何设置',
-        '以 1080p 30 帧输出,视频用硬件 H.264 编码',
-        '采集最高支持 4K,下采样到 1080p 输出,画面更锐利',
+        '以 4K 30 帧输出,视频用硬件 H.264 编码',
+        '4K 输出,细节比普通 1080p 摄像头更清楚',
         '手机架在哪儿,画面就从哪儿拍',
       ],
     },
@@ -245,7 +245,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       items: [
         { title: '真正的系统级摄像头', body: '通过 macOS 的相机扩展机制注册,系统、App Store 的 App、第三方软件都认。' },
         { title: '硬件编码,不烧 CPU', body: '用 iPhone 的硬件编码器压成 H.264 再传,所以电脑这边几乎不吃性能。' },
-        { title: '4K 采集,1080p 输出', body: '摄像头对外的标准格式是 1080p 30 帧(和应用兼容性最好);采集端最高支持 4K,再下采样到 1080p,细节比直接拍 1080p 更清楚。' },
+        { title: '4K 输出', body: '摄像头对外的格式是 4K(3840×2160)30 帧。手机送到电脑后由虚拟摄像头以 4K 输出,细节比 1080p 摄像头更清楚 —— 想让细节最实,把手机端的视频分辨率也设为 4K。' },
         { title: '前后摄像头随时切', body: '在手机上切换前后摄像头,电脑端的 App 立刻跟着变。' },
         { title: '也能当直播输入', body: 'OBS 里把它加进「视频采集设备」,就是一个真实的第二机位。' },
         { title: '延迟很低', body: '局域网直连 + 硬件编解码,实测延迟在一两百毫秒量级,日常开会完全够用。' },
@@ -1038,10 +1038,10 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: 'Virtual camera',
       title: 'Your iPhone shows up in the camera list',
       subtitle:
-        'In Zoom, Teams, FaceTime and OBS, "RemoteCrab Camera" behaves like any other camera — 1080p at 30fps, hardware encoded, and almost no CPU cost.',
+        'In Zoom, Teams, FaceTime and OBS, "RemoteCrab Camera" behaves like any other camera — 4K (3840×2160) at 30fps, hardware encoded, and almost no CPU cost.',
       bullets: [
         'Picked up by every app, no per-app setup',
-        '1080p 30fps, encoded in hardware with H.264',
+        '4K 30fps, encoded in hardware with H.264',
         'Put the phone wherever the shot should be',
       ],
     },
