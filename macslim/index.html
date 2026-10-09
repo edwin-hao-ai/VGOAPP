@@ -11,8 +11,6 @@
     <meta name="keywords" content="Mac 清理,缓存清理,NPM 缓存,Docker 清理,Xcode DerivedData,进程管理,应用卸载,系统优化,MacSlim" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://vgoapp.com/macslim/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://vgoapp.com/macslim/" />
-    <link rel="alternate" hreflang="en" href="https://vgoapp.com/macslim/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#0a0a0f" />
@@ -55,6 +53,22 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "url": "https://vgoapp.com/macslim/",
       "downloadUrl": "https://vgoapp.com/downloads/MacSlim-1.0.1-aarch64.dmg"
+    }
+    </script>
+
+    <!-- FAQ 结构化数据（与页面 FAQ 一致，用于富结果） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "MacSlim 收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "核心功能免费。安装包约 8.6 MB，不订阅、不看广告。" } },
+        { "@type": "Question", "name": "它会删我的个人文件吗？", "acceptedAnswer": { "@type": "Answer", "text": "它清理的是已识别的缓存、日志、构建产物和废纸篓，不会主动去删你的文档、照片或项目代码。但缓存目录里可能混有你没预期的第三方数据，所以确认弹窗里的清单请看一眼再点。" } },
+        { "@type": "Question", "name": "我需要给它什么权限？", "acceptedAnswer": { "@type": "Answer", "text": "Developer ID 版需要「完全磁盘访问权限」来遍历用户目录统计缓存体积；优雅退出应用会用到 Apple Events。两项都可以在系统设置里随时撤销。" } },
+        { "@type": "Question", "name": "它和活动监视器有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "活动监视器是给你观察的工具，得出结论的活儿留给你自己。MacSlim 把可清理项算好、标好风险，替你点掉，但每一步仍然让你确认。" } },
+        { "@type": "Question", "name": "我要是清错了怎么办？", "acceptedAnswer": { "@type": "Answer", "text": "缓存和构建产物删掉是不能撤销，但绝大多数重新下载或重新编译就能拿回来。历史记录会如实写明刚才删了什么、释放了多少。" } },
+        { "@type": "Question", "name": "支持 Intel Mac 吗？", "acceptedAnswer": { "@type": "Answer", "text": "目前只支持 Apple 芯片（M1 及以上），系统要求 macOS 13.0 或更高。" } }
+      ]
     }
     </script>
   </head>
