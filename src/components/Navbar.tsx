@@ -24,6 +24,12 @@ export default function Navbar({ homeHref = '', backLabel }: NavbarProps) {
   const toggleRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
+  // 语言由 URL 路径决定：在 /en/ 页面上，返回链接要指向英文对应页。
+  const isEn =
+    typeof window !== 'undefined' &&
+    (window.location.pathname === '/en' || window.location.pathname.startsWith('/en/'))
+  const home = isEn ? `/en${homeHref || '/'}` : homeHref || '/'
+
   useEffect(() => {
     let ticking = false
     const handleScroll = () => {
@@ -81,7 +87,7 @@ export default function Navbar({ homeHref = '', backLabel }: NavbarProps) {
 
         {backLabel ? (
           <a
-            href={homeHref || '/'}
+            href={home}
             className="hidden md:block text-sm text-vgo-muted hover:text-white motion-safe:transition-colors"
           >
             {backLabel}
@@ -138,7 +144,7 @@ export default function Navbar({ homeHref = '', backLabel }: NavbarProps) {
             {backLabel ? (
               <li>
                 <a
-                  href={homeHref || '/'}
+                  href={home}
                   className="block text-vgo-muted hover:text-white motion-safe:transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
