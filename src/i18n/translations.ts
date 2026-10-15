@@ -32,8 +32,8 @@ export const translations = {
           answer: 'MDDock 专注于把 Word、Excel、PPT 与 Markdown 连成工作流，文件默认保存在本地，AI 知识库不会上传你的隐私文档。',
         },
         {
-          question: 'MacSlim 会误删文件吗？',
-          answer: 'MacSlim 有三层安全保护，只清理已识别的缓存和日志，不会触碰用户个人文件、项目代码或系统关键文件。',
+          question: 'SlimDisk 会误删文件吗？',
+          answer: 'SlimDisk 有三层安全保护，只清理已识别的缓存和日志，不会触碰用户个人文件、项目代码或系统关键文件。',
         },
         {
           question: 'MouseClaw 支持哪些 AI 模型？',
@@ -41,7 +41,7 @@ export const translations = {
         },
         {
           question: 'VGO 的产品是免费的吗？',
-          answer: '目前 MDDock、MacSlim 和 MouseClaw 都提供免费版本，核心功能无需付费即可使用。',
+          answer: '目前 MDDock、SlimDisk 和 MouseClaw 都提供免费版本，核心功能无需付费即可使用。',
         },
         {
           question: '为什么 VGO 坚持本地优先？',
@@ -90,8 +90,8 @@ export const translations = {
         ],
         linkLabel: '访问官网',
       },
-      macslim: {
-        name: 'MacSlim',
+      slimdisk: {
+        name: 'SlimDisk',
         tagline: '开发者信任的 Mac 清理工具',
         description: 'Rust + Tauri 打造的 Mac 清理工具，轻巧、快速、透明，不会碰不该碰的文件。',
         features: [
@@ -99,7 +99,7 @@ export const translations = {
           '支持 npm、Docker、Xcode、Homebrew 等开发者缓存',
           '三层安全保护，零上传隐私',
         ],
-        linkLabel: '了解 MacSlim',
+        linkLabel: '了解 SlimDisk',
       },
       mouseclaw: {
         name: 'MouseClaw',
@@ -156,8 +156,8 @@ export const translations = {
           answer: 'MDDock bridges Word, Excel, PPT and Markdown in one workflow. Your files stay local by default, and the AI knowledge base never uploads private documents.',
         },
         {
-          question: 'Is MacSlim safe? Will it delete important files?',
-          answer: 'MacSlim uses three layers of safety protection and only removes identified caches and logs. It never touches personal files, project code, or critical system files.',
+          question: 'Is SlimDisk safe? Will it delete important files?',
+          answer: 'SlimDisk uses three layers of safety protection and only removes identified caches and logs. It never touches personal files, project code, or critical system files.',
         },
         {
           question: 'Which AI models does MouseClaw support?',
@@ -165,7 +165,7 @@ export const translations = {
         },
         {
           question: "Are VGO's products free?",
-          answer: 'MDDock, MacSlim, and MouseClaw all offer free versions with core features available without payment.',
+          answer: 'MDDock, SlimDisk, and MouseClaw all offer free versions with core features available without payment.',
         },
         {
           question: 'Why does VGO build local-first tools?',
@@ -214,8 +214,8 @@ export const translations = {
         ],
         linkLabel: 'Visit website',
       },
-      macslim: {
-        name: 'MacSlim',
+      slimdisk: {
+        name: 'SlimDisk',
         tagline: 'The Mac cleaner developers trust',
         description: 'A lightweight, fast, and transparent Mac cleaner built with Rust + Tauri — it never touches what it should not.',
         features: [
@@ -223,7 +223,7 @@ export const translations = {
           'Cleans npm, Docker, Xcode, Homebrew, and other dev caches',
           'Triple safety protection, zero-upload privacy',
         ],
-        linkLabel: 'Learn more about MacSlim',
+        linkLabel: 'Learn more about SlimDisk',
       },
       mouseclaw: {
         name: 'MouseClaw',

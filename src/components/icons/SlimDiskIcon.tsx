@@ -1,10 +1,10 @@
 import type { SVGProps } from 'react'
 
-interface MacSlimIconProps extends SVGProps<SVGSVGElement> {
+interface SlimDiskIconProps extends SVGProps<SVGSVGElement> {
   size?: number
 }
 
-export default function MacSlimIcon({ size = 28, className, ...props }: MacSlimIconProps) {
+export default function SlimDiskIcon({ size = 28, className, ...props }: SlimDiskIconProps) {
   return (
     <svg
       width={size}
@@ -17,34 +17,34 @@ export default function MacSlimIcon({ size = 28, className, ...props }: MacSlimI
       {...props}
     >
       <defs>
-        <linearGradient id="macslim-bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+        <linearGradient id="slimdisk-bg" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="#0e1a23" />
           <stop offset="45%" stopColor="#0b4152" />
           <stop offset="100%" stopColor="#0891b2" />
         </linearGradient>
-        <linearGradient id="macslim-gloss" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="slimdisk-gloss" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#ffffff" stopOpacity="0.22" />
           <stop offset="60%" stopColor="#ffffff" stopOpacity="0.05" />
           <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
-        <linearGradient id="macslim-sparkle" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id="slimdisk-sparkle" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#ffffff" />
           <stop offset="60%" stopColor="#ecfeff" />
           <stop offset="100%" stopColor="#67e8f9" />
         </linearGradient>
-        <linearGradient id="macslim-sparkle-alt" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id="slimdisk-sparkle-alt" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#cffafe" />
           <stop offset="100%" stopColor="#22d3ee" />
         </linearGradient>
-        <radialGradient id="macslim-sparkle-glow" cx="0.5" cy="0.5" r="0.5">
+        <radialGradient id="slimdisk-sparkle-glow" cx="0.5" cy="0.5" r="0.5">
           <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.55" />
           <stop offset="55%" stopColor="#0891b2" stopOpacity="0.15" />
           <stop offset="100%" stopColor="#0891b2" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <rect x="0" y="0" width="1024" height="1024" rx="228" ry="228" fill="url(#macslim-bg)" />
-      <rect x="0" y="0" width="1024" height="540" rx="228" ry="228" fill="url(#macslim-gloss)" />
-      <circle cx="512" cy="512" r="420" fill="url(#macslim-sparkle-glow)" />
+      <rect x="0" y="0" width="1024" height="1024" rx="228" ry="228" fill="url(#slimdisk-bg)" />
+      <rect x="0" y="0" width="1024" height="540" rx="228" ry="228" fill="url(#slimdisk-gloss)" />
+      <circle cx="512" cy="512" r="420" fill="url(#slimdisk-sparkle-glow)" />
       <path
         d="M 512 134
            C 520 134, 528 140, 530 150
@@ -67,7 +67,7 @@ export default function MacSlimIcon({ size = 28, className, ...props }: MacSlimI
            C 402 434, 446 390, 456 338
            L 494 150
            C 496 140, 504 134, 512 134 Z"
-        fill="url(#macslim-sparkle)"
+        fill="url(#slimdisk-sparkle)"
       />
       <g transform="translate(808, 224)">
         <path
@@ -92,7 +92,7 @@ export default function MacSlimIcon({ size = 28, className, ...props }: MacSlimI
              C -32 -2, -22 -12, -20 -20
              L -7 -62
              C -6 -66, -3 -68, 0 -68 Z"
-          fill="url(#macslim-sparkle-alt)"
+          fill="url(#slimdisk-sparkle-alt)"
           opacity="0.92"
         />
       </g>
@@ -119,7 +119,7 @@ export default function MacSlimIcon({ size = 28, className, ...props }: MacSlimI
              C -19.2 -1.2, -13.2 -7.2, -12 -12
              L -4.2 -38.4
              C -3.6 -40.8, -1.8 -42, 0 -42 Z"
-          fill="url(#macslim-sparkle-alt)"
+          fill="url(#slimdisk-sparkle-alt)"
           opacity="0.82"
         />
       </g>

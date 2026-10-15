@@ -5,7 +5,7 @@ const YEAR = new Date().getFullYear()
 
 const footerLinks = [
   { label: 'MDDock', href: 'https://mddock.com/' },
-  { label: 'MacSlim', href: '/macslim/' },
+  { label: 'SlimDisk', href: '/slimdisk/' },
   { label: 'MouseClaw', href: 'https://github.com/edwin-hao-ai/MouseClaw' },
   { label: 'RemoteCrab', href: '/remotecrab/' },
 ]

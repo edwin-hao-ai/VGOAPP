@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 import MDDockIcon from '../components/icons/MDDockIcon'
-import MacSlimIcon from '../components/icons/MacSlimIcon'
+import SlimDiskIcon from '../components/icons/SlimDiskIcon'
 import MouseClawIcon from '../components/icons/MouseClawIcon'
 import RemoteCrabIcon from '../components/icons/RemoteCrabIcon'
 import { translations, type Language } from '../i18n/translations'
@@ -30,14 +30,14 @@ export function getProducts(language: Language): Product[] {
       linkLabel: t.mddock.linkLabel,
     },
     {
-      id: 'macslim',
-      name: t.macslim.name,
-      tagline: t.macslim.tagline,
-      description: t.macslim.description,
-      icon: MacSlimIcon,
-      features: t.macslim.features,
-      link: '/macslim/',
-      linkLabel: t.macslim.linkLabel,
+      id: 'slimdisk',
+      name: t.slimdisk.name,
+      tagline: t.slimdisk.tagline,
+      description: t.slimdisk.description,
+      icon: SlimDiskIcon,
+      features: t.slimdisk.features,
+      link: '/slimdisk/',
+      linkLabel: t.slimdisk.linkLabel,
     },
     {
       id: 'mouseclaw',

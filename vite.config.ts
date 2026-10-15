@@ -33,10 +33,10 @@ export default defineConfig({
         remotecrabFeatureAppSwitcher: 'remotecrab/features/app-switcher/index.html',
         remotecrabFeatureTransfer: 'remotecrab/features/transfer/index.html',
         remotecrabFeatureAutomation: 'remotecrab/features/automation/index.html',
-        // MacSlim: the signed + notarized macOS cleaner, plus its privacy page.
-        // Screenshots are served from public/downloads/macslim/ at runtime.
-        macslim: 'macslim/index.html',
-        macslimPrivacy: 'macslim/privacy/index.html',
+        // SlimDisk: the signed + notarized macOS cleaner, plus its privacy page.
+        // Screenshots are served from public/downloads/slimdisk/ at runtime.
+        slimdisk: 'slimdisk/index.html',
+        slimdiskPrivacy: 'slimdisk/privacy/index.html',
       },
     },
   },

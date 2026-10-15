@@ -1,19 +1,19 @@
 import type { Language } from './translations'
 
-export interface MacSlimFeatureItem {
-  /** Key into MacSlimPage's FEATURE_ICONS map. */
+export interface SlimDiskFeatureItem {
+  /** Key into SlimDiskPage's FEATURE_ICONS map. */
   icon: string
   title: string
   body: string
 }
 
-export interface MacSlimScreenshotItem {
-  /** Language-independent filename infix; see SCREENSHOT_FILES in MacSlimPage. */
+export interface SlimDiskScreenshotItem {
+  /** Language-independent filename infix; see SCREENSHOT_FILES in SlimDiskPage. */
   slug: string
   caption: string
 }
 
-export interface MacSlimContent {
+export interface SlimDiskContent {
   meta: { title: string; description: string }
   nav: { back: string }
   hero: {
@@ -25,8 +25,8 @@ export interface MacSlimContent {
     trust: string
     requirementsNote: string
   }
-  features: { title: string; description: string; items: MacSlimFeatureItem[] }
-  screenshots: { title: string; description: string; items: MacSlimScreenshotItem[] }
+  features: { title: string; description: string; items: SlimDiskFeatureItem[] }
+  screenshots: { title: string; description: string; items: SlimDiskScreenshotItem[] }
   why: {
     title: string
     description: string
@@ -42,20 +42,20 @@ export interface MacSlimContent {
   cta: { title: string; body: string; download: string }
 }
 
-export const macSlimContent: Record<Language, MacSlimContent> = {
+export const slimDiskContent: Record<Language, SlimDiskContent> = {
   zh: {
     meta: {
-      title: 'MacSlim — 懂开发者的 Mac 系统运维工具',
+      title: 'SlimDisk — 懂开发者的 Mac 系统运维工具',
       description:
-        'MacSlim 一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾，管理进程与应用卸载。每步都有日志，破坏性操作前先问你。无账号、无遥测、数据不出你的 Mac。',
+        'SlimDisk 一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾，管理进程与应用卸载。每步都有日志，破坏性操作前先问你。无账号、无遥测、数据不出你的 Mac。',
     },
     nav: { back: '← 返回 VGO' },
     hero: {
       badge: 'macOS 桌面端 · Developer ID 签名版 · 免费',
       tagline: '扫描，优化，清理 —— 不用读懂 CPU 曲线',
       description:
-        'MacSlim 用 Rust + Tauri 打造，把「你的 Mac 哪里脏了、哪些进程该关、哪些缓存能删」直接算好、标好、列成清单。比活动监视器少一步判断，比通用清理工具更懂 NPM、Docker 和 Xcode；每一步都有日志，破坏性操作之前一定先问你。',
-      download: '下载 MacSlim.dmg',
+        'SlimDisk 用 Rust + Tauri 打造，把「你的 Mac 哪里脏了、哪些进程该关、哪些缓存能删」直接算好、标好、列成清单。比活动监视器少一步判断，比通用清理工具更懂 NPM、Docker 和 Xcode；每一步都有日志，破坏性操作之前一定先问你。',
+      download: '下载 SlimDisk.dmg',
       appStoreSoon: 'App Store 版即将上架',
       trust: '免费 · 无账号 · 无遥测 · 数据不出你的 Mac',
       requirementsNote: '需要 macOS 13.0 或更高 · Apple 芯片（M1 及以上）',
@@ -63,7 +63,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     features: {
       title: '七个页面，把 Mac 该做的事做完',
       description:
-        'MacSlim 中文优先。所有判断都由规则驱动，不联网、不猜你的意图，每一项都写清楚它打算做什么。',
+        'SlimDisk 中文优先。所有判断都由规则驱动，不联网、不猜你的意图，每一项都写清楚它打算做什么。',
       items: [
         {
           icon: 'gauge',
@@ -119,7 +119,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'gauge',
           title: '比活动监视器简单',
-          body: '活动监视器给你曲线和数字，然后让你自己判断。MacSlim 直接告诉你哪些能清、能释放多少，点一下就做完 —— 不需要读懂 CPU 曲线。',
+          body: '活动监视器给你曲线和数字，然后让你自己判断。SlimDisk 直接告诉你哪些能清、能释放多少，点一下就做完 —— 不需要读懂 CPU 曲线。',
         },
         {
           icon: 'terminal',
@@ -145,7 +145,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
           title: '授予必要的权限',
           body: 'Developer ID 版需要「完全磁盘访问权限」才能算清缓存体积并清理；优雅退出应用会用到 Apple Events。两项都可以在系统设置里随时撤销。',
         },
-        { title: '扫描', body: '打开 MacSlim，点「智能扫描」。看环形图和可优化项清单，每项都标了体积和风险等级。' },
+        { title: '扫描', body: '打开 SlimDisk，点「智能扫描」。看环形图和可优化项清单，每项都标了体积和风险等级。' },
         {
           title: '确认并执行',
           body: '勾选你要处理的项。确认弹窗会先把摘要、预计释放体积和有效期摆给你看，点头才执行。',
@@ -164,7 +164,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     },
     safety: {
       title: '破坏性操作之前，一定先问你',
-      body: 'MacSlim 不做「一键回滚」这种承诺 —— 删掉的缓存和停掉的进程本身就是不可逆的。它能做的是：在你点下去之前，把该说的都说完。',
+      body: 'SlimDisk 不做「一键回滚」这种承诺 —— 删掉的缓存和停掉的进程本身就是不可逆的。它能做的是：在你点下去之前，把该说的都说完。',
       points: [
         '每次清理或终止前都有确认弹窗，列出具体对象、预计释放体积和有效期',
         '弹窗里会明确写出「此操作不可撤销」',
@@ -177,7 +177,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     },
     risk: {
       title: '请在确认弹窗里读完再点',
-      body: '这一段不是免责套话，是真话：MacSlim 会真的删除文件、真的停掉进程。下面这些后果请先知道。',
+      body: '这一段不是免责套话，是真话：SlimDisk 会真的删除文件、真的停掉进程。下面这些后果请先知道。',
       points: [
         '清理缓存不可撤销：被删掉的包、镜像和构建产物需要重新下载或重新编译',
         '终止进程不可撤销：如果你终止的是一个正在写文件的应用，它未保存的工作可能丢失',
@@ -189,7 +189,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     appStore: {
       badge: '即将上架',
       title: '还会有一个 App Store 版本',
-      body: '我们正在准备 MacSlim 的 Mac App Store 版本，走 App Store 的沙盒权限模型，功能侧重开发者的缓存清理与磁盘分析。它和本页的 Developer ID 版是两条并行的路，不是同一个包。',
+      body: '我们正在准备 SlimDisk 的 Mac App Store 版本，走 App Store 的沙盒权限模型，功能侧重开发者的缓存清理与磁盘分析。它和本页的 Developer ID 版是两条并行的路，不是同一个包。',
       points: [
         '本页下载的是 Developer ID 全功能版本',
         'App Store 版的权限模型和功能侧重会有所不同',
@@ -198,7 +198,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     },
     privacy: {
       title: '你的数据不出你的 Mac',
-      body: 'MacSlim 没有服务器、没有遥测、没有账号。所有扫描都在本机完成，所有数据都存在本地。',
+      body: 'SlimDisk 没有服务器、没有遥测、没有账号。所有扫描都在本机完成，所有数据都存在本地。',
       points: ['无遥测、无崩溃上报、无第三方分析 SDK', '无账号、无云端同步、无远程数据收集', '隐私政策里逐条写明了它读取什么、修改什么'],
       linkLabel: '查看完整隐私政策',
     },
@@ -206,7 +206,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
       title: '常见问题',
       items: [
         {
-          question: 'MacSlim 收费吗？',
+          question: 'SlimDisk 收费吗？',
           answer: '核心功能免费。安装包约 8.6 MB，不订阅、不看广告。',
         },
         {
@@ -222,7 +222,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           question: '它和活动监视器有什么区别？',
           answer:
-            '活动监视器是给你观察的工具，得出结论的活儿留给你自己。MacSlim 把可清理项算好、标好风险，替你点掉，但每一步仍然让你确认。',
+            '活动监视器是给你观察的工具，得出结论的活儿留给你自己。SlimDisk 把可清理项算好、标好风险，替你点掉，但每一步仍然让你确认。',
         },
         {
           question: '我要是清错了怎么办？',
@@ -238,22 +238,22 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     cta: {
       title: '给这台 Mac 减一次',
       body: '下载 Developer ID 签名版，拖进「应用程序」就能用。第一次扫描不到三秒。',
-      download: '下载 MacSlim.dmg',
+      download: '下载 SlimDisk.dmg',
     },
   },
   en: {
     meta: {
-      title: 'MacSlim — A Mac maintenance tool that understands developers',
+      title: 'SlimDisk — A Mac maintenance tool that understands developers',
       description:
-        'MacSlim scans your system health in one click, cleans developer caches (NPM, Docker, Xcode) and system junk, and handles processes and app uninstalls. Every step is logged, and destructive actions always ask first. No account, no telemetry, nothing leaves your Mac.',
+        'SlimDisk scans your system health in one click, cleans developer caches (NPM, Docker, Xcode) and system junk, and handles processes and app uninstalls. Every step is logged, and destructive actions always ask first. No account, no telemetry, nothing leaves your Mac.',
     },
     nav: { back: '← Back to VGO' },
     hero: {
       badge: 'macOS desktop app · Developer ID signed · Free',
       tagline: 'Scan, tidy, clean — without learning to read a CPU graph',
       description:
-        'MacSlim is built with Rust + Tauri. It works out which caches are stale, which processes are idle and which apps are leftovers, then shows you the list with the numbers attached. One step less judgement than Activity Monitor, far more developer-aware than a generic cleaner. Every step is logged, and anything destructive asks first.',
-      download: 'Download MacSlim.dmg',
+        'SlimDisk is built with Rust + Tauri. It works out which caches are stale, which processes are idle and which apps are leftovers, then shows you the list with the numbers attached. One step less judgement than Activity Monitor, far more developer-aware than a generic cleaner. Every step is logged, and anything destructive asks first.',
+      download: 'Download SlimDisk.dmg',
       appStoreSoon: 'Coming soon to the Mac App Store',
       trust: 'Free · No account · No telemetry · Nothing leaves your Mac',
       requirementsNote: 'Requires macOS 13.0 or later · Apple silicon (M1 and newer)',
@@ -261,7 +261,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     features: {
       title: 'Seven screens, everything a Mac needs',
       description:
-        'MacSlim is Chinese-first by design. Every judgement is rule-driven — it never goes online and never guesses your intent, and it always says what it is about to do.',
+        'SlimDisk is Chinese-first by design. Every judgement is rule-driven — it never goes online and never guesses your intent, and it always says what it is about to do.',
       items: [
         {
           icon: 'gauge',
@@ -286,7 +286,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'uninstall',
           title: 'App uninstaller',
-          body: 'Uninstall an app and MacSlim scans what it left behind — preferences, caches, containers and support files — then lists it so you decide item by item what goes.',
+          body: 'Uninstall an app and SlimDisk scans what it left behind — preferences, caches, containers and support files — then lists it so you decide item by item what goes.',
         },
         {
           icon: 'history',
@@ -317,7 +317,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           icon: 'gauge',
           title: 'Simpler than Activity Monitor',
-          body: 'Activity Monitor gives you graphs and numbers, then leaves the judgement to you. MacSlim tells you what can be cleaned and how much you get back, and does it in one click — no reading CPU curves required.',
+          body: 'Activity Monitor gives you graphs and numbers, then leaves the judgement to you. SlimDisk tells you what can be cleaned and how much you get back, and does it in one click — no reading CPU curves required.',
         },
         {
           icon: 'terminal',
@@ -345,7 +345,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         },
         {
           title: 'Scan',
-          body: 'Open MacSlim and hit "Smart scan". Read the ring charts and the list of items, each with its size and risk level.',
+          body: 'Open SlimDisk and hit "Smart scan". Read the ring charts and the list of items, each with its size and risk level.',
         },
         {
           title: 'Confirm, then run',
@@ -365,7 +365,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     },
     safety: {
       title: 'Anything destructive asks first',
-      body: 'MacSlim makes no "one-click undo" promise — deleted caches and stopped processes are genuinely irreversible. What it can do is finish saying everything before you click.',
+      body: 'SlimDisk makes no "one-click undo" promise — deleted caches and stopped processes are genuinely irreversible. What it can do is finish saying everything before you click.',
       points: [
         'Every cleanup or termination opens a confirmation dialog listing the exact targets, the estimated space freed and how long the items remain valid',
         'The dialog states plainly that the action cannot be undone',
@@ -378,7 +378,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     },
     risk: {
       title: 'Please read the dialog before you click',
-      body: 'This section is not legal boilerplate — it is the truth: MacSlim really does delete files and really does stop processes. Here is what that can cost you.',
+      body: 'This section is not legal boilerplate — it is the truth: SlimDisk really does delete files and really does stop processes. Here is what that can cost you.',
       points: [
         'Clearing caches is irreversible: deleted packages, images and build artifacts must be re-downloaded or rebuilt',
         'Terminating a process is irreversible: if you kill an app that was writing a file, unsaved work may be lost',
@@ -390,7 +390,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     appStore: {
       badge: 'Coming soon',
       title: 'A Mac App Store version is on the way',
-      body: 'We are preparing a Mac App Store edition of MacSlim. It runs under the App Store sandbox permission model and focuses on developer cache cleaning and disk analysis. It is a parallel track to the Developer ID build on this page, not the same package.',
+      body: 'We are preparing a Mac App Store edition of SlimDisk. It runs under the App Store sandbox permission model and focuses on developer cache cleaning and disk analysis. It is a parallel track to the Developer ID build on this page, not the same package.',
       points: [
         'What you download here is the full-featured Developer ID build',
         'The App Store edition has a different permission model and a different feature emphasis',
@@ -399,7 +399,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
     },
     privacy: {
       title: 'Your data never leaves your Mac',
-      body: 'MacSlim has no server, no telemetry and no account. Every scan runs on your machine and every record is stored locally.',
+      body: 'SlimDisk has no server, no telemetry and no account. Every scan runs on your machine and every record is stored locally.',
       points: [
         'No telemetry, no crash reporting, no third-party analytics SDK',
         'No account, no cloud sync, no remote data collection',
@@ -411,7 +411,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
       title: 'FAQ',
       items: [
         {
-          question: 'Is MacSlim free?',
+          question: 'Is SlimDisk free?',
           answer: 'The core features are free. The installer is about 8.6 MB, with no subscription and no ads.',
         },
         {
@@ -427,7 +427,7 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         {
           question: 'How is this different from Activity Monitor?',
           answer:
-            'Activity Monitor is an observation tool — drawing the conclusion is left to you. MacSlim computes the cleanable list, labels the risk and does the clicking, while still making you confirm each step.',
+            'Activity Monitor is an observation tool — drawing the conclusion is left to you. SlimDisk computes the cleanable list, labels the risk and does the clicking, while still making you confirm each step.',
         },
         {
           question: 'What if I clean the wrong thing?',
@@ -436,14 +436,14 @@ export const macSlimContent: Record<Language, MacSlimContent> = {
         },
         {
           question: 'Does it support Intel Macs?',
-          answer: 'Not at the moment. MacSlim currently requires Apple silicon (M1 and newer) on macOS 13.0 or later.',
+          answer: 'Not at the moment. SlimDisk currently requires Apple silicon (M1 and newer) on macOS 13.0 or later.',
         },
       ],
     },
     cta: {
       title: 'Give this Mac a clean-up',
       body: 'Download the Developer ID signed build and drag it into Applications. The first scan takes under three seconds.',
-      download: 'Download MacSlim.dmg',
+      download: 'Download SlimDisk.dmg',
     },
   },
 }

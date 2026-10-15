@@ -23,12 +23,12 @@ ORIGIN = "https://vgoapp.com"
 # 每个路由的中/英关键词（缺失的路由用所在产品的通用词）
 KEYWORDS = {
     "/": {
-        "zh": "VGO,本地优先,AI 工具,效率工具,开发者工具,Mac 软件,MDDock,MacSlim,RemoteCrab",
-        "en": "VGO, local-first, AI tools, productivity tools, developer tools, macOS apps, MDDock, MacSlim, RemoteCrab",
+        "zh": "VGO,本地优先,AI 工具,效率工具,开发者工具,Mac 软件,MDDock,SlimDisk,RemoteCrab",
+        "en": "VGO, local-first, AI tools, productivity tools, developer tools, macOS apps, MDDock, SlimDisk, RemoteCrab",
     },
-    "/macslim/": {
-        "zh": "Mac 清理,缓存清理,NPM 缓存,Docker 清理,Xcode DerivedData,进程管理,应用卸载,系统优化,MacSlim",
-        "en": "Mac cleaner, cache cleanup, npm cache, Docker cleanup, Xcode DerivedData, process manager, app uninstaller, macOS optimization, MacSlim",
+    "/slimdisk/": {
+        "zh": "Mac 清理,缓存清理,NPM 缓存,Docker 清理,Xcode DerivedData,进程管理,应用卸载,系统优化,SlimDisk",
+        "en": "Mac cleaner, cache cleanup, npm cache, Docker cleanup, Xcode DerivedData, process manager, app uninstaller, macOS optimization, SlimDisk",
     },
     "/remotecrab/": {
         "zh": "iPhone 摄像头,电脑摄像头,无线麦克风,iPhone 触控板,iPhone 键盘,网络摄像头,远程控制,RemoteCrab",
@@ -36,7 +36,7 @@ KEYWORDS = {
     },
 }
 PRODUCT_FALLBACK = {
-    "/macslim/": KEYWORDS["/macslim/"],
+    "/slimdisk/": KEYWORDS["/slimdisk/"],
     "/remotecrab/": KEYWORDS["/remotecrab/"],
 }
 
@@ -60,8 +60,8 @@ def set_meta(html: str, name: str, value: str, attr: str = "name") -> str:
 
 
 def route_of(path: str) -> str:
-    rel = os.path.relpath(path, DIST)  # macslim/index.html
-    return "/" + rel[: -len("index.html")]  # /macslim/
+    rel = os.path.relpath(path, DIST)  # slimdisk/index.html
+    return "/" + rel[: -len("index.html")]  # /slimdisk/
 
 
 zh_routes = []

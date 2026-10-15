@@ -34,11 +34,11 @@ const content: Record<Language, PrivacyContent> = {
     title: '隐私政策',
     updated: `最后更新：${UPDATED}`,
     intro:
-      'MacSlim 是一个 macOS 系统运维工具，负责扫描系统状态、清理缓存和管理进程。本页说明它会**读取**什么、会**修改**什么 —— 以及它**完全不做**的事。',
+      'SlimDisk 是一个 macOS 系统运维工具，负责扫描系统状态、清理缓存和管理进程。本页说明它会**读取**什么、会**修改**什么 —— 以及它**完全不做**的事。',
     sections: [
       {
         heading: '概要',
-        body: 'MacSlim 完全在你的 Mac 本地运行。我们没有服务器，没有遥测，没有账号，也不做任何远程数据收集。',
+        body: 'SlimDisk 完全在你的 Mac 本地运行。我们没有服务器，没有遥测，没有账号，也不做任何远程数据收集。',
         bullets: [
           '所有扫描、统计与清理动作都在本机完成，不会把数据发往任何地方',
           '没有分析 SDK、没有崩溃上报、没有使用统计',
@@ -47,7 +47,7 @@ const content: Record<Language, PrivacyContent> = {
         ],
       },
       {
-        heading: 'MacSlim 会读取哪些信息',
+        heading: 'SlimDisk 会读取哪些信息',
         body: '这些信息只在本机读取，用于在界面上展示计算结果，不会被保存为可识别的用户画像，也不会离开你的 Mac。',
         bullets: [
           '进程列表 — 进程名、CPU 与内存占用、端口占用情况。用于进程管理页的排序、搜索和端口过滤',
@@ -57,7 +57,7 @@ const content: Record<Language, PrivacyContent> = {
         ],
       },
       {
-        heading: 'MacSlim 会修改什么',
+        heading: 'SlimDisk 会修改什么',
         body: '以下操作**全部由你在界面上主动触发**，且每次执行前都有确认弹窗列出具体对象。它们不会在后台自动发生。',
         bullets: [
           '删除缓存与构建产物 — NPM / pnpm / Yarn / Cargo / Go / pip / Homebrew 缓存、Xcode DerivedData、Docker 数据',
@@ -74,7 +74,7 @@ const content: Record<Language, PrivacyContent> = {
         bullets: [
           '删除的缓存、包、镜像和构建产物无法恢复，只能重新下载或重新编译',
           '被终止的进程不会自动重启；如果是正在写文件的应用，未保存的工作可能丢失',
-          '因此 MacSlim 不提供「一键回滚」。真正可回滚的只有白名单变更、设置项变更，以及被移入废纸篓的元数据',
+          '因此 SlimDisk 不提供「一键回滚」。真正可回滚的只有白名单变更、设置项变更，以及被移入废纸篓的元数据',
         ],
       },
       {
@@ -104,26 +104,26 @@ const content: Record<Language, PrivacyContent> = {
       },
       {
         heading: '儿童',
-        body: 'MacSlim 并非面向 13 岁以下儿童，也不会有意收集儿童数据 —— 事实上它不收集任何数据。',
+        body: 'SlimDisk 并非面向 13 岁以下儿童，也不会有意收集儿童数据 —— 事实上它不收集任何数据。',
       },
       {
         heading: '政策变更',
-        body: '我们可能随产品演进而更新本政策，重大变更会体现在顶部的「最后更新」日期。如果将来 MacSlim 引入了任何联网功能，本政策会先更新，再上线该功能。',
+        body: '我们可能随产品演进而更新本政策，重大变更会体现在顶部的「最后更新」日期。如果将来 SlimDisk 引入了任何联网功能，本政策会先更新，再上线该功能。',
       },
     ],
     contactHeading: '联系我们',
-    contactBody: '如果你对本政策或 MacSlim 的数据处理方式有疑问，请发邮件给我们：',
-    backLabel: '← 返回 MacSlim',
+    contactBody: '如果你对本政策或 SlimDisk 的数据处理方式有疑问，请发邮件给我们：',
+    backLabel: '← 返回 SlimDisk',
   },
   en: {
     title: 'Privacy Policy',
     updated: `Last updated: ${UPDATED}`,
     intro:
-      'MacSlim is a macOS system maintenance tool that scans system state, clears caches and manages processes. This page describes what it **reads**, what it **modifies**, and what it **does not do at all**.',
+      'SlimDisk is a macOS system maintenance tool that scans system state, clears caches and manages processes. This page describes what it **reads**, what it **modifies**, and what it **does not do at all**.',
     sections: [
       {
         heading: 'Summary',
-        body: 'MacSlim runs entirely on your Mac. We have no server, no telemetry and no account, and we do no remote data collection of any kind.',
+        body: 'SlimDisk runs entirely on your Mac. We have no server, no telemetry and no account, and we do no remote data collection of any kind.',
         bullets: [
           'Every scan, measurement and cleanup happens locally — no data is sent anywhere',
           'No analytics SDK, no crash reporting, no usage statistics',
@@ -132,7 +132,7 @@ const content: Record<Language, PrivacyContent> = {
         ],
       },
       {
-        heading: 'What MacSlim reads',
+        heading: 'What SlimDisk reads',
         body: 'This information is read on your machine to display results in the interface. It is not turned into a profile of you, and it never leaves your Mac.',
         bullets: [
           'Process list — process name, CPU and memory usage, port bindings. Used for sorting, search and port filtering in the process manager',
@@ -142,7 +142,7 @@ const content: Record<Language, PrivacyContent> = {
         ],
       },
       {
-        heading: 'What MacSlim modifies',
+        heading: 'What SlimDisk modifies',
         body: 'Everything below happens **only when you trigger it from the interface**, and every execution is preceded by a confirmation dialog listing the exact targets. Nothing runs in the background on its own.',
         bullets: [
           'Deleting caches and build artifacts — NPM / pnpm / Yarn / Cargo / Go / pip / Homebrew caches, Xcode DerivedData, Docker data',
@@ -159,7 +159,7 @@ const content: Record<Language, PrivacyContent> = {
         bullets: [
           'Deleted caches, packages, images and build artifacts cannot be restored — they must be re-downloaded or rebuilt',
           'A terminated process does not restart itself, and if it was an app writing a file, unsaved work may be lost',
-          'That is why MacSlim offers no "one-click undo". Genuinely reversible items are only allowlist changes, setting changes, and metadata moved to the Trash',
+          'That is why SlimDisk offers no "one-click undo". Genuinely reversible items are only allowlist changes, setting changes, and metadata moved to the Trash',
         ],
       },
       {
@@ -176,7 +176,7 @@ const content: Record<Language, PrivacyContent> = {
         body: 'The Developer ID build needs Full Disk Access so it can walk your home folder, measure cache sizes and clear them. macOS requests this the first time you trigger a scan or a cleanup.',
         bullets: [
           'Purpose: measuring cache directory sizes and deleting cache files',
-          'You can use MacSlim without it: system-level scanning (CPU / memory / disk), the process manager and history all keep working',
+          'You can use SlimDisk without it: system-level scanning (CPU / memory / disk), the process manager and history all keep working',
           'Revoke it any time in System Settings → Privacy & Security → Full Disk Access',
           'Directories it cannot read are reported as inaccessible rather than estimated with an invented number',
         ],
@@ -193,16 +193,16 @@ const content: Record<Language, PrivacyContent> = {
       },
       {
         heading: 'Children',
-        body: 'MacSlim is not directed at children under 13, and we do not knowingly collect data from children — because we collect no data at all.',
+        body: 'SlimDisk is not directed at children under 13, and we do not knowingly collect data from children — because we collect no data at all.',
       },
       {
         heading: 'Changes to this policy',
-        body: 'We may update this policy as the product evolves, and material changes appear as a new "Last updated" date at the top. If MacSlim ever gains a networked feature, this policy will be updated first and shipped afterwards.',
+        body: 'We may update this policy as the product evolves, and material changes appear as a new "Last updated" date at the top. If SlimDisk ever gains a networked feature, this policy will be updated first and shipped afterwards.',
       },
     ],
     contactHeading: 'Contact',
-    contactBody: 'If you have questions about this policy or about how MacSlim handles data, email us:',
-    backLabel: '← Back to MacSlim',
+    contactBody: 'If you have questions about this policy or about how SlimDisk handles data, email us:',
+    backLabel: '← Back to SlimDisk',
   },
 }
 
@@ -212,16 +212,16 @@ function renderWithBold(text: string) {
   return parts.map((p, i) => (i % 2 === 1 ? <strong key={i}>{p}</strong> : <span key={i}>{p}</span>))
 }
 
-export default function MacSlimPrivacyPage() {
+export default function SlimDiskPrivacyPage() {
   const { language } = useLanguage()
   const c = content[language]
 
   useEffect(() => {
-    document.title = `${c.title} — MacSlim`
+    document.title = `${c.title} — SlimDisk`
     // LanguageProvider also writes document.title, and React runs child effects
     // before parent ones, so re-assert on the next frame to keep ours.
     const raf = requestAnimationFrame(() => {
-      document.title = `${c.title} — MacSlim`
+      document.title = `${c.title} — SlimDisk`
     })
     return () => cancelAnimationFrame(raf)
   }, [c])
@@ -229,7 +229,7 @@ export default function MacSlimPrivacyPage() {
   return (
     <>
       <GlowBackground />
-      <Navbar homeHref="/macslim/" backLabel={c.backLabel} />
+      <Navbar homeHref="/slimdisk/" backLabel={c.backLabel} />
       <main className="pt-16 px-6 py-20">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-4">

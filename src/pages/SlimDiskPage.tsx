@@ -22,34 +22,34 @@ import {
   TriangleAlert,
 } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
-import { macSlimContent, type MacSlimFeatureItem } from '../i18n/macslimContent'
+import { slimDiskContent, type SlimDiskFeatureItem } from '../i18n/slimdiskContent'
 import GlowBackground from '../components/GlowBackground'
-import MacSlimIcon from '../components/icons/MacSlimIcon'
+import SlimDiskIcon from '../components/icons/SlimDiskIcon'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 /**
  * The release file name. Keep in sync with the JSON-LD `downloadUrl` in
- * `macslim/index.html` and the DMG published under /downloads/ on the VPS.
+ * `slimdisk/index.html` and the DMG published under /downloads/ on the VPS.
  */
-export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/MacSlim-1.0.1-aarch64.dmg'
+export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/SlimDisk-1.0.1-aarch64.dmg'
 
-export const PRIVACY_URL = '/macslim/privacy/'
+export const PRIVACY_URL = '/slimdisk/privacy/'
 
 /**
- * Screenshots live in `public/downloads/macslim/` and are served from
- * `/downloads/macslim/`. Eight files are expected — one per language per screen:
+ * Screenshots live in `public/downloads/slimdisk/` and are served from
+ * `/downloads/slimdisk/`. Eight files are expected — one per language per screen:
  *
- *   macslim-zh-scan.png        macslim-en-scan.png
- *   macslim-zh-process.png     macslim-en-process.png
- *   macslim-zh-cache.png       macslim-en-cache.png
- *   macslim-zh-uninstall.png   macslim-en-uninstall.png
+ *   slimdisk-zh-scan.png        slimdisk-en-scan.png
+ *   slimdisk-zh-process.png     slimdisk-en-process.png
+ *   slimdisk-zh-cache.png       slimdisk-en-cache.png
+ *   slimdisk-zh-uninstall.png   slimdisk-en-uninstall.png
  *
  * They are referenced directly as <img> with no placeholder block, so a missing
  * file shows a broken image rather than a fake UI. The slugs below are the
- * `macslim-<lang>-<slug>.png` infix and must stay in sync with that list.
+ * `slimdisk-<lang>-<slug>.png` infix and must stay in sync with that list.
  */
-const SCREENSHOT_DIR = '/downloads/macslim'
+const SCREENSHOT_DIR = '/downloads/slimdisk'
 
 const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   gauge: Gauge,
@@ -73,10 +73,10 @@ function setMeta(name: string, content: string) {
   el.setAttribute('content', content)
 }
 
-export default function MacSlimPage() {
+export default function SlimDiskPage() {
   const shouldReduceMotion = useReducedMotion()
   const { language } = useLanguage()
-  const c = macSlimContent[language]
+  const c = slimDiskContent[language]
   const screenshotLang = language === 'zh' ? 'zh' : 'en'
 
   useEffect(() => {
@@ -115,7 +115,7 @@ export default function MacSlimPage() {
             transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.7, ease: 'easeOut' }}
             className="w-28 h-28 rounded-[28px] shadow-2xl shadow-vgo-primary/30 animate-float"
           >
-            <MacSlimIcon size={112} className="w-full h-full" />
+            <SlimDiskIcon size={112} className="w-full h-full" />
           </motion.div>
           <motion.span
             {...fade(0.1)}
@@ -160,8 +160,8 @@ export default function MacSlimPage() {
           <motion.div {...fade(0.7)} className="mt-14 w-full max-w-4xl">
             <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-vgo-primary/20 bg-vgo-card">
               <img
-                src={`${SCREENSHOT_DIR}/macslim-${screenshotLang}-scan.png`}
-                alt={c.screenshots.items[0]?.caption ?? 'MacSlim'}
+                src={`${SCREENSHOT_DIR}/slimdisk-${screenshotLang}-scan.png`}
+                alt={c.screenshots.items[0]?.caption ?? 'SlimDisk'}
                 width={1800}
                 height={1200}
                 className="w-full block"
@@ -181,7 +181,7 @@ export default function MacSlimPage() {
             </motion.p>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {c.features.items.map((item: MacSlimFeatureItem, i: number) => {
+              {c.features.items.map((item: SlimDiskFeatureItem, i: number) => {
                 const Icon = FEATURE_ICONS[item.icon] ?? Sparkles
                 return (
                   <motion.div key={item.title} {...fade(i * 0.04)} className="glass glass-hover p-6">
@@ -211,7 +211,7 @@ export default function MacSlimPage() {
               {c.screenshots.items.map((item, i) => (
                 <motion.figure key={item.slug} {...fade(i * 0.05)} className="glass glass-hover overflow-hidden">
                   <img
-                    src={`${SCREENSHOT_DIR}/macslim-${screenshotLang}-${item.slug}.png`}
+                    src={`${SCREENSHOT_DIR}/slimdisk-${screenshotLang}-${item.slug}.png`}
                     alt={item.caption}
                     loading="lazy"
                     className="w-full border-b border-white/[0.08]"

@@ -3,56 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MacSlim — 懂开发者的 Mac 系统运维工具</title>
+    <title>SlimDisk — 懂开发者的 Mac 系统运维工具</title>
     <meta
       name="description"
-      content="MacSlim 一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾，管理进程与应用卸载。每步都有日志，破坏性操作前先问你。无账号、无遥测、数据不出你的 Mac。"
+      content="SlimDisk 一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾，管理进程与应用卸载。每步都有日志，破坏性操作前先问你。无账号、无遥测、数据不出你的 Mac。"
     />
-    <meta name="keywords" content="Mac 清理,缓存清理,NPM 缓存,Docker 清理,Xcode DerivedData,进程管理,应用卸载,系统优化,MacSlim" />
+    <meta name="keywords" content="Mac 清理,缓存清理,NPM 缓存,Docker 清理,Xcode DerivedData,进程管理,应用卸载,系统优化,SlimDisk" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://vgoapp.com/macslim/" />
+    <link rel="canonical" href="https://vgoapp.com/slimdisk/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#0a0a0f" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="MacSlim — 懂开发者的 Mac 系统运维工具" />
+    <meta property="og:title" content="SlimDisk — 懂开发者的 Mac 系统运维工具" />
     <meta
       property="og:description"
       content="一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾。每步都有日志，破坏性操作前先问你。"
     />
-    <meta property="og:image" content="https://vgoapp.com/downloads/macslim/macslim-og.png" />
+    <meta property="og:image" content="https://vgoapp.com/downloads/slimdisk/slimdisk-og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="MacSlim — Scan, tidy, clean" />
-    <meta property="og:url" content="https://vgoapp.com/macslim/" />
+    <meta property="og:image:alt" content="SlimDisk — Scan, tidy, clean" />
+    <meta property="og:url" content="https://vgoapp.com/slimdisk/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VGO" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="MacSlim — 懂开发者的 Mac 系统运维工具" />
+    <meta name="twitter:title" content="SlimDisk — 懂开发者的 Mac 系统运维工具" />
     <meta
       name="twitter:description"
       content="一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存与系统垃圾。每步都有日志，破坏性操作前先问你。"
     />
-    <meta name="twitter:image" content="https://vgoapp.com/downloads/macslim/macslim-og.png" />
+    <meta name="twitter:image" content="https://vgoapp.com/downloads/slimdisk/slimdisk-og.png" />
 
     <!-- JSON-LD
          downloadUrl below must be kept in sync with DOWNLOAD_URL in
-         src/pages/MacSlimPage.tsx. -->
+         src/pages/SlimDiskPage.tsx. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "MacSlim",
+      "name": "SlimDisk",
       "softwareVersion": "1.0.1",
       "description": "懂开发者的 Mac 系统运维工具：一键扫描系统健康，清理 NPM / Docker / Xcode 等开发者缓存，管理进程与应用卸载。A macOS maintenance tool with one-click system health scan, deep support for developer caches (NPM, Docker, Xcode), process management and app uninstalls.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "macOS 13.0+, Apple silicon",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "url": "https://vgoapp.com/macslim/",
-      "downloadUrl": "https://vgoapp.com/downloads/MacSlim-1.0.1-aarch64.dmg"
+      "url": "https://vgoapp.com/slimdisk/",
+      "downloadUrl": "https://vgoapp.com/downloads/SlimDisk-1.0.1-aarch64.dmg"
     }
     </script>
 
@@ -62,10 +62,10 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "MacSlim 收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "核心功能免费。安装包约 8.6 MB，不订阅、不看广告。" } },
+        { "@type": "Question", "name": "SlimDisk 收费吗？", "acceptedAnswer": { "@type": "Answer", "text": "核心功能免费。安装包约 8.6 MB，不订阅、不看广告。" } },
         { "@type": "Question", "name": "它会删我的个人文件吗？", "acceptedAnswer": { "@type": "Answer", "text": "它清理的是已识别的缓存、日志、构建产物和废纸篓，不会主动去删你的文档、照片或项目代码。但缓存目录里可能混有你没预期的第三方数据，所以确认弹窗里的清单请看一眼再点。" } },
         { "@type": "Question", "name": "我需要给它什么权限？", "acceptedAnswer": { "@type": "Answer", "text": "Developer ID 版需要「完全磁盘访问权限」来遍历用户目录统计缓存体积；优雅退出应用会用到 Apple Events。两项都可以在系统设置里随时撤销。" } },
-        { "@type": "Question", "name": "它和活动监视器有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "活动监视器是给你观察的工具，得出结论的活儿留给你自己。MacSlim 把可清理项算好、标好风险，替你点掉，但每一步仍然让你确认。" } },
+        { "@type": "Question", "name": "它和活动监视器有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "活动监视器是给你观察的工具，得出结论的活儿留给你自己。SlimDisk 把可清理项算好、标好风险，替你点掉，但每一步仍然让你确认。" } },
         { "@type": "Question", "name": "我要是清错了怎么办？", "acceptedAnswer": { "@type": "Answer", "text": "缓存和构建产物删掉是不能撤销，但绝大多数重新下载或重新编译就能拿回来。历史记录会如实写明刚才删了什么、释放了多少。" } },
         { "@type": "Question", "name": "支持 Intel Mac 吗？", "acceptedAnswer": { "@type": "Answer", "text": "目前只支持 Apple 芯片（M1 及以上），系统要求 macOS 13.0 或更高。" } }
       ]
@@ -74,6 +74,6 @@
   </head>
   <body class="bg-vgo-bg text-vgo-text antialiased">
     <div id="root"></div>
-    <script type="module" src="/src/macslim-main.tsx"></script>
+    <script type="module" src="/src/slimdisk-main.tsx"></script>
   </body>
 </html>
