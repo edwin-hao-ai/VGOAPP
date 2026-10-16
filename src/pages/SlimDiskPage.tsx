@@ -32,7 +32,7 @@ import Footer from '../components/Footer'
  * The release file name. Keep in sync with the JSON-LD `downloadUrl` in
  * `slimdisk/index.html` and the DMG published under /downloads/ on the VPS.
  */
-export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/SlimDisk-1.0.1-aarch64.dmg'
+export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/SlimDisk-1.0.2-aarch64.dmg'
 
 export const PRIVACY_URL = '/slimdisk/privacy/'
 
