@@ -139,8 +139,8 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         {
           icon: 'camera',
           href: '/remotecrab/features/camera/',
-          title: '4K 无线摄像头',
-          body: '作为标准摄像头出现在 Zoom、Teams、FaceTime、OBS 里，以 4K 30fps 输出，画面比 1080p 摄像头更清楚。',
+          title: '无线摄像头',
+          body: '作为标准摄像头出现在 Zoom、Teams、FaceTime、OBS 里；采集端最高支持 4K，对外以兼容性最好的 1080p 30fps 输出。',
         },
         {
           icon: 'mic',
@@ -334,8 +334,8 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         {
           icon: 'camera',
           href: '/remotecrab/features/camera/',
-          title: '4K wireless camera',
-          body: 'Your iPhone appears as a standard camera in Zoom, Teams, FaceTime and OBS — 4K at 30fps, hardware H.264 encoding.',
+          title: 'Wireless camera',
+          body: 'Your iPhone appears as a standard camera in Zoom, Teams, FaceTime and OBS — up to 4K capture, output at 1080p 30fps for the widest compatibility.',
         },
         {
           icon: 'mic',
