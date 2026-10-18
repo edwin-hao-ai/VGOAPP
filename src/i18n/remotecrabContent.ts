@@ -258,7 +258,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer; notifications land on your phone and tapping one jumps back to that window; and you can ask AI about what is on the computer — it sees the screen, the answer lands at your cursor. Over local WiFi. No cloud, no account, no subscription.',
       downloadMac: 'Download for Mac',
       downloadWindows: 'Download for Windows',
-      downloadIOS: 'Get the iPhone app',
+      downloadIOS: 'Download on the App Store',
       testflight: 'Join the TestFlight beta',
       free: 'Free · No account · No subscription · Stays on your LAN',
       requirementsNote: 'Requires macOS 26+ (Apple silicon) and iOS 26+',

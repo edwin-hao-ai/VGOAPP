@@ -129,6 +129,14 @@ export default function RemoteCrabPage() {
               <Laptop size={18} /> {c.hero.downloadWindows}
             </a>
             <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
+            >
+              <Smartphone size={18} /> {c.hero.downloadIOS}
+            </a>
+            <a
               href={TESTFLIGHT_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -390,6 +398,14 @@ export default function RemoteCrabPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-vgo-primary to-vgo-secondary text-white font-semibold shadow-lg shadow-vgo-primary/25 hover:shadow-vgo-primary/40 transition-shadow"
               >
                 <Download size={18} /> {c.cta.download}
+              </a>
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
+              >
+                <Smartphone size={18} /> {c.hero.downloadIOS}
               </a>
               <a
                 href={GITHUB_URL}
