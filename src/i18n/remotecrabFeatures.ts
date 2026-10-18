@@ -30,9 +30,11 @@ export interface FeaturePageContent {
 
 const ORDER = [
   'notifications',
+  'ai',
   'extended-display',
   'camera',
   'microphone',
+  'speaker',
   'screen-mirror',
   'trackpad',
   'keyboard',
@@ -48,9 +50,11 @@ export const FEATURE_ORDER: FeatureSlug[] = [...ORDER]
 
 export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
   notifications: 'notifications',
+  ai: 'ai',
   'extended-display': 'extended-display',
   camera: 'camera',
   microphone: 'microphone',
+  speaker: 'speaker',
   'screen-mirror': 'screen-mirror',
   trackpad: 'trackpad',
   keyboard: 'keyboard',
@@ -130,6 +134,80 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     cta: {
       title: '让通知找到你',
       body: '下载 Mac 版,打开通知转发,把手机放到一边试试。',
+      download: '下载 Mac 版',
+      ios: 'App Store 下载 iPhone 版',
+    },
+  },
+
+  ai: {
+    slug: 'ai',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '问 AI',
+      title: '电脑前的事,直接问 AI',
+      subtitle:
+        '在手机上进 AI 对话,问一句「现在打开了哪些窗口」或「这段报错什么意思」—— AI 看得见你电脑的屏幕和剪贴板,答案直接在手边。',
+      bullets: [
+        'AI 看得见你正在看的屏幕画面',
+        '问的时候剪贴板可以一并带上',
+        '说出来的话也不用打字:按住说话直接问',
+      ],
+    },
+    problem: {
+      title: '回去看一眼,还是去问 AI?',
+      body:
+        '长任务跑到一半,你想知道「现在到哪了」;终端里报错,想知道「下一步该点哪」。走回电脑看看是一条路,举着手机问 AI 是另一条 —— RemoteCrab 让 AI 直接看得到你的电脑,问话就够了。',
+    },
+    how: {
+      title: '第一次进对话,先把模型配好',
+      description: '手机上的「问 AI」入口会引导你选一个模型源(用你自己的模型,数据在本地);之后就是正常聊天。',
+      steps: [
+        { title: '点开「问 AI」', body: '在顶部工具栏的菜单里点「问 AI」。第一次会先引导你配置模型源。' },
+        { title: '提问', body: '可以打字,也可以按住说话 —— 说出来的话识别成问题直接发送。' },
+        { title: '带上下文', body: '问的时候 AI 同时看得见电脑当前的屏幕画面和剪贴板内容,不用你自己描述' },
+      ],
+    },
+    details: {
+      title: '它在看什么、记什么',
+      description: '每个可以看见的东西,都是你显式给的。',
+      items: [
+        { title: '屏幕画面', body: '问的时候把电脑当前的画面带给 AI —— 屏幕上有什么,它就知道什么,省掉你用文字描述环境。' },
+        { title: '剪贴板', body: '需要时把两端里的剪贴板内容一并带上 —— 报错、日志、代码片段,复制一下就能问。' },
+        { title: '答案可以直接落到电脑', body: 'AI 生成的文字可以一键打到电脑光标处 —— 要它写的那段台词、注释或报错解析,直接出现在该在的窗口里。' },
+        { title: '对着说话就问', body: '有 AI 可用时,那个「按住说话」的按钮直接变成「按住问 AI」—— 识别在本地完成,说完就发。' },
+        { title: 'agent 的执行确认', body: '电脑上的 AI 工具(如 opencode)要执行命令时,确认卡会弹到手机上:写清楚它想干什么,你看完再点允许 —— 超时不批,不会因为没看着就自动放行。' },
+        { title: '用自己的模型', body: '对话走你自己配的模型源,不经过 RemoteCrab 的服务器;记录留在 App 里,可以删。' },
+      ],
+    },
+    tips: {
+      title: '什么时候最好用',
+      description: '带着上下文问,比空着手问强得多。',
+      items: [
+        '**盯着长任务**:agent 在电脑上跑,让它「跑完叫我」;手机上收通知,点一下跳回那个窗口。',
+        '**报错救助**:终端里报错,复制进剪贴板,问 AI「这个怎么修」,它连屏幕一起看。',
+        '**写文字**:让 AI 帮你起草、改写,然后让它把答案直接打到电脑上的光标处。',
+        '**开会时**:不用离席,在手机上问一句电脑上的进度,不打断别人。',
+      ],
+    },
+    requires: {
+      title: '需要什么',
+      items: [
+        '一台能连的电脑(macOS 26+ 或 Windows)',
+        'iOS / iPadOS 26 或更高',
+        'App 内配置一个模型源(BYOK:用你自己的 API key,数据不走我们)',
+        '电脑端正如常连接',
+      ],
+      note: '安全上,哪些内容会被带走(屏幕和剪贴板)都发生在你按下「问」的那一刻;没有静默的采集。',
+    },
+    next: {
+      title: '电脑上的通知,手机上一条不落',
+      body: '问 AI 之外还有一个更省心的:电脑上的通知自动转发到手机,点一下就能跳回那个应用和窗口。',
+      cta: '看通知中继 →',
+      href: '/remotecrab/features/notifications/',
+    },
+    cta: {
+      title: '把电脑交给 AI 看一眼',
+      body: '下载两个 App,配好模型源,对着手机问一句试试。',
       download: '下载 Mac 版',
       ios: 'App Store 下载 iPhone 版',
     },
@@ -217,11 +295,11 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: '虚拟摄像头',
       title: '让你的 iPhone 出现在摄像头列表里',
       subtitle:
-        '在 Zoom、Teams、FaceTime、OBS 里,「RemoteCrab Camera」和任何普通摄像头一模一样 —— 以 4K(3840×2160)30 帧输出,视频用硬件编码,不占用 CPU。',
+        '在 Zoom、Teams、FaceTime、OBS 里,「RemoteCrab Camera」和任何普通摄像头一模一样 —— 以 1080p 30 帧输出,视频用硬件编码,不占用 CPU。',
       bullets: [
         '任何 App 都能直接选到,不用改任何设置',
-        '以 4K 30 帧输出,视频用硬件 H.264 编码',
-        '4K 输出,细节比普通 1080p 摄像头更清楚',
+        '以 1080p 30 帧输出,视频用硬件 H.264 编码',
+        '采集最高支持 4K,画面更锐利',
         '手机架在哪儿,画面就从哪儿拍',
       ],
     },
@@ -245,7 +323,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       items: [
         { title: '真正的系统级摄像头', body: '通过 macOS 的相机扩展机制注册,系统、App Store 的 App、第三方软件都认。' },
         { title: '硬件编码,不烧 CPU', body: '用 iPhone 的硬件编码器压成 H.264 再传,所以电脑这边几乎不吃性能。' },
-        { title: '4K 输出', body: '摄像头对外的格式是 4K(3840×2160)30 帧。手机送到电脑后由虚拟摄像头以 4K 输出,细节比 1080p 摄像头更清楚 —— 想让细节最实,把手机端的视频分辨率也设为 4K。' },
+        { title: '4K 采集,1080p 输出', body: '摄像头对外的标准格式是 1080p 30 帧(和应用兼容性最好);采集端最高支持 4K,再下采样到 1080p,细节比直接拍 1080p 更清楚。' },
         { title: '前后摄像头随时切', body: '在手机上切换前后摄像头,电脑端的 App 立刻跟着变。' },
         { title: '也能当直播输入', body: 'OBS 里把它加进「视频采集设备」,就是一个真实的第二机位。' },
         { title: '延迟很低', body: '局域网直连 + 硬件编解码,实测延迟在一两百毫秒量级,日常开会完全够用。' },
@@ -360,6 +438,80 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
   },
 
+  speaker: {
+    slug: 'speaker',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '扬声器模式',
+      title: '电脑的声音,从手机里放出来',
+      subtitle:
+        '不只是通话,是整个电脑的声音 —— 网页里的剧、正在放的歌、会议里那些只有你听得见的声音,全从你手上的 iPhone 播出来。零延迟,无杂音。',
+      bullets: [
+        '电脑上的所有声音都推到手机播放',
+        'PCM 直送,没有编解码延迟和压缩糊感',
+        '和麦克风是两个独立开关,一键互切',
+      ],
+    },
+    problem: {
+      title: '「这段只有我能听」的声音,总要挤在一起',
+      body:
+        '戴上耳机听电脑上的剧,起身接杯水就听不见了;午休想外放,又怕吵到同事。而手机总是离你最近的那个音响,电脑上的声音为什么到不了手机上?',
+    },
+    how: {
+      title: '一个开关的事',
+      description: '手机上点开麦克风按钮,把「扬声器」打开 —— 电脑的声音立刻改从手机播出。',
+      steps: [
+        { title: '打开扬声器', body: '顶部工具栏点开麦克风/扬声器菜单,勾上「扬声器」。' },
+        { title: '电脑照常出声', body: '电脑上播什么,手机里就响什么 —— 播放器、网页、会议,不分应用。' },
+        { title: '随时切回麦克风', body: '取消「扬声器」,电脑声音回到电脑。两个开关各管各的,互不打扰。' },
+      ],
+    },
+    details: {
+      title: '它怎么做到又稳又干净',
+      description: '采集、传输、播放三段都是工程里磨出来的。',
+      items: [
+        { title: '系统级采集', body: '抓的是电脑正在播出的整路声音 —— 任何应用的音频都能推过来,不用一个个设置。' },
+        { title: 'PCM 直送', body: '不过压缩编解码,采集到什么就送什么 —— 没有编解码延迟,也没有那种「压缩味」的糊。' },
+        { title: '恒定节奏播放', body: '按数据的实际到达节奏喂给播放器,队列深度始终在一两包以内 —— 不会越听越延迟。' },
+        { title: '不丢包不积压', body: '设备实测队列深度 0-3 包、丢弃 0 包 —— 播放和到达之间只隔几十毫秒的缓冲。' },
+        { title: '和麦克风独立', body: '开会和听剧是两个场景:麦克风开着也能开扬声器,关掉一个不影响另一个。' },
+        { title: '切换即生效', body: '在手机上开关一次就完成切换,电脑端不需要点任何东西。' },
+      ],
+    },
+    tips: {
+      title: '什么时候最好用',
+      description: '「声音在电脑那儿、人在别处」都算它的场景。',
+      items: [
+        '**午休外放**:手机当音箱,电脑上的歌播到你桌面上那一侧的小角落。',
+        '**戴耳机看剧累的时候**:不看画面只听剧情,把电脑声音转到手机,躺床上听。',
+        '**开会前的一分钟**:先用扬声器模式试试会议里的播放内容,确认声音正常再开始。',
+        '**不吵到别人**:电脑离你很远、但声音必须是它的,这时手机就是离你最近的那个「音箱」。',
+      ],
+    },
+    requires: {
+      title: '需要什么',
+      items: [
+        'macOS 26 或更高,Apple 芯片(M 系列)',
+        'iOS / iPadOS 26 或更高',
+        '两台设备在同一个 WiFi 下',
+        '电脑需要授予「屏幕录制」权限(用于采集系统声音)',
+      ],
+      note: '它是「听电脑」,不是「当音箱放手机的音乐」—— 电脑上播什么,手机里才响什么。',
+    },
+    next: {
+      title: '反过来,要让别人听清你',
+      body: '扬声器是「电脑的声音到手机」;麦克风是「手机当电脑的麦克风」—— 一键安装驱动,任何会议软件里都能选到。',
+      cta: '看虚拟麦克风 →',
+      href: '/remotecrab/features/microphone/',
+    },
+    cta: {
+      title: '把电脑的所有声音装进口袋',
+      body: '下载 Mac 版和 iPhone 版,点开扬声器,电脑上的剧立刻在手机里响起。',
+      download: '下载 Mac 版',
+      ios: 'App Store 下载 iPhone 版',
+    },
+  },
+
   'screen-mirror': {
     slug: 'screen-mirror',
     nav: { back: '← 所有功能' },
@@ -367,7 +519,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: '屏幕镜像与操控',
       title: '把电脑上的窗口搬到手机上,直接用手指操作',
       subtitle:
-        '不是投屏看 —— 是真的能操作。点一下就是点击,拖一下就是拖动,双指就是滚动,捏合就是缩放。',
+        '不是投屏看 —— 是真的能操作。点一下就是点击,单指划就是滚动,按住再拖就是拖动,捏合就是缩放。',
       bullets: [
         '默认跟随电脑上当前的前台 App',
         '点按、拖拽、滚轮、捏合、双击全都支持',
@@ -384,7 +536,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       description: '默认行为是「自动跟随」—— 电脑上切到哪个 App,手机就跟着显示哪个。',
       steps: [
         { title: '点开镜像', body: 'iPhone 顶部工具栏里点一下镜像图标,画面就出来了。' },
-        { title: '随便操作', body: '点一下是点击,长按是右键,双击是选中,单指拖是拖动,双指拖是滚动。' },
+        { title: '随便操作', body: '点一下是点击,单指拖是滚动,按住再拖是拖动,按住不动是右键,捏合是缩放。' },
         { title: '需要时切窗口', body: '点窗口按钮可以钉住某一个窗口,或者切换到整个桌面。' },
       ],
     },
@@ -393,9 +545,10 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       description: '这些都在手机上的镜像界面里完成,和触控板的手感一致。',
       items: [
         { title: '单指点按 = 单击', body: '落在窗口里的哪个位置,就在那个位置点击 —— 不是相对移动。' },
-        { title: '长按 / 双指点按 = 右键', body: '和真触控板一样,弹右键菜单。' },
-        { title: '单指拖 = 拖动', body: '拖窗口、拖文件、拖选文字,都可以。' },
-        { title: '双指拖 = 滚动', body: '自动判断是滚动还是移动画面,不会互相打架。' },
+        { title: '长按不动 / 双指点按 = 右键', body: '按住手指不要移动,松手就是右键菜单;双指点按同样可以,和真触控板一样。' },
+        { title: '单指拖 = 滚动', body: '和触屏的习惯一致 —— 手指划,电脑里的内容就滚。和双指滚动是同一映射,两个手指换过来不用重新学。' },
+        { title: '按住再拖 = 拖动', body: '拖窗口、拖文件、拖选文字都可以;按住的瞬间有一下轻触感,表示「拿起来了」。' },
+        { title: '双指拖 = 滚动,放大后 = 平移', body: '双指负责滚;画面放大之后,一个轴滚内容,另一个轴推画面 —— 自动判断,不会互相打架。' },
         { title: '捏合 = 局部缩放', body: '可以放大某个区域看细节,双击可以放大或还原。' },
         { title: '修饰键 = 任何操作加键', body: '按住 ⌘ / ⌥ / ⌃ / ⇧,接下来的点击、拖拽都会带上它。' },
       ],
@@ -620,6 +773,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
         { title: '优先用新引擎', body: '如果系统上装了对应的语音模型,它会自动用上更新的那个,更准也更稳。' },
         { title: '说完才写进去', body: '还没松开之前不会往电脑里灌字,所以说错了可以先停。' },
         { title: '说话时让出其他功能', body: '按住说话的时候,视频和镜像会暂时让路,保证识别不被抢占。' },
+        { title: '按住问 AI,用的也是它', body: '有 AI 对话可用时,按住说话识别出来的就是发给 AI 的问题 —— 识别仍然在本地完成,还能把屏幕和剪贴板一并给 AI 看。' },
       ],
     },
     tips: {
@@ -956,6 +1110,80 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     },
   },
 
+  ai: {
+    slug: 'ai',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Ask AI',
+      title: 'Ask AI about what\u2019s on your computer',
+      subtitle:
+        'Open an AI chat on your phone and ask "what windows are open?" or "what does this error mean?" — the AI can see your computer\u2019s screen and clipboard, and the answer is in your hand.',
+      bullets: [
+        'The AI sees the screen you are looking at',
+        'The clipboard can ride along with any question',
+        'No typing needed — hold to talk and ask',
+      ],
+    },
+    problem: {
+      title: 'Walk back and look, or ask the AI?',
+      body:
+        'A long task is running and you want to know where it is. The terminal printed an error you cannot place. Walking back is one path; asking an AI is another — RemoteCrab gives the AI eyes on your computer, so asking is enough.',
+    },
+    how: {
+      title: 'Pick a model source the first time',
+      description: 'The "Ask AI" entry walks you through choosing a model source (your own key, kept local); from then on it is a chat.',
+      steps: [
+        { title: 'Open "Ask AI"', body: 'Tap it in the top-bar menu. The first time it guides you through model setup.' },
+        { title: 'Ask', body: 'Type, or hold to talk — what you say is recognised on-device and sent as the question.' },
+        { title: 'Context comes along', body: 'The AI sees the computer\u2019s current screen and the clipboard alongside your question — no manual describing.' },
+      ],
+    },
+    details: {
+      title: 'What it sees, what it keeps',
+      description: 'Everything the AI can see is something you explicitly gave it.',
+      items: [
+        { title: 'The screen', body: 'Asking brings the computer\u2019s current picture along — what is on screen is what it knows, no environment essays.' },
+        { title: 'The clipboard', body: 'Include it when useful — errors, logs, code snippets: copy, then ask.' },
+        { title: 'Answers can land on the computer', body: 'Generated text can be typed straight into the cursor on the computer — the line, the note, the fix, where it belongs.' },
+        { title: 'Hold to ask', body: 'When an AI is available, the same hold-to-talk button becomes "hold to ask AI" — recognition on-device, sent on release.' },
+        { title: 'Agent approvals', body: 'When a computer-side AI tool (opencode and the like) wants to run a command, an approval card appears on the phone spelling out what it would do — you tap allow after reading. Timeout does not approve: silence is never consent.' },
+        { title: 'Your own model', body: 'The conversation goes through the model source you configured — it never passes our servers, and records stay in the app.' },
+      ],
+    },
+    tips: {
+      title: 'Where it shines',
+      description: 'Questions with context beat questions without.',
+      items: [
+        '**Watching a long task** — let the agent "ping you when done"; the notification lands and one tap jumps back to that window.',
+        '**Rescuing an error** — copy it into the clipboard, ask what it means, with the screen attached.',
+        '**Drafting text** — have the AI write or rewrite, then drop the answer straight into the cursor on your computer.',
+        '**In a meeting** — check on the computer from your phone without leaving the room.',
+      ],
+    },
+    requires: {
+      title: 'What you need',
+      items: [
+        'A connected computer (macOS 26+ or Windows)',
+        'iOS / iPadOS 26 or later',
+        'A model source configured in the app (BYOK: your own API key, nothing goes through us)',
+        'The desktop app connected as usual',
+      ],
+      note: 'Safety-wise: what travels (screen and clipboard) does so at the moment you tap ask — nothing is harvested silently.',
+    },
+    next: {
+      title: 'The computer\u2019s notifications, all on your phone',
+      body: 'Besides asking AI there is the quieter one: notifications on your computer forward to your phone, and tapping one jumps back to that app and window.',
+      cta: 'See notification relay →',
+      href: '/remotecrab/features/notifications/',
+    },
+    cta: {
+      title: 'Let AI glance at your computer',
+      body: 'Get both apps, configure a model source, and ask your first question.',
+      download: 'Download for Mac',
+      ios: 'Get RemoteCrab on the App Store',
+    },
+  },
+
   'extended-display': {
     slug: 'extended-display',
     nav: { back: '← All features' },
@@ -1038,10 +1266,10 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: 'Virtual camera',
       title: 'Your iPhone shows up in the camera list',
       subtitle:
-        'In Zoom, Teams, FaceTime and OBS, "RemoteCrab Camera" behaves like any other camera — 4K (3840×2160) at 30fps, hardware encoded, and almost no CPU cost.',
+        'In Zoom, Teams, FaceTime and OBS, "RemoteCrab Camera" behaves like any other camera — 1080p at 30fps, hardware encoded, and almost no CPU cost.',
       bullets: [
         'Picked up by every app, no per-app setup',
-        '4K 30fps, encoded in hardware with H.264',
+        '1080p 30fps, encoded in hardware with H.264',
         'Put the phone wherever the shot should be',
       ],
     },
@@ -1179,6 +1407,80 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     },
   },
 
+  speaker: {
+    slug: 'speaker',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Speaker mode',
+      title: 'The computer\u2019s sound, played out of your phone',
+      subtitle:
+        'Not calls — everything: the show in a browser tab, music, the meeting audio only you were meant to hear — streamed to the iPhone in your hand. No codec latency, no compression smear.',
+      bullets: [
+        'Every sound your computer plays streams to the phone',
+        'Raw PCM straight through — zero codec delay',
+        'Mic and speaker are two independent toggles',
+      ],
+    },
+    problem: {
+      title: 'The sound only you can hear keeps you tethered',
+      body:
+        'Wear headphones to watch a show and stepping away for water means missing it. Play it out loud and you are disturbing everyone. The iPhone is the closest speaker to you — why is the computer\u2019s audio not on it?',
+    },
+    how: {
+      title: 'One toggle',
+      description: 'Open the mic/speaker menu on the phone and switch on Speaker — the computer\u2019s audio moves over instantly.',
+      steps: [
+        { title: 'Turn Speaker on', body: 'Tap the mic button in the toolbar and tick Speaker from the drop-down menu.' },
+        { title: 'The computer plays as normal', body: 'Whatever plays on the computer sounds on the phone — players, browsers, meetings, any app.' },
+        { title: 'Switch back anytime', body: 'Untick Speaker and the sound returns to the computer. The two toggles never disturb each other.' },
+      ],
+    },
+    details: {
+      title: 'Why it stays steady and clean',
+      description: 'Capture, transport and playback each had something engineered.',
+      items: [
+        { title: 'System-wide capture', body: 'It taps the audio the computer is actually playing — every app, no per-app setup.' },
+        { title: 'Raw PCM transport', body: 'No encode or decode in the path — what is captured is what plays, with no codec delay and none of the compressed mush.' },
+        { title: 'Steady playback clock', body: 'The player is fed at the rate the data actually arrives, so the queue depth stays within a couple of packets — it never drifts more out of sync as you listen.' },
+        { title: 'No dropped packets', body: 'Measured on hardware: queue depth 0\u20133 packets, zero drops — playback trails arrival by only tens of milliseconds.' },
+        { title: 'Independent of the microphone', body: 'A meeting and a show are two scenes: both toggles can be on at once, and switching one off leaves the other alone.' },
+        { title: 'One-tap switching', body: 'Toggle it on the phone and it is done — nothing to click on the computer.' },
+      ],
+    },
+    tips: {
+      title: 'Where it shines',
+      description: 'Anytime the sound is on the computer but you are not.',
+      items: [
+        '**Lunch-break listening** — the phone becomes the speaker sitting right where you are.',
+        '**Shows without headphones** — route the computer\u2019s audio to the phone and listen from the couch.',
+        '**A minute before the meeting** — switch to speaker mode and check your playback content before you start.',
+        '**When the computer is far away** — the sound has to come from it, and your phone is the nearest speaker you have.',
+      ],
+    },
+    requires: {
+      title: 'What you need',
+      items: [
+        'macOS 26 or later on Apple silicon (M-series)',
+        'iOS / iPadOS 26 or later',
+        'Both devices on the same WiFi network',
+        'Screen Recording permission on the computer (to capture system audio)',
+      ],
+      note: 'It is "hear the computer" — the phone plays what the computer plays, not your phone\u2019s own music on a bigger speaker.',
+    },
+    next: {
+      title: 'Or the other way round — be heard',
+      body: 'Speaker mode is "the computer\u2019s audio on the phone"; the virtual microphone is "the phone as the computer\u2019s mic" — install the driver once and every meeting app can pick it.',
+      cta: 'See the virtual microphone →',
+      href: '/remotecrab/features/microphone/',
+    },
+    cta: {
+      title: 'Put the computer\u2019s audio in your pocket',
+      body: 'Download both apps, switch on Speaker, and whatever plays on the computer sounds on your phone.',
+      download: 'Download for Mac',
+      ios: 'Get the iPhone app',
+    },
+  },
+
   'screen-mirror': {
     slug: 'screen-mirror',
     nav: { back: '← All features' },
@@ -1186,7 +1488,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       eyebrow: 'Screen mirror and control',
       title: 'Put a window on your phone — and actually use it',
       subtitle:
-        'Not a viewer. Tap it and it clicks, drag it and it drags, two fingers scroll, pinch to zoom. It behaves like the trackpad you already know.',
+        'Not a viewer. Tap it and it clicks, one finger scrolls, hold-and-move drags, pinch to zoom. It behaves like your touch screen taught you.',
       bullets: [
         'Follows the frontmost app on the computer by default',
         'Tap, drag, scroll, pinch and multi-click all work',
@@ -1203,18 +1505,19 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       description: 'The default is auto-follow: whatever app is frontmost on the computer shows up on the phone.',
       steps: [
         { title: 'Open the mirror', body: 'Tap the mirror icon in the toolbar on your iPhone. The picture appears.' },
-        { title: 'Just operate it', body: 'Tap to click, long-press or two-finger tap for right-click, double-tap to select, one finger to drag, two fingers to scroll.' },
+        { title: 'Just operate it', body: 'Tap to click, one finger to scroll, hold-and-move to drag, hold still for right-click, pinch to zoom.' },
         { title: 'Switch target when needed', body: 'The window button lets you pin a specific window, or switch to the whole desktop.' },
       ],
     },
     details: {
       title: 'Gesture reference',
-      description: 'All of it happens on the mirrored image, and it matches trackpad feel.',
+      description: 'All of it happens on the mirrored image, and it matches the habits your touch screen taught you.',
       items: [
         { title: 'Single tap = click', body: 'It clicks where you land — absolute, not relative.' },
-        { title: 'Long press or two-finger tap = right-click', body: 'The context menu appears, exactly as on a trackpad.' },
-        { title: 'One-finger drag = drag', body: 'Move windows, drag files, select text.' },
-        { title: 'Two-finger drag = scroll', body: 'It works out whether you meant to scroll or to pan the view, and does not fight itself.' },
+        { title: 'Hold still, or two-finger tap = right-click', body: 'Press without moving, release, and the context menu appears; a two-finger tap does it too.' },
+        { title: 'One-finger drag = scroll', body: 'Swipe and the computer scrolls — the same mapping as two-finger scroll, so switching fingers is a habit transfer, not a re-learn.' },
+        { title: 'Hold and move = drag', body: 'Move windows, drag files, select text. A light haptic lands the moment the press becomes a drag — that is the "picked up" cue.' },
+        { title: 'Two fingers = scroll; when zoomed = pan', body: 'Two fingers scroll by default; once magnified, one axis scrolls the content and the other pans the view — decided for you, never fighting itself.' },
         { title: 'Pinch = magnify a region', body: 'Zoom into detail, double-tap to zoom or reset.' },
         { title: 'Modifiers = any operation plus keys', body: 'Hold ⌘ / ⌥ / ⌃ / ⇧ and the next tap or drag carries them.' },
       ],
@@ -1439,6 +1742,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
         { title: 'Uses the newer engine when present', body: 'If the matching on-device model is already installed, it uses the more accurate recogniser automatically.' },
         { title: 'Nothing is typed until you let go', body: 'Text is not pushed to the computer while you are still holding, so you can stop and rethink mid-sentence.' },
         { title: 'Other features yield while you talk', body: 'Video and the screen mirror step aside during dictation so the recogniser is not competing for hardware.' },
+        { title: 'Ask the AI, same button', body: 'When an AI chat is available, what you say while holding becomes the question you send it — recognition still happens on-device, and the AI can also be given the screen and clipboard.' },
       ],
     },
     tips: {

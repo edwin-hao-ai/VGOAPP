@@ -18,6 +18,7 @@ import {
   SlidersHorizontal,
   Smartphone,
   Sparkles,
+  Volume2,
   Wifi,
 } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
@@ -36,9 +37,11 @@ const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 
 const FEATURE_ICONS: Record<FeatureSlug, ComponentType<{ size?: number; className?: string }>> = {
   notifications: Bell,
+  ai: Sparkles,
   'extended-display': Monitor,
   camera: Camera,
   microphone: Mic,
+  speaker: Volume2,
   'screen-mirror': MonitorPlay,
   trackpad: MousePointer2,
   keyboard: Keyboard,

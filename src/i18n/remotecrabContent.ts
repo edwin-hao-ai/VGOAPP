@@ -8,6 +8,14 @@ export interface FeatureItem {
   href: string
 }
 
+export interface SceneItem {
+  icon: string
+  shot: string
+  title: string
+  body: string
+  href: string
+}
+
 export interface RemoteCrabContent {
   meta: { title: string; description: string }
   nav: { back: string }
@@ -24,6 +32,7 @@ export interface RemoteCrabContent {
   }
   features: { title: string; description: string; items: FeatureItem[] }
   compatibility: { title: string; body: string; cta: string }
+  scenes: { title: string; description: string; items: SceneItem[] }
   steps: {
     title: string
     description: string
@@ -52,7 +61,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       badge: 'macOS / Windows 桌面端 · 免费',
       tagline: '你的 iPhone,就是电脑缺失的外设',
       description:
-        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 再把电脑上的通知送到你手机上,点一下就跳回那个应用。通过本地 WiFi 直连,没有云端、没有账号、没有订阅。',
+        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘;电脑上的通知送到你手机上,点一下就跳回那个应用;还能直接问 AI —— 它看得见你的屏幕,答案落在你的光标处。本地 WiFi 直连,无云端、无账号、无订阅。',
       downloadMac: '下载 Mac 版',
       downloadWindows: '下载 Windows 版',
       downloadIOS: 'App Store 下载 iPhone 版',
@@ -65,10 +74,50 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     body: '演示、终端、AI 助手、浏览器、邮件、会议、Xcode…… 你在哪个 App 里,手机上的按键就换成哪一套。没收录的应用也有兜底按键。',
     cta: '看看全部 18 套',
   },
+  scenes: {
+    title: '人在哪,电脑的控制权就在哪',
+    description: '一台手机,一个连接 —— 这几个是用户最高频的四个。',
+    items: [
+      {
+        icon: 'mirror',
+        shot: '08-mirror',
+        title: '躺在沙发上照顾电脑',
+        body: '电脑画面跟到手 —— 划一下就滚,按住就能拖,点一下就是点。不用挪窝。',
+        href: '/remotecrab/features/screen-mirror/',
+      },
+      {
+        icon: 'speaker',
+        shot: '05-sound',
+        title: '午休,把电脑声音搬过来',
+        body: '电脑上播的剧和歌,从手机外放响出来;戴上耳机一整天不如让手机当音箱。',
+        href: '/remotecrab/features/speaker/',
+      },
+      {
+        icon: 'ai',
+        shot: '02-agent',
+        title: '等 agent 跑完',
+        body: '长任务让它自己跑;它要动命令时,确认卡弹到手机 —— 你看完再批,不批不放。',
+        href: '/remotecrab/features/ai/',
+      },
+      {
+        icon: 'camera',
+        shot: '04-camera',
+        title: '会议室,手机一波流',
+        body: '手机当高清摄像头和麦克风;静音、翻页、调音量,顺手在手机上全处理掉。',
+        href: '/remotecrab/features/automation/',
+      },
+    ],
+  },
     features: {
-      title: '一个 App,十一种用法',
+      title: '一个 App,十三种用法',
       description: '不用买副屏、摄像头、麦克风或触控板 —— 你本来就有的 iPhone 就够了。',
       items: [
+        {
+          icon: 'ai',
+          href: '/remotecrab/features/ai/',
+          title: '问 AI',
+          body: '手机上进 AI 对话,问电脑前的事 —— AI 看得见屏幕和剪贴板,答案可以一键落到电脑光标处。',
+        },
         {
           icon: 'bell',
           href: '/remotecrab/features/notifications/',
@@ -98,6 +147,12 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           href: '/remotecrab/features/microphone/',
           title: '虚拟麦克风',
           body: '一键安装签名并经 Apple 公证的虚拟麦克风驱动，iPhone 立刻变成全系统可用的无线麦克风。',
+        },
+        {
+          icon: 'speaker',
+          href: '/remotecrab/features/speaker/',
+          title: '扬声器模式',
+          body: '电脑上播的剧、歌和会议声音,直接从手机的外放音响里响 —— 开关一点就切换。',
         },
         {
           icon: 'trackpad',
@@ -200,7 +255,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       badge: 'macOS / Windows desktop app · Free',
       tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
-        'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer — extended screen, control from the sofa, camera and mic, all in one app. Over local WiFi. No cloud, no account, no subscription.',
+        'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer; notifications land on your phone and tapping one jumps back to that window; and you can ask AI about what is on the computer — it sees the screen, the answer lands at your cursor. Over local WiFi. No cloud, no account, no subscription.',
       downloadMac: 'Download for Mac',
       downloadWindows: 'Download for Windows',
       downloadIOS: 'Get the iPhone app',
@@ -213,11 +268,51 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     body: 'Presentations, terminals, AI assistants, browsers, mail, meetings, Xcode — the buttons on your phone become that app’s set. Anything unlisted still gets the fallback set.',
     cta: 'See all 18 sets',
   },
+  scenes: {
+    title: 'Wherever you are, the controls follow',
+    description: 'One phone, one link — these are the four scenes people reach for most.',
+    items: [
+      {
+        icon: 'mirror',
+        shot: '08-mirror',
+        title: 'Mind the computer from the couch',
+        body: 'The screen follows you — swipe to scroll, press and move to drag, tap to click. No getting up.',
+        href: '/remotecrab/features/screen-mirror/',
+      },
+      {
+        icon: 'speaker',
+        shot: '05-sound',
+        title: 'Lunch break, move the sound over',
+        body: 'The show and the music playing on the computer sound from the phone — better than headphones all afternoon.',
+        href: '/remotecrab/features/speaker/',
+      },
+      {
+        icon: 'ai',
+        shot: '02-agent',
+        title: 'Waiting on an agent',
+        body: 'Let the long task run; when it wants to act, an approval card lands on your phone — you read it, then decide.',
+        href: '/remotecrab/features/ai/',
+      },
+      {
+        icon: 'camera',
+        shot: '04-camera',
+        title: 'The meeting, in one flow',
+        body: 'The phone is the HD camera and the mic; mute, page turns and volume all happen from the phone.',
+        href: '/remotecrab/features/automation/',
+      },
+    ],
+  },
     features: {
-      title: 'One app, ten ways in',
+      title: 'One app, thirteen ways in',
       description:
         'You do not need a second monitor, a webcam, a microphone or a trackpad. The iPhone you already own is enough.',
       items: [
+        {
+          icon: 'ai',
+          href: '/remotecrab/features/ai/',
+          title: 'Ask AI',
+          body: 'An AI chat on the phone about what is on your computer — it sees the screen and clipboard, and answers can land at the cursor.',
+        },
         {
           icon: 'bell',
           href: '/remotecrab/features/notifications/',
@@ -247,6 +342,12 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           href: '/remotecrab/features/microphone/',
           title: 'Virtual microphone',
           body: 'A one-click, signed and notarized virtual mic driver makes your iPhone a system-wide wireless microphone.',
+        },
+        {
+          icon: 'speaker',
+          href: '/remotecrab/features/speaker/',
+          title: 'Speaker mode',
+          body: "Whatever plays on the computer — shows, music, meeting audio — sounds from the phone's own speaker. One toggle to switch.",
         },
         {
           icon: 'trackpad',

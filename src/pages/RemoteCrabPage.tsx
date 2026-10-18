@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Smartphone,
   Sparkles,
+  Volume2,
   Wifi,
 } from 'lucide-react'
 import { GITHUB_URL } from '../data/site'
@@ -34,11 +35,13 @@ export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/6VNNHAyx'
 
 const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+  ai: Sparkles,
   bell: Bell,
   display: Monitor,
   mirror: MonitorPlay,
   camera: Camera,
   mic: Mic,
+  speaker: Volume2,
   trackpad: MousePointer2,
   keyboard: Keyboard,
   voice: AudioLines,
@@ -181,14 +184,64 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
-        {/* Screenshots */}
+        {/* Scenes — the high-frequency use cases, each with a real capture
+            (labelled per language like everything else). Mirrors the ASC
+            scene captions: couch / sound / agent / meeting. */}
+        <section id="scenes" className="px-6 py-16 scroll-mt-20">
+          <div className="max-w-6xl mx-auto">
+            <motion.h2 {...fade()} className="text-3xl md:text-4xl font-bold text-center">
+              {c.scenes.title}
+            </motion.h2>
+            <motion.p {...fade(0.05)} className="mt-4 text-center text-vgo-muted max-w-2xl mx-auto">
+              {c.scenes.description}
+            </motion.p>
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {c.scenes.items.map((s, i) => {
+                const Icon = FEATURE_ICONS[s.icon] ?? Sparkles
+                return (
+                  <motion.a
+                    key={s.title}
+                    href={s.href}
+                    {...fade(i * 0.05)}
+                    className="glass glass-hover rounded-2xl overflow-hidden group flex flex-col sm:flex-row"
+                  >
+                    <img
+                      src={`/remotecrab/shots/${s.shot}${language === 'en' ? '-en' : ''}.jpg`}
+                      alt={s.title}
+                      loading="lazy"
+                      className="sm:w-44 shrink-0 object-cover sm:self-stretch max-sm:h-72 max-sm:object-contain"
+                    />
+                    <div className="p-6 flex-1">
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center mb-3">
+                        <Icon size={18} />
+                      </div>
+                      <h3 className="font-semibold mb-2 flex items-center gap-1.5">
+                        {s.title}
+                        <ArrowRight
+                          size={14}
+                          className="text-vgo-muted opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 motion-safe:transition-all shrink-0"
+                        />
+                      </h3>
+                      <p className="text-sm text-vgo-muted leading-relaxed">{s.body}</p>
+                    </div>
+                  </motion.a>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Screenshots — real captures (ASC slot art), one set per language.
+            The old 01-concept/02-trackpad/03-keyboard PNGs were V0.2 design
+            mockups, not the product; shipping UI is localised, so these are
+            picked per language the same way as the feature pages. */}
         <section className="px-6 py-16">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-              {['01-concept', '02-trackpad', '03-keyboard'].map((n) => (
+              {['02-agent', '04-camera', '05-sound', '06-trackpad', '07-type', '08-mirror'].map((n) => (
                 <img
                   key={n}
-                  src={`/remotecrab/${n}.png`}
+                  src={`/remotecrab/shots/${n}${language === 'en' ? '-en' : ''}.jpg`}
                   alt="RemoteCrab"
                   loading="lazy"
                   className="w-full rounded-2xl border border-white/10 shadow-lg"
