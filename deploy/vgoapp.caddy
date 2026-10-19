@@ -1,0 +1,19 @@
+# vgoapp.com — owned by the VGOAPP repo.
+# Installed to /etc/caddy/sites/vgoapp.caddy by scripts/deploy.sh; the shared
+# /etc/caddy/Caddyfile in the MDDock deployment imports every *.caddy in that
+# directory. Keep MDDock's sites out of this file.
+
+http://vgoapp.com, https://vgoapp.com {
+  encode zstd gzip
+
+  # RemoteCrab rendezvous service (separate systemd unit, loopback on the
+  # docker bridge).
+  handle_path /remotecrab/rendezvous/* {
+    reverse_proxy 172.18.0.1:8787
+  }
+
+  handle {
+    root * /var/www/vgoapp
+    file_server
+  }
+}
