@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 #
 # Build the VGO site and publish it to the VPS, where the mddock-cloud
-# Caddy serves vgoapp.com straight from /var/www/vgoapp (see
-# MDDock/crates/mddock-cloud/deploy/Caddyfile).
+# Caddy serves vgoapp.com straight from /var/www/vgoapp.
+#
+# The Caddy site definition is owned by this repo (deploy/vgoapp.caddy) and
+# installed to /etc/caddy/sites/vgoapp.caddy. The shared Caddyfile imports
+# every file in that directory, so deploying this project never touches
+# MDDock's config (and vice versa).
 #
 # Usage:
 #   ./scripts/deploy.sh                    # build + sync the site
@@ -55,5 +59,19 @@ if [[ -n "${DMG:-}" ]]; then
   "${SSH[@]}" "$HOST" \
     "cp -f '$REMOTE/downloads/$(basename "$DMG")' '$REMOTE/downloads/RemoteCrab.dmg'"
 fi
+
+CADDY_SITES_DIR="${VGOAPP_CADDY_SITES_DIR:-/etc/caddy/sites}"
+echo "==> install Caddy site snippet -> $CADDY_SITES_DIR/vgoapp.caddy"
+"${SSH[@]}" "$HOST" \
+  "install -d -m 0755 '$CADDY_SITES_DIR' && cat > /tmp/vgoapp.caddy.new" \
+  < "$ROOT/deploy/vgoapp.caddy"
+"${SSH[@]}" "$HOST" \
+  "if cmp -s /tmp/vgoapp.caddy.new '$CADDY_SITES_DIR/vgoapp.caddy'; then
+     rm -f /tmp/vgoapp.caddy.new
+   else
+     install -m 0644 /tmp/vgoapp.caddy.new '$CADDY_SITES_DIR/vgoapp.caddy'
+     rm -f /tmp/vgoapp.caddy.new
+     docker exec mddock-caddy-1 caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile
+   fi"
 
 echo "==> done: https://vgoapp.com/remotecrab/"
