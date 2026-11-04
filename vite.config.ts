@@ -22,6 +22,7 @@ export default defineConfig({
         remotecrabSuites: 'remotecrab/suites/index.html',
         // One landing page per feature. The slug is read from the URL by
         // RemoteCrabFeaturePage, so all entries share a single JS bundle.
+        remotecrabFeatureRemoteAccess: 'remotecrab/features/remote-access/index.html',
         remotecrabFeatureNotifications: 'remotecrab/features/notifications/index.html',
         remotecrabFeatureAI: 'remotecrab/features/ai/index.html',
         remotecrabFeatureExtendedDisplay: 'remotecrab/features/extended-display/index.html',

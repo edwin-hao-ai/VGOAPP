@@ -25,17 +25,28 @@ interface PrivacyContent {
 const content: Record<Language, PrivacyContent> = {
   zh: {
     title: '隐私政策',
-    updated: '最后更新：2026-10-18',
+    updated: '最后更新：2026-11-04',
     intro:
-      'RemoteCrab 是一个局域网工具，把你的 iPhone / iPad 变成 Mac 的摄像头、麦克风和输入设备。本页说明它处理哪些数据，以及它**不做**什么。',
+      'RemoteCrab 是一个局域网工具，把你的 iPhone / iPad 变成电脑的摄像头、麦克风和输入设备；可选的远程访问让你在任何网络里连回自己的电脑。本页说明它处理哪些数据，以及它**不做**什么。',
     sections: [
       {
         heading: '概要',
-        body: 'RemoteCrab 是本地优先的：不运行任何服务器、不收集分析数据、不需要账号。',
+        body: 'RemoteCrab 是本地优先的：在局域网上它不需要账号、不收集分析数据、不经过我们的服务器。可选的远程访问（订阅）经会合与中继服务连接，但它们只搬动端到端加密后的字节。',
         bullets: [
-          'iPhone 与 Mac 之间的媒体与输入流（画面、声音、触控、键盘、剪贴板、文件、通知）只走你的局域网',
-          '通过 Bonjour 发现 + 局域网直连 TCP 传输，不经过我们的服务器（我们也没有服务器）',
-          '唯一的例外是「问 AI」：只有你按下「问」的那一刻，才把你发出的那一问送到你自己配置的模型服务商（见下）',
+          'iPhone 与电脑之间的媒体与输入流（画面、声音、触控、键盘、剪贴板、文件、通知）只走你的局域网',
+          '通过 Bonjour 发现 + 局域网直连 TCP 传输；这些内容与元数据不出你的局域网',
+          '「问 AI」只有你按下「问」的那一刻，才把你发出的那一问送到你自己配置的模型服务商（见下）',
+          '「远程访问」经会合与中继连接，但画面、声音和按键在离开发出设备前就被加密（见下）',
+        ],
+      },
+      {
+        heading: '远程访问（可选订阅）',
+        body: '订阅远程访问后，电脑会向会合服务登记「在线」状态（电脑名与连接地址的心跳，约几十秒一次），手机据此看到你哪台电脑可以连。建立连接时：',
+        bullets: [
+          '会合服务只负责介绍两端，不接触你的画面、声音或按键',
+          '优先点对点直连；网络不通时由中继转发，中继同样只搬动加密字节',
+          '所有远程内容都是端到端加密，服务器看不到，也存不下来',
+          '订阅凭据由 Apple 的 App Store 验证并绑定到你的 iPhone；我们不接触你的支付信息',
         ],
       },
       {
@@ -65,7 +76,7 @@ const content: Record<Language, PrivacyContent> = {
       },
       {
         heading: '我们不会收集',
-        body: 'RemoteCrab 没有后端服务器，也没有任何埋点。',
+        body: '除上述远程访问所需的会合/中继外，RemoteCrab 没有任何收集数据的服务器，也没有任何埋点。',
         bullets: [
           '无分析、无遥测（没有 Firebase、没有 Mixpanel）',
           '无崩溃上报，App 不主动联网回传',
@@ -97,7 +108,7 @@ const content: Record<Language, PrivacyContent> = {
       },
       {
         heading: '儿童',
-        body: 'RemoteCrab 并非面向 13 岁以下儿童，也不会有意收集儿童数据 —— 事实上它不收集任何数据。',
+        body: 'RemoteCrab 并非面向 13 岁以下儿童，也不会有意收集儿童数据 —— 事实上，除上述在线心跳外它不收集任何用户数据。',
       },
       {
         heading: '政策变更',
@@ -110,17 +121,28 @@ const content: Record<Language, PrivacyContent> = {
   },
   en: {
     title: 'Privacy Policy',
-    updated: 'Last updated: 2026-10-18',
+    updated: 'Last updated: 2026-11-04',
     intro:
-      'RemoteCrab is a local-network utility that turns your iPhone or iPad into a camera, microphone and input device for your Mac. This page describes what data it handles — and what it does **not** do.',
+      'RemoteCrab is a local-network utility that turns your iPhone or iPad into a camera, microphone and input device for your computer, with optional remote access that lets you reach your computer from any network. This page describes what data it handles — and what it does **not** do.',
     sections: [
       {
         heading: 'Summary',
-        body: 'RemoteCrab is local-first: we run no servers, collect no analytics and require no account.',
+        body: 'RemoteCrab is local-first: on your LAN it requires no account, collects no analytics and passes nothing through our servers. The optional remote-access (subscription) path connects through the rendezvous and relay, which only ever move end-to-end encrypted bytes.',
         bullets: [
-          'The media and input stream between the iPhone and the Mac (video, audio, touch, keyboard, clipboard, files, notifications) stays on your local network',
-          'Sent over Bonjour discovery and a direct TCP connection — it never passes through our servers (we have none)',
-          'The one exception is Ask AI: only when you tap ask does the question you sent travel to the model provider you configured yourself (below)',
+          'The media and input stream between the iPhone and the computer (video, audio, touch, keyboard, clipboard, files, notifications) stays on your local network',
+          'Sent over Bonjour discovery and a direct TCP connection; neither the content nor its metadata leaves your LAN',
+          'Ask AI: only when you tap ask does the question you sent travel to the model provider you configured yourself (below)',
+          'Remote access connects through the rendezvous and relay, but video, audio and keystrokes are encrypted before they leave your device (below)',
+        ],
+      },
+      {
+        heading: 'Remote access (optional subscription)',
+        body: 'With the remote-access subscription, your computer registers its online presence with the rendezvous service (a heartbeat of its name and connection address, roughly every few tens of seconds) so your phone can see which computer is reachable. When a connection is established:',
+        bullets: [
+          'The rendezvous service only introduces the two ends — it never touches your screen, sound or keystrokes',
+          'A peer-to-peer path is tried first; when the network refuses, the relay forwards — again encrypted bytes only',
+          'All remote content is end-to-end encrypted: servers cannot see it and store nothing',
+          'The subscription credential is verified by the App Store and bound to your iPhone; we never touch your payment information',
         ],
       },
       {
@@ -150,7 +172,7 @@ const content: Record<Language, PrivacyContent> = {
       },
       {
         heading: 'What we do not collect',
-        body: 'RemoteCrab has no backend and no telemetry.',
+        body: 'Apart from the rendezvous/relay required for remote access (above), RemoteCrab has no servers that collect data, and no telemetry.',
         bullets: [
           'No analytics, no telemetry (no Firebase, no Mixpanel)',
           'No crash reporting — the app does not phone home',
@@ -182,7 +204,7 @@ const content: Record<Language, PrivacyContent> = {
       },
       {
         heading: 'Children',
-        body: 'RemoteCrab is not directed to children under 13, and we do not knowingly collect data from children — because we collect no data at all.',
+        body: 'RemoteCrab is not directed to children under 13, and we do not knowingly collect data from children — because, apart from the presence heartbeat above, we collect no user data at all.',
       },
       {
         heading: 'Changes to this policy',

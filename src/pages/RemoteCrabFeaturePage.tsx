@@ -8,6 +8,7 @@ import {
   Check,
   Download,
   FolderUp,
+  Globe,
   Keyboard,
   LayoutGrid,
   Mic,
@@ -36,6 +37,7 @@ const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 
 const FEATURE_ICONS: Record<FeatureSlug, ComponentType<{ size?: number; className?: string }>> = {
+  'remote-access': Globe,
   notifications: Bell,
   ai: Sparkles,
   'extended-display': Monitor,

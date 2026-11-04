@@ -29,6 +29,7 @@ export interface FeaturePageContent {
 }
 
 const ORDER = [
+  'remote-access',
   'notifications',
   'ai',
   'extended-display',
@@ -49,6 +50,7 @@ export type FeatureSlug = (typeof ORDER)[number]
 export const FEATURE_ORDER: FeatureSlug[] = [...ORDER]
 
 export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
+  'remote-access': 'remote-access',
   notifications: 'notifications',
   ai: 'ai',
   'extended-display': 'extended-display',
@@ -65,6 +67,75 @@ export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
 }
 
 const zh: Record<FeatureSlug, FeaturePageContent> = {
+  'remote-access': {
+    slug: 'remote-access',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '远程访问',
+      title: '人不在电脑旁边,电脑照样在手里',
+      subtitle:
+        '同一个 WiFi 里的全部功能永久免费。离开家、离开办公室 —— 订阅远程访问后,在任何网络里都能连上自己的电脑。',
+      bullets: [
+        '局域网免费且完整;远程访问是可选订阅($3.99/月 · $29.99/年)',
+        '会合与中继服务只转发端到端加密后的字节,看不到画面、声音和按键',
+        '电脑在线状态实时可见,点一下就连',
+      ],
+    },
+    problem: {
+      title: '「出门才发现,要用的东西在家里电脑上」',
+      body: '传统方案要么暴露端口、要么自建 VPN —— 配置麻烦,还有安全隐患。RemoteCrab 的远程访问是为这个场景做的:打开即用,加密在端上完成。',
+    },
+    how: {
+      title: '订阅,然后照常点',
+      description: '电脑端照常运行;手机上看到电脑显示「可远程连接」,点一下就连。',
+      steps: [
+        { title: '订阅远程访问', body: '在 iPhone 端订阅(月付 $3.99 或年付 $29.99)。局域网功能不受影响,依旧免费完整。' },
+        { title: '电脑保持在线', body: '电脑端的 RemoteCrab 自动向会合服务登记在线状态 —— 只有心跳,没有你的数据。' },
+        { title: '点一下就连', body: '出门在外,手机上点那台电脑:优先点对点直连,不通就走中继 —— 两条路都端到端加密。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '会合服务只牵线,内容全靠端到端加密。',
+      items: [
+        { title: 'LAN 永远优先', body: '同一网络里仍然是纯局域网直连,不经任何服务器 —— 这是免费的底线,永远不变。' },
+        { title: '点对点优先,中继兜底', body: '远程拨号先尝试直连;网络不通时由中继转发,服务器只搬动加密字节。' },
+        { title: '端到端加密', body: '画面、声音和按键本身就被加密,服务器看不到内容,也存不下来。' },
+        { title: '订阅绑定设备', body: '订阅通过 App Attest 绑定到这台 iPhone;凭据复制到别的设备上不能用。' },
+        { title: '连上之后就是全部功能', body: '远程连上与家里连上没有区别:投屏、触控板、键盘、文件、AI,全都能用。' },
+      ],
+    },
+    tips: {
+      title: '什么时候最好用',
+      description: '「人在外面,电脑在家里」的每一刻。',
+      items: [
+        '**旅途中**:在酒店、咖啡馆连回家里电脑看进度、回消息。',
+        '**忘带文件**:连上家里电脑,把文件直接发到手机。',
+        '**帮家人看电脑**:家人的电脑在线时,远程替他们点几下。',
+      ],
+    },
+    requires: {
+      title: '需要什么',
+      items: [
+        'macOS 26 或更高(Apple 芯片);Windows 版同样支持远程',
+        'iOS / iPadOS 26 或更高',
+        '远程访问订阅(仅在局域网内使用则不需要)',
+      ],
+      note: '会合与中继只处理加密字节和在线状态;订阅可在系统设置里随时取消。',
+    },
+    next: {
+      title: '连上之后,就是全部功能',
+      body: '远程连上和家里连上没有区别 —— 通知照样转发,屏幕照样可操控。',
+      cta: '看通知中继 →',
+      href: '/remotecrab/features/notifications/',
+    },
+    cta: {
+      title: '让你的电脑随身',
+      body: '下载电脑端,订阅远程访问,出门试试。',
+      download: '下载 Mac 版',
+      ios: 'App Store 下载 iPhone 版',
+    },
+  },
   notifications: {
     slug: 'notifications',
     nav: { back: '← 所有功能' },
@@ -1036,6 +1107,75 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
 }
 
 const en: Record<FeatureSlug, FeaturePageContent> = {
+  'remote-access': {
+    slug: 'remote-access',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Remote access',
+      title: 'Away from your computer? It is still in your hand.',
+      subtitle:
+        'Everything on your local WiFi stays free, forever. Leave home or the office — with the remote-access subscription your computer is one tap away from any network.',
+      bullets: [
+        'Free and complete on your LAN; remote access is an optional subscription ($3.99/mo · $29.99/yr)',
+        'The rendezvous and relay only forward end-to-end encrypted bytes — they never see your screen, sound or keystrokes',
+        'Your computer’s online status is visible live; tap to connect',
+      ],
+    },
+    problem: {
+      title: '“Left home — and the thing I need is on my computer.”',
+      body: 'The usual answers mean opening ports or running your own VPN — fiddly to set up and easy to get wrong. Remote access is built for exactly this: it works out of the box, and the encryption happens on your devices.',
+    },
+    how: {
+      title: 'Subscribe, then tap as usual',
+      description: 'The desktop app keeps running; when your computer shows “reachable remotely” on the phone, tap it.',
+      steps: [
+        { title: 'Subscribe to remote access', body: 'Subscribe on your iPhone ($3.99 monthly or $29.99 yearly). Nothing changes on your LAN — it stays free and complete.' },
+        { title: 'Your computer stays online', body: 'The desktop app registers its presence with the rendezvous service — heartbeats only, never your data.' },
+        { title: 'Tap to connect', body: 'Away from home, tap your computer: it tries a peer-to-peer path first and falls back to the relay — both are end-to-end encrypted.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: 'The rendezvous service only introduces; the content is end-to-end encrypted.',
+      items: [
+        { title: 'LAN always comes first', body: 'On the same network it is still pure local WiFi, no server in the path — the free tier’s floor, permanently.' },
+        { title: 'Peer-to-peer first, relay as fallback', body: 'A remote dial tries direct first; when the network refuses, the relay forwards — and the server only ever moves encrypted bytes.' },
+        { title: 'End-to-end encrypted', body: 'Screen, sound and keystrokes are encrypted before they leave your device. The server cannot read them and stores nothing.' },
+        { title: 'The subscription binds to your device', body: 'The subscription is attested to this iPhone via App Attest; a copied credential will not work on another device.' },
+        { title: 'Everything works remotely', body: 'A remote session is the same as a home session: mirror, trackpad, keyboard, files and AI all work.' },
+      ],
+    },
+    tips: {
+      title: 'When it shines',
+      description: 'Every “I’m out, my computer is home” moment.',
+      items: [
+        '**On the road**: check progress and answer messages on your home computer from a hotel or café.',
+        '**Forgot a file**: connect and send the file straight to your phone.',
+        '**Helping family**: when their computer is online, drive it remotely for them.',
+      ],
+    },
+    requires: {
+      title: 'What you need',
+      items: [
+        'macOS 26 or later (Apple silicon); the Windows receiver supports remote access too',
+        'iOS / iPadOS 26 or later',
+        'The remote-access subscription (not needed for LAN-only use)',
+      ],
+      note: 'The rendezvous and relay only handle encrypted bytes and presence; cancel the subscription anytime in Settings.',
+    },
+    next: {
+      title: 'Connected is connected',
+      body: 'Remote or at home, notifications relay, screens mirror, and the computer obeys.',
+      cta: 'See the notification relay →',
+      href: '/remotecrab/features/notifications/',
+    },
+    cta: {
+      title: 'Take your computer with you',
+      body: 'Download the desktop app, subscribe, and try it from outside.',
+      download: 'Download for Mac',
+      ios: 'Get the iPhone app',
+    },
+  },
   notifications: {
     slug: 'notifications',
     nav: { back: '← All features' },

@@ -9,6 +9,7 @@ import {
   ClipboardList,
   Download,
   FolderUp,
+  Globe,
   Keyboard,
   Laptop,
   LayoutGrid,
@@ -35,6 +36,7 @@ export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/6VNNHAyx'
 
 const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
+  globe: Globe,
   ai: Sparkles,
   bell: Bell,
   display: Monitor,

@@ -54,19 +54,19 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     meta: {
       title: 'RemoteCrab — 把 iPhone 变成电脑的副屏、摄像头、麦克风、触控板和键盘',
       description:
-        'RemoteCrab 把你的 iPhone / iPad 变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘，通过本地 WiFi 直连，无云端、无账号、无订阅。',
+        'RemoteCrab 把你的 iPhone / iPad 变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 本地 WiFi 直连,免费且完整;不在同一网络时,远程访问是可选订阅。',
     },
     nav: { back: '← 返回 VGO' },
     hero: {
       badge: 'macOS / Windows 桌面端 · 免费',
       tagline: '你的 iPhone,就是电脑缺失的外设',
       description:
-        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘;电脑上的通知送到你手机上,点一下就跳回那个应用;还能直接问 AI —— 它看得见你的屏幕,答案落在你的光标处。本地 WiFi 直连,无云端、无账号、无订阅。',
+        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘;电脑上的通知送到你手机上,点一下就跳回那个应用;还能直接问 AI —— 它看得见你的屏幕,答案落在你的光标处。本地 WiFi 直连,免费且完整;不在同一网络时,远程访问是可选订阅。',
       downloadMac: '下载 Mac 版',
       downloadWindows: '下载 Windows 版',
       downloadIOS: 'App Store 下载 iPhone 版',
       testflight: 'TestFlight 公测（抢先体验）',
-      free: '免费 · 无账号 · 无订阅 · 数据不出局域网',
+      free: '局域网免费完整 · 无账号 · 远程访问可选订阅',
       requirementsNote: '需要 macOS 26+（Apple 芯片）与 iOS 26+',
     },
   compatibility: {
@@ -109,9 +109,15 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     ],
   },
     features: {
-      title: '一个 App,十三种用法',
+      title: '一个 App,十四种用法',
       description: '不用买副屏、摄像头、麦克风或触控板 —— 你本来就有的 iPhone 就够了。',
       items: [
+        {
+          icon: 'globe',
+          href: '/remotecrab/features/remote-access/',
+          title: '远程访问（订阅）',
+          body: '不在同一网络也能用自己的电脑:点对点优先,中继兜底,全程端到端加密。',
+        },
         {
           icon: 'ai',
           href: '/remotecrab/features/ai/',
@@ -212,17 +218,17 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       title: '系统要求',
       mac: { title: 'computer', items: ['macOS 26 或更高', 'Apple 芯片（M 系列）'] },
       ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 或更高', 'iPhone 或 iPad 均可'] },
-      note: '两台设备需要在同一个局域网里 —— 家里的 WiFi 就够了。',
+      note: '两台设备在同一个局域网里直连即可;订阅远程访问后,不同网络也能连。',
     },
     privacy: {
-      title: '纯本地，是真的',
-      body: 'RemoteCrab 不跑服务器、不收集分析数据、不需要账号。视频、音频和按键只在你的 iPhone 与电脑之间传输，永远不离开局域网。',
-      points: ['无云端、无账号、无订阅', '源码开放，可自行审计', '所有权限都能在系统设置里随时关闭'],
+      title: '纯本地,是真的',
+      body: 'RemoteCrab 不需要账号、不收集分析数据。同一局域网内,视频、音频和按键只在你的 iPhone 与电脑之间传输,不经过任何服务器;远程访问经会合与中继连接,但只转发端到端加密后的字节 —— 服务器看不到,也存不下你的画面、声音和按键。',
+      points: ['局域网免费完整,无账号', '远程访问端到端加密,服务器不可见', '源码开放,可自行审计', '所有权限都能在系统设置里随时关闭'],
     },
     faq: {
       title: '常见问题',
       items: [
-        { question: 'RemoteCrab 收费吗？', answer: '免费。没有内购，也没有订阅。' },
+        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费,没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年,随时可在系统设置里取消。' },
         {
           question: '为什么要安装「虚拟摄像头」？',
           answer:
@@ -230,7 +236,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         },
         {
           question: '需要联网吗？',
-          answer: '不需要。两台设备在同一个 WiFi 里直连即可，数据不经过任何服务器。',
+          answer: '同一 WiFi 直连即可,数据不经过任何服务器。不在同一网络时,订阅远程访问后也能连 —— 依然是端到端加密。',
         },
         {
           question: '我的电脑能装吗？',
@@ -248,19 +254,19 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     meta: {
       title: 'RemoteCrab — A second screen, camera, mic, trackpad and keyboard from your iPhone',
       description:
-        'RemoteCrab turns your iPhone or iPad into a second display, camera, microphone, trackpad and keyboard for your computer over local WiFi — no cloud, no account, no subscription.',
+        'RemoteCrab turns your iPhone or iPad into a second display, camera, microphone, trackpad and keyboard for your computer over local WiFi — free and complete on your LAN, with an optional remote-access subscription when you are away from it.',
     },
     nav: { back: '← Back to VGO' },
     hero: {
       badge: 'macOS / Windows desktop app · Free',
       tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
-        'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer; notifications land on your phone and tapping one jumps back to that window; and you can ask AI about what is on the computer — it sees the screen, the answer lands at your cursor. Over local WiFi. No cloud, no account, no subscription.',
+        'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer; notifications land on your phone and tapping one jumps back to that window; and you can ask AI about what is on the computer — it sees the screen, the answer lands at your cursor. Over local WiFi, free and complete; away from that network, remote access is an optional subscription.',
       downloadMac: 'Download for Mac',
       downloadWindows: 'Download for Windows',
       downloadIOS: 'Download on the App Store',
       testflight: 'Join the TestFlight beta',
-      free: 'Free · No account · No subscription · Stays on your LAN',
+      free: 'Free and complete on your LAN · No account · Optional remote-access subscription',
       requirementsNote: 'Requires macOS 26+ (Apple silicon) and iOS 26+',
     },
   compatibility: {
@@ -303,10 +309,16 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     ],
   },
     features: {
-      title: 'One app, thirteen ways in',
+      title: 'One app, fourteen ways in',
       description:
         'You do not need a second monitor, a webcam, a microphone or a trackpad. The iPhone you already own is enough.',
       items: [
+        {
+          icon: 'globe',
+          href: '/remotecrab/features/remote-access/',
+          title: 'Remote access (subscription)',
+          body: 'Use your computer from any network: peer-to-peer first, relay as fallback, end-to-end encrypted all the way.',
+        },
         {
           icon: 'ai',
           href: '/remotecrab/features/ai/',
@@ -407,17 +419,17 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       title: 'Requirements',
       mac: { title: 'computer', items: ['macOS 26 or later', 'Apple silicon (M-series)'] },
       ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 or later', 'iPhone or iPad'] },
-      note: 'Both devices must be on the same local network — a home WiFi router is enough.',
+      note: 'Both devices connect directly on the same local network; with the remote-access subscription they connect across networks too.',
     },
     privacy: {
       title: 'Local-first, for real',
-      body: 'RemoteCrab runs no servers, collects no analytics and needs no account. Video, audio and keystrokes travel only between your iPhone and your computer — never off your local network.',
-      points: ['No cloud, no account, no subscription', 'Open source and auditable', 'Every permission can be revoked in System Settings'],
+      body: 'RemoteCrab needs no account and collects no analytics. On the same local network, video, audio and keystrokes travel only between your iPhone and your computer — no server in the path. Remote access connects through the rendezvous and relay, which forward only end-to-end encrypted bytes: they cannot see, and do not store, your screen, sound or keystrokes.',
+      points: ['Free and complete on your LAN, no account', 'Remote access is end-to-end encrypted — servers cannot see it', 'Open source and auditable', 'Every permission can be revoked in System Settings'],
     },
     faq: {
       title: 'FAQ',
       items: [
-        { question: 'Is RemoteCrab free?', answer: 'Yes. There are no in-app purchases and no subscription.' },
+        { question: 'Is RemoteCrab free?', answer: 'Everything on your local WiFi is free forever — no ads, no in-app purchases. Using your computer from another network is an optional subscription: $3.99/month or $29.99/year, cancellable anytime in Settings.' },
         {
           question: 'Why does it install a "virtual camera"?',
           answer:
@@ -425,7 +437,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         },
         {
           question: 'Does it need the internet?',
-          answer: 'No. The two devices talk directly over your local WiFi; nothing goes through a server.',
+          answer: 'No. The two devices talk directly over your local WiFi; nothing goes through a server. On a different network, the remote-access subscription connects you — still end-to-end encrypted.',
         },
         {
           question: 'Will it run on my computer?',
