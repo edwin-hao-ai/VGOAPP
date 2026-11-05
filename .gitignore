@@ -38,3 +38,5 @@ pnpm-debug.log*
 .mddock/*
 # …but keep the workspace manifest tracked
 !.mddock/mddock.md
+
+.mddock/
