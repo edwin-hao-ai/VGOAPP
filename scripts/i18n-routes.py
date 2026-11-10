@@ -89,6 +89,15 @@ for f, route in sorted(zh_routes):
     html = set_meta(html, "og:locale", "zh_CN", attr="property")
     html = set_meta(html, "og:locale:alternate", "en_US", attr="property")
     html = set_meta(html, "keywords", keywords_for(route, "zh"))
+
+    # 分享卡片：用 1200x630 的成品，而不是 1024x1024 的方图标
+    # （方图标在 X / Slack / 微信 / Discord 里会被裁成小方块）
+    social_image = ORIGIN + "/og-image.png"
+    html = set_meta(html, "og:image", social_image, attr="property")
+    html = set_meta(html, "og:image:width", "1200", attr="property")
+    html = set_meta(html, "og:image:height", "630", attr="property")
+    html = set_meta(html, "twitter:card", "summary_large_image")
+    html = set_meta(html, "twitter:image", social_image)
     open(f, "w", encoding="utf-8").write(html)
 
     # 英文镜像：lang / canonical / og:locale / keywords

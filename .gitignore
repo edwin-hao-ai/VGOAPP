@@ -40,3 +40,6 @@ pnpm-debug.log*
 !.mddock/mddock.md
 
 .mddock/
+
+# 本地设计原型（6 MB 视频，不进仓库）
+prototypes/

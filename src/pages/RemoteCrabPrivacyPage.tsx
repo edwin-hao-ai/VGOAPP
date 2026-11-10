@@ -231,6 +231,11 @@ export default function RemoteCrabPrivacyPage() {
 
   useEffect(() => {
     document.title = `${c.title} — RemoteCrab`
+    // 页面自己管 description：预渲染会把这里的结果写进静态 HTML，
+    // /en/ 的分享卡片再从这里同步（scripts/sync-en-head.mjs）。
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', c.intro.replace(/\s+/g, ' ').slice(0, 150))
   }, [c])
 
   return (

@@ -218,12 +218,10 @@ export default function SlimDiskPrivacyPage() {
 
   useEffect(() => {
     document.title = `${c.title} — SlimDisk`
-    // LanguageProvider also writes document.title, and React runs child effects
-    // before parent ones, so re-assert on the next frame to keep ours.
-    const raf = requestAnimationFrame(() => {
-      document.title = `${c.title} — SlimDisk`
-    })
-    return () => cancelAnimationFrame(raf)
+    // LanguageProvider 不再写 document.title（2026-11-10），这里不用再抢。
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', c.intro.replace(/\s+/g, ' ').slice(0, 150))
   }, [c])
 
   return (
