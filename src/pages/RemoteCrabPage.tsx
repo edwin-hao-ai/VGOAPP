@@ -25,12 +25,16 @@ import {
 } from 'lucide-react'
 import { GITHUB_URL } from '../data/site'
 import { useLanguage } from '../i18n/LanguageContext'
-import { remoteCrabContent, type FeatureItem } from '../i18n/remotecrabContent'
+import { remoteCrabContent } from '../i18n/remotecrabContent'
+import { remotecrabHome } from '../i18n/remotecrabHome'
 import GlowBackground from '../components/GlowBackground'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Stage } from '../components/remotecrab/Stage'
 import { ClipLightbox } from '../components/remotecrab/ClipLightbox'
+import { FeatureGroups } from '../components/remotecrab/FeatureGroups'
+import { CompareTable } from '../components/remotecrab/CompareTable'
+import { PriceCards } from '../components/remotecrab/PriceCards'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -68,6 +72,7 @@ export default function RemoteCrabPage() {
   const shouldReduceMotion = useReducedMotion()
   const { language } = useLanguage()
   const c = remoteCrabContent[language]
+  const h = remotecrabHome[language]
   const [platform, setPlatform] = useState<'mac' | 'windows'>(() =>
     typeof navigator !== 'undefined' && /Windows|Win64|WOW64/i.test(navigator.userAgent) ? 'windows' : 'mac',
   )
@@ -171,41 +176,25 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
-        {/* Features */}
+        {/* 全部功能 —— 20 组，14 组可点进各自的落地页 */}
         <section id="features" className="px-6 py-16 scroll-mt-20">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2 {...fade()} className="text-3xl md:text-4xl font-bold text-center">
-              {c.features.title}
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.features.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 text-3xl font-bold md:text-4xl">
+              {h.features.title}
             </motion.h2>
-            <motion.p {...fade(0.05)} className="mt-4 text-center text-vgo-muted max-w-2xl mx-auto">
-              {c.features.description}
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.features.lead}
             </motion.p>
-
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {c.features.items.map((item: FeatureItem, i: number) => {
-                const Icon = FEATURE_ICONS[item.icon] ?? Sparkles
-                return (
-                  <motion.a
-                    key={item.title}
-                    href={item.href}
-                    {...fade(i * 0.04)}
-                    className="glass glass-hover p-6 group flex flex-col"
-                  >
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center mb-4">
-                      <Icon size={22} />
-                    </div>
-                    <h3 className="font-semibold mb-2 flex items-center gap-1.5">
-                      {item.title}
-                      <ArrowRight
-                        size={15}
-                        className="text-vgo-muted opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 motion-safe:transition-all shrink-0"
-                      />
-                    </h3>
-                    <p className="text-sm text-vgo-muted leading-relaxed">{item.body}</p>
-                  </motion.a>
-                )
-              })}
-            </div>
+            <motion.div {...fade(0.15)} className="mt-10">
+              <FeatureGroups
+                groups={h.features.groups}
+                note={h.features.note}
+                labels={{ video: language === 'zh' ? '视频' : 'video', paid: language === 'zh' ? '订阅' : 'paid' }}
+              />
+            </motion.div>
           </div>
         </section>
 
@@ -256,25 +245,44 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
-        {/* Screenshots — real captures (ASC slot art), one set per language.
-            The old 01-concept/02-trackpad/03-keyboard PNGs were V0.2 design
-            mockups, not the product; shipping UI is localised, so these are
-            picked per language the same way as the feature pages. */}
-        <section className="px-6 py-16">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-              {['02-agent', '04-camera', '05-sound', '06-trackpad', '07-type', '08-mirror'].map((n) => (
-                <img
-                  key={n}
-                  src={`/remotecrab/shots/${n}${language === 'en' ? '-en' : ''}.jpg`}
-                  alt="RemoteCrab"
-                  loading="lazy"
-                  className="w-full rounded-2xl border border-white/10 shadow-lg"
-                />
-              ))}
-            </div>
+        {/* 和系统自带的关系 —— macOS 26 用户 100% 已经有接力摄像头 */}
+        <section id="why" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.compare.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">
+              {h.compare.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.compare.lead}
+            </motion.p>
+            <motion.div {...fade(0.15)} className="mt-10">
+              <CompareTable c={h.compare} />
+            </motion.div>
           </div>
         </section>
+
+        {/* 价格 —— 免费的边界写在首页，不藏在折叠的 FAQ 里 */}
+        <section id="pricing" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.price.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 text-3xl font-bold md:text-4xl">
+              {h.price.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.price.lead}
+            </motion.p>
+            <motion.div {...fade(0.15)}>
+              <PriceCards p={h.price} />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 旧截图墙（卡通头像 + 打码图）在首屏换成真机实拍之后就多余了，而且
+            和新的画面语言冲突。场景图由真机片段承担，这里不再重复。 */}
 
         {/* Steps */}
         <section className="px-6 py-16">
