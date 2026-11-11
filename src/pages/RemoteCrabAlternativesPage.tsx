@@ -4,8 +4,8 @@ import { ArrowRight, Check, Download, Minus, Smartphone } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { remotecrabAlternatives } from '../i18n/remotecrabAlternatives'
 import GlowBackground from '../components/GlowBackground'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { ProductHeader } from '../components/remotecrab/ProductHeader'
+import { ProductFooter } from '../components/remotecrab/ProductFooter'
 
 const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
@@ -43,9 +43,9 @@ export default function RemoteCrabAlternativesPage() {
   return (
     <>
       <GlowBackground />
-      <Navbar homeHref="/remotecrab/" backLabel={c.nav.back} />
+      <ProductHeader />
 
-      <main className="pt-16">
+      <main>
         <section className="px-6 pt-16 pb-10">
           <div className="mx-auto max-w-4xl">
             <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
@@ -204,7 +204,7 @@ export default function RemoteCrabAlternativesPage() {
         </section>
       </main>
 
-      <Footer />
+      <ProductFooter />
     </>
   )
 }
