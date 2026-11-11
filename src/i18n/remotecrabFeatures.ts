@@ -43,6 +43,12 @@ const ORDER = [
   'app-switcher',
   'transfer',
   'automation',
+  'numpad',
+  'multi-computer',
+  'two-phones',
+  'recording',
+  'keep-awake',
+  'auto-update',
 ] as const
 
 export type FeatureSlug = (typeof ORDER)[number]
@@ -64,6 +70,12 @@ export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
   'app-switcher': 'app-switcher',
   transfer: 'transfer',
   automation: 'automation',
+  numpad: 'numpad',
+  'multi-computer': 'multi-computer',
+  'two-phones': 'two-phones',
+  recording: 'recording',
+  'keep-awake': 'keep-awake',
+  'auto-update': 'auto-update',
 }
 
 const zh: Record<FeatureSlug, FeaturePageContent> = {
@@ -1104,6 +1116,245 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       ios: 'App Store 下载 iPhone 版',
     },
   },
+
+  numpad: {
+    slug: 'numpad',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '数字键盘',
+      title: '填数字的时候，手机比键盘快',
+      subtitle:
+        '触控板上滑出一块数字键盘，和它同时可用：上面继续移动光标，下面直接敲数字。遇到数字类 App 会自动出现。',
+      bullets: ['和触控板共存，不用来回切', '数字行键码，Mac 和 Windows 都认', '遇到数字类 App 自动出现'],
+    },
+    problem: {
+      title: '填表、记账、报税，全是数字',
+      body: '用触控板一个个点数字太慢；换成笔记本的键盘，人又得坐回去。',
+    },
+    how: {
+      title: '三步',
+      description: '',
+      steps: [
+        { title: '滑出数字键盘', body: '在触控板上向上滑一下，或者点右侧那个悬浮按钮。' },
+        { title: '直接敲', body: '上面那半还是触控板，下面那半是数字键。' },
+        { title: '收起', body: '向下滑，或者再点一次按钮。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '和触控板共存', body: '数字键盘不会把触控板挤走 —— 光标照样能移动，只是同时多了一块数字区。' },
+        { title: '跟着你的 App 走', body: '电脑上在用表格、记账或报税类 App 时，它会自己出现，也会自己收起来。' },
+        { title: '两个平台都认', body: '发的是数字行键码，不是小键盘块键码 —— Mac 和 Windows 都收得到。' },
+        { title: '随手收起来', body: '不需要的时候向下滑就收起，不占地方。' },
+      ],
+    },
+    tips: {
+      title: '什么时候最好用',
+      description: '',
+      items: ['录工时、填报销单', '在 Excel 里连着敲一列数字', '银行转账、验证码输入'],
+    },
+    requires: {
+      title: '需要什么',
+      items: ['macOS 26 或更新，M1 及以后的 Mac', 'iOS / iPadOS 17 或更新', '两台设备在同一个 WiFi 下', '电脑需要打开「辅助功能」'],
+      note: '',
+    },
+    next: {
+      title: '还有一个更常用的',
+      body: '触控板才是每天用得最多的那个。',
+      cta: '看触控板 →',
+      href: '/remotecrab/features/trackpad/',
+    },
+    cta: { title: '把手机变成键盘', body: '下载电脑端，手机装上 App，同一个 WiFi。', download: '下载 Mac 版', ios: 'App Store 下载' },
+  },
+  'multi-computer': {
+    slug: 'multi-computer',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '多台电脑',
+      title: '一台手机，记住你所有的电脑',
+      subtitle: '家里一台、公司一台：配对过的电脑都在列表里，点一下就连过去，不用重新配对。',
+      bullets: ['每台电脑各自记住', '点一下切换', '什么时候该连哪台，列表里写清楚'],
+    },
+    problem: { title: '每天在两台电脑之间来回', body: '重新配对一次要走到电脑前；忘了带手机，等于两台都用不了。' },
+    how: {
+      title: '三步',
+      description: '',
+      steps: [
+        { title: '配对第一台', body: '第一次连的时候确认一次，以后自动记着。' },
+        { title: '配对第二台', body: '在第二台电脑上照做一遍，手机上就有两台了。' },
+        { title: '点一下切换', body: '在手机的电脑列表里点那台，就连过去。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '列表里看得到状态', body: '在线、离线、上次什么时候见过，都在那一行里。' },
+        { title: '记住上次那台', body: '下次打开 App，默认连上次用的电脑，也可以直接点别的。' },
+        { title: '切换是有交代的', body: '连到另一台时，原来那台会被告知会话结束，而不是莫名其妙断掉。' },
+      ],
+    },
+    tips: { title: '什么时候最好用', description: '', items: ['家里和公司各一台', '笔记本 + 台式', '帮家里人看电脑'] },
+    requires: {
+      title: '需要什么',
+      items: ['macOS 26 或更新，M1 及以后的 Mac', 'iOS / iPadOS 17 或更新', '两台设备在同一个 WiFi 下（远程时除外）', '每台电脑装一次电脑端'],
+      note: '',
+    },
+    next: { title: '两部手机呢？', body: '同一台电脑也可以给两部手机用。', cta: '看两部手机 →', href: '/remotecrab/features/two-phones/' },
+    cta: { title: '把电脑都收进手机', body: '下载电脑端，手机装上 App。', download: '下载 Mac 版', ios: 'App Store 下载' },
+  },
+  'two-phones': {
+    slug: 'two-phones',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '两部手机',
+      title: '两部手机，一台电脑',
+      subtitle: '第二部手机可以接管，也可以只读观看 —— 拿起另一部，不会把正在跑的会话掐掉。',
+      bullets: ['点一下接管', '另一部可以只看不碰', '被顶掉的一方会被告知'],
+    },
+    problem: { title: '家里有两个人都想用', body: '一个人的手机在跑会议，另一个人的手机一打开就把会话顶掉 —— 两个人都不知道为什么断了。' },
+    how: {
+      title: '三步',
+      description: '',
+      steps: [
+        { title: '两台都配对一次', body: '每部手机第一次连的时候确认一次。' },
+        { title: '选接管还是观看', body: '点那台电脑时，会问你是接管，还是只看。' },
+        { title: '换回来', body: '被顶掉的那部会收到提示，点一下就能取回。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '接管', body: '接管之后，另一部自动退到只读；它不会在后台偷偷重连把你踢掉。' },
+        { title: '只读观看', body: '适合第二个人盯着看：画面能看，操作发不出去。' },
+        { title: '说清楚发生了什么', body: '被顶掉的一方看到的是「另一部手机接管了」，不是「连接失败」。' },
+      ],
+    },
+    tips: { title: '什么时候最好用', description: '', items: ['一个人在开会，另一个人看进度', '演示时把画面给旁边的人看', '两个人轮流用一台电脑'] },
+    requires: {
+      title: '需要什么',
+      items: ['macOS 26 或更新，M1 及以后的 Mac', 'iOS / iPadOS 17 或更新', '两台手机都装 App', '同一个 WiFi'],
+      note: '一台电脑同一时间只有一个活跃会话；「观看」不算另一个会话。',
+    },
+    next: { title: '多台电脑也可以', body: '反过来，一部手机也能记住多台电脑。', cta: '看多台电脑 →', href: '/remotecrab/features/multi-computer/' },
+    cta: { title: '两部手机都用起来', body: '下载电脑端，两部手机各装一次 App。', download: '下载 Mac 版', ios: 'App Store 下载' },
+  },
+  recording: {
+    slug: 'recording',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '录制',
+      title: '把这一场录下来',
+      subtitle: '手机拍的画面和声音，直接录成一段能播放的视频，存到「影片」里。',
+      bullets: ['菜单里点一下就开始', '存成普通视频，Finder 里直接看', '不用再架第三台设备'],
+    },
+    problem: { title: '想留一份，但不想再架一台设备', body: '手机已经在拍了，再开一个录屏软件，多一步、还常常忘。' },
+    how: {
+      title: '三步',
+      description: '',
+      steps: [
+        { title: '点录制', body: '在电脑端的菜单栏里点一下。' },
+        { title: '正常用', body: '手机该怎么摆怎么摆，录的就是你看到的画面和听到的声音。' },
+        { title: '停止', body: '再点一下，文件已经存好，并在 Finder 里高亮出来。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '视频和声音各存一份', body: '画面存成 .mov，声音另存成 .wav，剪辑时不会互相牵制。' },
+        { title: '存到影片文件夹', body: '不在某个找不到的缓存里 —— 就在「影片」下面。' },
+        { title: '录完自动高亮', body: 'Finder 会直接选中刚录好的那个文件。' },
+      ],
+    },
+    tips: { title: '什么时候最好用', description: '', items: ['录一节网课', '录一次演示或评审', '留一份能回看的操作过程'] },
+    requires: {
+      title: '需要什么',
+      items: ['macOS 26 或更新，M1 及以后的 Mac', 'iOS / iPadOS 17 或更新', '同一个 WiFi', '磁盘空间（1080p 大约每分钟 100 MB）'],
+      note: '',
+    },
+    next: { title: '另一个「留下证据」的功能', body: '把文件直接发到电脑也能省一步。', cta: '看传文件 →', href: '/remotecrab/features/transfer/' },
+    cta: { title: '录下下一场', body: '下载电脑端，手机装上 App。', download: '下载 Mac 版', ios: 'App Store 下载' },
+  },
+  'keep-awake': {
+    slug: 'keep-awake',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '合盖不睡',
+      title: '合上盖子，电脑还在跑',
+      subtitle: '一个开关，让笔记本合上也不睡 —— 电量太低、太热、或者到点，它会自己停下来。',
+      bullets: ['一个开关，不用命令行', '电量与温度兜底', '到点自动停，不会忘'],
+    },
+    problem: { title: '跑长任务，合盖就断', body: '渲染、下载、构建，一合盖就断网；有人教你装一堆命令行工具，第二天就忘了怎么关。' },
+    how: {
+      title: '三步',
+      description: '',
+      steps: [
+        { title: '打开开关', body: '在电脑端的菜单栏里打开「合盖不睡」。' },
+        { title: '合盖', body: '该走就走，电脑继续跑。' },
+        { title: '自动结束', body: '到点、电量低、或者太热，它会自己停并告诉你原因。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '有上限的', body: '默认最长 8 小时，到点自动结束 —— 不会让你第二天发现电脑还醒着。' },
+        { title: '看电量', body: '用电池时电量低于 20% 会停；插着电不受影响。' },
+        { title: '看温度', body: '机器过热时会停，不会为了跑完把电脑烤着。' },
+        { title: '崩了也能恢复', body: 'App 意外退出后重启，状态会自己回到该有的样子。' },
+      ],
+    },
+    tips: { title: '什么时候最好用', description: '', items: ['合盖塞进包里继续渲染', '出门前让下载跑完', '远程连着，不想让它睡'] },
+    requires: {
+      title: '需要什么',
+      items: ['macOS 26 或更新，M1 及以后的 Mac', '电脑端保持运行', '不需要管理员权限', '不需要装任何驱动'],
+      note: '',
+    },
+    next: { title: '还有一件事它自己会做', body: '空闲时自己更新，不会打断你。', cta: '看自动更新 →', href: '/remotecrab/features/auto-update/' },
+    cta: { title: '让它替你跑完', body: '下载电脑端，打开菜单栏里的开关。', download: '下载 Mac 版', ios: 'App Store 下载' },
+  },
+  'auto-update': {
+    slug: 'auto-update',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '自动更新',
+      title: '它自己更新，不打断你',
+      subtitle: '不在会话里、不在录制时才会更新；需要重启时会先问你，不会在你演示到一半时弹窗。',
+      bullets: ['空闲时才更新', '录着的时候不更新', '重启前会提示'],
+    },
+    problem: { title: '更新弹窗总在最忙的时候', body: '会议前五分钟提示重启；点了以后 App 关了，会话也断了。' },
+    how: {
+      title: '你什么都不用做',
+      description: '',
+      steps: [
+        { title: '静默下载', body: '有新版本时它自己下好，不打扰你。' },
+        { title: '挑空闲时装', body: '不在会话里、不在录制时才会装。' },
+        { title: '要重启会问你', body: '菜单栏会显示「重启以更新」，你决定什么时候。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '有会话时不动', body: '手机连着就不更新，避免把正在用的东西换掉。' },
+        { title: '录制时不更新', body: '录制中更新等于丢文件，所以直接跳过。' },
+        { title: '你说了算', body: '重启永远是你点的，不会自己来。' },
+      ],
+    },
+    tips: { title: '什么时候最好用', description: '', items: ['长期不关机的人', '经常在外面临时用', '演示前不想被弹窗打断'] },
+    requires: {
+      title: '需要什么',
+      items: ['macOS 26 或更新，M1 及以后的 Mac', '能访问外网（只下载更新包）', '不需要账号', '可在偏好设置里关掉'],
+      note: '',
+    },
+    next: { title: '回到最常用的那个', body: '触控板是每天用得最多的入口。', cta: '看触控板 →', href: '/remotecrab/features/trackpad/' },
+    cta: { title: '装上就不用管了', body: '下载电脑端，剩下的交给它。', download: '下载 Mac 版', ios: 'App Store 下载' },
+  },
+
 }
 
 const en: Record<FeatureSlug, FeaturePageContent> = {
@@ -2141,6 +2392,244 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       download: 'Download for Mac',
       ios: 'Get the iPhone app',
     },
+  },
+
+  numpad: {
+    slug: 'numpad',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Numeric pad',
+      title: 'For numbers, the phone beats the keyboard',
+      subtitle:
+        'Slide a numeric pad out of the trackpad and use both at once: the top half still moves the pointer, the bottom half types digits. It appears by itself in number-heavy apps.',
+      bullets: ['Coexists with the trackpad', 'Number-row key codes — Mac and Windows', 'Opens itself for number-heavy apps'],
+    },
+    problem: {
+      title: 'Forms, invoices, taxes — all numbers',
+      body: 'Tapping digits one at a time on a trackpad is slow, and walking back to the laptop defeats the point.',
+    },
+    how: {
+      title: 'Three steps',
+      description: '',
+      steps: [
+        { title: 'Slide it out', body: 'Swipe up on the trackpad, or tap the floating button on the right.' },
+        { title: 'Type', body: 'The top half is still the trackpad; the bottom half is digits.' },
+        { title: 'Put it away', body: 'Swipe down, or tap the button again.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'Both at once', body: 'The pad never pushes the trackpad away — the pointer still moves while you type.' },
+        { title: 'Follows the app', body: 'In a spreadsheet, a banking app or a tax form it opens by itself, and closes when you leave.' },
+        { title: 'Works on both platforms', body: 'It sends number-row key codes, not keypad-block ones, so Windows receives them too.' },
+        { title: 'Out of the way', body: 'Slide it down when you do not need it.' },
+      ],
+    },
+    tips: {
+      title: 'Where it earns its place',
+      description: '',
+      items: ['Logging hours and expenses', 'Filling a column in Excel', 'Bank transfers and one-time codes'],
+    },
+    requires: {
+      title: 'What it needs',
+      items: ['macOS 26 or later, M1 or newer', 'iOS / iPadOS 17 or later', 'Both devices on the same Wi-Fi', 'Accessibility enabled on the computer'],
+      note: '',
+    },
+    next: {
+      title: 'The one you will use more',
+      body: 'The trackpad is the everyday entry point.',
+      cta: 'See the trackpad →',
+      href: '/remotecrab/features/trackpad/',
+    },
+    cta: { title: 'Turn the phone into a keypad', body: 'Download the desktop app, install the phone app, same Wi-Fi.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+  },
+  'multi-computer': {
+    slug: 'multi-computer',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Multiple computers',
+      title: 'One phone remembers every computer you own',
+      subtitle: 'Home and office: every computer you have paired shows up in one list. Tap the one you want — no pairing again.',
+      bullets: ['Each computer remembered', 'Switch with a tap', 'The list says which one to use'],
+    },
+    problem: { title: 'Two computers, every day', body: 'Pairing again means walking over to the machine; and if you forget the phone, both are useless.' },
+    how: {
+      title: 'Three steps',
+      description: '',
+      steps: [
+        { title: 'Pair the first', body: 'Confirm once the first time you connect.' },
+        { title: 'Pair the second', body: 'Do the same on the other computer; both now appear on the phone.' },
+        { title: 'Tap to switch', body: 'Pick the computer in the list and it connects.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'Status in the list', body: 'Online, offline, and when it was last seen — on one line.' },
+        { title: 'Remembers the last one', body: 'The app connects to the computer you used last, unless you pick another.' },
+        { title: 'Switching is explained', body: 'The computer you leave is told the session ended, instead of just dropping.' },
+      ],
+    },
+    tips: { title: 'Where it earns its place', description: '', items: ['Home and office', 'Laptop plus desktop', 'Helping family with their computer'] },
+    requires: {
+      title: 'What it needs',
+      items: ['macOS 26 or later, M1 or newer', 'iOS / iPadOS 17 or later', 'Same Wi-Fi (unless remote)', 'The desktop app on each computer'],
+      note: '',
+    },
+    next: { title: 'Two phones?', body: 'One computer can also serve two phones.', cta: 'See two phones →', href: '/remotecrab/features/two-phones/' },
+    cta: { title: 'Put every computer in your pocket', body: 'Download the desktop app and the phone app.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+  },
+  'two-phones': {
+    slug: 'two-phones',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Two phones',
+      title: 'Two phones, one computer',
+      subtitle: 'The second phone can take over, or just watch — picking up the other one no longer kills the session that was running.',
+      bullets: ['Take over with a tap', 'The other one can just watch', 'The phone that lost it is told'],
+    },
+    problem: { title: 'Two people, one computer', body: 'One phone is in a meeting; the other opens the app and knocks it offline — neither person knows why.' },
+    how: {
+      title: 'Three steps',
+      description: '',
+      steps: [
+        { title: 'Pair both', body: 'Confirm once on each phone the first time.' },
+        { title: 'Take over or watch', body: 'When you tap the computer it asks which one you want.' },
+        { title: 'Take it back', body: 'The phone that was replaced gets a note, and one tap brings it back.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'Takeover', body: 'The other phone drops to read-only and does not quietly reconnect to kick you off.' },
+        { title: 'Read-only', body: 'Good for a second pair of eyes: you see the screen, your taps do not go through.' },
+        { title: 'It says what happened', body: 'The replaced phone shows “the other phone took over”, not “connection failed”.' },
+      ],
+    },
+    tips: { title: 'Where it earns its place', description: '', items: ['One in a meeting, one watching progress', 'Showing the screen to someone beside you', 'Two people taking turns'] },
+    requires: {
+      title: 'What it needs',
+      items: ['macOS 26 or later, M1 or newer', 'iOS / iPadOS 17 or later', 'The app on both phones', 'Same Wi-Fi'],
+      note: 'One computer has one active session at a time; watching does not count as another.',
+    },
+    next: { title: 'Multiple computers too', body: 'The other direction: one phone, many computers.', cta: 'See multiple computers →', href: '/remotecrab/features/multi-computer/' },
+    cta: { title: 'Use both phones', body: 'Download the desktop app and install the phone app twice.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+  },
+  recording: {
+    slug: 'recording',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Recording',
+      title: 'Keep a copy of the session',
+      subtitle: 'The picture and sound from the phone are recorded into a normal video file, saved to Movies.',
+      bullets: ['One menu item to start', 'A normal file, right in Finder', 'No third camera needed'],
+    },
+    problem: { title: 'You want a copy, not another setup', body: 'The phone is already filming; adding a screen recorder is one more step you will forget.' },
+    how: {
+      title: 'Three steps',
+      description: '',
+      steps: [
+        { title: 'Hit record', body: 'One item in the menu bar.' },
+        { title: 'Use it normally', body: 'What you see and hear is what gets recorded.' },
+        { title: 'Stop', body: 'The file is written and highlighted in Finder.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'Picture and sound separately', body: 'Video as .mov, audio as .wav, so editing one does not fight the other.' },
+        { title: 'Saved to Movies', body: 'Not in a cache you will never find.' },
+        { title: 'Revealed when done', body: 'Finder selects the file the moment it finishes.' },
+      ],
+    },
+    tips: { title: 'Where it earns its place', description: '', items: ['Recording a lesson', 'Recording a demo or review', 'Keeping a walkthrough you can rewatch'] },
+    requires: {
+      title: 'What it needs',
+      items: ['macOS 26 or later, M1 or newer', 'iOS / iPadOS 17 or later', 'Same Wi-Fi', 'Disk space (1080p is roughly 100 MB a minute)'],
+      note: '',
+    },
+    next: { title: 'Another way to keep things', body: 'Sending files straight to the computer saves a step too.', cta: 'See file transfer →', href: '/remotecrab/features/transfer/' },
+    cta: { title: 'Record the next one', body: 'Download the desktop app and the phone app.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+  },
+  'keep-awake': {
+    slug: 'keep-awake',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Keep awake',
+      title: 'Close the lid, keep working',
+      subtitle: 'One switch keeps the laptop awake with the lid shut — and it stops by itself on low battery, heat, or at the deadline.',
+      bullets: ['One switch, no terminal', 'Battery and heat still count', 'Stops on time, so you cannot forget'],
+    },
+    problem: { title: 'A long job ends when the lid closes', body: 'Renders, downloads and builds die on lid close; the command-line workaround is forgotten by the next day.' },
+    how: {
+      title: 'Three steps',
+      description: '',
+      steps: [
+        { title: 'Turn it on', body: 'One item in the menu bar.' },
+        { title: 'Close the lid', body: 'Leave; the job keeps running.' },
+        { title: 'It ends by itself', body: 'Deadline, low battery or heat stops it and says why.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'Bounded', body: 'Eight hours by default, then it stops — no laptop awake all night.' },
+        { title: 'Battery floor', body: 'On battery, it stops below 20%; plugged in, no limit.' },
+        { title: 'Heat', body: 'It stops when the machine runs hot instead of cooking itself.' },
+        { title: 'Survives a crash', body: 'If the app quits, the state is reconciled on next launch.' },
+      ],
+    },
+    tips: { title: 'Where it earns its place', description: '', items: ['Rendering in a bag', 'Finishing a download before you leave', 'Staying reachable while travelling'] },
+    requires: {
+      title: 'What it needs',
+      items: ['macOS 26 or later, M1 or newer', 'The desktop app running', 'No admin rights', 'No drivers'],
+      note: '',
+    },
+    next: { title: 'One more thing it does by itself', body: 'It updates when you are idle.', cta: 'See auto-update →', href: '/remotecrab/features/auto-update/' },
+    cta: { title: 'Let it finish the job', body: 'Download the desktop app and flip the switch.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+  },
+  'auto-update': {
+    slug: 'auto-update',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Auto-update',
+      title: 'It updates itself, without interrupting',
+      subtitle: 'It only updates when you are not in a session or recording, and asks before restarting — never mid-demo.',
+      bullets: ['Only when idle', 'Not while recording', 'Asks before restarting'],
+    },
+    problem: { title: 'The update prompt always lands at the worst time', body: 'Five minutes before a meeting; you tap restart and the session goes with it.' },
+    how: {
+      title: 'You do nothing',
+      description: '',
+      steps: [
+        { title: 'Downloaded quietly', body: 'New versions come down in the background.' },
+        { title: 'Installed when idle', body: 'Not during a session, not while recording.' },
+        { title: 'Restart is your call', body: 'The menu bar says “Restart to update”; you decide when.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'No session, no update', body: 'A connected phone means no update, so nothing changes under you.' },
+        { title: 'No recording, no update', body: 'Updating mid-recording would lose the file, so it is skipped.' },
+        { title: 'You press the button', body: 'Restarts are always yours.' },
+      ],
+    },
+    tips: { title: 'Where it earns its place', description: '', items: ['Machines that never shut down', 'People who use it on the go', 'Not being interrupted before a demo'] },
+    requires: {
+      title: 'What it needs',
+      items: ['macOS 26 or later, M1 or newer', 'Internet access (to fetch the update)', 'No account', 'Can be turned off in Preferences'],
+      note: '',
+    },
+    next: { title: 'Back to the everyday one', body: 'The trackpad is the entry point you will touch most.', cta: 'See the trackpad →', href: '/remotecrab/features/trackpad/' },
+    cta: { title: 'Install it and forget it', body: 'Download the desktop app; it handles the rest.', download: 'Download for Mac', ios: 'Get the iPhone app' },
   },
 }
 

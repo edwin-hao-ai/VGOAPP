@@ -28,6 +28,8 @@ export interface HomeScene {
 
 export interface HomeContent {
   trust: string[]
+  /** 一句话解释「为什么还需要它」，不出现任何竞品名 */
+  why: string
   scenes: { kicker: string; title: string; lead: string; items: HomeScene[] }
   features: { kicker: string; title: string; lead: string; note: string; groups: HomeGroup[] }
   install: {
@@ -52,6 +54,7 @@ const F = '/remotecrab/features/'
 
 const zh: HomeContent = {
   trust: ['不需要账号', '画面和声音不出你家局域网', '不联网也能用', '权限随时可关'],
+  why: '系统自带的那套只覆盖 Mac，也覆盖不到触控板和键盘。',
   scenes: {
     kicker: '怎么用',
     title: '人在哪，电脑就在哪',
@@ -204,6 +207,7 @@ const zh: HomeContent = {
 
 const en: HomeContent = {
   trust: ['No account', 'Stays on your own Wi-Fi', 'Works without internet', 'Permissions you can revoke'],
+  why: 'What ships with the system covers Mac only — and stops at the camera.',
   scenes: {
     kicker: 'How it’s used',
     title: 'Wherever you are, the computer follows',

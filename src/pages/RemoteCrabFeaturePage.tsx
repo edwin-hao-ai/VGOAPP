@@ -2,6 +2,11 @@ import { useEffect, useState, type ComponentType } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
   ArrowRight,
+  Calculator,
+  CircleDot,
+  Laptop,
+  Moon,
+  RefreshCw,
   AudioLines,
   Bell,
   Camera,
@@ -51,6 +56,12 @@ const FEATURE_ICONS: Record<FeatureSlug, ComponentType<{ size?: number; classNam
   'app-switcher': LayoutGrid,
   transfer: FolderUp,
   automation: SlidersHorizontal,
+  numpad: Calculator,
+  'multi-computer': Laptop,
+  'two-phones': Smartphone,
+  recording: CircleDot,
+  'keep-awake': Moon,
+  'auto-update': RefreshCw,
 }
 
 function setMeta(name: string, content: string) {
@@ -103,10 +114,19 @@ export default function RemoteCrabFeaturePage() {
   // English page showing a Chinese screenshot reads as a different app. The
   // localised file is `<slug>-en.jpg`; the un-suffixed one is zh-Hans. Falls
   // back through the other locale, then to the typographic panel.
+  // 只有真的有本地截图的页面才渲染手机壳；没有的页面直接走纯文字面板，
+  // 免得每个新页面先 404 一次、预渲染快照里还留下一个空框。
+  const ART_SLUGS = new Set<FeatureSlug>([
+    'remote-access', 'notifications', 'ai', 'extended-display', 'camera', 'microphone',
+    'speaker', 'screen-mirror', 'trackpad', 'keyboard', 'voice', 'app-switcher',
+    'transfer', 'automation', 'numpad',
+  ])
   const [artSrc, setArtSrc] = useState<string | null>(null)
   useEffect(() => {
     setArtSrc(
-      `/remotecrab/features/${slug}${language === 'en' ? '-en' : ''}.jpg`,
+      ART_SLUGS.has(slug)
+        ? `/remotecrab/features/${slug}${language === 'en' ? '-en' : ''}.jpg`
+        : null,
     )
   }, [slug, language])
 
@@ -201,30 +221,20 @@ export default function RemoteCrabFeaturePage() {
                     src={artSrc}
                     alt={c.hero.title}
                     onError={() => {
-                      // Missing the localised capture: fall back to the other
-                      // locale, then to the typographic panel.
-                      const wanted = language === 'en' ? '-en' : ''
-                      const other = language === 'en' ? '' : '-en'
+                      // 本地化截图缺失时：先退到另一种语言，再退到纯文字面板。
+                      // 这里必须按后缀判断 —— 中文页 wanted 是空串，
+                      // `includes('')` 永远为真，会把自己反复指回同一张 404。
                       setArtSrc(
-                        artSrc.includes(wanted)
-                          ? `/remotecrab/features/${slug}${other}.jpg`
-                          : null,
+                        artSrc.endsWith('-en.jpg')
+                          ? null
+                          : `/remotecrab/features/${slug}-en.jpg`,
                       )
                     }}
                     className="w-[260px] sm:w-[300px] rounded-[2.25rem] block"
                   />
                 </div>
               </div>
-            ) : (
-              <div className="aspect-video w-full border border-white/10 shadow-2xl rounded-3xl bg-gradient-to-br from-vgo-primary/12 via-transparent to-vgo-secondary/12 flex items-center justify-center">
-                <div className="text-center px-8">
-                  <Icon size={56} className="mx-auto text-vgo-secondary/70" />
-                  <p className="mt-4 text-sm text-vgo-muted">
-                    {c.hero.eyebrow} · RemoteCrab
-                  </p>
-                </div>
-              </div>
-            )}
+            ) : null}
           </motion.div>
         </section>
 

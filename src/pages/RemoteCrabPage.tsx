@@ -157,6 +157,12 @@ export default function RemoteCrabPage() {
               caption={language === 'zh' ? '看这段原片' : 'Play the clip'}
               onOpen={(name) => setClip({ name, caption: language === 'zh' ? '看这段原片' : 'Play the clip' })}
             />
+            <motion.p
+              {...fade(0.15)}
+              className="mt-8 border-l-2 border-vgo-primary/40 pl-4 text-[15px] text-vgo-muted"
+            >
+              {h.why}
+            </motion.p>
           </div>
         </section>
 
