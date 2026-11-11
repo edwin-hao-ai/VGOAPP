@@ -1,28 +1,6 @@
-import { useEffect, useState, type ComponentType } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import {
-  ArrowRight,
-  AudioLines,
-  Bell,
-  Camera,
-  Check,
-  ClipboardList,
-  Download,
-  FolderUp,
-  Globe,
-  Keyboard,
-  Laptop,
-  LayoutGrid,
-  Mic,
-  Monitor,
-  MonitorPlay,
-  MousePointer2,
-  ShieldCheck,
-  Smartphone,
-  Sparkles,
-  Volume2,
-  Wifi,
-} from 'lucide-react'
+import { ArrowRight, Check, Download, Laptop, LayoutGrid, ShieldCheck, Smartphone, Sparkles, Wifi } from 'lucide-react'
 import { GITHUB_URL } from '../data/site'
 import { useLanguage } from '../i18n/LanguageContext'
 import { remoteCrabContent } from '../i18n/remotecrabContent'
@@ -35,28 +13,13 @@ import { ClipLightbox } from '../components/remotecrab/ClipLightbox'
 import { FeatureGroups } from '../components/remotecrab/FeatureGroups'
 import { CompareTable } from '../components/remotecrab/CompareTable'
 import { PriceCards } from '../components/remotecrab/PriceCards'
+import { SceneRows } from '../components/remotecrab/SceneRows'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/6VNNHAyx'
 
-const FEATURE_ICONS: Record<string, ComponentType<{ size?: number; className?: string }>> = {
-  globe: Globe,
-  ai: Sparkles,
-  bell: Bell,
-  display: Monitor,
-  mirror: MonitorPlay,
-  camera: Camera,
-  mic: Mic,
-  speaker: Volume2,
-  trackpad: MousePointer2,
-  keyboard: Keyboard,
-  voice: AudioLines,
-  files: FolderUp,
-  clipboard: ClipboardList,
-  appSwitcher: LayoutGrid,
-}
 
 function setMeta(name: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`)
@@ -176,6 +139,27 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
+        {/* 四个高频场景 —— 每条一段真机片段（v2，中英各一套） */}
+        <section id="scenes" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.scenes.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 text-3xl font-bold md:text-4xl">
+              {h.scenes.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.scenes.lead}
+            </motion.p>
+            <SceneRows
+              items={h.scenes.items}
+              language={language}
+              caption={language === 'zh' ? '看这段原片' : 'Play the clip'}
+              onOpen={(name) => setClip({ name, caption: language === 'zh' ? '看这段原片' : 'Play the clip' })}
+            />
+          </div>
+        </section>
+
         {/* 全部功能 —— 20 组，14 组可点进各自的落地页 */}
         <section id="features" className="px-6 py-16 scroll-mt-20">
           <div className="mx-auto max-w-6xl">
@@ -195,53 +179,6 @@ export default function RemoteCrabPage() {
                 labels={{ video: language === 'zh' ? '视频' : 'video', paid: language === 'zh' ? '订阅' : 'paid' }}
               />
             </motion.div>
-          </div>
-        </section>
-
-        {/* Scenes — the high-frequency use cases, each with a real capture
-            (labelled per language like everything else). Mirrors the ASC
-            scene captions: couch / sound / agent / meeting. */}
-        <section id="scenes" className="px-6 py-16 scroll-mt-20">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2 {...fade()} className="text-3xl md:text-4xl font-bold text-center">
-              {c.scenes.title}
-            </motion.h2>
-            <motion.p {...fade(0.05)} className="mt-4 text-center text-vgo-muted max-w-2xl mx-auto">
-              {c.scenes.description}
-            </motion.p>
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {c.scenes.items.map((s, i) => {
-                const Icon = FEATURE_ICONS[s.icon] ?? Sparkles
-                return (
-                  <motion.a
-                    key={s.title}
-                    href={s.href}
-                    {...fade(i * 0.05)}
-                    className="glass glass-hover rounded-2xl overflow-hidden group flex flex-col sm:flex-row"
-                  >
-                    <img
-                      src={`/remotecrab/shots/${s.shot}${language === 'en' ? '-en' : ''}.jpg`}
-                      alt={s.title}
-                      loading="lazy"
-                      className="sm:w-44 shrink-0 object-cover sm:self-stretch max-sm:h-72 max-sm:object-contain"
-                    />
-                    <div className="p-6 flex-1">
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-vgo-primary/20 to-vgo-secondary/20 flex items-center justify-center mb-3">
-                        <Icon size={18} />
-                      </div>
-                      <h3 className="font-semibold mb-2 flex items-center gap-1.5">
-                        {s.title}
-                        <ArrowRight
-                          size={14}
-                          className="text-vgo-muted opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 motion-safe:transition-all shrink-0"
-                        />
-                      </h3>
-                      <p className="text-sm text-vgo-muted leading-relaxed">{s.body}</p>
-                    </div>
-                  </motion.a>
-                )
-              })}
-            </div>
           </div>
         </section>
 

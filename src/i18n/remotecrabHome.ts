@@ -24,8 +24,19 @@ export interface CompareRow {
   builtinHas?: boolean
 }
 
+export interface HomeScene {
+  num: string
+  title: string
+  body: string
+  bullets: string[]
+  href: string
+  /** public/remotecrab/video 下的文件名前缀（不含语言后缀） */
+  clip: string
+}
+
 export interface HomeContent {
   trust: string[]
+  scenes: { kicker: string; title: string; lead: string; items: HomeScene[] }
   features: { kicker: string; title: string; lead: string; note: string; groups: HomeGroup[] }
   compare: { kicker: string; title: string; lead: string; colBuiltin: string; colOurs: string; rows: CompareRow[] }
   price: {
@@ -41,6 +52,45 @@ const F = '/remotecrab/features/'
 
 const zh: HomeContent = {
   trust: ['不需要账号', '画面和声音不出你家局域网', '不联网也能用', '权限随时可关'],
+  scenes: {
+    kicker: '怎么用',
+    title: '人在哪，电脑就在哪',
+    lead: '四个最高频的场景 —— 每个都有真机片段，点播放看原片。',
+    items: [
+      {
+        num: '01',
+        title: '笔记本没有的那颗摄像头，手机补上',
+        body: '它作为一台标准摄像头出现在 Zoom、Teams、FaceTime、OBS 的列表里，名字叫 RemoteCrab Camera。选它就行，别的应用不用改。',
+        bullets: ['最高能拍 4K，会议里是 1080p', '前后摄像头都能切', '旧 iPhone 也能当第二台机位'],
+        href: '/remotecrab/features/camera/',
+        clip: 'clip-camera',
+      },
+      {
+        num: '02',
+        title: '把任意一个 App 窗口搬到手机上',
+        body: '选一个窗口，它就出现在手机里 —— 点按、拖拽、滚动、捏合都是真的操作。不用挪窝就能看着它跑。',
+        bullets: ['可钉住某个窗口，也可跟随前台', '缩放、拖拽、滚动都跟手', '横屏时只留画面'],
+        href: '/remotecrab/features/screen-mirror/',
+        clip: 'clip-mirror',
+      },
+      {
+        num: '03',
+        title: '电脑多出一块屏，把窗口拖过去',
+        body: '不是投屏，是系统里真实存在的一块显示器。窗口拖上去，手指直接在手机上点、拖、缩放。',
+        bullets: ['iPhone 和 iPad 都能当这块屏', '自动跟随当前 App，也能钉住', '横屏沉浸，多留一块桌面'],
+        href: '/remotecrab/features/extended-display/',
+        clip: 'clip-second-screen',
+      },
+      {
+        num: '04',
+        title: '躺在沙发上，也能操作电脑',
+        body: '触控板有拖动、双指滚动、右键、三指手势和 ⌃⌥⌘⇧；键盘走系统输入法，中文和听写都能用，文字直接落在电脑光标处。',
+        bullets: ['光标跟手，不乱飘', '滑动有轻重，带触觉反馈', '数字键盘与触控板共存'],
+        href: '/remotecrab/features/trackpad/',
+        clip: 'clip-trackpad',
+      },
+    ],
+  },
   features: {
     kicker: '全部功能',
     title: '20 组功能，一次列全',
@@ -135,6 +185,45 @@ const zh: HomeContent = {
 
 const en: HomeContent = {
   trust: ['No account', 'Stays on your own Wi-Fi', 'Works without internet', 'Permissions you can revoke'],
+  scenes: {
+    kicker: 'How it’s used',
+    title: 'Wherever you are, the computer follows',
+    lead: 'The four most-used setups — each one has real footage; press play.',
+    items: [
+      {
+        num: '01',
+        title: 'The camera your laptop doesn’t have',
+        body: 'It shows up as a standard camera in Zoom, Teams, FaceTime and OBS, listed as RemoteCrab Camera. Pick it and nothing else changes.',
+        bullets: ['Up to 4K capture, 1080p in meetings', 'Front or rear camera', 'An old iPhone works as a second angle'],
+        href: '/remotecrab/features/camera/',
+        clip: 'clip-camera',
+      },
+      {
+        num: '02',
+        title: 'Any app window, on the phone',
+        body: 'Pick a window and it’s on your phone — tap, drag, scroll and pinch are real input. Watch it run without moving.',
+        bullets: ['Pin a window, or follow the frontmost app', 'Zoom, drag and scroll feel native', 'Landscape hides the chrome'],
+        href: '/remotecrab/features/screen-mirror/',
+        clip: 'clip-mirror',
+      },
+      {
+        num: '03',
+        title: 'A second screen you can drag a window onto',
+        body: 'Not a mirror — a real display the system believes in. Drag a window onto it and touch it directly.',
+        bullets: ['iPhone and iPad both work', 'Follows the front app, or pinned', 'Landscape gives you a full desktop'],
+        href: '/remotecrab/features/extended-display/',
+        clip: 'clip-second-screen',
+      },
+      {
+        num: '04',
+        title: 'Run the computer from the couch',
+        body: 'The trackpad does drag, two-finger scroll, right-click, three-finger gestures and ⌃⌥⌘⇧. Typing uses the system IME — Chinese and dictation included.',
+        bullets: ['The pointer follows your finger', 'Accelerates as you flick, with haptics', 'A numeric pad that coexists'],
+        href: '/remotecrab/features/trackpad/',
+        clip: 'clip-trackpad',
+      },
+    ],
+  },
   features: {
     kicker: 'Every feature',
     title: '20 groups of features, all of them',
