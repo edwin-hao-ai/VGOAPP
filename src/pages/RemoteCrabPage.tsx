@@ -1,4 +1,4 @@
-import { useEffect, type ComponentType } from 'react'
+import { useEffect, useState, type ComponentType } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
   ArrowRight,
@@ -29,6 +29,8 @@ import { remoteCrabContent, type FeatureItem } from '../i18n/remotecrabContent'
 import GlowBackground from '../components/GlowBackground'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { Stage } from '../components/remotecrab/Stage'
+import { ClipLightbox } from '../components/remotecrab/ClipLightbox'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -66,6 +68,10 @@ export default function RemoteCrabPage() {
   const shouldReduceMotion = useReducedMotion()
   const { language } = useLanguage()
   const c = remoteCrabContent[language]
+  const [platform, setPlatform] = useState<'mac' | 'windows'>(() =>
+    typeof navigator !== 'undefined' && /Windows|Win64|WOW64/i.test(navigator.userAgent) ? 'windows' : 'mac',
+  )
+  const [clip, setClip] = useState<{ name: string; caption?: string } | null>(null)
 
   useEffect(() => {
     document.title = c.meta.title
@@ -88,72 +94,81 @@ export default function RemoteCrabPage() {
       <Navbar homeHref="/" backLabel={c.nav.back} />
 
       <main className="pt-16">
-        {/* Hero */}
-        <section className="relative px-6 pt-20 pb-16 flex flex-col items-center text-center">
-          <motion.img
-            src="/remotecrab-icon.png"
-            alt="RemoteCrab"
-            width={112}
-            height={112}
-            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.7, ease: 'easeOut' }}
-            className="w-28 h-28 rounded-[28px] shadow-2xl shadow-vgo-primary/30 animate-float"
-          />
-          <motion.span
-            {...fade(0.1)}
-            className="mt-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs text-vgo-muted"
-          >
-            <Sparkles size={14} className="text-vgo-secondary" />
-            {c.hero.badge}
-          </motion.span>
-          <motion.h1 {...fade(0.15)} className="mt-6 text-5xl md:text-7xl font-extrabold tracking-tight">
-            Remote<span className="gradient-text">Crab</span>
-          </motion.h1>
-          <motion.p {...fade(0.25)} className="mt-5 text-2xl md:text-3xl font-medium gradient-text max-w-3xl">
-            {c.hero.tagline}
-          </motion.p>
-          <motion.p {...fade(0.35)} className="mt-5 text-lg text-vgo-muted max-w-2xl leading-relaxed">
-            {c.hero.description}
-          </motion.p>
+        {/* Hero —— 一句承诺 + 一段真机实拍；只留一个主按钮，按平台切 */}
+        <section className="relative px-6 pt-16 pb-14">
+          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+            <div>
+              <motion.span
+                {...fade(0.05)}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-4 py-1.5 text-xs tracking-wide text-vgo-muted"
+              >
+                <Sparkles size={13} className="text-vgo-secondary" />
+                {c.hero.eyebrow}
+              </motion.span>
 
-          <motion.div {...fade(0.45)} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <a
-              href={DOWNLOAD_MAC_URL}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-vgo-primary to-vgo-secondary text-white font-semibold shadow-lg shadow-vgo-primary/25 hover:shadow-vgo-primary/40 transition-shadow"
-            >
-              <Download size={18} /> {c.hero.downloadMac}
-            </a>
-            <a
-              href={DOWNLOAD_WINDOWS_URL}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
-            >
-              <Laptop size={18} /> {c.hero.downloadWindows}
-            </a>
-            <a
-              href={APP_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
-            >
-              <Smartphone size={18} /> {c.hero.downloadIOS}
-            </a>
-            <a
-              href={TESTFLIGHT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
-            >
-              <Sparkles size={18} /> {c.hero.testflight}
-            </a>
-          </motion.div>
+              <motion.h1
+                {...fade(0.1)}
+                className="mt-5 text-[clamp(2rem,4.4vw,3.4rem)] font-extrabold leading-[1.08] tracking-tight"
+              >
+                <span className="block">{c.hero.titleLine1}</span>
+                <span className="block gradient-text">{c.hero.titleLine2}</span>
+              </motion.h1>
 
-          <motion.p {...fade(0.55)} className="mt-6 text-sm text-vgo-muted">
-            {c.hero.free}
-          </motion.p>
-          <motion.p {...fade(0.6)} className="mt-2 text-xs text-vgo-muted/80">
-            {c.hero.requirementsNote}
-          </motion.p>
+              <motion.p {...fade(0.2)} className="mt-5 max-w-xl text-lg leading-relaxed text-vgo-muted">
+                {c.hero.description}
+              </motion.p>
+
+              <motion.div {...fade(0.3)} className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href={platform === 'windows' ? DOWNLOAD_WINDOWS_URL : DOWNLOAD_MAC_URL}
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-vgo-primary to-vgo-secondary px-7 py-3.5 font-semibold text-white shadow-lg shadow-vgo-primary/25 transition-shadow hover:shadow-vgo-primary/40"
+                >
+                  <Download size={18} />
+                  {platform === 'windows' ? c.hero.downloadWindows : c.hero.downloadMac}
+                  <span className="text-xs font-medium opacity-70">14 MB</span>
+                </a>
+                <a
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full glass glass-hover px-6 py-3.5 font-semibold"
+                >
+                  <Smartphone size={18} />
+                  {c.hero.appStore}
+                  <span className="text-xs font-medium opacity-60">{language === 'zh' ? '免费' : 'Free'}</span>
+                </a>
+              </motion.div>
+
+              <motion.p {...fade(0.4)} className="mt-4 font-mono text-xs text-vgo-muted/70">
+                {c.hero.versionNote}
+              </motion.p>
+              <motion.p {...fade(0.42)} className="mt-1 text-xs text-vgo-muted/60">
+                {c.hero.requirementsNote}
+              </motion.p>
+
+              {platform === 'mac' ? (
+                <motion.p {...fade(0.45)} className="mt-2 text-[13px] text-vgo-muted/60">
+                  {c.hero.switchPlatform}{' '}
+                  <button
+                    type="button"
+                    onClick={() => setPlatform('windows')}
+                    className="underline underline-offset-2 hover:text-vgo-text"
+                  >
+                    {c.hero.switchAction}
+                  </button>
+                </motion.p>
+              ) : null}
+            </div>
+
+            <motion.div {...fade(0.15)}>
+              <Stage
+                language={language}
+                name="hero"
+                caption={c.hero.watchFull}
+                onOpen={() => setClip({ name: 'hero', caption: c.hero.watchFull })}
+              />
+            </motion.div>
+          </div>
         </section>
 
         {/* Features */}
@@ -422,6 +437,12 @@ export default function RemoteCrabPage() {
         </section>
       </main>
 
+      <ClipLightbox
+        name={clip?.name ?? null}
+        caption={clip?.caption}
+        language={language}
+        onClose={() => setClip(null)}
+      />
       <Footer />
     </>
   )

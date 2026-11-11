@@ -29,6 +29,16 @@ export interface RemoteCrabContent {
     testflight: string
     free: string
     requirementsNote: string
+    /** 首屏新字段（2026-11-11 改版） */
+    eyebrow: string
+    titleLine1: string
+    titleLine2: string
+    appStore: string
+    versionNote: string
+    switchPlatform: string
+    switchAction: string
+    watchFull: string
+    clipCaption: string
   }
   features: { title: string; description: string; items: FeatureItem[] }
   compatibility: { title: string; body: string; cta: string }
@@ -58,16 +68,25 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     nav: { back: '← 返回 VGO' },
     hero: {
-      badge: 'macOS / Windows 桌面端 · 免费',
+      badge: 'Mac · Windows · iPhone · iPad',
       tagline: '你的 iPhone,就是电脑缺失的外设',
       description:
-        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘;电脑上的通知送到你手机上,点一下就跳回那个应用;还能直接问 AI —— 它看得见你的屏幕,答案落在你的光标处。本地 WiFi 直连,免费且完整;不在同一网络时,远程访问是可选订阅。',
+        '摄像头、麦克风、第二块屏、触控板、键盘 —— 用你手上的 iPhone 或 iPad,同一个 WiFi 里就能用。不注册、不上传、不用买外设。',
       downloadMac: '下载 Mac 版',
       downloadWindows: '下载 Windows 版',
-      downloadIOS: 'App Store 下载 iPhone 版',
-      testflight: 'TestFlight 公测（抢先体验）',
+      downloadIOS: 'App Store（iPhone / iPad）',
+      testflight: 'TestFlight 公测',
       free: '局域网免费完整 · 无账号 · 远程访问可选订阅',
-      requirementsNote: '需要 macOS 26+（Apple 芯片）与 iOS 26+',
+      requirementsNote: 'macOS 26 或更新 · M1 及以后 · iOS / iPadOS 17 或更新',
+      eyebrow: 'Mac · Windows · iPhone · iPad',
+      titleLine1: '一部手机，',
+      titleLine2: '补全你的电脑',
+      appStore: 'App Store（iPhone / iPad）',
+      versionNote: '版本 1.2.2 · 14 MB · 2026-11-10',
+      switchPlatform: '这台电脑是 Windows？',
+      switchAction: '换成 Windows 版',
+      watchFull: '完整版 34 秒 · 有声',
+      clipCaption: '现场实拍',
     },
   compatibility: {
     title: '情景模式认识你电脑上的 49 个应用',
@@ -258,16 +277,25 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     nav: { back: '← Back to VGO' },
     hero: {
-      badge: 'macOS / Windows desktop app · Free',
+      badge: 'Mac · Windows · iPhone · iPad',
       tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
-        'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer; notifications land on your phone and tapping one jumps back to that window; and you can ask AI about what is on the computer — it sees the screen, the answer lands at your cursor. Over local WiFi, free and complete; away from that network, remote access is an optional subscription.',
+        'Camera, mic, second display, trackpad, keyboard — from the iPhone or iPad you already own, on your own Wi-Fi. No account, no cloud, no extra hardware.',
       downloadMac: 'Download for Mac',
       downloadWindows: 'Download for Windows',
-      downloadIOS: 'Download on the App Store',
-      testflight: 'Join the TestFlight beta',
-      free: 'Free and complete on your LAN · No account · Optional remote-access subscription',
-      requirementsNote: 'Requires macOS 26+ (Apple silicon) and iOS 26+',
+      downloadIOS: 'App Store (iPhone / iPad)',
+      testflight: 'TestFlight beta',
+      free: 'Free and complete on your Wi-Fi · No account · Remote access is optional',
+      requirementsNote: 'macOS 26+ · M1 or later · iOS / iPadOS 17+',
+      eyebrow: 'Mac · Windows · iPhone · iPad',
+      titleLine1: 'One phone completes',
+      titleLine2: 'your computer.',
+      appStore: 'App Store (iPhone / iPad)',
+      versionNote: 'Version 1.2.2 · 14 MB · Nov 10, 2026',
+      switchPlatform: 'On Windows instead?',
+      switchAction: 'Get the Windows build',
+      watchFull: 'Full 34s · with sound',
+      clipCaption: 'Real footage',
     },
   compatibility: {
     title: 'Context modes know 49 apps on your computer',
