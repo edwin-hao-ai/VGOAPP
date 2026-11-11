@@ -236,7 +236,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     requirements: {
       title: '系统要求',
       mac: { title: 'computer', items: ['macOS 26 或更高', 'Apple 芯片（M 系列）'] },
-      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 或更高', 'iPhone 或 iPad 均可'] },
+      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 17 或更高', 'iPhone 或 iPad 均可'] },
       note: '两台设备在同一个局域网里直连即可;订阅远程访问后,不同网络也能连。',
     },
     privacy: {
@@ -249,9 +249,9 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       items: [
         { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费,没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年,随时可在系统设置里取消。' },
         {
-          question: '为什么要安装「虚拟摄像头」？',
+          question: '为什么装的时候要授权好几次？',
           answer:
-            'macOS 只认系统级摄像头。RemoteCrab 会安装一个签名并经 Apple 公证的相机扩展，装好后任何 App 都能在摄像头列表里选到「RemoteCrab Camera」。',
+            '因为你要让它出现在「所有 App」里 —— 摄像头列表、麦克风列表、鼠标和键盘。这些位置 Apple 只留给系统自己安装的部件，所以每一样都要单独装、单独允许。每一项都能在系统设置里随手关掉。',
         },
         {
           question: '需要联网吗？',
@@ -259,7 +259,11 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         },
         {
           question: '我的电脑能装吗？',
-          answer: '需要 macOS 26 或更高的 Apple 芯片电脑。目前暂不支持 Intel电脑。',
+          answer: 'Mac 端需要 macOS 26 或更新，而且得是 M1 及以后的 Mac；Intel 的 Mac 暂时不支持。Windows 端支持 Windows 10 / 11，功能与 Mac 版基本相同，但虚拟麦克风还没做。iPhone / iPad 端需要 iOS / iPadOS 17 或更新。',
+        },
+        {
+          question: 'iPad 也能用吗？',
+          answer: '能。iPad 可以当第二块屏、摄像头、麦克风、触控板和键盘，也可以当远程访问的那一端。App Store 上是同一个 App，装一次就行。',
         },
       ],
     },
@@ -446,7 +450,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     requirements: {
       title: 'Requirements',
       mac: { title: 'computer', items: ['macOS 26 or later', 'Apple silicon (M-series)'] },
-      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 or later', 'iPhone or iPad'] },
+      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 17 or later', 'iPhone or iPad'] },
       note: 'Both devices connect directly on the same local network; with the remote-access subscription they connect across networks too.',
     },
     privacy: {
@@ -459,9 +463,9 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       items: [
         { question: 'Is RemoteCrab free?', answer: 'Everything on your local WiFi is free forever — no ads, no in-app purchases. Using your computer from another network is an optional subscription: $3.99/month or $29.99/year, cancellable anytime in Settings.' },
         {
-          question: 'Why does it install a "virtual camera"?',
+          question: 'Why does installing ask for permission several times?',
           answer:
-            'macOS only trusts system-level cameras. RemoteCrab installs a signed and notarized camera extension, after which any app can pick "RemoteCrab Camera" from its camera list.',
+            'Because it has to work everywhere: every app’s camera menu, its mic menu, and the pointer and keyboard. macOS only lets system-installed pieces do that, so each one is a separate install and a separate yes. Each can be switched off in System Settings later.',
         },
         {
           question: 'Does it need the internet?',
@@ -469,7 +473,11 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         },
         {
           question: 'Will it run on my computer?',
-          answer: 'It needs an Apple-silicon computer on macOS 26 or later. Intel computers are not supported yet.',
+          answer: 'The Mac app needs macOS 26 or later on M1 or newer; Intel Macs are not supported yet. The Windows app runs on Windows 10 / 11 with nearly all the same features, except the virtual microphone. The iPhone / iPad app needs iOS / iPadOS 17 or later.',
+        },
+        {
+          question: 'Does it work with an iPad?',
+          answer: 'Yes. An iPad can be the second display, camera, mic, trackpad and keyboard, and the remote end too. It is the same App Store app — install once.',
         },
       ],
     },

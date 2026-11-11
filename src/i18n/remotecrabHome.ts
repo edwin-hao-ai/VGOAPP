@@ -16,14 +16,6 @@ export interface HomeGroup {
   items: HomeFeature[]
 }
 
-export interface CompareRow {
-  label: string
-  builtin: string
-  ours: string
-  /** 系统自带那一列是否算「有」 */
-  builtinHas?: boolean
-}
-
 export interface HomeScene {
   num: string
   title: string
@@ -38,7 +30,15 @@ export interface HomeContent {
   trust: string[]
   scenes: { kicker: string; title: string; lead: string; items: HomeScene[] }
   features: { kicker: string; title: string; lead: string; note: string; groups: HomeGroup[] }
-  compare: { kicker: string; title: string; lead: string; colBuiltin: string; colOurs: string; rows: CompareRow[] }
+  install: {
+    kicker: string
+    title: string
+    lead: string
+    items: { num: string; title: string; body: string; note?: string; dialog?: string }[]
+    footnote: string
+    dialogCancel: string
+    dialogOpen: string
+  }
   price: {
     kicker: string
     title: string
@@ -149,20 +149,39 @@ const zh: HomeContent = {
       },
     ],
   },
-  compare: {
-    kicker: '和系统自带的关系',
-    title: '苹果的接力很好，但它只管一半，而且只管 Mac',
-    lead: '如果你只是想要一颗临时摄像头，系统自带就够了，真的。RemoteCrab 是为「一台手机要当整套外设，而且不一定是 Mac」准备的。',
-    colBuiltin: '系统自带（接力 / Sidecar）',
-    colOurs: 'RemoteCrab',
-    rows: [
-      { label: '当摄像头', builtin: '有 · 仅 Mac，同一 Apple ID', ours: '有 · Mac 与 Windows', builtinHas: true },
-      { label: '当第二块屏', builtin: '需要 iPad（Sidecar）', ours: 'iPhone 和 iPad 都可以' },
-      { label: '触控板与键盘', builtin: '没有', ours: '有，含中文输入法' },
-      { label: '电脑通知到手机', builtin: '没有（只能反向）', ours: '有，点一下跳回窗口' },
-      { label: '不在同一网络', builtin: '没有', ours: '有（可选订阅）' },
-      { label: 'Windows 电脑', builtin: '完全不支持', ours: '支持（虚拟麦克风除外）' },
+  install: {
+    kicker: '安装',
+    title: '装的时候会弹出这些，每个都告诉你为什么',
+    lead: '它要替你点鼠标、敲键盘，还要用摄像头和麦克风，所以一定会问你要不要允许。这是正常的，不是可疑。',
+    items: [
+      {
+        num: '1',
+        title: '下载 dmg，拖进「应用程序」',
+        body: '安装包 14 MB。第一次打开时系统会问你一次 —— 从网上下载的 App 都会问，点「打开」就好，不是报错。',
+        dialog: '“RemoteCrab” 是从互联网下载的 App。确定要打开吗？',
+      },
+      {
+        num: '2',
+        title: '打开「辅助功能」授权',
+        body: '要让手机替你点鼠标、敲键盘，得先在系统里允许它。不打开这一项，手机能连上，但点不动电脑。',
+        note: '路径：系统设置 → 隐私与安全性 → 辅助功能 → 打开 RemoteCrab（macOS 27 里这一页叫「设备控制和数据访问」）',
+      },
+      {
+        num: '3',
+        title: '装摄像头（需要输入一次电脑密码）',
+        body: '要让「RemoteCrab Camera」出现在所有 App 的摄像头列表里，只能装一个小部件 —— Apple 规定的唯一方式。装完在任何应用里都能选到它，不想要了在同一个页面关掉。',
+        note: '路径：系统设置 → 通用 → 登录项与扩展 → 相机扩展',
+      },
+      {
+        num: '4',
+        title: '装 iPhone / iPad 端，点一下配对',
+        body: '两台设备在同一个 WiFi 里，手机上会自动出现这台电脑；点一下，以后打开即连。换了电脑，在手机上重新选一台就行。',
+      },
     ],
+    footnote:
+      '虚拟麦克风要单独装一次，只有「把手机当麦克风」才需要，可以跳过。录屏权限只在用「镜像」时才需要。',
+    dialogCancel: '取消',
+    dialogOpen: '打开',
   },
   price: {
     kicker: '价格',
@@ -282,20 +301,39 @@ const en: HomeContent = {
       },
     ],
   },
-  compare: {
-    kicker: 'Versus what’s built in',
-    title: 'Continuity Camera is good — it covers half, on Mac only',
-    lead: 'If all you want is a temporary webcam, the built-in one is fine — genuinely. RemoteCrab is for “one phone as the whole peripheral set, and not necessarily on a Mac.”',
-    colBuiltin: 'Built in (Continuity / Sidecar)',
-    colOurs: 'RemoteCrab',
-    rows: [
-      { label: 'As a webcam', builtin: 'Yes · Mac only, same Apple ID', ours: 'Yes · Mac and Windows', builtinHas: true },
-      { label: 'As a second display', builtin: 'Needs an iPad (Sidecar)', ours: 'iPhone or iPad' },
-      { label: 'Trackpad and keyboard', builtin: 'None', ours: 'Yes, with Chinese IME' },
-      { label: 'Mac notifications on the phone', builtin: 'None (only the reverse)', ours: 'Yes, tap to jump back' },
-      { label: 'Different networks', builtin: 'None', ours: 'Yes (optional subscription)' },
-      { label: 'A Windows PC', builtin: 'Not at all', ours: 'Supported (no virtual mic yet)' },
+  install: {
+    kicker: 'Install',
+    title: 'Here’s every prompt you’ll see, and why it exists',
+    lead: 'It moves your pointer, types for you, and uses the camera and mic — so macOS will ask, once per thing. That’s normal, not suspicious.',
+    items: [
+      {
+        num: '1',
+        title: 'Download the dmg, drag it to Applications',
+        body: '14 MB. macOS asks once when you first open it — every app downloaded from the web gets that, and “Open” is all it needs.',
+        dialog: '“RemoteCrab” is an app downloaded from the Internet. Are you sure you want to open it?',
+      },
+      {
+        num: '2',
+        title: 'Grant Accessibility',
+        body: 'For the phone to move the pointer and type for you, macOS has to allow it. Without this you connect, but clicks do nothing.',
+        note: 'Path: System Settings → Privacy & Security → Accessibility → turn on RemoteCrab (called “Device control and data access” on macOS 27)',
+      },
+      {
+        num: '3',
+        title: 'Add the camera (one computer password)',
+        body: 'For “RemoteCrab Camera” to show up in every app’s camera menu, macOS requires a small add-on — it’s the only way. Once installed any app can pick it; turn it off on the same page.',
+        note: 'Path: System Settings → General → Login Items & Extensions → Camera Extensions',
+      },
+      {
+        num: '4',
+        title: 'Install on iPhone / iPad, tap once to pair',
+        body: 'On the same Wi-Fi the device lists this computer automatically; tap once and it reconnects from then on. A different computer is one more tap.',
+      },
     ],
+    footnote:
+      'The virtual microphone is a separate one-time install, only needed if you want the phone as a mic — skip it otherwise. Screen Recording is only needed for mirroring.',
+    dialogCancel: 'Cancel',
+    dialogOpen: 'Open',
   },
   price: {
     kicker: 'Pricing',

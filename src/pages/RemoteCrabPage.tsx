@@ -11,9 +11,9 @@ import Footer from '../components/Footer'
 import { Stage } from '../components/remotecrab/Stage'
 import { ClipLightbox } from '../components/remotecrab/ClipLightbox'
 import { FeatureGroups } from '../components/remotecrab/FeatureGroups'
-import { CompareTable } from '../components/remotecrab/CompareTable'
 import { PriceCards } from '../components/remotecrab/PriceCards'
 import { SceneRows } from '../components/remotecrab/SceneRows'
+import { InstallSteps } from '../components/remotecrab/InstallSteps'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -182,24 +182,6 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
-        {/* 和系统自带的关系 —— macOS 26 用户 100% 已经有接力摄像头 */}
-        <section id="why" className="px-6 py-16 scroll-mt-20">
-          <div className="mx-auto max-w-6xl">
-            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
-              {h.compare.kicker}
-            </motion.span>
-            <motion.h2 {...fade(0.05)} className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">
-              {h.compare.title}
-            </motion.h2>
-            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
-              {h.compare.lead}
-            </motion.p>
-            <motion.div {...fade(0.15)} className="mt-10">
-              <CompareTable c={h.compare} />
-            </motion.div>
-          </div>
-        </section>
-
         {/* 价格 —— 免费的边界写在首页，不藏在折叠的 FAQ 里 */}
         <section id="pricing" className="px-6 py-16 scroll-mt-20">
           <div className="mx-auto max-w-6xl">
@@ -221,27 +203,21 @@ export default function RemoteCrabPage() {
         {/* 旧截图墙（卡通头像 + 打码图）在首屏换成真机实拍之后就多余了，而且
             和新的画面语言冲突。场景图由真机片段承担，这里不再重复。 */}
 
-        {/* Steps */}
-        <section className="px-6 py-16">
-          <div className="max-w-6xl mx-auto">
-            <motion.h2 {...fade()} className="text-3xl md:text-4xl font-bold text-center">
-              {c.steps.title}
+        {/* 安装 —— 写成「你会在屏幕上看到什么」 */}
+        <section id="install" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-5xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.install.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 text-3xl font-bold md:text-4xl">
+              {h.install.title}
             </motion.h2>
-            <motion.p {...fade(0.05)} className="mt-4 text-center text-vgo-muted max-w-2xl mx-auto">
-              {c.steps.description}
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.install.lead}
             </motion.p>
-
-            <ol className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {c.steps.items.map((step, i) => (
-                <motion.li key={step.title} {...fade(i * 0.06)} className="glass p-6">
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-vgo-primary to-vgo-secondary text-white font-bold">
-                    {i + 1}
-                  </span>
-                  <h3 className="mt-4 font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-sm text-vgo-muted leading-relaxed">{step.body}</p>
-                </motion.li>
-              ))}
-            </ol>
+            <motion.div {...fade(0.15)}>
+              <InstallSteps c={h.install} />
+            </motion.div>
           </div>
         </section>
 

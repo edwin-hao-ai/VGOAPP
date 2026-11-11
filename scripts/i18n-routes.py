@@ -31,8 +31,8 @@ KEYWORDS = {
         "en": "Mac cleaner, cache cleanup, npm cache, Docker cleanup, Xcode DerivedData, process manager, app uninstaller, macOS optimization, SlimDisk",
     },
     "/remotecrab/": {
-        "zh": "iPhone 摄像头,电脑摄像头,无线麦克风,iPhone 触控板,iPhone 键盘,网络摄像头,远程控制,RemoteCrab",
-        "en": "iPhone webcam, use iPhone as a webcam, wireless microphone, iPhone trackpad, iPhone keyboard, remote control, RemoteCrab",
+        "zh": "iPhone 当摄像头,电脑摄像头,无线麦克风,iPhone 触控板,iPhone 键盘,网络摄像头,远程控制,第二块屏幕,iPad 当副屏,Mac 没有摄像头,电脑摄像头软件,远程桌面替代,RemoteCrab",
+        "en": "use iPhone as a webcam, iPhone as a second display, wireless microphone for Mac, iPhone trackpad for Mac, iPhone keyboard for Mac, remote control from iPhone, webcam for Windows, RemoteCrab",
     },
 }
 PRODUCT_FALLBACK = {
