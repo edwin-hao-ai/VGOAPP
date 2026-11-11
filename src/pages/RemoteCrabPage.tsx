@@ -328,6 +328,15 @@ export default function RemoteCrabPage() {
                 </motion.details>
               ))}
             </div>
+            <p className="mt-8 text-center text-[13.5px] text-vgo-muted/70">
+              {language === 'zh' ? '正在比较几种做法？' : 'Comparing the options?'}{' '}
+              <a
+                href="/remotecrab/alternatives/"
+                className="text-vgo-secondary underline underline-offset-2 hover:text-vgo-primary"
+              >
+                {language === 'zh' ? '看这几种方式的对比 →' : 'See how they compare →'}
+              </a>
+            </p>
           </div>
         </section>
 

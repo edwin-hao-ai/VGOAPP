@@ -36,6 +36,7 @@ export default defineConfig({
         remotecrabFeatureAppSwitcher: 'remotecrab/features/app-switcher/index.html',
         remotecrabFeatureTransfer: 'remotecrab/features/transfer/index.html',
         remotecrabFeatureAutomation: 'remotecrab/features/automation/index.html',
+        remotecrabAlternatives: 'remotecrab/alternatives/index.html',
         remotecrabFeatureNumpad: 'remotecrab/features/numpad/index.html',
         remotecrabFeatureMultiComputer: 'remotecrab/features/multi-computer/index.html',
         remotecrabFeatureTwoPhones: 'remotecrab/features/two-phones/index.html',
