@@ -184,16 +184,33 @@ export default function RemoteCrabPage() {
         {/* 你不在电脑前的时候 —— 三个场景，卖的是处境不是功能 */}
         <section id="remote" className="px-6 py-16 scroll-mt-20">
           <div className="mx-auto max-w-6xl">
-            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
-              {h.remote.kicker}
-            </motion.span>
-            <motion.h2 {...fade(0.05)} className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">
-              {h.remote.title}
-            </motion.h2>
-            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
-              {h.remote.lead}
-            </motion.p>
-            <motion.div {...fade(0.15)}>
+            <div className="grid items-center gap-10 md:grid-cols-[1fr_360px]">
+              <div>
+                <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+                  {h.remote.kicker}
+                </motion.span>
+                <motion.h2 {...fade(0.05)} className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
+                  {h.remote.title}
+                </motion.h2>
+                <motion.p {...fade(0.1)} className="mt-4 max-w-xl text-vgo-muted">
+                  {h.remote.lead}
+                </motion.p>
+              </div>
+              <motion.div {...fade(0.15)}>
+                <Stage
+                  language={language}
+                  name="clip-computer-use"
+                  caption={language === 'zh' ? '说一句，它在电脑上做完' : 'Say it; it gets done on the computer'}
+                  onOpen={() =>
+                    setClip({
+                      name: 'clip-computer-use',
+                      caption: language === 'zh' ? '说一句，它在电脑上做完' : 'Say it; it gets done on the computer',
+                    })
+                  }
+                />
+              </motion.div>
+            </div>
+            <motion.div {...fade(0.2)}>
               <RemoteScenarios c={h.remote} />
             </motion.div>
           </div>
