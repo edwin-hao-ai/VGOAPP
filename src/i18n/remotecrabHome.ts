@@ -30,6 +30,12 @@ export interface HomeContent {
   trust: string[]
   scenes: { kicker: string; title: string; lead: string; items: HomeScene[] }
   features: { kicker: string; title: string; lead: string; note: string; groups: HomeGroup[] }
+  shots: {
+    kicker: string
+    title: string
+    lead: string
+    items: { name: string; body: string; href: string; shot: string }[]
+  }
   limits: {
     kicker: string
     title: string
@@ -157,6 +163,17 @@ const zh: HomeContent = {
           { name: '空闲自动更新', body: '不在会话里、不在录制时才更新，不会打断你。' },
         ],
       },
+    ],
+  },
+  shots: {
+    kicker: '手机上的样子',
+    title: '它在你手机上是什么样',
+    lead: '挑四张截给你看 —— 和上面视频里的操作是同一套界面。',
+    items: [
+      { name: '触控板', body: '光标跟手；拖动、双指滚动、右键都在。', href: '/remotecrab/features/trackpad/', shot: 'trackpad' },
+      { name: '键盘', body: '中文输入法、快捷键栏，还有一块迷你触控板。', href: '/remotecrab/features/keyboard/', shot: 'keyboard' },
+      { name: '摄像头', body: '会议软件里选它，画面从手机来。', href: '/remotecrab/features/camera/', shot: 'camera' },
+      { name: '通知收件箱', body: '错过也没关系，点一条就跳回那个窗口。', href: '/remotecrab/features/notifications/', shot: 'notifications' },
     ],
   },
   limits: {
@@ -325,6 +342,17 @@ const en: HomeContent = {
           { name: 'Idle auto-update', body: 'Updates only when idle and not recording.' },
         ],
       },
+    ],
+  },
+  shots: {
+    kicker: 'On the phone',
+    title: 'What it looks like in your hand',
+    lead: 'Four screens from the app — the same interface you see in the footage above.',
+    items: [
+      { name: 'Trackpad', body: 'The pointer follows your finger; drag, two-finger scroll, right-click.', href: '/remotecrab/features/trackpad/', shot: 'trackpad' },
+      { name: 'Keyboard', body: 'System IME, a shortcut row, and a mini trackpad.', href: '/remotecrab/features/keyboard/', shot: 'keyboard' },
+      { name: 'Camera', body: 'Pick it in any meeting app; the picture comes from the phone.', href: '/remotecrab/features/camera/', shot: 'camera' },
+      { name: 'Notification inbox', body: 'Missed one? Tap it to jump back to that window.', href: '/remotecrab/features/notifications/', shot: 'notifications' },
     ],
   },
   limits: {

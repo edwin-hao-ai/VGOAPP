@@ -5,135 +5,128 @@
 <title>RemoteCrab 功能页配图（HTML 绘制）</title>
 <style>
   :root{
-    --bg:#0a0a10; --surface:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
-    --text:#f2f2f5; --muted:#9a9aa8; --dim:#6e6e7c;
-    --a:#8b7bff; --b:#4d8dff;
+    --bg:#0b0b12; --surface:rgba(255,255,255,.05); --line:rgba(255,255,255,.13);
+    --text:#f2f2f5; --muted:#9a9aa8;
+    --a:#8b7bff; --b:#4d8dff; --blue:#2f6bff; --orange:#e9a23b;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#000;font:15px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC",sans-serif;color:var(--text)}
-  .screen{
-    position:relative;width:402px;height:874px;overflow:hidden;background:var(--bg);
-    display:none;flex-direction:column;
-  }
+  .screen{position:relative;width:402px;height:874px;overflow:hidden;background:var(--bg);display:none;flex-direction:column}
   .screen.on{display:flex}
 
-  /* 状态栏 + 应用工具栏 */
-  .status{display:flex;align-items:center;justify-content:space-between;padding:16px 22px 6px;font-size:13px;font-weight:600}
-  .status .icons{display:flex;gap:5px;align-items:center}
-  .bars{display:flex;gap:2px;align-items:flex-end}
-  .bars i{display:block;width:3px;background:#fff;border-radius:1px}
-  .bars i:nth-child(1){height:4px}.bars i:nth-child(2){height:6px}.bars i:nth-child(3){height:8px}.bars i:nth-child(4){height:10px}
-  .wifi{width:14px;height:10px;border:1.5px solid #fff;border-radius:2px 2px 6px 6px;border-bottom-color:transparent}
-  .batt{width:20px;height:10px;border:1.5px solid #fff;border-radius:3px;position:relative}
-  .batt::after{content:"";position:absolute;inset:1.5px 4px 1.5px 1.5px;background:#fff;border-radius:1px}
+  /* ---------- 系统状态栏（照真机截图） ---------- */
+  .status{position:relative;height:56px;flex:none}
+  .status .time{position:absolute;left:24px;top:18px;font-size:16px;font-weight:600;letter-spacing:.2px}
+  .island{position:absolute;left:50%;top:11px;transform:translateX(-50%);width:126px;height:36px;border-radius:18px;background:#000}
+  .status .right{position:absolute;right:22px;top:20px;display:flex;align-items:center;gap:7px}
+  .sig{display:flex;gap:3px;align-items:flex-end}
+  .sig i{width:4px;height:4px;border-radius:1px;background:#fff;opacity:.95}
+  .wifi{width:16px;height:12px;display:grid;place-items:end center}
+  .wifi svg{width:16px;height:12px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round}
+  .batt{width:22px;height:11px;border:1.4px solid rgba(255,255,255,.85);border-radius:3.5px;position:relative}
+  .batt::after{content:"";position:absolute;inset:1.6px 4px 1.6px 1.6px;background:#fff;border-radius:2px}
 
-  .toolbar{display:flex;align-items:center;gap:12px;padding:6px 22px 4px}
-  .tb{width:38px;height:38px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center}
-  .tb.accent{background:#f0a020;border-color:#f0a020}
-  .tb.blue{background:#2f6bff;border-color:#2f6bff}
-  .tb svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  /* ---------- 应用工具栏（照真机截图：投射、橙色竖条、宫格、相机、麦克风、镜像、更多） ---------- */
+  .toolbar{display:flex;align-items:center;gap:13px;padding:8px 20px 6px}
+  .tb{width:37px;height:37px;border-radius:50%;background:var(--surface);border:1px solid var(--line);
+      display:grid;place-items:center;flex:none}
+  .tb svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .tb.cast svg{stroke:var(--orange)}
+  .tb.active{background:var(--blue);border-color:var(--blue)}
+  .tb.active svg{stroke:#fff}
+  .pill{width:15px;height:38px;border-radius:7.5px;background:var(--orange);flex:none}
   .spacer{flex:1}
 
-  /* 底部键行 + PTT */
-  .foot{margin-top:auto;padding:10px 16px 26px;display:grid;gap:10px}
+  /* ---------- 底部 ---------- */
+  .foot{margin-top:auto;padding:10px 16px 24px;display:grid;gap:10px}
   .keys{display:flex;gap:8px}
-  .key{flex:1;height:44px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid var(--line);
-       display:grid;place-items:center;font-size:13px;color:#e7e7ef}
-  .key.blue{background:#2f6bff;border-color:#2f6bff;color:#fff}
-  .key.wide{flex:1.6}
-  .ptt{height:46px;border-radius:23px;background:rgba(255,255,255,.08);border:1px solid var(--line);
+  .key{flex:1;height:44px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--line);
+       display:grid;place-items:center;font-size:13.5px;color:#e7e7ef}
+  .key.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+  .key.wide{flex:1.7}
+  .ptt{height:46px;border-radius:23px;background:rgba(255,255,255,.07);border:1px solid var(--line);
        display:grid;place-items:center;font-size:13.5px;color:#d9d9e3}
 
   /* ---------- camera ---------- */
-  .cam-preview{position:absolute;inset:0;z-index:0;overflow:hidden;
-    background:radial-gradient(120% 80% at 20% 20%, #3a4a6a 0%, transparent 60%),
-               radial-gradient(100% 70% at 85% 30%, #6a5a4a 0%, transparent 55%),
-               radial-gradient(90% 60% at 40% 90%, #2a3346 0%, transparent 60%),
-               linear-gradient(180deg,#151a26,#0b0e16);
-  }
-  .cam-preview .window{position:absolute;left:10%;top:16%;width:36%;height:34%;border-radius:12px;
-    background:linear-gradient(180deg,rgba(205,225,255,.55),rgba(150,190,255,.26));filter:blur(10px);opacity:.55}
-  .cam-preview .desk{position:absolute;left:0;right:0;top:64%;height:36%;
-    background:linear-gradient(180deg,rgba(120,90,60,.32),rgba(26,22,18,.6));filter:blur(8px)}
-  .cam-preview .plant{position:absolute;right:12%;top:46%;width:20%;height:28%;
-    border-radius:50% 50% 44% 44%;background:rgba(70,110,80,.38);filter:blur(13px)}
-  .cam-preview .lamp{position:absolute;left:58%;top:24%;width:16%;height:14%;border-radius:50%;
-    background:rgba(255,225,180,.35);filter:blur(16px)}
-  .cam-focus{position:absolute;left:50%;top:44%;width:66px;height:66px;transform:translate(-50%,-50%);
-    border:1.5px solid rgba(255,255,255,.5);border-radius:10px}
-  .cam-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-  .chip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:#e9e9f2;
+  .cam{position:absolute;inset:0;z-index:0;overflow:hidden;
+    background:linear-gradient(180deg,#141a26 0%,#0d1119 52%,#0a0d14 100%)}
+  .cam .window{position:absolute;left:9%;top:15%;width:35%;height:33%;border-radius:10px;
+    background:linear-gradient(180deg,rgba(206,226,255,.6),rgba(150,190,255,.28));filter:blur(9px);opacity:.6}
+  .cam .desk{position:absolute;left:0;right:0;top:63%;height:37%;
+    background:linear-gradient(180deg,rgba(124,94,62,.34),rgba(24,20,16,.62));filter:blur(7px)}
+  .cam .plant{position:absolute;right:11%;top:45%;width:19%;height:27%;border-radius:50% 50% 44% 44%;
+    background:rgba(72,112,82,.4);filter:blur(12px)}
+  .cam .lamp{position:absolute;left:57%;top:23%;width:15%;height:13%;border-radius:50%;
+    background:rgba(255,226,182,.38);filter:blur(15px)}
+  .focus{position:absolute;left:50%;top:44%;width:62px;height:62px;transform:translate(-50%,-50%);
+    border:1.5px solid rgba(255,255,255,.5);border-radius:9px;z-index:2}
+  .cam-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:2px 18px}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:#e9e9f2;
         background:rgba(8,8,14,.55);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);
-        padding:5px 10px;border-radius:999px}
+        padding:6px 11px;border-radius:999px}
   .dot{width:6px;height:6px;border-radius:50%;background:#3ecf8e}
-  .cam-bottom{position:relative;z-index:2;margin-top:auto;padding:0 18px 26px;display:grid;gap:14px}
+  .cam-bottom{position:relative;z-index:2;margin-top:auto;padding:0 18px 24px;display:grid;gap:14px}
   .cam-btns{display:flex;justify-content:center;gap:16px}
-  .cbtn{width:52px;height:52px;border-radius:50%;background:rgba(10,10,16,.5);border:1px solid rgba(255,255,255,.2);
+  .cbtn{width:50px;height:50px;border-radius:50%;background:rgba(10,10,16,.55);border:1px solid rgba(255,255,255,.2);
         display:grid;place-items:center;backdrop-filter:blur(10px)}
   .cbtn svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .cbtn.on{background:#e04b4b;border-color:#e04b4b}
+  .cbtn.on{background:#e0483f;border-color:#e0483f}
 
   /* ---------- ai ---------- */
-  .head{display:flex;align-items:center;justify-content:space-between;padding:6px 20px 10px}
+  .head{display:flex;align-items:center;justify-content:space-between;padding:2px 20px 8px}
   .head h1{font-size:17px;font-weight:650;display:flex;align-items:center;gap:7px}
   .head .done{font-size:13px;color:var(--muted)}
-  .chat{flex:1;padding:8px 18px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+  .chat{flex:1;padding:6px 18px;display:flex;flex-direction:column;gap:11px;overflow:hidden}
   .ctx{display:flex;gap:6px;justify-content:flex-end}
   .ctx span{font-size:10.5px;color:#cfc8ff;background:rgba(139,123,255,.14);border:1px solid rgba(139,123,255,.3);
             padding:3px 8px;border-radius:999px}
   .bubble-user{align-self:flex-end;max-width:78%;background:linear-gradient(135deg,var(--a),var(--b));
     color:#fff;padding:11px 14px;border-radius:18px 18px 4px 18px;font-size:14px}
-  .bubble-ai{align-self:flex-start;max-width:88%;background:rgba(255,255,255,.06);border:1px solid var(--line);
-    padding:13px 15px;border-radius:18px 18px 18px 4px;font-size:13.5px;line-height:1.6;color:#e6e6ee}
-  .bubble-ai b{color:#fff;font-weight:600}
+  .bubble-ai{align-self:flex-start;max-width:89%;background:rgba(255,255,255,.055);border:1px solid var(--line);
+    padding:13px 15px;border-radius:18px 18px 18px 4px;font-size:13.5px;line-height:1.62;color:#e6e6ee}
   .bubble-ai code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:rgba(255,255,255,.08);
-    padding:1px 5px;border-radius:5px}
-  .apply{margin-top:9px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#cfc8ff;
+    padding:2px 6px;border-radius:5px}
+  .apply{margin-top:10px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#cfc8ff;
     border:1px solid rgba(139,123,255,.35);border-radius:999px;padding:5px 10px}
 
-  /* ---------- 音频（麦克风 / 扬声器） ---------- */
-  .audio{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:0 30px}
-  .wave{display:flex;align-items:center;gap:5px;height:120px}
+  /* ---------- audio ---------- */
+  .audio{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:0 30px}
+  .wave{display:flex;align-items:center;gap:5px;height:110px}
   .wave i{display:block;width:6px;border-radius:3px;background:linear-gradient(180deg,var(--a),var(--b))}
   .audio .title{font-size:17px;font-weight:600}
   .audio .sub{font-size:13px;color:var(--muted);text-align:center;line-height:1.6}
-  .meter{width:100%;max-width:280px;height:6px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+  .meter{width:100%;max-width:280px;height:5px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
   .meter i{display:block;height:100%;width:62%;border-radius:3px;background:linear-gradient(90deg,var(--a),var(--b))}
   .devchip{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:#dcdce6;
-    background:rgba(255,255,255,.06);border:1px solid var(--line);padding:7px 12px;border-radius:999px}
+    background:rgba(255,255,255,.055);border:1px solid var(--line);padding:7px 12px;border-radius:999px}
 
   /* ---------- trackpad ---------- */
-  .pad{position:relative;flex:1;margin:4px 14px 0}
+  .pad{position:relative;flex:1;margin:2px 12px 0}
   .trail{position:absolute;left:50%;top:58%;width:0;height:0}
   .trail i{position:absolute;border-radius:50%;background:#8fb4ff;display:block;transform:translate(-50%,-50%)}
-  .cursor{position:absolute;left:50%;top:58%;width:22px;height:22px;border-radius:50%;
-    transform:translate(-50%,-50%);background:rgba(90,150,255,.25);border:2px solid #7fb0ff;
-    box-shadow:0 0 0 12px rgba(90,150,255,.10)}
-  .hint{position:absolute;left:50%;top:36%;transform:translateX(-50%);font-size:11.5px;color:#cfc8ff;
-    background:rgba(139,123,255,.12);border:1px solid rgba(139,123,255,.3);padding:5px 11px;border-radius:999px}
+  .cursor{position:absolute;left:50%;top:58%;width:20px;height:20px;border-radius:50%;
+    transform:translate(-50%,-50%);background:rgba(90,150,255,.22);border:2px solid #7fb0ff;
+    box-shadow:0 0 0 11px rgba(90,150,255,.09)}
+  .hint{position:absolute;left:50%;top:34%;transform:translateX(-50%);font-size:11.5px;color:#cfc8ff;
+    background:rgba(139,123,255,.12);border:1px solid rgba(139,123,255,.3);padding:5px 11px;border-radius:999px;white-space:nowrap}
 </style>
 </head>
 <body>
 
 <!-- ============ camera ============ -->
 <section class="screen" id="camera">
-  <div class="cam-preview">
-    <span class="window"></span><span class="desk"></span><span class="plant"></span><span class="lamp"></span>
-  </div>
-  <span class="cam-focus"></span>
-  <div class="status" style="position:relative;z-index:2">
-    <span>17:18</span>
-    <span class="icons"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="wifi"></span><span class="batt"></span></span>
-  </div>
+  <div class="cam"><span class="window"></span><span class="desk"></span><span class="plant"></span><span class="lamp"></span></div>
+  <div class="status"></div>
   <div class="cam-top">
     <span class="chip"><i class="dot"></i>RemoteCrab Camera</span>
     <span class="chip">1080p · 30</span>
   </div>
+  <span class="focus"></span>
   <div class="cam-bottom">
     <div class="cam-btns">
       <div class="cbtn on"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3"/></svg></div>
       <div class="cbtn"><svg viewBox="0 0 24 24"><path d="M4 7h4l2-2h4l2 2h4v12H4z"/><circle cx="12" cy="13" r="3.2"/></svg></div>
-      <div class="cbtn"><svg viewBox="0 0 24 24"><path d="M4 8h12v8H4z"/><path d="M16 10l4-2v8l-4-2z"/></svg></div>
+      <div class="cbtn"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2.5"/><path d="M15 10.5l4-2v7l-4-2z"/></svg></div>
     </div>
     <div class="ptt">按住说话</div>
   </div>
@@ -141,7 +134,7 @@
 
 <!-- ============ ai ============ -->
 <section class="screen" id="ai">
-  <div class="status"><span>17:18</span><span class="icons"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="wifi"></span><span class="batt"></span></span></div>
+  <div class="status"></div>
   <div class="head">
     <h1><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8fb4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>问 AI</h1>
     <span class="done">完成</span>
@@ -164,21 +157,13 @@
 
 <!-- ============ microphone ============ -->
 <section class="screen" id="microphone">
-  <div class="status"><span>17:18</span><span class="icons"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="wifi"></span><span class="batt"></span></span></div>
-  <div class="toolbar">
-    <div class="tb"><svg viewBox="0 0 24 24"><path d="M4 12a16 16 0 0116 0M7 15a11 11 0 0110 0M10 18a6 6 0 014 0"/></svg></div>
-    <div class="tb accent"></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2"/><path d="M15 10l4-2v8l-4-2z"/></svg></div>
-    <div class="tb blue"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="10" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
-    <div class="spacer"></div>
-  </div>
+  <div class="status"></div>
   <div class="audio">
     <div class="devchip"><i class="dot"></i>输入：RemoteCrab Microphone</div>
     <div class="wave">
-      <i style="height:18px"></i><i style="height:34px"></i><i style="height:56px"></i><i style="height:82px"></i>
-      <i style="height:104px"></i><i style="height:78px"></i><i style="height:46px"></i><i style="height:28px"></i>
-      <i style="height:44px"></i><i style="height:70px"></i><i style="height:38px"></i><i style="height:16px"></i>
+      <i style="height:16px"></i><i style="height:32px"></i><i style="height:54px"></i><i style="height:78px"></i>
+      <i style="height:100px"></i><i style="height:74px"></i><i style="height:44px"></i><i style="height:26px"></i>
+      <i style="height:42px"></i><i style="height:66px"></i><i style="height:36px"></i><i style="height:14px"></i>
     </div>
     <div class="title">正在传到电脑</div>
     <div class="sub">Zoom、Teams、录音软件里都能选到它<br>声音只在你自己的 WiFi 里走</div>
@@ -192,21 +177,13 @@
 
 <!-- ============ speaker ============ -->
 <section class="screen" id="speaker">
-  <div class="status"><span>17:18</span><span class="icons"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="wifi"></span><span class="batt"></span></span></div>
-  <div class="toolbar">
-    <div class="tb"><svg viewBox="0 0 24 24"><path d="M4 12a16 16 0 0116 0M7 15a11 11 0 0110 0M10 18a6 6 0 014 0"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2"/><path d="M15 10l4-2v8l-4-2z"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="10" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
-    <div class="tb blue"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 010 6"/></svg></div>
-    <div class="spacer"></div>
-  </div>
+  <div class="status"></div>
   <div class="audio">
     <div class="devchip"><i class="dot"></i>输出：这台 iPhone</div>
     <div class="wave">
-      <i style="height:30px"></i><i style="height:64px"></i><i style="height:96px"></i><i style="height:58px"></i>
-      <i style="height:40px"></i><i style="height:76px"></i><i style="height:52px"></i><i style="height:24px"></i>
-      <i style="height:66px"></i><i style="height:90px"></i><i style="height:44px"></i><i style="height:20px"></i>
+      <i style="height:28px"></i><i style="height:60px"></i><i style="height:92px"></i><i style="height:54px"></i>
+      <i style="height:38px"></i><i style="height:72px"></i><i style="height:50px"></i><i style="height:22px"></i>
+      <i style="height:62px"></i><i style="height:86px"></i><i style="height:42px"></i><i style="height:18px"></i>
     </div>
     <div class="title">电脑的声音，从这里出来</div>
     <div class="sub">网页里的剧、正在放的歌、会议里的声音<br>都在手机上放</div>
@@ -220,26 +197,16 @@
 
 <!-- ============ trackpad ============ -->
 <section class="screen" id="trackpad">
-  <div class="status"><span>17:18</span><span class="icons"><span class="bars"><i></i><i></i><i></i><i></i></span><span class="wifi"></span><span class="batt"></span></span></div>
-  <div class="toolbar">
-    <div class="tb"><svg viewBox="0 0 24 24"><path d="M4 12a16 16 0 0116 0M7 15a11 11 0 0110 0M10 18a6 6 0 014 0"/></svg></div>
-    <div class="tb accent"></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2"/><path d="M15 10l4-2v8l-4-2z"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="10" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
-    <div class="tb"><svg viewBox="0 0 24 24"><path d="M8 5v14M4 9l4-4 4 4"/></svg></div>
-    <div class="spacer"></div>
-  </div>
+  <div class="status"></div>
   <div class="pad">
     <span class="hint">拖动中 · 已按住左键</span>
-    <!-- 光标轨迹：一条从左上滑到右下的拖动路径，越靠近手指越实 -->
     <span class="trail">
-      <i style="width:9px;height:9px;left:-132px;top:-104px;opacity:.10"></i>
-      <i style="width:11px;height:11px;left:-106px;top:-83px;opacity:.16"></i>
-      <i style="width:13px;height:13px;left:-80px;top:-62px;opacity:.24"></i>
-      <i style="width:15px;height:15px;left:-54px;top:-42px;opacity:.34"></i>
-      <i style="width:17px;height:17px;left:-30px;top:-23px;opacity:.46"></i>
-      <i style="width:19px;height:19px;left:-11px;top:-9px;opacity:.62"></i>
+      <i style="width:9px;height:9px;left:-128px;top:-100px;opacity:.10"></i>
+      <i style="width:11px;height:11px;left:-103px;top:-80px;opacity:.16"></i>
+      <i style="width:13px;height:13px;left:-78px;top:-60px;opacity:.24"></i>
+      <i style="width:15px;height:15px;left:-53px;top:-41px;opacity:.34"></i>
+      <i style="width:17px;height:17px;left:-29px;top:-22px;opacity:.46"></i>
+      <i style="width:19px;height:19px;left:-10px;top:-8px;opacity:.62"></i>
     </span>
     <span class="cursor"></span>
   </div>
@@ -253,9 +220,50 @@
 </section>
 
 <script>
+  // 系统状态栏 + 应用工具栏：五个屏幕共用一份，形状照真机截图（含那个橙色竖条）
+  const ICONS = {
+    cast: '<path d="M4 12a16 16 0 0116 0M7 15a11 11 0 0110 0M10 18a6 6 0 014 0"/>',
+    grid: '<rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/>',
+    camera: '<rect x="3" y="7" width="12" height="10" rx="2.5" fill="#fff" stroke="none"/><path d="M15 10.5l4-2v7l-4-2z" fill="#fff" stroke="none"/>',
+    mic: '<rect x="9" y="3" width="6" height="10" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>',
+    mirror: '<rect x="3" y="4" width="13" height="10" rx="2.2"/><rect x="8" y="9" width="13" height="10" rx="2.2"/>',
+    more: '<circle cx="6" cy="12" r="1.4" fill="#fff" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="#fff" stroke="none"/><circle cx="18" cy="12" r="1.4" fill="#fff" stroke="none"/>',
+  }
+  function svg(name){
+    return `<svg viewBox="0 0 24 24">${ICONS[name]}</svg>`
+  }
+  function chrome(active){
+    return `
+      <div class="status">
+        <span class="time">17:18</span>
+        <span class="island"></span>
+        <span class="right">
+          <span class="sig"><i></i><i></i><i></i><i></i></span>
+          <span class="wifi"><svg viewBox="0 0 24 18"><path d="M2 6.5a15 15 0 0120 0"/><path d="M5.5 10.5a10 10 0 0113 0"/><path d="M9 14.2a5 5 0 016 0"/><circle cx="12" cy="17" r="1.2" fill="#fff" stroke="none"/></svg></span>
+          <span class="batt"></span>
+        </span>
+      </div>
+      <div class="toolbar">
+        <div class="tb cast">${svg('cast')}</div>
+        <div class="pill"></div>
+        <div class="tb">${svg('grid')}</div>
+        <div class="tb ${active === 'camera' ? 'active' : ''}">${svg('camera')}</div>
+        <div class="tb ${active === 'mic' ? 'active' : ''}">${svg('mic')}</div>
+        <div class="tb">${svg('mirror')}</div>
+        <div class="tb">${svg('more')}</div>
+        <div class="spacer"></div>
+      </div>`
+  }
+
+  const ACTIVE = { camera: 'camera', microphone: 'mic', trackpad: null, speaker: null, ai: null }
   const want = new URLSearchParams(location.search).get('s')
-  const el = document.getElementById(want)
-  if (el) el.classList.add('on')
+  document.querySelectorAll('.screen').forEach((el) => {
+    if (el.id === 'camera') return // 相机页是全屏取景，不盖工具栏
+    const host = document.createElement('div')
+    host.innerHTML = chrome(ACTIVE[el.id] || null)
+    el.prepend(...host.childNodes)
+  })
+  if (want) document.getElementById(want)?.classList.add('on')
 </script>
 </body>
 </html>

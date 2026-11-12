@@ -15,6 +15,7 @@ import { PriceCards } from '../components/remotecrab/PriceCards'
 import { SceneRows } from '../components/remotecrab/SceneRows'
 import { InstallSteps } from '../components/remotecrab/InstallSteps'
 import { LimitsBlock } from '../components/remotecrab/LimitsBlock'
+import { ShotStrip } from '../components/remotecrab/ShotStrip'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -158,6 +159,24 @@ export default function RemoteCrabPage() {
               caption={language === 'zh' ? '看这段原片' : 'Play the clip'}
               onOpen={(name) => setClip({ name, caption: language === 'zh' ? '看这段原片' : 'Play the clip' })}
             />
+          </div>
+        </section>
+
+        {/* 四张截图 —— 视频之外的另一个角度：我手机上会看到什么 */}
+        <section id="shots" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.shots.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 text-3xl font-bold md:text-4xl">
+              {h.shots.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.shots.lead}
+            </motion.p>
+            <motion.div {...fade(0.15)}>
+              <ShotStrip c={h.shots} language={language} />
+            </motion.div>
           </div>
         </section>
 
