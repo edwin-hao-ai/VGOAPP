@@ -116,10 +116,12 @@ export default function RemoteCrabFeaturePage() {
   // back through the other locale, then to the typographic panel.
   // 只有真的有本地截图的页面才渲染手机壳；没有的页面直接走纯文字面板，
   // 免得每个新页面先 404 一次、预渲染快照里还留下一个空框。
+  // 只列真的存在截图文件的页面（public/remotecrab/features/<slug>.jpg）。
+  // camera 暂时排除：那张是「演示模式 —— 示例画面，未连接电脑」的占位图，
+  // 比没有图更糟；等真机重拍后再加回来。
   const ART_SLUGS = new Set<FeatureSlug>([
-    'remote-access', 'notifications', 'ai', 'extended-display', 'camera', 'microphone',
-    'speaker', 'screen-mirror', 'trackpad', 'keyboard', 'voice', 'app-switcher',
-    'transfer', 'automation', 'numpad',
+    'notifications', 'ai', 'microphone', 'speaker', 'screen-mirror', 'trackpad',
+    'keyboard', 'voice', 'transfer', 'automation', 'numpad',
   ])
   const [artSrc, setArtSrc] = useState<string | null>(null)
   useEffect(() => {
@@ -214,9 +216,15 @@ export default function RemoteCrabFeaturePage() {
         <section className="px-6 pb-4">
           <motion.div {...fade()} className="max-w-5xl mx-auto">
             {artSrc ? (
-              <div className="flex justify-center">
-                <div className="relative rounded-[2.75rem] p-2.5 bg-gradient-to-b from-white/25 to-white/5 border border-white/15 shadow-2xl shadow-black/60">
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 rounded-full bg-black/80 z-10" />
+              <div className="relative mx-auto w-full max-w-[400px]">
+                {/* 环境光晕：用同一张图放大模糊，让设备「坐」在背景里，而不是贴上去 */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-10 -z-10 rounded-[5rem] bg-cover bg-center opacity-25 blur-3xl"
+                  style={{ backgroundImage: `url(${artSrc})` }}
+                />
+                <div className="relative rounded-[2.9rem] border border-white/[0.12] bg-gradient-to-b from-white/[0.16] via-white/[0.06] to-white/[0.02] p-3 shadow-[0_50px_100px_-40px_rgba(0,0,0,.95)]">
+                  <div className="overflow-hidden rounded-[2.4rem] ring-1 ring-white/10">
                   <img
                     src={artSrc}
                     alt={c.hero.title}
@@ -230,8 +238,9 @@ export default function RemoteCrabFeaturePage() {
                           : `/remotecrab/features/${slug}-en.jpg`,
                       )
                     }}
-                    className="w-[260px] sm:w-[300px] rounded-[2.25rem] block"
+                    className="block w-full"
                   />
+                  </div>
                 </div>
               </div>
             ) : null}
