@@ -16,7 +16,7 @@ export function UiStrip({
   language: 'zh' | 'en'
 }) {
   return (
-    <div className="mt-10 grid gap-8 sm:grid-cols-3">
+    <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       {c.items.map((item) => (
         <a key={item.name} href={item.href} className="group block">
           <div className="relative mx-auto w-full max-w-[260px]">

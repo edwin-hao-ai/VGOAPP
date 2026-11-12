@@ -15,6 +15,7 @@ import { PriceCards } from '../components/remotecrab/PriceCards'
 import { SceneRows } from '../components/remotecrab/SceneRows'
 import { InstallSteps } from '../components/remotecrab/InstallSteps'
 import { UiStrip } from '../components/remotecrab/UiStrip'
+import { LimitsBlock } from '../components/remotecrab/LimitsBlock'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -158,12 +159,6 @@ export default function RemoteCrabPage() {
               caption={language === 'zh' ? '看这段原片' : 'Play the clip'}
               onOpen={(name) => setClip({ name, caption: language === 'zh' ? '看这段原片' : 'Play the clip' })}
             />
-            <motion.p
-              {...fade(0.15)}
-              className="mt-8 border-l-2 border-vgo-primary/40 pl-4 text-[15px] text-vgo-muted"
-            >
-              {h.why}
-            </motion.p>
           </div>
         </section>
 
@@ -203,6 +198,24 @@ export default function RemoteCrabPage() {
                 note={h.features.note}
                 labels={{ video: language === 'zh' ? '视频' : 'video', paid: language === 'zh' ? '订阅' : 'paid' }}
               />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 它能到哪儿为止 —— 不点名任何竞品，只对照能力 */}
+        <section id="limits" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.limits.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">
+              {h.limits.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.limits.lead}
+            </motion.p>
+            <motion.div {...fade(0.15)}>
+              <LimitsBlock c={h.limits} labels={{ can: h.limits.canLabel, cannot: h.limits.cannotLabel }} />
             </motion.div>
           </div>
         </section>
