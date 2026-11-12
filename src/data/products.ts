@@ -20,6 +20,16 @@ export function getProducts(language: Language): Product[] {
   const t = translations[language].productsList
   return [
     {
+      id: 'remotecrab',
+      name: t.remotecrab.name,
+      tagline: t.remotecrab.tagline,
+      description: t.remotecrab.description,
+      icon: RemoteCrabIcon,
+      features: t.remotecrab.features,
+      link: '/remotecrab/',
+      linkLabel: t.remotecrab.linkLabel,
+    },
+    {
       id: 'mddock',
       name: t.mddock.name,
       tagline: t.mddock.tagline,
@@ -48,16 +58,6 @@ export function getProducts(language: Language): Product[] {
       features: t.mouseclaw.features,
       link: 'https://github.com/edwin-hao-ai/MouseClaw',
       linkLabel: t.mouseclaw.linkLabel,
-    },
-    {
-      id: 'remotecrab',
-      name: t.remotecrab.name,
-      tagline: t.remotecrab.tagline,
-      description: t.remotecrab.description,
-      icon: RemoteCrabIcon,
-      features: t.remotecrab.features,
-      link: '/remotecrab/',
-      linkLabel: t.remotecrab.linkLabel,
     },
   ]
 }

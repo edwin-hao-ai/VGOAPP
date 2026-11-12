@@ -19,6 +19,8 @@ export const translations = {
     products: {
       title: '我们的产品',
       description: '每一款都从真实的工作流痛点出发，追求本地、快速、可信赖。',
+      primary: '主力产品',
+      others: '其他项目',
     },
     faq: {
       title: '常见问题',
@@ -143,6 +145,8 @@ export const translations = {
     products: {
       title: 'Our Products',
       description: 'Each one is built from real workflow pain points — local, fast, and trustworthy.',
+      primary: 'Flagship',
+      others: 'Other projects',
     },
     faq: {
       title: 'FAQ',
