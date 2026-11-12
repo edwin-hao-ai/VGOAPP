@@ -1,218 +1,218 @@
 {
   "/en/": {
-    "hash": "6230154824e3522cb5a62017f54e4c25ca967029",
+    "hash": "9ae11c6eea0f2b0a5aa5503687555ffb53df9eee",
     "date": "2026-11-12"
   },
   "/en/remotecrab/alternatives/": {
-    "hash": "1bd755535fa401f665e85d843c2b5cee4926ef1a",
+    "hash": "fd378f19e05a90e3dd8168ef64a45db02e8828fe",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/ai/": {
-    "hash": "9cea4b80a4ce6b53b61667dadd0846374b42aa19",
+    "hash": "f1cc4b407653bf25c0273d19744a4fdef937c135",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/app-switcher/": {
-    "hash": "133ffee287c548661948e177a12fc7a92404c00b",
+    "hash": "6aa7d722e72f1f1b1556f56f0b1d2797d810f8ba",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/auto-update/": {
-    "hash": "a63d35f30a9d45c3d0c8074707e54c5af6508748",
+    "hash": "f01830f850c35d5f42d2f0a6bfa0b328137a95b4",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/automation/": {
-    "hash": "919d6b246c35b59c755215052a175ef924955939",
+    "hash": "bd6ab6536b6ac5f10f17cead918d34867ae50b6c",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/camera/": {
-    "hash": "4a7e1b3ccb8001e146b34237177e69252fa49998",
+    "hash": "e531e06a0a12d5f0ae916f9af312fe9afd1f9565",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/extended-display/": {
-    "hash": "1b0944e116427ecb9061c8a24030baed2d083e31",
+    "hash": "173db74bb265f5474141e25d4423ef31315fd8f0",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/keep-awake/": {
-    "hash": "47dc9df223829682eda6b8173ca84ac3cc7d8caf",
+    "hash": "18600e0b36c006296a219757e53fd23176dd604f",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/keyboard/": {
-    "hash": "93a6ef26f6bcc02693a8e0031178178309152f55",
+    "hash": "416beb42f8eeee4032612270567dc52be9689893",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/microphone/": {
-    "hash": "d697f916d4faf207035842d03eaa66cda8a5c82e",
+    "hash": "d3210d33f66fa53d64fbba7d09a38a7915b86032",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/multi-computer/": {
-    "hash": "e7480f7157b743698bbfe85cea7242c28471c7f1",
+    "hash": "719ca3bf8b95a286b5fd31db04d9797c79daa629",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/notifications/": {
-    "hash": "5364207ef4027cca33d91cfc1339421e8f3b7bd8",
+    "hash": "2b41a87ff689a2009f893f6d2e4e71d4660b33e6",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/numpad/": {
-    "hash": "74f792246b7af07be9be6a9e91dfc5d099751b1f",
+    "hash": "6aac0ae1871416720460100836f05b402344569b",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/recording/": {
-    "hash": "29626bacecdee1410260c38cc36dfed84ed33253",
+    "hash": "6942b7037d55769f6e9449078856560e30ff1c24",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/remote-access/": {
-    "hash": "a8380676802bb03339dd9ff2311f2b9d4f8f1ba9",
+    "hash": "4a408f04b9bef3c6ecbb36cd2d08a39e7ada0fcc",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/screen-mirror/": {
-    "hash": "940b6356c1b047891bf5ed7ef747bc2e640d7a15",
+    "hash": "0a31f565f5520e0cfd6704c49f88654c1e1a7b84",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/speaker/": {
-    "hash": "f1dcd66839047334b074de25dd341dab6c6cff11",
+    "hash": "f84e59df21f163e2a5b2e45466feacdf20e4e381",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/trackpad/": {
-    "hash": "e77a836155663d19e346ae56eafee5f1017fed02",
+    "hash": "dac181c8b8d936974315ca536e7f146b98e569ca",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/transfer/": {
-    "hash": "440f24adeaada4482697fc2e912a32f203fdd969",
+    "hash": "50d52062979990231c7295fc0ff42f53f742d2ec",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/two-phones/": {
-    "hash": "0f13acc53649037716cb1790a68e16829fb92f75",
+    "hash": "221791ea877978300a79e159def433552c877cbc",
     "date": "2026-11-12"
   },
   "/en/remotecrab/features/voice/": {
-    "hash": "56245f9a45d3b927a42a8d4b93d6629fa868a3af",
+    "hash": "97dc5c6399c310305a31e11876f45e1cf9da156b",
     "date": "2026-11-12"
   },
   "/en/remotecrab/": {
-    "hash": "7718a0adc546d2566f3253b04f5ae062474707e7",
+    "hash": "0eff72560248b2004197ecaa6695046c7f596410",
     "date": "2026-11-12"
   },
   "/en/remotecrab/privacy/": {
-    "hash": "2dab50dd1c5d5063c292f41b87bf4e300cfd8893",
+    "hash": "8b021e06ec95beec6dec6b9cac7450a2c8edf946",
     "date": "2026-11-12"
   },
   "/en/remotecrab/suites/": {
-    "hash": "558baf368e77c3c19a1e8e16d3fb81171b9db575",
+    "hash": "1dcd7473cf8436a7a3dc239ca807ee1bc9bdb283",
     "date": "2026-11-12"
   },
   "/en/slimdisk/": {
-    "hash": "d4803ea594349fee59f210c384812192c5373737",
+    "hash": "e3e98bf08951f44ffd503dc465289413c0b10950",
     "date": "2026-11-12"
   },
   "/en/slimdisk/privacy/": {
-    "hash": "9128c8153b9c938e77e0bfba73dfc7b67f0e93ed",
+    "hash": "fda41f8b8f432511a6280fc5a881c3898743a63c",
     "date": "2026-11-12"
   },
   "/": {
-    "hash": "48334865f79579c0006d3e5512a0d82e797ec719",
+    "hash": "ace5c6a9eb24ae84d296fc2d73a3a89835a28e99",
     "date": "2026-11-12"
   },
   "/remotecrab/alternatives/": {
-    "hash": "58d4cca3761933113040a88cf69c5147d0cfa93b",
+    "hash": "51c96f9363be0bbce0201fbd10771b9b04fd8d68",
     "date": "2026-11-12"
   },
   "/remotecrab/features/ai/": {
-    "hash": "d68a4f21d8dae20e01ae8993c452dc12d5b59e6b",
+    "hash": "3ebd6c41c7dc4051fee7651f2c76712872ba0bf7",
     "date": "2026-11-12"
   },
   "/remotecrab/features/app-switcher/": {
-    "hash": "ec7105d5663638a7009827453f2d120a3e44514c",
+    "hash": "ed498880b6a62ce930a1c1b350c8443771a35ac0",
     "date": "2026-11-12"
   },
   "/remotecrab/features/auto-update/": {
-    "hash": "f4d20503200b297a83f6c39aca23e63a9e1dcb7d",
+    "hash": "463c9db8d2b48ef285c7f18bd81928f340629de2",
     "date": "2026-11-12"
   },
   "/remotecrab/features/automation/": {
-    "hash": "ca21eb413b77f8d1538403c6867d07ea4675bae6",
+    "hash": "84087c4a03c804a5c5ab08c37b499d9bd58ce4b6",
     "date": "2026-11-12"
   },
   "/remotecrab/features/camera/": {
-    "hash": "575ed620f8cc680710bd42815091965a3e94fcb7",
+    "hash": "17d07b12d1c07ea182c98db8465dbdba2bc8c2f4",
     "date": "2026-11-12"
   },
   "/remotecrab/features/extended-display/": {
-    "hash": "25b032a8d23757ab81b8560b4c0dfe208dff03ce",
+    "hash": "7322e44d18dfb711b69fa23a32d43468d119ac10",
     "date": "2026-11-12"
   },
   "/remotecrab/features/keep-awake/": {
-    "hash": "cad353143866cc9e30c726ead5b55b0d4e178490",
+    "hash": "43a7d4d98008ddb496c293d004c543be6346a591",
     "date": "2026-11-12"
   },
   "/remotecrab/features/keyboard/": {
-    "hash": "a0a500315427374c94f593e4d5430987f9b9eb70",
+    "hash": "45784cccc28c2b6156fc653ec1f4bb9451ceb0a7",
     "date": "2026-11-12"
   },
   "/remotecrab/features/microphone/": {
-    "hash": "9b1b64901fe6daa018dc304452e535434d06e97f",
+    "hash": "3dd3f6c3ae3fc608b5370948404327cd222a07ad",
     "date": "2026-11-12"
   },
   "/remotecrab/features/multi-computer/": {
-    "hash": "298b608f98815524f0ec174170dc82c931c85f1a",
+    "hash": "4838ce545e52d0ad419861c314dcd8e7e6d084f0",
     "date": "2026-11-12"
   },
   "/remotecrab/features/notifications/": {
-    "hash": "fe8df913319c8e86ec2c7aec76c38d7c0a08037e",
+    "hash": "33bf43a001f36097ffda76b7ecdf105ccbb1b29b",
     "date": "2026-11-12"
   },
   "/remotecrab/features/numpad/": {
-    "hash": "fd0211f517536a7cdb6604f3ef1fdc9f60c57b3b",
+    "hash": "223b6daaa4a7c341d12a8ce4b6fb070b9949a4d5",
     "date": "2026-11-12"
   },
   "/remotecrab/features/recording/": {
-    "hash": "49038ace68d3c6bb4a3e142ec47f936aae788a2c",
+    "hash": "6f4cebefb1288743282f9c4add66d8d7043b209f",
     "date": "2026-11-12"
   },
   "/remotecrab/features/remote-access/": {
-    "hash": "da308ccc8e093b21303ac475f39efd19c25588d9",
+    "hash": "5f83e516437fe36ac37c0bd7e68cf94d64a3da2d",
     "date": "2026-11-12"
   },
   "/remotecrab/features/screen-mirror/": {
-    "hash": "5bc298ec9baefeb58163355645faa597f27da43e",
+    "hash": "ee18d1a1b40946344aa487a02dbacd88338d96b5",
     "date": "2026-11-12"
   },
   "/remotecrab/features/speaker/": {
-    "hash": "ae264bcf01b974b1bdbb48fec12a5bd09aa22c11",
+    "hash": "c0f84d040399c6455412eceeb615b32682e08e4d",
     "date": "2026-11-12"
   },
   "/remotecrab/features/trackpad/": {
-    "hash": "aba7bb95e9d75a3dcc96514eba7871b5851c8bde",
+    "hash": "bf758962aebd052c08de98d591cc1bea100fed29",
     "date": "2026-11-12"
   },
   "/remotecrab/features/transfer/": {
-    "hash": "73f8b88cc431e7425abdf3edbb5c1bf8bb09c8a7",
+    "hash": "9c0f039bd410d99505d55b4c65edb4a46ea751ec",
     "date": "2026-11-12"
   },
   "/remotecrab/features/two-phones/": {
-    "hash": "2325ccc9e29985be6dc7e600a46e845d9d82690f",
+    "hash": "29686732c511bb15aec95e0a0ed612ce1e8d39da",
     "date": "2026-11-12"
   },
   "/remotecrab/features/voice/": {
-    "hash": "25b6af082047c3e28499f0000f11e7b06787ef50",
+    "hash": "c6760ad59946f1edbb98370b50e418d0e8234518",
     "date": "2026-11-12"
   },
   "/remotecrab/": {
-    "hash": "f6276958cc4f34332066308cc5097cd2107a1a87",
+    "hash": "f745be8da62c60269bc167ea33ce90a143847570",
     "date": "2026-11-12"
   },
   "/remotecrab/privacy/": {
-    "hash": "54646d62fa8385c2d630b7cf6fa565a631c41154",
+    "hash": "91d48075e2f6b2e734899e8e79d44071d26b4ec7",
     "date": "2026-11-12"
   },
   "/remotecrab/suites/": {
-    "hash": "61651184470f6b0025db7652095183c8c39a7ca9",
+    "hash": "93e5c45d0d14ab74639476fe4244c9739a00b292",
     "date": "2026-11-12"
   },
   "/slimdisk/": {
-    "hash": "6935b2efdcd3abb4a82a2b0a3f1595bc555602fe",
+    "hash": "57834ca28afc58a6b7204350e1ea3e22e9b782eb",
     "date": "2026-11-12"
   },
   "/slimdisk/privacy/": {
-    "hash": "7f83b43787dae099f79427a53d7a8f471798285e",
+    "hash": "301abd6087196edf1af918aaf28a52f57f2e8f70",
     "date": "2026-11-12"
   }
 }

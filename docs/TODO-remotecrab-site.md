@@ -6,9 +6,14 @@
 
 ## 现在的状态
 
+- 首页结构（2026-11-12 定稿）：首屏（真机 34s 片 + 单一主按钮）→ 四个场景（视频）
+  → 四张小截图 → 「你不在电脑前」三个场景（含 computer-use 实拍）→ 20 组功能清单
+  → 「它能到哪儿为止」→ 价格 → 安装四步 → FAQ → 结尾。
+- 产品页有自己的页头页脚（`ProductHeader` / `ProductFooter`），**产品页里不要出现 VGO**。
+
 - 站点在 `~/VGOAPP`，已合进 `main` 并**已部署线上**（54 个路由，预渲染 54/54，自检 0 失败）。
 - 构建门禁：`scripts/check-prerender.mjs`（空壳会 fail）；`scripts/sitemap.mjs`（lastmod 只在文字变化时更新，状态在 `.sitemap-dates.json`）。
-- 产品页有自己的页头页脚（`ProductHeader` / `ProductFooter`），**产品页里不要出现 VGO**。
+
 
 ---
 
@@ -72,6 +77,11 @@
 - [ ] **F. 中文版 12 秒片段**
       `ads-zh/` 已经有了（16–21 秒 v2）；首页场景用的是它们的网页版。
       若之后加了新的中文片段，跑一遍 `scripts/encode-remotecrab-video.sh`（还没写，见 G）。
+
+- [ ] **F2. computer-use 素材已用（2026-11-12）**
+      `deliverables-ads/remotecrab-computer-use-v2-{zh,en}.mp4` 裁到 16.4s（原片结尾有白卡），
+      出 540p 无音网页片，放在「你不在电脑前」那节右侧。
+      ⚠️ 它是**场景镜头不是屏幕录制**，别拿它当「AI 操作界面」的证据。
 
 - [ ] **G. 视频编码脚本**
       现在是在 `prototypes/remotecrab-redesign/assets` 里手工 ffmpeg 出来的。
