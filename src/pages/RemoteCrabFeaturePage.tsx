@@ -117,11 +117,12 @@ export default function RemoteCrabFeaturePage() {
   // 只有真的有本地截图的页面才渲染手机壳；没有的页面直接走纯文字面板，
   // 免得每个新页面先 404 一次、预渲染快照里还留下一个空框。
   // 只列真的存在截图文件的页面（public/remotecrab/features/<slug>.jpg）。
-  // camera 暂时排除：那张是「演示模式 —— 示例画面，未连接电脑」的占位图，
-  // 比没有图更糟；等真机重拍后再加回来。
+  // camera / ai / microphone / speaker / trackpad 这 5 张是 HTML 画出来的
+  // （scripts/mock/feature-screens.html + render-feature-screens.mjs）：
+  // 真机截图要么是「演示模式」占位图，要么是一块空白屏，画出来才看得懂在做什么。
   const ART_SLUGS = new Set<FeatureSlug>([
     'notifications', 'ai', 'microphone', 'speaker', 'screen-mirror', 'trackpad',
-    'keyboard', 'voice', 'transfer', 'automation', 'numpad',
+    'keyboard', 'voice', 'transfer', 'automation', 'numpad', 'camera',
   ])
   const [artSrc, setArtSrc] = useState<string | null>(null)
   useEffect(() => {
