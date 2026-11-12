@@ -11,7 +11,8 @@
 |---|---|---|
 | **MacUpdate** | ✅ 已提交，等审核 | 表单全部填完并提交；页面回「10 天内邮件回复」。账号 `haogemini`（Google 登录） |
 | **Homebrew cask** | ✅ PR 开着 | <https://github.com/Homebrew/homebrew-cask/pull/302115>（OPEN/MERGEABLE）。本地跑过 `audit --new`、`audit --online`、`style --fix`、`install`、`uninstall` 五项。⚠️ 维护者回复要**本人**回 |
-| **AlternativeTo** | 🟡 只差 Platforms | 帐号 `Edwin-Hao`（Google 登录，验证已完成）。名称/网址/两句描述/Pricing=Free/Tags 3 个/Company=VGO/图标/3 张截图+描述/发布日期/cask token/审核备注全部填好。**唯一卡点**：Platforms 这个多选控件不接受脚本事件，需要人手点 4 个平台后提交 |
+| **AlternativeTo** | ✅ 已提交（Normal queue，2026-11-12） | 帐号 `Edwin-Hao`（Google 登录，验证已完成）。名称/网址/两句描述/Pricing=Free/Tags 3 个/Company=VGO/图标/3 张截图+描述/发布日期/cask token/审核备注全部填好。Platforms 由用户手点；⚠️ **Homebrew cask 字段必须留空** —— cask 还没合并进 homebrew-cask，填 `remotecrab` 会让保存直接 400（「no installable package called remotecrab」）。等 PR 合并后再补。
+       ⚠️ 队列页提示两件可选但有用的事没填：**Alternatives**（"别人怎么找到你"）和 **Tags**（脚本填的 tags 没存住），可以在 `my-submissions` 页面点 Suggest / Add 补 |
 
 > 经验：AlternativeTo 的提交入口是用户菜单 → **Suggest new application**（`/manage-item/`），不是 `/manage/add-app/`（404）。图标和截图可以直接用控制台的 file input（`input[name=iconImage]` / `input[name=screenshot]`）上传本地文件。
 
