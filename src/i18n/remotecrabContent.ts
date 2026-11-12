@@ -64,14 +64,14 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     meta: {
       title: 'RemoteCrab — 把 iPhone 变成电脑的副屏、摄像头、麦克风、触控板和键盘',
       description:
-        'RemoteCrab 把你的 iPhone / iPad 变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 本地 WiFi 直连,免费且完整;不在同一网络时,远程访问是可选订阅。',
+        'RemoteCrab 把你的 iPhone / iPad 变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 本地 WiFi 直连，免费且完整;不在同一网络时，远程访问是可选订阅。',
     },
     nav: { back: '← 返回 VGO' },
     hero: {
       badge: 'Mac · Windows · iPhone · iPad',
-      tagline: '你的 iPhone,就是电脑缺失的外设',
+      tagline: '你的 iPhone，就是电脑缺失的外设',
       description:
-        '摄像头、麦克风、第二块屏、触控板、键盘 —— 用你手上的 iPhone 或 iPad,同一个 WiFi 里就能用。不注册、不上传、不用买外设。',
+        '摄像头、麦克风、第二块屏、触控板、键盘 —— 用你手上的 iPhone 或 iPad，同一个 WiFi 里就能用。不注册、不上传、不用买外设。',
       downloadMac: '下载 Mac 版',
       downloadWindows: '下载 Windows 版',
       downloadIOS: 'App Store（iPhone / iPad）',
@@ -90,58 +90,58 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
   compatibility: {
     title: '情景模式认识你电脑上的 49 个应用',
-    body: '演示、终端、AI 助手、浏览器、邮件、会议、Xcode…… 你在哪个 App 里,手机上的按键就换成哪一套。没收录的应用也有兜底按键。',
+    body: '演示、终端、AI 助手、浏览器、邮件、会议、Xcode…… 你在哪个 App 里，手机上的按键就换成哪一套。没收录的应用也有兜底按键。',
     cta: '看看全部 18 套',
   },
   scenes: {
-    title: '人在哪,电脑的控制权就在哪',
-    description: '一台手机,一个连接 —— 这几个是用户最高频的四个。',
+    title: '人在哪，电脑的控制权就在哪',
+    description: '一台手机，一个连接 —— 这几个是用户最高频的四个。',
     items: [
       {
         icon: 'mirror',
         shot: '08-mirror',
         title: '躺在沙发上照顾电脑',
-        body: '电脑画面跟到手 —— 划一下就滚,按住就能拖,点一下就是点。不用挪窝。',
+        body: '电脑画面跟到手 —— 划一下就滚，按住就能拖，点一下就是点。不用挪窝。',
         href: '/remotecrab/features/screen-mirror/',
       },
       {
         icon: 'speaker',
         shot: '05-sound',
-        title: '午休,把电脑声音搬过来',
-        body: '电脑上播的剧和歌,从手机外放响出来;戴上耳机一整天不如让手机当音箱。',
+        title: '午休，把电脑声音搬过来',
+        body: '电脑上播的剧和歌，从手机外放响出来;戴上耳机一整天不如让手机当音箱。',
         href: '/remotecrab/features/speaker/',
       },
       {
         icon: 'ai',
         shot: '02-agent',
         title: '等 agent 跑完',
-        body: '长任务让它自己跑;它要动命令时,确认卡弹到手机 —— 你看完再批,不批不放。',
+        body: '长任务让它自己跑;它要动命令时，确认卡弹到手机 —— 你看完再批，不批不放。',
         href: '/remotecrab/features/ai/',
       },
       {
         icon: 'camera',
         shot: '04-camera',
-        title: '会议室,手机一波流',
-        body: '手机当高清摄像头和麦克风;静音、翻页、调音量,顺手在手机上全处理掉。',
+        title: '会议室，手机一波流',
+        body: '手机当高清摄像头和麦克风;静音、翻页、调音量，顺手在手机上全处理掉。',
         href: '/remotecrab/features/automation/',
       },
     ],
   },
     features: {
-      title: '一个 App,十四种用法',
+      title: '一个 App，十四种用法',
       description: '不用买副屏、摄像头、麦克风或触控板 —— 你本来就有的 iPhone 就够了。',
       items: [
         {
           icon: 'globe',
           href: '/remotecrab/features/remote-access/',
           title: '远程访问（订阅）',
-          body: '不在同一网络也能用自己的电脑:点对点优先,中继兜底,全程端到端加密。',
+          body: '不在同一网络也能用自己的电脑:点对点优先，中继兜底，全程端到端加密。',
         },
         {
           icon: 'ai',
           href: '/remotecrab/features/ai/',
           title: '问 AI',
-          body: '手机上进 AI 对话,问电脑前的事 —— AI 看得见屏幕和剪贴板,答案可以一键落到电脑光标处。',
+          body: '手机上进 AI 对话，问电脑前的事 —— AI 看得见屏幕和剪贴板，答案可以一键落到电脑光标处。',
         },
         {
           icon: 'bell',
@@ -153,13 +153,13 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           icon: 'display',
           href: '/remotecrab/features/extended-display/',
           title: '第二块屏幕',
-          body: '电脑上多出一块真实的虚拟显示器,把窗口拖到 iPhone 上,再用手指直接操作它。',
+          body: '电脑上多出一块真实的虚拟显示器，把窗口拖到 iPhone 上，再用手指直接操作它。',
         },
         {
           icon: 'mirror',
           href: '/remotecrab/features/screen-mirror/',
           title: '屏幕镜像与操控',
-          body: '把电脑上任意一个 App 窗口搬到手机,点按、拖拽、滚动、捏合都能直接操作。',
+          body: '把电脑上任意一个 App 窗口搬到手机，点按、拖拽、滚动、捏合都能直接操作。',
         },
         {
           icon: 'camera',
@@ -177,7 +177,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           icon: 'speaker',
           href: '/remotecrab/features/speaker/',
           title: '扬声器模式',
-          body: '电脑上播的剧、歌和会议声音,直接从手机的外放音响里响 —— 开关一点就切换。',
+          body: '电脑上播的剧、歌和会议声音，直接从手机的外放音响里响 —— 开关一点就切换。',
         },
         {
           icon: 'trackpad',
@@ -237,17 +237,17 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       title: '系统要求',
       mac: { title: 'computer', items: ['macOS 26 或更高', 'Apple 芯片（M 系列）'] },
       ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 17 或更高', 'iPhone 或 iPad 均可'] },
-      note: '两台设备在同一个局域网里直连即可;订阅远程访问后,不同网络也能连。',
+      note: '两台设备在同一个局域网里直连即可;订阅远程访问后，不同网络也能连。',
     },
     privacy: {
-      title: '纯本地,是真的',
-      body: 'RemoteCrab 不需要账号、不收集分析数据。同一局域网内,视频、音频和按键只在你的 iPhone 与电脑之间传输,不经过任何服务器;远程访问经会合与中继连接,但只转发端到端加密后的字节 —— 服务器看不到,也存不下你的画面、声音和按键。',
-      points: ['局域网免费完整,无账号', '远程访问端到端加密,服务器不可见', '源码开放,可自行审计', '所有权限都能在系统设置里随时关闭'],
+      title: '纯本地，是真的',
+      body: 'RemoteCrab 不需要账号、不收集分析数据。同一局域网内，视频、音频和按键只在你的 iPhone 与电脑之间传输，不经过任何服务器;远程访问经会合与中继连接，但只转发端到端加密后的字节 —— 服务器看不到，也存不下你的画面、声音和按键。',
+      points: ['局域网免费完整，无账号', '远程访问端到端加密，服务器不可见', '源码开放，可自行审计', '所有权限都能在系统设置里随时关闭'],
     },
     faq: {
       title: '常见问题',
       items: [
-        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费,没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年,随时可在系统设置里取消。' },
+        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费，没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年，随时可在系统设置里取消。' },
         {
           question: '为什么装的时候要授权好几次？',
           answer:
@@ -255,7 +255,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         },
         {
           question: '需要联网吗？',
-          answer: '同一 WiFi 直连即可,数据不经过任何服务器。不在同一网络时,订阅远程访问后也能连 —— 依然是端到端加密。',
+          answer: '同一 WiFi 直连即可，数据不经过任何服务器。不在同一网络时，订阅远程访问后也能连 —— 依然是端到端加密。',
         },
         {
           question: '我的电脑能装吗？',
