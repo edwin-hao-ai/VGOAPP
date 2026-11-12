@@ -4,8 +4,8 @@ import { ArrowRight, Check, Download, Search, Smartphone, Sparkles } from 'lucid
 import { useLanguage } from '../i18n/LanguageContext'
 import { contextSuites } from '../i18n/remotecrabSuites'
 import GlowBackground from '../components/GlowBackground'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { ProductHeader } from '../components/remotecrab/ProductHeader'
+import { ProductFooter } from '../components/remotecrab/ProductFooter'
 
 const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
@@ -193,9 +193,9 @@ export default function RemoteCrabSuitesPage() {
   return (
     <>
       <GlowBackground />
-      <Navbar homeHref="/remotecrab/" backLabel={c.nav.back} />
+      <ProductHeader />
 
-      <main className="pt-16">
+      <main>
         {/* Hero */}
         <section className="relative px-6 pt-16 pb-10 flex flex-col items-center text-center">
           <motion.span
@@ -419,7 +419,7 @@ export default function RemoteCrabSuitesPage() {
         </section>
       </main>
 
-      <Footer />
+      <ProductFooter />
     </>
   )
 }

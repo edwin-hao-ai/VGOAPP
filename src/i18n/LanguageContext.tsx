@@ -1,11 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { translations, type Language } from './translations'
 
-function setPageTitle(language: Language) {
-  if (typeof document === 'undefined') return
-  document.title = translations[language].site.title
-}
-
 const STORAGE_KEY = 'vgo-language'
 const EN_PREFIX = '/en'
 
@@ -60,12 +55,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
     setLanguageState(next)
     document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en'
-    setPageTitle(next)
   }, [])
 
+  // 这里只负责 <html lang>。**不要**在这里写 document.title：Provider 的
+  // effect 在子页面之后运行，会把每个页面自己的标题覆盖成站名 —— 2026-11-10
+  // 预渲染出来的 /remotecrab/ 标题一度就是「VGO — 做你真正会用的工具」。
+  // 标题归各自的页面（静态 index.html + 页面自己的 effect）。
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
-    setPageTitle(language)
   }, [language])
 
   const t = useCallback(

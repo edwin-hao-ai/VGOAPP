@@ -29,6 +29,16 @@ export interface RemoteCrabContent {
     testflight: string
     free: string
     requirementsNote: string
+    /** 首屏新字段（2026-11-11 改版） */
+    eyebrow: string
+    titleLine1: string
+    titleLine2: string
+    appStore: string
+    versionNote: string
+    switchPlatform: string
+    switchAction: string
+    watchFull: string
+    clipCaption: string
   }
   features: { title: string; description: string; items: FeatureItem[] }
   compatibility: { title: string; body: string; cta: string }
@@ -54,75 +64,84 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     meta: {
       title: 'RemoteCrab — 把 iPhone 变成电脑的副屏、摄像头、麦克风、触控板和键盘',
       description:
-        'RemoteCrab 把你的 iPhone / iPad 变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 本地 WiFi 直连,免费且完整;不在同一网络时,远程访问是可选订阅。',
+        'RemoteCrab 把你的 iPhone / iPad 变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘 —— 本地 WiFi 直连，免费且完整;不在同一网络时，远程访问是可选订阅。',
     },
     nav: { back: '← 返回 VGO' },
     hero: {
-      badge: 'macOS / Windows 桌面端 · 免费',
-      tagline: '你的 iPhone,就是电脑缺失的外设',
+      badge: 'Mac · Windows · iPhone · iPad',
+      tagline: '你的 iPhone，就是电脑缺失的外设',
       description:
-        '把它变成电脑的第二块屏幕、摄像头、麦克风、触控板和键盘;电脑上的通知送到你手机上,点一下就跳回那个应用;还能直接问 AI —— 它看得见你的屏幕,答案落在你的光标处。本地 WiFi 直连,免费且完整;不在同一网络时,远程访问是可选订阅。',
+        '摄像头、麦克风、第二块屏、触控板、键盘 —— 用你手上的 iPhone 或 iPad，同一个 WiFi 里就能用。不注册、不上传、不用买外设。',
       downloadMac: '下载 Mac 版',
       downloadWindows: '下载 Windows 版',
-      downloadIOS: 'App Store 下载 iPhone 版',
-      testflight: 'TestFlight 公测（抢先体验）',
+      downloadIOS: 'App Store（iPhone / iPad）',
+      testflight: 'TestFlight 公测',
       free: '局域网免费完整 · 无账号 · 远程访问可选订阅',
-      requirementsNote: '需要 macOS 26+（Apple 芯片）与 iOS 26+',
+      requirementsNote: 'macOS 26 或更新 · M1 及以后 · iOS / iPadOS 17 或更新',
+      eyebrow: 'Mac · Windows · iPhone · iPad',
+      titleLine1: '一部手机，',
+      titleLine2: '补全你的电脑',
+      appStore: 'App Store（iPhone / iPad）',
+      versionNote: '版本 1.3.0 · 14 MB · 2026-11-11',
+      switchPlatform: '这台电脑是 Windows？',
+      switchAction: '换成 Windows 版',
+      watchFull: '完整版 34 秒 · 有声',
+      clipCaption: '现场实拍',
     },
   compatibility: {
     title: '情景模式认识你电脑上的 49 个应用',
-    body: '演示、终端、AI 助手、浏览器、邮件、会议、Xcode…… 你在哪个 App 里,手机上的按键就换成哪一套。没收录的应用也有兜底按键。',
+    body: '演示、终端、AI 助手、浏览器、邮件、会议、Xcode…… 你在哪个 App 里，手机上的按键就换成哪一套。没收录的应用也有兜底按键。',
     cta: '看看全部 18 套',
   },
   scenes: {
-    title: '人在哪,电脑的控制权就在哪',
-    description: '一台手机,一个连接 —— 这几个是用户最高频的四个。',
+    title: '人在哪，电脑的控制权就在哪',
+    description: '一台手机，一个连接 —— 这几个是用户最高频的四个。',
     items: [
       {
         icon: 'mirror',
         shot: '08-mirror',
         title: '躺在沙发上照顾电脑',
-        body: '电脑画面跟到手 —— 划一下就滚,按住就能拖,点一下就是点。不用挪窝。',
+        body: '电脑画面跟到手 —— 划一下就滚，按住就能拖，点一下就是点。不用挪窝。',
         href: '/remotecrab/features/screen-mirror/',
       },
       {
         icon: 'speaker',
         shot: '05-sound',
-        title: '午休,把电脑声音搬过来',
-        body: '电脑上播的剧和歌,从手机外放响出来;戴上耳机一整天不如让手机当音箱。',
+        title: '午休，把电脑声音搬过来',
+        body: '电脑上播的剧和歌，从手机外放响出来;戴上耳机一整天不如让手机当音箱。',
         href: '/remotecrab/features/speaker/',
       },
       {
         icon: 'ai',
         shot: '02-agent',
         title: '等 agent 跑完',
-        body: '长任务让它自己跑;它要动命令时,确认卡弹到手机 —— 你看完再批,不批不放。',
+        body: '长任务让它自己跑;它要动命令时，确认卡弹到手机 —— 你看完再批，不批不放。',
         href: '/remotecrab/features/ai/',
       },
       {
         icon: 'camera',
         shot: '04-camera',
-        title: '会议室,手机一波流',
-        body: '手机当高清摄像头和麦克风;静音、翻页、调音量,顺手在手机上全处理掉。',
+        title: '会议室，手机一波流',
+        body: '手机当高清摄像头和麦克风;静音、翻页、调音量，顺手在手机上全处理掉。',
         href: '/remotecrab/features/automation/',
       },
     ],
   },
     features: {
-      title: '一个 App,十四种用法',
+      title: '一个 App，十四种用法',
       description: '不用买副屏、摄像头、麦克风或触控板 —— 你本来就有的 iPhone 就够了。',
       items: [
         {
           icon: 'globe',
           href: '/remotecrab/features/remote-access/',
           title: '远程访问（订阅）',
-          body: '不在同一网络也能用自己的电脑:点对点优先,中继兜底,全程端到端加密。',
+          body: '不在同一网络也能用自己的电脑:点对点优先，中继兜底，全程端到端加密。',
         },
         {
           icon: 'ai',
           href: '/remotecrab/features/ai/',
           title: '问 AI',
-          body: '手机上进 AI 对话,问电脑前的事 —— AI 看得见屏幕和剪贴板,答案可以一键落到电脑光标处。',
+          body: '手机上进 AI 对话，问电脑前的事 —— AI 看得见屏幕和剪贴板，答案可以一键落到电脑光标处。',
         },
         {
           icon: 'bell',
@@ -134,13 +153,13 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           icon: 'display',
           href: '/remotecrab/features/extended-display/',
           title: '第二块屏幕',
-          body: '电脑上多出一块真实的虚拟显示器,把窗口拖到 iPhone 上,再用手指直接操作它。',
+          body: '电脑上多出一块真实的虚拟显示器，把窗口拖到 iPhone 上，再用手指直接操作它。',
         },
         {
           icon: 'mirror',
           href: '/remotecrab/features/screen-mirror/',
           title: '屏幕镜像与操控',
-          body: '把电脑上任意一个 App 窗口搬到手机,点按、拖拽、滚动、捏合都能直接操作。',
+          body: '把电脑上任意一个 App 窗口搬到手机，点按、拖拽、滚动、捏合都能直接操作。',
         },
         {
           icon: 'camera',
@@ -158,7 +177,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
           icon: 'speaker',
           href: '/remotecrab/features/speaker/',
           title: '扬声器模式',
-          body: '电脑上播的剧、歌和会议声音,直接从手机的外放音响里响 —— 开关一点就切换。',
+          body: '电脑上播的剧、歌和会议声音，直接从手机的外放音响里响 —— 开关一点就切换。',
         },
         {
           icon: 'trackpad',
@@ -217,30 +236,34 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     requirements: {
       title: '系统要求',
       mac: { title: 'computer', items: ['macOS 26 或更高', 'Apple 芯片（M 系列）'] },
-      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 或更高', 'iPhone 或 iPad 均可'] },
-      note: '两台设备在同一个局域网里直连即可;订阅远程访问后,不同网络也能连。',
+      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 17 或更高', 'iPhone 或 iPad 均可'] },
+      note: '两台设备在同一个局域网里直连即可;订阅远程访问后，不同网络也能连。',
     },
     privacy: {
-      title: '纯本地,是真的',
-      body: 'RemoteCrab 不需要账号、不收集分析数据。同一局域网内,视频、音频和按键只在你的 iPhone 与电脑之间传输,不经过任何服务器;远程访问经会合与中继连接,但只转发端到端加密后的字节 —— 服务器看不到,也存不下你的画面、声音和按键。',
-      points: ['局域网免费完整,无账号', '远程访问端到端加密,服务器不可见', '源码开放,可自行审计', '所有权限都能在系统设置里随时关闭'],
+      title: '纯本地，是真的',
+      body: 'RemoteCrab 不需要账号、不收集分析数据。同一局域网内，视频、音频和按键只在你的 iPhone 与电脑之间传输，不经过任何服务器;远程访问经会合与中继连接，但只转发端到端加密后的字节 —— 服务器看不到，也存不下你的画面、声音和按键。',
+      points: ['局域网免费完整，无账号', '远程访问端到端加密，服务器不可见', '源码开放，可自行审计', '所有权限都能在系统设置里随时关闭'],
     },
     faq: {
       title: '常见问题',
       items: [
-        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费,没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年,随时可在系统设置里取消。' },
+        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费，没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年，随时可在系统设置里取消。' },
         {
-          question: '为什么要安装「虚拟摄像头」？',
+          question: '为什么装的时候要授权好几次？',
           answer:
-            'macOS 只认系统级摄像头。RemoteCrab 会安装一个签名并经 Apple 公证的相机扩展，装好后任何 App 都能在摄像头列表里选到「RemoteCrab Camera」。',
+            '因为你要让它出现在「所有 App」里 —— 摄像头列表、麦克风列表、鼠标和键盘。这些位置 Apple 只留给系统自己安装的部件，所以每一样都要单独装、单独允许。每一项都能在系统设置里随手关掉。',
         },
         {
           question: '需要联网吗？',
-          answer: '同一 WiFi 直连即可,数据不经过任何服务器。不在同一网络时,订阅远程访问后也能连 —— 依然是端到端加密。',
+          answer: '同一 WiFi 直连即可，数据不经过任何服务器。不在同一网络时，订阅远程访问后也能连 —— 依然是端到端加密。',
         },
         {
           question: '我的电脑能装吗？',
-          answer: '需要 macOS 26 或更高的 Apple 芯片电脑。目前暂不支持 Intel电脑。',
+          answer: 'Mac 端需要 macOS 26 或更新，而且得是 M1 及以后的 Mac；Intel 的 Mac 暂时不支持。Windows 端支持 Windows 10 / 11，功能与 Mac 版基本相同，但虚拟麦克风还没做。iPhone / iPad 端需要 iOS / iPadOS 17 或更新。',
+        },
+        {
+          question: 'iPad 也能用吗？',
+          answer: '能。iPad 可以当第二块屏、摄像头、麦克风、触控板和键盘，也可以当远程访问的那一端。App Store 上是同一个 App，装一次就行。',
         },
       ],
     },
@@ -258,16 +281,25 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     },
     nav: { back: '← Back to VGO' },
     hero: {
-      badge: 'macOS / Windows desktop app · Free',
+      badge: 'Mac · Windows · iPhone · iPad',
       tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
-        'Turn it into a second display, a camera, a microphone, a trackpad and a keyboard for your computer; notifications land on your phone and tapping one jumps back to that window; and you can ask AI about what is on the computer — it sees the screen, the answer lands at your cursor. Over local WiFi, free and complete; away from that network, remote access is an optional subscription.',
+        'Camera, mic, second display, trackpad, keyboard — from the iPhone or iPad you already own, on your own Wi-Fi. No account, no cloud, no extra hardware.',
       downloadMac: 'Download for Mac',
       downloadWindows: 'Download for Windows',
-      downloadIOS: 'Download on the App Store',
-      testflight: 'Join the TestFlight beta',
-      free: 'Free and complete on your LAN · No account · Optional remote-access subscription',
-      requirementsNote: 'Requires macOS 26+ (Apple silicon) and iOS 26+',
+      downloadIOS: 'App Store (iPhone / iPad)',
+      testflight: 'TestFlight beta',
+      free: 'Free and complete on your Wi-Fi · No account · Remote access is optional',
+      requirementsNote: 'macOS 26+ · M1 or later · iOS / iPadOS 17+',
+      eyebrow: 'Mac · Windows · iPhone · iPad',
+      titleLine1: 'One phone completes',
+      titleLine2: 'your computer.',
+      appStore: 'App Store (iPhone / iPad)',
+      versionNote: 'Version 1.3.0 · 14 MB · Nov 11, 2026',
+      switchPlatform: 'On Windows instead?',
+      switchAction: 'Get the Windows build',
+      watchFull: 'Full 34s · with sound',
+      clipCaption: 'Real footage',
     },
   compatibility: {
     title: 'Context modes know 49 apps on your computer',
@@ -418,7 +450,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     requirements: {
       title: 'Requirements',
       mac: { title: 'computer', items: ['macOS 26 or later', 'Apple silicon (M-series)'] },
-      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 26 or later', 'iPhone or iPad'] },
+      ios: { title: 'iPhone / iPad', items: ['iOS / iPadOS 17 or later', 'iPhone or iPad'] },
       note: 'Both devices connect directly on the same local network; with the remote-access subscription they connect across networks too.',
     },
     privacy: {
@@ -431,9 +463,9 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       items: [
         { question: 'Is RemoteCrab free?', answer: 'Everything on your local WiFi is free forever — no ads, no in-app purchases. Using your computer from another network is an optional subscription: $3.99/month or $29.99/year, cancellable anytime in Settings.' },
         {
-          question: 'Why does it install a "virtual camera"?',
+          question: 'Why does installing ask for permission several times?',
           answer:
-            'macOS only trusts system-level cameras. RemoteCrab installs a signed and notarized camera extension, after which any app can pick "RemoteCrab Camera" from its camera list.',
+            'Because it has to work everywhere: every app’s camera menu, its mic menu, and the pointer and keyboard. macOS only lets system-installed pieces do that, so each one is a separate install and a separate yes. Each can be switched off in System Settings later.',
         },
         {
           question: 'Does it need the internet?',
@@ -441,7 +473,11 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
         },
         {
           question: 'Will it run on my computer?',
-          answer: 'It needs an Apple-silicon computer on macOS 26 or later. Intel computers are not supported yet.',
+          answer: 'The Mac app needs macOS 26 or later on M1 or newer; Intel Macs are not supported yet. The Windows app runs on Windows 10 / 11 with nearly all the same features, except the virtual microphone. The iPhone / iPad app needs iOS / iPadOS 17 or later.',
+        },
+        {
+          question: 'Does it work with an iPad?',
+          answer: 'Yes. An iPad can be the second display, camera, mic, trackpad and keyboard, and the remote end too. It is the same App Store app — install once.',
         },
       ],
     },
