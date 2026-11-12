@@ -14,6 +14,7 @@ import { FeatureGroups } from '../components/remotecrab/FeatureGroups'
 import { PriceCards } from '../components/remotecrab/PriceCards'
 import { SceneRows } from '../components/remotecrab/SceneRows'
 import { InstallSteps } from '../components/remotecrab/InstallSteps'
+import { UiStrip } from '../components/remotecrab/UiStrip'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -163,6 +164,24 @@ export default function RemoteCrabPage() {
             >
               {h.why}
             </motion.p>
+          </div>
+        </section>
+
+        {/* 真机截图 —— 视频拍「怎么用」，这一节回答「我手机上会看到什么」 */}
+        <section id="ui" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.ui.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 text-3xl font-bold md:text-4xl">
+              {h.ui.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.ui.lead}
+            </motion.p>
+            <motion.div {...fade(0.15)}>
+              <UiStrip c={h.ui} language={language} />
+            </motion.div>
           </div>
         </section>
 

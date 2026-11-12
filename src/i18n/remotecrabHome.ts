@@ -31,6 +31,12 @@ export interface HomeContent {
   /** 一句话解释「为什么还需要它」，不出现任何竞品名 */
   why: string
   scenes: { kicker: string; title: string; lead: string; items: HomeScene[] }
+  ui: {
+    kicker: string
+    title: string
+    lead: string
+    items: { name: string; body: string; href: string; shot: string }[]
+  }
   features: { kicker: string; title: string; lead: string; note: string; groups: HomeGroup[] }
   install: {
     kicker: string
@@ -92,6 +98,16 @@ const zh: HomeContent = {
         href: '/remotecrab/features/trackpad/',
         clip: 'clip-trackpad',
       },
+    ],
+  },
+  ui: {
+    kicker: '手机上的样子',
+    title: '不是概念图,是你在手机上会看到的界面',
+    lead: '真机截图,和上面那些视频里的操作是同一套界面。',
+    items: [
+      { name: '键盘', body: '系统输入法、快捷键栏,还有一块迷你触控板。', href: '/remotecrab/features/keyboard/', shot: 'keyboard' },
+      { name: '通知收件箱', body: '错过也没关系,点任意一条就跳回那个窗口。', href: '/remotecrab/features/notifications/', shot: 'notifications' },
+      { name: '情景模式', body: '按当前 App 换一整套按键,系统控制也在这。', href: '/remotecrab/features/automation/', shot: 'automation' },
     ],
   },
   features: {
@@ -245,6 +261,16 @@ const en: HomeContent = {
         href: '/remotecrab/features/trackpad/',
         clip: 'clip-trackpad',
       },
+    ],
+  },
+  ui: {
+    kicker: 'On the phone',
+    title: 'Screenshots, not concept art',
+    lead: 'Real device captures — the same interface you see in the footage above.',
+    items: [
+      { name: 'Keyboard', body: 'System IME, a shortcut row, and a mini trackpad.', href: '/remotecrab/features/keyboard/', shot: 'keyboard' },
+      { name: 'Notification inbox', body: 'Missed one? Tap any of them to jump back to that window.', href: '/remotecrab/features/notifications/', shot: 'notifications' },
+      { name: 'Context modes', body: 'The buttons follow the app in front; system keys live here too.', href: '/remotecrab/features/automation/', shot: 'automation' },
     ],
   },
   features: {
