@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Will my iPhone work as a webcam? — RemoteCrab</title>
+<meta name="description" content="Pick your iPhone. Find out in one second whether Apple's Continuity Camera supports it, and what to do if it does not." />
+<link rel="canonical" href="https://vgoapp.com/remotecrab/check/" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="robots" content="index, follow" />
+<style>
+  :root{ --bg:#0a0a0f; --fg:#f2f1ee; --dim:#9a9995; --line:#22222a; --ok:#3fbf6a; --no:#f2604f; --acc:#5ac8fa; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.7 -apple-system,"SF Pro Display","Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:620px;margin:0 auto;padding:72px 24px 110px}
+  .eyebrow{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--dim)}
+  h1{font-size:clamp(28px,4.6vw,40px);line-height:1.12;letter-spacing:-.03em;margin:14px 0 0;font-weight:600}
+  p{margin:16px 0 0;color:var(--dim);font-size:15.5px}
+  label{display:block;margin:36px 0 8px;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--dim)}
+  select{width:100%;appearance:none;background:#14141a;color:var(--fg);border:1px solid var(--line);
+    border-radius:10px;padding:14px 44px 14px 16px;font-size:16px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239a9995' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center}
+  select:focus{outline:2px solid var(--acc);outline-offset:1px}
+  .out{margin-top:28px;border:1px solid var(--line);border-radius:12px;padding:24px;display:none}
+  .out.show{display:block}
+  .verdict{font-size:20px;font-weight:600;letter-spacing:-.01em;margin:0 0 10px;line-height:1.3}
+  .yes{color:var(--ok)} .nope{color:var(--no)}
+  .out p{margin:0 0 12px;font-size:14.5px;color:var(--dim);line-height:1.7}
+  .out p:last-child{margin-bottom:0}
+  .out a{color:var(--acc)}
+  .hint{font-size:12.5px;color:#6f6e6b;margin-top:10px;line-height:1.6}
+  ul{margin:8px 0 0;padding-left:18px;color:var(--dim);font-size:14.5px;line-height:1.75}
+  li{margin:5px 0}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;
+    background:#16161c;padding:2px 6px;border-radius:4px}
+  footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);
+    color:#6f6e6b;font-size:12.5px;line-height:1.7}
+  footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">One question</div>
+  <h1>Will my iPhone work as a webcam?</h1>
+  <p>Apple’s Continuity Camera has a model list. Pick your phone and find out in one second whether you are on it, and what your options are if you are not.</p>
+
+  <label for="phone">Your iPhone</label>
+  <select id="phone">
+    <option value="">Choose a model…</option>
+    <optgroup label="Not supported by Continuity Camera">
+      <option value="old">iPhone X, 8, 8 Plus</option>
+      <option value="old">iPhone 7 or older</option>
+      <option value="old">iPhone SE (1st generation, 2016)</option>
+    </optgroup>
+    <optgroup label="Supported">
+      <option value="new">iPhone XR / XS / XS Max</option>
+      <option value="new">iPhone SE (2nd or 3rd generation)</option>
+      <option value="new">iPhone 11 / 11 Pro / 11 Pro Max</option>
+      <option value="new">iPhone 12 series</option>
+      <option value="new">iPhone 13 series</option>
+      <option value="new">iPhone 14 series</option>
+      <option value="new">iPhone 15 series</option>
+      <option value="new">iPhone 16 series or later</option>
+    </optgroup>
+  </select>
+
+  <div class="out" id="out"></div>
+
+  <footer>
+    Model list from Apple’s Continuity Camera requirements (iPhone XR or later, iOS 16 or later, both devices on the same Apple Account). <a href="https://vgoapp.com/remotecrab/">RemoteCrab</a> is what to use when the answer above is no.
+  </footer>
+</div>
+
+<script>
+(function(){
+  var sel = document.getElementById('phone');
+  var out = document.getElementById('out');
+
+  var Y = [
+    'It needs iOS 16 or later, and both the iPhone and the Mac signed in to the same Apple Account with two-factor on.',
+    'It also needs Wi-Fi and Bluetooth switched on, on both devices. Turning on “Handoff” fixes a surprising number of cases.',
+    'It only exists on macOS. There is no Continuity Camera on Windows at all, whatever phone you have.'
+  ].join('</li><li>');
+
+  var N = [
+    'Continuity Camera starts at iPhone XR (2018), so your phone is not eligible no matter what you install.',
+    'Every remaining option is a third-party app. The difference between them is mostly the free tier: several cap it at 720p, which can look worse than your laptop camera.',
+    'The thing worth checking before you pay anyone: does the app list your phone model at all. Most do not say, and you find out after installing.'
+  ].join('</li><li>');
+
+  sel.addEventListener('change', function(){
+    var v = sel.value;
+    if(!v){ out.className = 'out'; out.innerHTML = ''; return; }
+    out.className = 'out show';
+    if(v === 'new'){
+      out.innerHTML =
+        '<div class="verdict yes">Yes. Use Continuity Camera.</div>' +
+        '<p>It is built into macOS, costs nothing and needs no install. Nothing you download will beat it on convenience.</p>' +
+        '<ul><li>' + Y + '</li></ul>' +
+        '<p style="margin-top:14px">If it stops working, check the camera extension first: <code>System Settings › General › Login Items &amp; Extensions › Camera Extensions</code>. macOS turns it off after some updates without telling you.</p>';
+    } else {
+      out.innerHTML =
+        '<div class="verdict nope">No. Continuity Camera will not accept this phone.</div>' +
+        '<ul><li>' + N + '</li></ul>' +
+        '<p style="margin-top:14px"><a href="https://vgoapp.com/remotecrab/webcam/">RemoteCrab</a> is built for exactly this case: free on your local network, 1080p, no account. It also turns the same phone into a trackpad and a second screen.</p>';
+    }
+  });
+})();
+</script>
+</body>
+</html>

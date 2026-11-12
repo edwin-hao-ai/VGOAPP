@@ -71,7 +71,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       badge: 'Mac · Windows · iPhone · iPad',
       tagline: '你的 iPhone，就是电脑缺失的外设',
       description:
-        '摄像头、麦克风、第二块屏、触控板、键盘 —— 用你手上的 iPhone 或 iPad，同一个 WiFi 里就能用。不注册、不上传、不用买外设。',
+        '别买摄像头了 —— 你抽屉里那台 iPhone 就是。它还能当麦克风、第二块屏和触控板；同一个 WiFi 里就能用，不注册、不上传。',
       downloadMac: '下载 Mac 版',
       downloadWindows: '下载 Windows 版',
       downloadIOS: 'App Store（iPhone / iPad）',
@@ -284,7 +284,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       badge: 'Mac · Windows · iPhone · iPad',
       tagline: 'Your iPhone is the peripheral your computer is missing',
       description:
-        'Camera, mic, second display, trackpad, keyboard — from the iPhone or iPad you already own, on your own Wi-Fi. No account, no cloud, no extra hardware.',
+        'Stop buying webcams: the iPhone in your drawer already is one. It can also be your mic, second screen and trackpad, over your own Wi-Fi. No account, nothing uploaded.',
       downloadMac: 'Download for Mac',
       downloadWindows: 'Download for Windows',
       downloadIOS: 'App Store (iPhone / iPad)',

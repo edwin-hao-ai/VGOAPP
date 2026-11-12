@@ -35,6 +35,19 @@ KEYWORDS = {
         "en": "use iPhone as a webcam, iPhone as a second display, wireless microphone for Mac, iPhone trackpad for Mac, iPhone keyboard for Mac, remote control from iPhone, webcam for Windows, RemoteCrab",
     },
 }
+# 每页独立的分享卡片（scripts/render-og.mjs 生成），没列的继续用全站那张。
+# 值 = public/og 下的文件名（不含 .png）；中文页用 `-zh` 版。
+OG_BY_ROUTE = {
+    "/remotecrab/": ("remotecrab-zh", "remotecrab"),
+    "/remotecrab/webcam/": ("webcam-zh", "webcam"),
+    "/remotecrab/alternatives/": ("alternatives-zh", "alternatives"),
+    "/remotecrab/features/camera/": ("camera", "camera"),
+    "/remotecrab/features/trackpad/": ("trackpad", "trackpad"),
+    "/remotecrab/features/ai/": ("ai", "ai"),
+    "/remotecrab/features/remote-access/": ("remote-access", "remote-access"),
+    "/remotecrab/features/notifications/": ("notifications", "notifications"),
+}
+
 PRODUCT_FALLBACK = {
     "/slimdisk/": KEYWORDS["/slimdisk/"],
     "/remotecrab/": KEYWORDS["/remotecrab/"],
@@ -92,7 +105,8 @@ for f, route in sorted(zh_routes):
 
     # 分享卡片：用 1200x630 的成品，而不是 1024x1024 的方图标
     # （方图标在 X / Slack / 微信 / Discord 里会被裁成小方块）
-    social_image = ORIGIN + "/og-image.png"
+    og_pair = OG_BY_ROUTE.get(route)
+    social_image = ORIGIN + f"/og/{og_pair[0]}.png" if og_pair else ORIGIN + "/og-image.png"
     html = set_meta(html, "og:image", social_image, attr="property")
     html = set_meta(html, "og:image:width", "1200", attr="property")
     html = set_meta(html, "og:image:height", "630", attr="property")
@@ -108,6 +122,10 @@ for f, route in sorted(zh_routes):
         en_html,
         count=1,
     )
+    if og_pair:
+        en_image = ORIGIN + f"/og/{og_pair[1]}.png"
+        en_html = set_meta(en_html, "og:image", en_image, attr="property")
+        en_html = set_meta(en_html, "twitter:image", en_image)
     en_html = set_meta(en_html, "og:locale", "en_US", attr="property")
     en_html = set_meta(en_html, "og:locale:alternate", "zh_CN", attr="property")
     en_html = set_meta(en_html, "keywords", keywords_for(route, "en"))

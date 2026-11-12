@@ -115,7 +115,10 @@ function connect(wsUrl) {
   })
 }
 
-const routes = walk(DIST).sort()
+// public/ 里直接放的静态 HTML（别人手写的页面）没有 #root，不是 CSR 页，跳过
+const routes = walk(DIST)
+  .filter((f) => fs.readFileSync(f, 'utf8').includes('id="root"'))
+  .sort()
 emit(`==> 预渲染 ${routes.length} 个路由（${DIST}）`)
 
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'rc-prerender-'))

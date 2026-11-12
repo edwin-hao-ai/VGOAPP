@@ -30,7 +30,9 @@ function textOf(html) {
     .trim()
 }
 
-const routes = walk(DIST).sort()
+const routes = walk(DIST)
+  .filter((f) => fs.readFileSync(f, 'utf8').includes('id="root"'))
+  .sort()
 const failures = []
 
 for (const file of routes) {
