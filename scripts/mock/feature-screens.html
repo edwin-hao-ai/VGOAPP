@@ -7,7 +7,7 @@
   :root{
     --bg:#0b0b12; --surface:rgba(255,255,255,.05); --line:rgba(255,255,255,.13);
     --text:#f2f2f5; --muted:#9a9aa8;
-    --a:#8b7bff; --b:#4d8dff; --blue:#2f6bff; --orange:#e9a23b;
+    --a:#8b7bff; --b:#4d8dff; --blue:#2f6bff; --orange:#e9a23b; /* 仅保留给别处可能的强调色，工具栏不用 */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#000;font:15px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC",sans-serif;color:var(--text)}
@@ -31,10 +31,8 @@
   .tb{width:37px;height:37px;border-radius:50%;background:var(--surface);border:1px solid var(--line);
       display:grid;place-items:center;flex:none}
   .tb svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .tb.cast svg{stroke:var(--orange)}
   .tb.active{background:var(--blue);border-color:var(--blue)}
   .tb.active svg{stroke:#fff}
-  .pill{width:15px;height:38px;border-radius:7.5px;background:var(--orange);flex:none}
   .spacer{flex:1}
 
   /* ---------- 底部 ---------- */
@@ -244,8 +242,7 @@
         </span>
       </div>
       <div class="toolbar">
-        <div class="tb cast">${svg('cast')}</div>
-        <div class="pill"></div>
+        <div class="tb">${svg('cast')}</div>
         <div class="tb">${svg('grid')}</div>
         <div class="tb ${active === 'camera' ? 'active' : ''}">${svg('camera')}</div>
         <div class="tb ${active === 'mic' ? 'active' : ''}">${svg('mic')}</div>
