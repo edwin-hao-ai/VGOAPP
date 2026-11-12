@@ -115,30 +115,4 @@ for f, route in sorted(zh_routes):
     os.makedirs(en_dir, exist_ok=True)
     open(os.path.join(en_dir, "index.html"), "w", encoding="utf-8").write(en_html)
 
-# 生成完整 sitemap.xml（全部路由 + 双语 hreflang 备用链接）
-today = datetime.date.today().isoformat()
-out = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-    'xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-]
-for _f, route in sorted(zh_routes):
-    en_route = "/en" + route
-    depth = route.strip("/").count("/")
-    pri = "1.0" if route == "/" else ("0.9" if depth == 0 else ("0.6" if depth >= 2 else "0.7"))
-    for r in (route, en_route):
-        out.append("  <url>")
-        out.append(f"    <loc>{ORIGIN + r}</loc>")
-        out.append(f"    <lastmod>{today}</lastmod>")
-        out.append(f"    <priority>{pri}</priority>")
-        out.append(
-            f'    <xhtml:link rel="alternate" hreflang="zh-Hans" href="{ORIGIN + route}" />'
-        )
-        out.append(
-            f'    <xhtml:link rel="alternate" hreflang="en" href="{ORIGIN + en_route}" />'
-        )
-        out.append("  </url>")
-out.append("</urlset>")
-open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(out) + "\n")
-
-print(f"i18n 路由生成完成：{len(zh_routes)} 个中文路由 + 对应英文镜像 + sitemap.xml")
+print(f"i18n 路由生成完成：{len(zh_routes)} 个中文路由 + 对应英文镜像（sitemap 由 scripts/sitemap.mjs 在预渲染后生成）")

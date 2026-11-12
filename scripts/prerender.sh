@@ -33,6 +33,10 @@ PRERENDER_PORT="$PORT" node "$ROOT/scripts/prerender.mjs" "$DIST"
 echo "==> 同步英文 head"
 node "$ROOT/scripts/sync-en-head.mjs" "$DIST"
 
+# sitemap：lastmod 只在内容真的变了时才更新（按 HTML 哈希比对上一次构建）
+echo "==> 生成 sitemap"
+node "$ROOT/scripts/sitemap.mjs" "$DIST"
+
 # 独立复核：只要还有空壳就以非零码退出，别让「看起来成功」进发布
 echo "==> 复核产物"
 node "$ROOT/scripts/check-prerender.mjs" "$DIST"
