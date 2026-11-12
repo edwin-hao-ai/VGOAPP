@@ -3,8 +3,8 @@ import { ShieldCheck } from 'lucide-react'
 import type { Language } from '../i18n/translations'
 import { useLanguage } from '../i18n/LanguageContext'
 import GlowBackground from '../components/GlowBackground'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { ProductHeader } from '../components/remotecrab/ProductHeader'
+import { ProductFooter } from '../components/remotecrab/ProductFooter'
 
 interface Section {
   heading: string
@@ -241,8 +241,8 @@ export default function RemoteCrabPrivacyPage() {
   return (
     <>
       <GlowBackground />
-      <Navbar homeHref="/remotecrab/" backLabel={c.backLabel} />
-      <main className="pt-16 px-6 py-20">
+      <ProductHeader />
+      <main className="px-6 py-20">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <ShieldCheck size={28} className="text-vgo-secondary" />
@@ -281,7 +281,7 @@ export default function RemoteCrabPrivacyPage() {
           </section>
         </div>
       </main>
-      <Footer />
+      <ProductFooter />
     </>
   )
 }

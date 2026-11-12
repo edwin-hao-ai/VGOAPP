@@ -35,8 +35,8 @@ import {
   type FeatureSlug,
 } from '../i18n/remotecrabFeatures'
 import GlowBackground from '../components/GlowBackground'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { ProductHeader } from '../components/remotecrab/ProductHeader'
+import { ProductFooter } from '../components/remotecrab/ProductFooter'
 
 const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
@@ -148,9 +148,9 @@ export default function RemoteCrabFeaturePage() {
   return (
     <>
       <GlowBackground />
-      <Navbar homeHref="/remotecrab/" backLabel={c.nav.back} />
+      <ProductHeader />
 
-      <main className="pt-16">
+      <main>
         {/* Hero */}
         <section className="relative px-6 pt-16 pb-12 flex flex-col items-center text-center">
           <motion.div
@@ -384,7 +384,7 @@ export default function RemoteCrabFeaturePage() {
         </section>
       </main>
 
-      <Footer />
+      <ProductFooter />
     </>
   )
 }

@@ -6,8 +6,8 @@ import { useLanguage } from '../i18n/LanguageContext'
 import { remoteCrabContent } from '../i18n/remotecrabContent'
 import { remotecrabHome } from '../i18n/remotecrabHome'
 import GlowBackground from '../components/GlowBackground'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { ProductHeader } from '../components/remotecrab/ProductHeader'
+import { ProductFooter } from '../components/remotecrab/ProductFooter'
 import { Stage } from '../components/remotecrab/Stage'
 import { ClipLightbox } from '../components/remotecrab/ClipLightbox'
 import { FeatureGroups } from '../components/remotecrab/FeatureGroups'
@@ -59,9 +59,9 @@ export default function RemoteCrabPage() {
   return (
     <>
       <GlowBackground />
-      <Navbar homeHref="/" backLabel={c.nav.back} />
+      <ProductHeader />
 
-      <main className="pt-16">
+      <main>
         {/* Hero —— 一句承诺 + 一段真机实拍；只留一个主按钮，按平台切 */}
         <section className="relative px-6 pt-16 pb-14">
           <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.05fr_0.95fr] md:items-center">
@@ -379,7 +379,7 @@ export default function RemoteCrabPage() {
         language={language}
         onClose={() => setClip(null)}
       />
-      <Footer />
+      <ProductFooter />
     </>
   )
 }

@@ -145,7 +145,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '让你的电脑随身',
       body: '下载电脑端,订阅远程访问,出门试试。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
   notifications: {
@@ -218,7 +218,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '让通知找到你',
       body: '下载 Mac 版,打开通知转发,把手机放到一边试试。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -292,7 +292,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '把电脑交给 AI 看一眼',
       body: '下载两个 App,配好模型源,对着手机问一句试试。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -367,7 +367,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '现在就把那块副屏省下来',
       body: '下载 Mac 版,在 iPhone 上装好,两台设备几秒就能连上。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -443,7 +443,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '把手机接进你的会议软件',
       body: '下载 Mac 版,授权一次,之后在摄像头列表里就能看到它。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -517,7 +517,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '让所有人都听清你',
       body: '下载 Mac 版,跟着引导装一次驱动,之后在任何会议软件里都能直接选到。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -591,7 +591,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '把电脑的所有声音装进口袋',
       body: '下载 Mac 版和 iPhone 版,点开扬声器,电脑上的剧立刻在手机里响起。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -666,7 +666,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '把电脑装进口袋',
       body: '下载 Mac 版,把当前窗口搬到手上,试试直接在上面拖一下。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -740,7 +740,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '试试离合拖拽',
       body: '下载 Mac 版,把手机变成触控板,先试着选一段长文字。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -814,7 +814,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '试着用它打一段中文',
       body: '下载 Mac 版,连上手机,点一下输入框试试。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -889,7 +889,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '按住说一句话试试',
       body: '下载 Mac 版,连上手机,按住底部的按钮说一句话。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -962,7 +962,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '把它当电脑遥控器',
       body: '下载 Mac 版,连上手机,试试从手机上切 App。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -1036,7 +1036,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '试试从手机发一张照片',
       body: '下载 Mac 版,连上手机,发一张照片到电脑试试。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -1113,7 +1113,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       title: '把手机当成遥控器',
       body: '下载 Mac 版,连上手机,打开情景模式看看。',
       download: '下载 Mac 版',
-      ios: 'App Store 下载 iPhone 版',
+      ios: 'App Store（iPhone / iPad）',
     },
   },
 
@@ -1424,7 +1424,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Take your computer with you',
       body: 'Download the desktop app, subscribe, and try it from outside.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
   notifications: {
@@ -1646,7 +1646,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Skip that second monitor',
       body: 'Download the desktop app, install it on your iPhone, and the two connect in seconds.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -1720,7 +1720,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Plug your phone into your meeting apps',
       body: 'Download the desktop app, approve once, and it will be waiting in the camera list.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -1794,7 +1794,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Make sure everyone can hear you',
       body: 'Download the desktop app, install the driver once, and it will be selectable in every meeting app.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -1868,7 +1868,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Put the computer\u2019s audio in your pocket',
       body: 'Download both apps, switch on Speaker, and whatever plays on the computer sounds on your phone.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -1943,7 +1943,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Put the computer in your pocket',
       body: 'Download the desktop app, pull a window onto your phone, and try dragging something on it.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2017,7 +2017,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Try the drag clutch',
       body: 'Download the desktop app, turn the phone into a trackpad, and try selecting a long passage of text.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2091,7 +2091,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Try typing some Chinese',
       body: 'Download the desktop app, connect the phone, and tap into a field.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2166,7 +2166,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Hold the button and say something',
       body: 'Download the desktop app, connect the phone, hold the button at the bottom and say a sentence.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2239,7 +2239,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Use it as a remote control',
       body: 'Download the desktop app, connect the phone, and try switching apps from it.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2313,7 +2313,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Try sending a photo',
       body: 'Download the desktop app, connect the phone and send a photo across.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2390,7 +2390,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       title: 'Use the phone as a remote',
       body: 'Download the desktop app, connect the phone, and open the context modes.',
       download: 'Download for Mac',
-      ios: 'Get the iPhone app',
+      ios: 'App Store (iPhone / iPad)',
     },
   },
 
@@ -2443,7 +2443,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       cta: 'See the trackpad →',
       href: '/remotecrab/features/trackpad/',
     },
-    cta: { title: 'Turn the phone into a keypad', body: 'Download the desktop app, install the phone app, same Wi-Fi.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+    cta: { title: 'Turn the phone into a keypad', body: 'Download the desktop app, install the phone app, same Wi-Fi.', download: 'Download for Mac', ios: 'App Store (iPhone / iPad)' },
   },
   'multi-computer': {
     slug: 'multi-computer',
@@ -2480,7 +2480,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       note: '',
     },
     next: { title: 'Two phones?', body: 'One computer can also serve two phones.', cta: 'See two phones →', href: '/remotecrab/features/two-phones/' },
-    cta: { title: 'Put every computer in your pocket', body: 'Download the desktop app and the phone app.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+    cta: { title: 'Put every computer in your pocket', body: 'Download the desktop app and the phone app.', download: 'Download for Mac', ios: 'App Store (iPhone / iPad)' },
   },
   'two-phones': {
     slug: 'two-phones',
@@ -2517,7 +2517,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       note: 'One computer has one active session at a time; watching does not count as another.',
     },
     next: { title: 'Multiple computers too', body: 'The other direction: one phone, many computers.', cta: 'See multiple computers →', href: '/remotecrab/features/multi-computer/' },
-    cta: { title: 'Use both phones', body: 'Download the desktop app and install the phone app twice.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+    cta: { title: 'Use both phones', body: 'Download the desktop app and install the phone app twice.', download: 'Download for Mac', ios: 'App Store (iPhone / iPad)' },
   },
   recording: {
     slug: 'recording',
@@ -2554,7 +2554,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       note: '',
     },
     next: { title: 'Another way to keep things', body: 'Sending files straight to the computer saves a step too.', cta: 'See file transfer →', href: '/remotecrab/features/transfer/' },
-    cta: { title: 'Record the next one', body: 'Download the desktop app and the phone app.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+    cta: { title: 'Record the next one', body: 'Download the desktop app and the phone app.', download: 'Download for Mac', ios: 'App Store (iPhone / iPad)' },
   },
   'keep-awake': {
     slug: 'keep-awake',
@@ -2592,7 +2592,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       note: '',
     },
     next: { title: 'One more thing it does by itself', body: 'It updates when you are idle.', cta: 'See auto-update →', href: '/remotecrab/features/auto-update/' },
-    cta: { title: 'Let it finish the job', body: 'Download the desktop app and flip the switch.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+    cta: { title: 'Let it finish the job', body: 'Download the desktop app and flip the switch.', download: 'Download for Mac', ios: 'App Store (iPhone / iPad)' },
   },
   'auto-update': {
     slug: 'auto-update',
@@ -2629,7 +2629,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       note: '',
     },
     next: { title: 'Back to the everyday one', body: 'The trackpad is the entry point you will touch most.', cta: 'See the trackpad →', href: '/remotecrab/features/trackpad/' },
-    cta: { title: 'Install it and forget it', body: 'Download the desktop app; it handles the rest.', download: 'Download for Mac', ios: 'Get the iPhone app' },
+    cta: { title: 'Install it and forget it', body: 'Download the desktop app; it handles the rest.', download: 'Download for Mac', ios: 'App Store (iPhone / iPad)' },
   },
 }
 
