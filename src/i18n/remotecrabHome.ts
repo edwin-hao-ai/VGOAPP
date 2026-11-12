@@ -36,6 +36,14 @@ export interface HomeContent {
     lead: string
     items: { name: string; body: string; href: string; shot: string }[]
   }
+  remote: {
+    kicker: string
+    title: string
+    lead: string
+    items: { icon: string; title: string; body: string; foot: string }[]
+    cta: string
+    href: string
+  }
   limits: {
     kicker: string
     title: string
@@ -175,6 +183,33 @@ const zh: HomeContent = {
       { name: '摄像头', body: '会议软件里选它，画面从手机来。', href: '/remotecrab/features/camera/', shot: 'camera' },
       { name: '通知收件箱', body: '错过也没关系，点一条就跳回那个窗口。', href: '/remotecrab/features/notifications/', shot: 'notifications' },
     ],
+  },
+  remote: {
+    kicker: '你不在电脑前的时候',
+    title: '任务在电脑上跑，你在手机上看住它',
+    lead: '这几件事的共同点：你人不在那台电脑前，但只有你能拍板。',
+    items: [
+      {
+        icon: 'clock',
+        title: '等构建、等测试跑完',
+        body: '任务丢给电脑，你去泡咖啡、下楼、坐地铁。跑完或者挂了，手机上会弹一条；点开就是那个窗口，接着处理。',
+        foot: '不用守着屏幕，也不用每隔十分钟回去看一眼。',
+      },
+      {
+        icon: 'shield',
+        title: 'AI 要动手，先问你一句',
+        body: '电脑上的 AI 工具想执行一条命令时，确认卡会弹到手机上：写清楚它要做什么，你看完再批，不批不放。',
+        foot: '关键动作的决定权始终在你手上。',
+      },
+      {
+        icon: 'folder',
+        title: '只让它碰一个文件夹',
+        body: '给它绑定一个工作区（比如某个项目目录）。越出这个范围的读写会被拒绝，不用靠「它应该不会乱来」。',
+        foot: '边界是配置出来的，不是信任出来的。',
+      },
+    ],
+    cta: '看看它是怎么工作的',
+    href: '/remotecrab/features/ai/',
   },
   limits: {
     kicker: '它能到哪儿为止',
@@ -354,6 +389,33 @@ const en: HomeContent = {
       { name: 'Camera', body: 'Pick it in any meeting app; the picture comes from the phone.', href: '/remotecrab/features/camera/', shot: 'camera' },
       { name: 'Notification inbox', body: 'Missed one? Tap it to jump back to that window.', href: '/remotecrab/features/notifications/', shot: 'notifications' },
     ],
+  },
+  remote: {
+    kicker: 'When you are not at the desk',
+    title: 'The work runs on the computer; you keep watch from the phone',
+    lead: 'These three have one thing in common: you are not next to that computer, and only you can say yes.',
+    items: [
+      {
+        icon: 'clock',
+        title: 'A build or a test run',
+        body: 'Hand the job to the computer and go make coffee, go downstairs, get on the train. When it finishes — or fails — a notification lands; tap it and you are in that window.',
+        foot: 'No babysitting, no walking back every ten minutes.',
+      },
+      {
+        icon: 'shield',
+        title: 'Before the AI touches anything',
+        body: 'When an AI tool on the computer wants to run a command, an approval card comes to the phone: what it wants to do, in plain words. You approve it, or it does not run.',
+        foot: 'The decision stays with you.',
+      },
+      {
+        icon: 'folder',
+        title: 'Scoped to one folder',
+        body: 'Bind it to a workspace — a project directory. Anything outside that scope is refused, instead of relying on “it probably won’t”.',
+        foot: 'A boundary you configure, not one you trust.',
+      },
+    ],
+    cta: 'See how it works',
+    href: '/remotecrab/features/ai/',
   },
   limits: {
     kicker: 'Where it stops',

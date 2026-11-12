@@ -16,6 +16,7 @@ import { SceneRows } from '../components/remotecrab/SceneRows'
 import { InstallSteps } from '../components/remotecrab/InstallSteps'
 import { LimitsBlock } from '../components/remotecrab/LimitsBlock'
 import { ShotStrip } from '../components/remotecrab/ShotStrip'
+import { RemoteScenarios } from '../components/remotecrab/RemoteScenarios'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -176,6 +177,24 @@ export default function RemoteCrabPage() {
             </motion.p>
             <motion.div {...fade(0.15)}>
               <ShotStrip c={h.shots} language={language} />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 你不在电脑前的时候 —— 三个场景，卖的是处境不是功能 */}
+        <section id="remote" className="px-6 py-16 scroll-mt-20">
+          <div className="mx-auto max-w-6xl">
+            <motion.span {...fade()} className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">
+              {h.remote.kicker}
+            </motion.span>
+            <motion.h2 {...fade(0.05)} className="mt-3 max-w-3xl text-3xl font-bold md:text-4xl">
+              {h.remote.title}
+            </motion.h2>
+            <motion.p {...fade(0.1)} className="mt-4 max-w-2xl text-vgo-muted">
+              {h.remote.lead}
+            </motion.p>
+            <motion.div {...fade(0.15)}>
+              <RemoteScenarios c={h.remote} />
             </motion.div>
           </div>
         </section>
