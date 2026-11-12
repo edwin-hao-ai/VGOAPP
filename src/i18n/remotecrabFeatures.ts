@@ -115,6 +115,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
         { title: '端到端加密', body: '画面、声音和按键本身就被加密，服务器看不到内容，也存不下来。' },
         { title: '订阅绑定设备', body: '订阅通过 App Attest 绑定到这台 iPhone;凭据复制到别的设备上不能用。' },
         { title: '连上之后就是全部功能', body: '远程连上与家里连上没有区别:投屏、触控板、键盘、文件、AI，全都能用。' },
+        { title: '不用你主动去看', body: '手机被系统挂起、又不在同一个网络时，电脑上有事也能通知到你：我们的服务器只发一个空的信号把手机叫醒，通知内容仍然只在你的两台设备之间。' },
       ],
     },
     tips: {
@@ -124,6 +125,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
         '**旅途中**:在酒店、咖啡馆连回家里电脑看进度、回消息。',
         '**忘带文件**:连上家里电脑，把文件直接发到手机。',
         '**帮家人看电脑**:家人的电脑在线时，远程替他们点几下。',
+        '**等 agent 跑完**:任务在电脑上跑，你在外面；它跑完或者要你拍板时，手机锁屏上会弹一条，点开就回到那个窗口。',
       ],
     },
     requires: {
@@ -1395,6 +1397,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
         { title: 'End-to-end encrypted', body: 'Screen, sound and keystrokes are encrypted before they leave your device. The server cannot read them and stores nothing.' },
         { title: 'The subscription binds to your device', body: 'The subscription is attested to this iPhone via App Attest; a copied credential will not work on another device.' },
         { title: 'Everything works remotely', body: 'A remote session is the same as a home session: mirror, trackpad, keyboard, files and AI all work.' },
+        { title: 'You do not have to go and look', body: 'If the phone is suspended and off your network, the computer can still reach you: the server only sends a content-free wake signal, and the notification itself still travels between your two devices.' },
       ],
     },
     tips: {
@@ -1404,6 +1407,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
         '**On the road**: check progress and answer messages on your home computer from a hotel or café.',
         '**Forgot a file**: connect and send the file straight to your phone.',
         '**Helping family**: when their computer is online, drive it remotely for them.',
+        '**Waiting on an agent**: the job runs on the computer while you are out; when it finishes or asks for approval, a notification lands on your lock screen — tap it and you are back in that window.',
       ],
     },
     requires: {

@@ -29,12 +29,6 @@ export interface HomeScene {
 export interface HomeContent {
   trust: string[]
   scenes: { kicker: string; title: string; lead: string; items: HomeScene[] }
-  ui: {
-    kicker: string
-    title: string
-    lead: string
-    items: { name: string; body: string; href: string; shot: string }[]
-  }
   features: { kicker: string; title: string; lead: string; note: string; groups: HomeGroup[] }
   limits: {
     kicker: string
@@ -107,17 +101,6 @@ const zh: HomeContent = {
       },
     ],
   },
-  ui: {
-    kicker: '手机上的样子',
-    title: '不是概念图,是你在手机上会看到的界面',
-    lead: '真机截图,和上面那些视频里的操作是同一套界面。',
-    items: [
-      { name: '触控板', body: '光标跟手;拖动、双指滚动、右键、三指手势都在。', href: '/remotecrab/features/trackpad/', shot: 'trackpad' },
-      { name: '键盘', body: '系统输入法、快捷键栏,还有一块迷你触控板。', href: '/remotecrab/features/keyboard/', shot: 'keyboard' },
-      { name: '通知收件箱', body: '错过也没关系,点任意一条就跳回那个窗口。', href: '/remotecrab/features/notifications/', shot: 'notifications' },
-      { name: '情景模式', body: '按当前 App 换一整套按键,系统控制也在这。', href: '/remotecrab/features/automation/', shot: 'automation' },
-    ],
-  },
   features: {
     kicker: '全部功能',
     title: '20 组功能，一次列全',
@@ -160,7 +143,7 @@ const zh: HomeContent = {
       {
         title: '不在电脑前',
         items: [
-          { name: '远程访问', body: '在外面也能连回家里的电脑，只有你看得见；连上后功能全一样。', href: `${F}remote-access/`, tag: 'paid', sub: '含 推送唤醒：不在家也能收到电脑通知' },
+          { name: '远程访问', body: '在外面也能连回家里的电脑，只有你看得见；连上后功能全一样。', href: `${F}remote-access/`, tag: 'paid', sub: '含 在外面也能收到电脑通知' },
           { name: '问 AI', body: '它看得见屏幕和剪贴板，答案可以一键打到电脑光标处。', href: `${F}ai/`, sub: '含 AI 要执行命令时，确认卡弹到手机' },
           { name: '多台电脑', body: '一台手机记住多台电脑，在手机上点一下切换。' },
           { name: '多台手机', body: '两部手机共用一台电脑：可以点一下接管，也可以让另一部只读观看。' },
@@ -286,17 +269,6 @@ const en: HomeContent = {
       },
     ],
   },
-  ui: {
-    kicker: 'On the phone',
-    title: 'Screenshots, not concept art',
-    lead: 'Real device captures — the same interface you see in the footage above.',
-    items: [
-      { name: 'Trackpad', body: 'The pointer follows your finger; drag, two-finger scroll, right-click, gestures.', href: '/remotecrab/features/trackpad/', shot: 'trackpad' },
-      { name: 'Keyboard', body: 'System IME, a shortcut row, and a mini trackpad.', href: '/remotecrab/features/keyboard/', shot: 'keyboard' },
-      { name: 'Notification inbox', body: 'Missed one? Tap any of them to jump back to that window.', href: '/remotecrab/features/notifications/', shot: 'notifications' },
-      { name: 'Context modes', body: 'The buttons follow the app in front; system keys live here too.', href: '/remotecrab/features/automation/', shot: 'automation' },
-    ],
-  },
   features: {
     kicker: 'Every feature',
     title: '20 groups of features, all of them',
@@ -339,7 +311,7 @@ const en: HomeContent = {
       {
         title: 'Away from it',
         items: [
-          { name: 'Remote access', body: 'Reach your computer from anywhere, private to you; same features once connected.', href: `${F}remote-access/`, tag: 'paid', sub: 'incl. push wake: Mac notifications anywhere' },
+          { name: 'Remote access', body: 'Reach your computer from anywhere, private to you; same features once connected.', href: `${F}remote-access/`, tag: 'paid', sub: 'incl. Mac notifications wherever you are' },
           { name: 'Ask AI', body: 'It sees the screen and clipboard; the answer lands at the cursor.', href: `${F}ai/`, sub: 'incl. an approval card when AI wants to run a command' },
           { name: 'Multiple computers', body: 'One phone remembers several computers; switch from the phone.' },
           { name: 'Two phones', body: 'One computer, two phones: take over with a tap, or let the other one watch read-only.' },

@@ -34,7 +34,20 @@ const entries = []
 let changed = 0
 for (const file of files) {
   const route = '/' + path.relative(DIST, file).replace(/index\.html$/, '')
-  const hash = crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex')
+  // 只哈希「页面上看得见的文字 + 标题」。
+  // 直接哈希整页 HTML 不稳：预渲染的 DOM 里带着 framer-motion 的内联样式
+  // （opacity/transform 取决于抓取时机），每次构建都可能有细微差别，
+  // 于是 54 条 lastmod 又会全部刷新。文字变了才是内容变了。
+  const raw = fs.readFileSync(file, 'utf8')
+  const title = (raw.match(/<title>([^<]*)<\/title>/) || [])[1] || ''
+  const text = raw
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z#0-9]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const hash = crypto.createHash('sha1').update(title + '\n' + text).digest('hex')
   const before = prev[route]
   const date = before && before.hash === hash ? before.date : today
   if (!before || before.hash !== hash) changed++
