@@ -36,7 +36,7 @@ export interface SlimDiskContent {
   requirements: { title: string; items: string[]; note: string }
   safety: { title: string; body: string; points: string[] }
   risk: { title: string; body: string; points: string[] }
-  appStore: { badge: string; title: string; body: string; points: string[] }
+  appStore: { badge: string; title: string; body: string; points: string[]; cta: string }
   privacy: { title: string; body: string; points: string[]; linkLabel: string }
   faq: { title: string; items: { question: string; answer: string }[] }
   cta: { title: string; body: string; download: string }
@@ -56,7 +56,7 @@ export const slimDiskContent: Record<Language, SlimDiskContent> = {
       description:
         'SlimDisk 用 Rust + Tauri 打造，把「你的 Mac 哪里脏了、哪些进程该关、哪些缓存能删」直接算好、标好、列成清单。比活动监视器少一步判断，比通用清理工具更懂 NPM、Docker 和 Xcode；每一步都有日志，破坏性操作之前一定先问你。',
       download: '下载 SlimDisk.dmg',
-      appStoreSoon: 'App Store 版即将上架',
+      appStoreSoon: 'App Store 已上架',
       trust: '免费 · 无账号 · 无遥测 · 数据不出你的 Mac',
       requirementsNote: '需要 macOS 13.0 或更高 · Apple 芯片（M1 及以上）',
     },
@@ -187,14 +187,15 @@ export const slimDiskContent: Record<Language, SlimDiskContent> = {
       ],
     },
     appStore: {
-      badge: '即将上架',
-      title: '还会有一个 App Store 版本',
-      body: '我们正在准备 SlimDisk 的 Mac App Store 版本，走 App Store 的沙盒权限模型，功能侧重开发者的缓存清理与磁盘分析。它和本页的 Developer ID 版是两条并行的路，不是同一个包。',
+      badge: '已上架',
+      title: 'App Store 版也已经上了',
+      body: '除了本页的 Developer ID 版，SlimDisk 现在也有了 Mac App Store 版。它走 App Store 的沙盒权限模型，侧重缓存清理与磁盘分析；两个版本都能用，按你的习惯选一个就行。',
       points: [
         '本页下载的是 Developer ID 全功能版本',
-        'App Store 版的权限模型和功能侧重会有所不同',
-        '上架后本页会更新链接',
+        'App Store 版装起来更省事，权限受沙盒约束',
+        '两个版本都在持续更新',
       ],
+      cta: '在 App Store 打开',
     },
     privacy: {
       title: '你的数据不出你的 Mac',
@@ -254,7 +255,7 @@ export const slimDiskContent: Record<Language, SlimDiskContent> = {
       description:
         'SlimDisk is built with Rust + Tauri. It works out which caches are stale, which processes are idle and which apps are leftovers, then shows you the list with the numbers attached. One step less judgement than Activity Monitor, far more developer-aware than a generic cleaner. Every step is logged, and anything destructive asks first.',
       download: 'Download SlimDisk.dmg',
-      appStoreSoon: 'Coming soon to the Mac App Store',
+      appStoreSoon: 'Available on the Mac App Store',
       trust: 'Free · No account · No telemetry · Nothing leaves your Mac',
       requirementsNote: 'Requires macOS 13.0 or later · Apple silicon (M1 and newer)',
     },
@@ -388,14 +389,15 @@ export const slimDiskContent: Record<Language, SlimDiskContent> = {
       ],
     },
     appStore: {
-      badge: 'Coming soon',
-      title: 'A Mac App Store version is on the way',
-      body: 'We are preparing a Mac App Store edition of SlimDisk. It runs under the App Store sandbox permission model and focuses on developer cache cleaning and disk analysis. It is a parallel track to the Developer ID build on this page, not the same package.',
+      badge: 'Available now',
+      title: 'It is on the Mac App Store too',
+      body: 'Besides the Developer ID build on this page, SlimDisk now ships on the Mac App Store. It runs under the App Store sandbox, focused on cache cleaning and disk analysis. Both work — pick whichever you prefer.',
       points: [
-        'What you download here is the full-featured Developer ID build',
-        'The App Store edition has a different permission model and a different feature emphasis',
-        'This page will link to it once it ships',
+        'This page hosts the full-featured Developer ID build',
+        'The App Store edition installs in one step, within the sandbox',
+        'Both are updated',
       ],
+      cta: 'Open on the App Store',
     },
     privacy: {
       title: 'Your data never leaves your Mac',

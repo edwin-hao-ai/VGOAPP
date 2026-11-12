@@ -35,6 +35,7 @@ import Footer from '../components/Footer'
 export const DOWNLOAD_URL = 'https://vgoapp.com/downloads/SlimDisk-1.0.2-aarch64.dmg'
 
 export const PRIVACY_URL = '/slimdisk/privacy/'
+export const APP_STORE_URL = 'https://apps.apple.com/app/id6816609940'
 
 /**
  * Screenshots live in `public/downloads/slimdisk/` and are served from
@@ -142,7 +143,9 @@ export default function SlimDiskPage() {
               <Download size={18} /> {c.hero.download}
             </a>
             <a
-              href="#app-store"
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass glass-hover font-semibold"
             >
               <Rocket size={18} /> {c.hero.appStoreSoon}
@@ -350,6 +353,14 @@ export default function SlimDiskPage() {
                   </li>
                 ))}
               </ul>
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-vgo-primary to-vgo-secondary text-white font-semibold shadow-lg shadow-vgo-primary/25"
+              >
+                <Rocket size={16} /> {c.appStore.cta}
+              </a>
             </motion.div>
 
             <motion.div {...fade(0.08)} className="glass p-8">
