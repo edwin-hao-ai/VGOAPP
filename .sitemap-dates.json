@@ -7,6 +7,10 @@
     "hash": "fd378f19e05a90e3dd8168ef64a45db02e8828fe",
     "date": "2026-11-12"
   },
+  "/en/remotecrab/check/": {
+    "hash": "c5a433deafbb9ab23ca11bfc5c4dd8125bc635d2",
+    "date": "2026-11-12"
+  },
   "/en/remotecrab/features/ai/": {
     "hash": "f1cc4b407653bf25c0273d19744a4fdef937c135",
     "date": "2026-11-12"
@@ -88,7 +92,11 @@
     "date": "2026-11-12"
   },
   "/en/remotecrab/": {
-    "hash": "0eff72560248b2004197ecaa6695046c7f596410",
+    "hash": "151880743cc0e97c866e01de656c4afc3eb8a737",
+    "date": "2026-11-12"
+  },
+  "/en/remotecrab/press/": {
+    "hash": "7b1456b2c3580c264602414125758b88c41387f0",
     "date": "2026-11-12"
   },
   "/en/remotecrab/privacy/": {
@@ -98,6 +106,14 @@
   "/en/remotecrab/suites/": {
     "hash": "1dcd7473cf8436a7a3dc239ca807ee1bc9bdb283",
     "date": "2026-11-12"
+  },
+  "/en/remotecrab/webcam/": {
+    "hash": "d27e95c84855f73c07f02929b10fc1cc28b3102b",
+    "date": "2026-11-12"
+  },
+  "/en/remotecrab/windows/": {
+    "hash": "0e1b3d38e2a1b9382ed0909304f9ba0f0b162ce6",
+    "date": "2026-11-16"
   },
   "/en/slimdisk/": {
     "hash": "e3e98bf08951f44ffd503dc465289413c0b10950",
@@ -113,6 +129,10 @@
   },
   "/remotecrab/alternatives/": {
     "hash": "51c96f9363be0bbce0201fbd10771b9b04fd8d68",
+    "date": "2026-11-12"
+  },
+  "/remotecrab/check/": {
+    "hash": "c5a433deafbb9ab23ca11bfc5c4dd8125bc635d2",
     "date": "2026-11-12"
   },
   "/remotecrab/features/ai/": {
@@ -196,7 +216,11 @@
     "date": "2026-11-12"
   },
   "/remotecrab/": {
-    "hash": "f745be8da62c60269bc167ea33ce90a143847570",
+    "hash": "d9546f30e3f9f780332930ad30670ddedb672b13",
+    "date": "2026-11-12"
+  },
+  "/remotecrab/press/": {
+    "hash": "7b1456b2c3580c264602414125758b88c41387f0",
     "date": "2026-11-12"
   },
   "/remotecrab/privacy/": {
@@ -206,6 +230,14 @@
   "/remotecrab/suites/": {
     "hash": "93e5c45d0d14ab74639476fe4244c9739a00b292",
     "date": "2026-11-12"
+  },
+  "/remotecrab/webcam/": {
+    "hash": "28d15c513d9d7e11cdf769344600390a5f69868b",
+    "date": "2026-11-12"
+  },
+  "/remotecrab/windows/": {
+    "hash": "03df15db31509355adfa87c8976a613ea2809aae",
+    "date": "2026-11-16"
   },
   "/slimdisk/": {
     "hash": "57834ca28afc58a6b7204350e1ea3e22e9b782eb",

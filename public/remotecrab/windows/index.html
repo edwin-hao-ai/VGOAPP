@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安装 Windows 版 — RemoteCrab</title>
+<meta name="description" content="RemoteCrab Windows 版下载与安装：下载 ZIP、解除锁定、运行 install.cmd。只有一个 UAC 提示，没有 SmartScreen 拦截。">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vgoapp.com/remotecrab/windows/">
+<link rel="alternate" hreflang="zh-Hans" href="https://vgoapp.com/remotecrab/windows/">
+<link rel="alternate" hreflang="en" href="https://vgoapp.com/en/remotecrab/windows/">
+<link rel="alternate" hreflang="x-default" href="https://vgoapp.com/remotecrab/windows/">
+<style>
+  :root{
+    --bg:#0a0a0f; --card:#12121a; --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.055);
+    --ink:#f8fafc; --ink-2:#cbd5e1; --muted:#94a3b8; --muted-2:#64748b;
+    --primary:#60a5fa; --secondary:#a78bfa;
+    --good:#34d399; --warn:#fbbf24; --bad:#f87171;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 96px}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;font-size:13.5px;color:var(--muted)}
+  nav .brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:600}
+  nav .brand img{width:24px;height:24px;border-radius:7px}
+  nav a:hover{color:var(--ink)}
+
+  header{padding:28px 0 8px}
+  .badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;
+         letter-spacing:.08em;text-transform:uppercase;color:var(--primary);
+         border:1px solid rgba(96,165,250,.28);background:rgba(96,165,250,.08);border-radius:999px;padding:4px 11px}
+  h1{font-size:clamp(28px,4.6vw,44px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:18px 0 14px}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--primary),var(--secondary));
+        -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:17px;color:var(--ink-2);max-width:38em;margin:0}
+  .lede strong{color:var(--ink)}
+
+  .dl{margin:30px 0 6px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 26px;
+       background:linear-gradient(90deg,var(--primary),var(--secondary));color:#0b1020;
+       font-weight:700;font-size:15.5px;box-shadow:0 10px 30px -12px rgba(96,165,250,.7)}
+  .btn svg{width:18px;height:18px}
+  .btn .size{font-weight:500;font-size:12.5px;opacity:.75}
+  .ghost{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 20px;
+         border:1px solid var(--line);color:var(--ink-2);font-size:14px;background:rgba(255,255,255,.02)}
+  .ghost:hover{border-color:rgba(255,255,255,.22);color:var(--ink)}
+
+  .sha{margin:16px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12.5px;color:var(--muted-2)}
+  .sha code{font-family:var(--mono);font-size:11.5px;color:var(--muted);background:rgba(255,255,255,.04);
+            border:1px solid var(--line-2);border-radius:6px;padding:3px 8px;word-break:break-all}
+  .sha button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:6px;
+              padding:3px 8px;font-size:11px;cursor:pointer;font-family:var(--sans)}
+  .sha button:hover{color:var(--ink)}
+
+  .callout{margin:26px 0 0;display:flex;gap:14px;align-items:flex-start;border-radius:16px;padding:18px 20px;
+           border:1px solid rgba(251,191,36,.28);background:rgba(251,191,36,.07)}
+  .callout .ic{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+               background:rgba(251,191,36,.15);color:var(--warn);font-weight:800}
+  .callout b{display:block;margin-bottom:2px;font-size:14.5px}
+  .callout p{margin:0;color:var(--ink-2);font-size:13.8px;line-height:1.6}
+
+  section{margin-top:64px}
+  h2{font-size:12px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--muted-2);
+     font-weight:500;margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line-2)}
+  h3{font-size:17px;letter-spacing:-.01em;margin:0 0 6px;font-weight:700}
+  p{margin:0 0 12px} p:last-child{margin-bottom:0}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px}
+  .step .n{font-family:var(--mono);font-size:10.5px;color:var(--muted-2);letter-spacing:.08em}
+  .step h4{margin:4px 0 8px;font-size:14.5px;font-weight:650;line-height:1.4}
+  .step p{margin:0;font-size:12.8px;color:var(--muted);line-height:1.55}
+
+  /* ── Windows mock ── */
+  .win{margin-top:12px;font-family:"Segoe UI","Microsoft YaHei UI",sans-serif;font-size:11px;line-height:1.45;
+       background:#fff;color:#1b1b1b;border:1px solid rgba(0,0,0,.18);border-radius:9px;overflow:hidden;
+       box-shadow:0 14px 30px -18px rgba(0,0,0,.9);height:150px;display:flex;flex-direction:column}
+  .win .tb{display:flex;align-items:center;gap:5px;padding:6px 8px;background:#f7f7f7;
+           border-bottom:1px solid #ececec;font-size:10px;color:#444;white-space:nowrap;overflow:hidden}
+  .win .tb .dot{width:6px;height:6px;border-radius:50%;background:#d6d6d6;flex:none}
+  .win .tb .g{margin-left:auto;color:#aaa;font-size:8px;letter-spacing:1px}
+  .pane{padding:9px 10px;flex:1;display:flex;flex-direction:column}
+  .btns{display:flex;gap:6px;justify-content:flex-end;margin-top:auto;padding-top:8px}
+  .wbtn{border:1px solid #d6d6d6;background:#fbfbfb;color:#222;border-radius:4px;padding:3px 11px;font-size:10.5px}
+  .wbtn.p{background:#0067c0;border-color:#0067c0;color:#fff}
+  .row{display:flex;gap:6px;font-size:10px;color:#555;margin-bottom:3px}
+  .row span{color:#777;min-width:38px}
+  .unblock{display:flex;gap:6px;margin-top:5px;padding:6px 7px;background:#f7fbff;
+           border:1px solid #dceafa;border-radius:5px;font-size:9.5px;color:#3a5a78;line-height:1.4}
+  .cb{width:11px;height:11px;border:1px solid #0067c0;border-radius:2px;flex:none;margin-top:1px;
+      background:#0067c0;position:relative}
+  .cb::after{content:"";position:absolute;left:2px;top:0;width:4px;height:7px;
+             border:2px solid #fff;border-top:0;border-left:0;transform:rotate(40deg)}
+  .term{background:#0c0c0c;border-color:#2b2b2b;color:#d4d4d4}
+  .term .tb{background:#1b1b1b;border-bottom:1px solid #2b2b2b;color:#cfcfcf}
+  .term .tb .dot{background:#3a3a3a}
+  .term pre{margin:0;padding:8px 10px;font-family:var(--mono);font-size:9.5px;line-height:1.55;white-space:pre-wrap}
+  .term .p{color:#7cc4ff} .term .dim{color:#8a8a8a} .term .ok{color:#6ddc8b}
+  .uac{background:#f0f6fc}
+  .uac .tb{background:#e8f1fb;border-bottom:1px solid #d7e6f6;color:#24537f}
+  .uac .pane{flex-direction:row;gap:9px;align-items:flex-start;position:relative;padding-bottom:34px}
+  .shield{width:24px;height:26px;flex:none;display:grid;place-items:center;font-size:15px;
+          background:linear-gradient(180deg,#ffd34d,#f0b400);border-radius:5px;color:#5a4300}
+  .uac h4{margin:0 0 2px;font-size:10.5px;line-height:1.35;font-weight:600}
+  .uac p{margin:0;font-size:9.5px;color:#555;line-height:1.35}
+  .uac .btns{position:absolute;left:0;right:0;bottom:0;padding:7px 10px;justify-content:flex-end}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:20px}
+  .card h3{font-size:15.5px}
+  .card p{font-size:13.4px;color:var(--muted);line-height:1.62}
+  .card ul{margin:10px 0 0;padding-left:18px;font-size:13.4px;color:var(--muted);line-height:1.8}
+  .card li b{color:var(--ink)}
+  .req{display:flex;gap:10px;align-items:flex-start;font-size:13.6px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--line-2)}
+  .req:last-child{border-bottom:0}
+  .req .tick{color:var(--good);flex:none;font-weight:700}
+
+  details{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:16px 18px;margin-bottom:12px}
+  summary{cursor:pointer;list-style:none;font-weight:600;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--muted-2);font-family:var(--mono);font-size:16px}
+  details[open] summary::after{content:"−"}
+  details p{margin:12px 0 0;font-size:13.6px;color:var(--muted);line-height:1.65}
+
+  footer{margin-top:72px;padding-top:22px;border-top:1px solid var(--line-2);
+         display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:13px;color:var(--muted-2)}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr}
+    .win{height:auto;min-height:140px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="/remotecrab/"><img src="/remotecrab-icon.png" alt="">RemoteCrab</a>
+    <a href="/remotecrab/">← 返回产品页</a>
+  </nav>
+
+  <header>
+    <span class="badge">Windows 10 / 11</span>
+    <h1>装 RemoteCrab 时，<br>Windows 会问你<em>两件事</em></h1>
+    <p class="lede">
+      两件事都是因为它<strong>第一次见到这个程序</strong>，不是因为它有病毒。
+      按下面的顺序做，只需要点两次"是"，不会出现红色的 SmartScreen 拦截页。
+    </p>
+
+    <div class="dl">
+      <a class="btn" href="/downloads/RemoteCrab-Windows-setup.zip" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        下载 Windows 版
+        <span class="size">约 7.5 MB</span>
+      </a>
+      <a class="ghost" href="/remotecrab/">先看看它能做什么</a>
+    </div>
+
+    <p class="sha">
+      SHA256
+      <code id="sha">d00a62baa3a4a9e6f7f47f55022aea06c3aac14cf4c1f02151eec296bc468d8f</code>
+      <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('sha').textContent).then(()=>{this.textContent='已复制';setTimeout(()=>this.textContent='复制',1500)})">复制</button>
+      <a href="/downloads/RemoteCrab-Windows-setup.zip.sha256" style="color:var(--muted-2);text-decoration:underline">校验文件</a>
+    </p>
+
+    <div class="callout">
+      <div class="ic">!</div>
+      <div>
+        <b>下载完，先别急着解压</b>
+        <p>右键那个 ZIP → 属性 → 勾选最下面的「解除锁定」→ 确定。这一步会让 Windows 不再把解压出来的文件当成"从网上下载的"。</p>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>三步装好</h2>
+    <div class="steps">
+
+      <div class="step">
+        <span class="n">01</span>
+        <h4>下载 ZIP</h4>
+        <p>文件名是 <code style="font-size:11px">RemoteCrab-1.0.16-setup.zip</code>。里面是安装包、程序本体和 <code style="font-size:11px">install.cmd</code>。</p>
+        <div class="win term">
+          <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>下载<span class="g"></span></div>
+          <pre><span class="dim">正在下载</span>
+RemoteCrab-1.0.16-setup.zip
+<span class="ok">████████████████████</span> 100%
+<span class="dim">7.5 MB · 保存在「下载」</span></pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="n">02</span>
+        <h4>解除锁定</h4>
+        <p>右键 ZIP → 属性，勾最下面的「解除锁定」，确定。然后解压。</p>
+        <div class="win">
+          <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>属性<span class="g">— □ ✕</span></div>
+          <div class="pane" style="padding-top:7px">
+            <div class="row"><span>大小:</span>7.51 MB</div>
+            <div class="unblock"><span class="cb"></span><span><b>解除锁定</b><br>此文件来自其他计算机，可能被阻止以帮助保护该计算机。</span></div>
+            <div class="btns"><span class="wbtn">取消</span><span class="wbtn p">确定</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="n">03</span>
+        <h4>运行 install.cmd</h4>
+        <p>解压后双击 <code style="font-size:11px">install.cmd</code>，在 UAC 里点「是」。之后它会自己装好并启动。</p>
+        <div class="win uac">
+          <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>用户帐户控制<span class="g">— □ ✕</span></div>
+          <div class="pane">
+            <div class="shield">🛡</div>
+            <div>
+              <h4>你要允许此应用对你的设备进行更改吗？</h4>
+              <p>RemoteCrab Setup<br>发布者: 未知</p>
+            </div>
+            <div class="btns"><span class="wbtn">否</span><span class="wbtn p">是</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>为什么会有提示 · 每一句都是实话</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>「未知发布者」是什么意思</h3>
+        <p>代码签名证书要每年购买，我们还没买。所以 Windows 看到的是一个可执行文件，但不知道是谁做的 —— 它就把这件事如实告诉你。</p>
+        <p>这不是"发现病毒"的提示。真实的病毒拦截长这样：红色的全屏页，只有一个「不运行」。</p>
+      </div>
+      <div class="card">
+        <h3>为什么会问你两次</h3>
+        <p>第一次是 UAC：安装程序要写入 <code style="font-size:11.5px">C:\Program Files</code>，需要管理员权限。这是 Windows 自己的规则，任何安装程序都会问。</p>
+        <p>第二次……其实没有第二次。按上面的顺序做，只有这一个提示。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>装完之后</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>安装模式（推荐）</h3>
+        <ul>
+          <li><b>开机自动启动</b>，随叫随到</li>
+          <li><b>托盘图标</b>，右键有完整菜单</li>
+          <li><b>虚拟摄像头</b>（托盘里点一下，再授权一次）</li>
+          <li>以后有新版本会自己提示并安装</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>便携模式</h3>
+        <p>不想安装也可以：直接双击解压出来的 <code style="font-size:11.5px">remotecrab.exe</code>。不需要管理员权限。</p>
+        <p>代价是没有开机自启、没有虚拟摄像头、没有托盘之外的系统集成。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>系统要求</h2>
+    <div class="card">
+      <div class="req"><span class="tick">✓</span><span><b>Windows 10 1809</b> 或更新版本（Windows 11 全部支持）</span></div>
+      <div class="req"><span class="tick">✓</span><span><b>iPhone / iPad</b> 上安装 RemoteCrab App，iOS / iPadOS 17 或更新版本</span></div>
+      <div class="req"><span class="tick">✓</span><span>两台设备在<b>同一个 Wi-Fi</b>；远程访问是可选订阅</span></div>
+      <div class="req"><span class="tick">✓</span><span>约 20 MB 磁盘空间；不需要 .NET 或任何运行库</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>常见问题</h2>
+
+    <details open>
+      <summary>还是弹了「Windows 已保护你的电脑」怎么办？</summary>
+      <p>说明第 2 步（解除锁定）漏掉了，或者你是直接双击了里面的 exe。点「更多信息」→「仍要运行」也能继续，但更省事的做法是回到第 2 步重新解压一次。</p>
+    </details>
+
+    <details>
+      <summary>install.cmd 是干什么的？我能看看吗？</summary>
+      <p>能，用记事本打开就是纯文本。它只做三件事：解除当前文件夹里所有文件的锁定、用 <code>msiexec</code> 静默安装、启动 RemoteCrab。没有联网、没有下载、没有别的动作。</p>
+    </details>
+
+    <details>
+      <summary>连不上手机？</summary>
+      <p>先确认电脑和手机在同一个 Wi-Fi、手机上的 App 是打开的。第一次连接手机会弹出配对请求，点「允许」。如果公司网络隔离了设备之间的通信，可以先用手机热点试一次。</p>
+    </details>
+
+    <details>
+      <summary>怎么卸载？</summary>
+      <p>设置 → 应用 → 已安装的应用 → RemoteCrab → 卸载。虚拟摄像头会一起移除；如果你在托盘里手动安装过它，卸载程序也会清理注册表项。</p>
+    </details>
+
+    <details>
+      <summary>为什么官网写的是「不过商店」？</summary>
+      <p>因为它需要安装一个虚拟摄像头和一个后台服务，这两样都不能通过 Microsoft Store 的沙箱发布。直接下载是唯一能保留全部功能的方式。</p>
+    </details>
+  </section>
+
+  <footer>
+    <span>© 2026 RemoteCrab</span>
+    <span style="display:flex;gap:18px">
+      <a href="/remotecrab/privacy/">隐私政策</a>
+      <a href="/remotecrab/alternatives/">对比</a>
+      <a href="/remotecrab/">产品首页</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>

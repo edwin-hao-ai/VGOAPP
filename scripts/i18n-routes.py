@@ -53,6 +53,13 @@ PRODUCT_FALLBACK = {
     "/remotecrab/": KEYWORDS["/remotecrab/"],
 }
 
+# 手写的英文页（放在 public/en/... 里的静态 HTML）：它们自带真正的英文正文，
+# 不能像 React 路由那样「复制中文页再换 lang」—— 那会把英文正文换成中文。
+# 这些路由只补 locale/keywords，正文一律保留。
+HANDWRITTEN_EN = {
+    "/remotecrab/windows/",
+}
+
 
 def keywords_for(route: str, lang: str) -> str:
     if route in KEYWORDS:
@@ -115,6 +122,21 @@ for f, route in sorted(zh_routes):
     open(f, "w", encoding="utf-8").write(html)
 
     # 英文镜像：lang / canonical / og:locale / keywords
+    en_dir = os.path.join(DIST, en_route.strip("/"))
+    en_path = os.path.join(en_dir, "index.html")
+    if route in HANDWRITTEN_EN:
+        # 正文已经是英文，只补 meta，绝不覆盖文件内容
+        en_html = open(en_path, encoding="utf-8").read()
+        en_html = set_meta(en_html, "og:locale", "en_US", attr="property")
+        en_html = set_meta(en_html, "og:locale:alternate", "zh_CN", attr="property")
+        en_html = set_meta(en_html, "keywords", keywords_for(route, "en"))
+        if og_pair:
+            en_image = ORIGIN + f"/og/{og_pair[1]}.png"
+            en_html = set_meta(en_html, "og:image", en_image, attr="property")
+            en_html = set_meta(en_html, "twitter:image", en_image)
+        open(en_path, "w", encoding="utf-8").write(en_html)
+        continue
+
     en_html = html.replace('<html lang="zh-CN">', '<html lang="en">', 1)
     en_html = re.sub(
         r'(rel="canonical" href=")[^"]*(")',
