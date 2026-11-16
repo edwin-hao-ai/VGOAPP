@@ -2,9 +2,37 @@
 # Installed to /etc/caddy/sites/vgoapp.caddy by scripts/deploy.sh; the shared
 # /etc/caddy/Caddyfile in the MDDock deployment imports every *.caddy in that
 # directory. Keep MDDock's sites out of this file.
+#
+# Address is the bare hostname on purpose: Caddy then terminates TLS on 443 and
+# answers :80 with a 308 to https. Listing `http://vgoapp.com` as its own site
+# made plain HTTP serve the pages directly — same content on two schemes, which
+# Google indexes separately (it was showing up as 10 "alternate page with
+# proper canonical tag" URLs in Search Console).
 
-http://vgoapp.com, https://vgoapp.com {
+vgoapp.com {
   encode zstd gzip
+
+  # --- legacy URLs Search Console still crawls (404 as of 2026-11) ------------
+  # Old site structure: /zh/ was the Chinese home (now `/`), and these two were
+  # standalone pages that no longer exist.
+  handle_path /zh/* {
+    redir / permanent
+  }
+  redir /zh / permanent
+  redir /download.html /remotecrab/ permanent
+  redir /join.html / permanent
+
+  # MacSlim → SlimDisk rename (2026-10-16) shipped without redirects, so the old
+  # routes 404'd. handle_path strips the prefix, so the target is built from the
+  # remainder and the hop lands directly on the new page.
+  handle_path /macslim/* {
+    redir /slimdisk{http.request.uri.path} permanent
+  }
+  redir /macslim /slimdisk/ permanent
+  handle_path /en/macslim/* {
+    redir /en/slimdisk{http.request.uri.path} permanent
+  }
+  redir /en/macslim /en/slimdisk/ permanent
 
   # RemoteCrab rendezvous service (separate systemd unit, loopback on the
   # docker bridge).
