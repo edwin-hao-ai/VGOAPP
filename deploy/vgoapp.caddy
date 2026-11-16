@@ -3,34 +3,41 @@
 # /etc/caddy/Caddyfile in the MDDock deployment imports every *.caddy in that
 # directory. Keep MDDock's sites out of this file.
 #
-# Address is the bare hostname on purpose: Caddy then terminates TLS on 443 and
-# answers :80 with a 308 to https. Listing `http://vgoapp.com` as its own site
-# made plain HTTP serve the pages directly — same content on two schemes, which
-# Google indexes separately (it was showing up as 10 "alternate page with
-# proper canonical tag" URLs in Search Console).
+# 语法坑（2026-11-16 实测）：
+#   `redir` 在只有两个参数时，第一个一定是**匹配器**、第二个才是目标。
+#   所以 `redir / permanent` = 匹配 `/`、目标 `permanent` → 跳到 /zh/permanent。
+#   要无条件跳转就写三个参数：`redir * <目标> permanent`。
+#   另外 `handle` / `handle_path` 是终结性的：内层没有指令命中时它不回落到
+#   兄弟 handle，而是直接返回一个空的 200（/macslim/ 当时就是这样「200 空白」）。
+
+# 共享 Caddyfile 全局设了 `auto_https disable_redirects`，所以 80 端口不会
+# 自动跳 443。要恢复 https，只能自己显式声明 http:// 站点。
+# 之前写 `http://vgoapp.com, https://vgoapp.com { … }` 等于让明文端口直接发页面，
+# 同一内容两个协议版本（Search Console 里 10 条「备用网页」含 http://vgoapp.com/）。
+http://vgoapp.com {
+  redir * https://vgoapp.com{uri} permanent
+}
 
 vgoapp.com {
   encode zstd gzip
 
-  # --- legacy URLs Search Console still crawls (404 as of 2026-11) ------------
-  # Old site structure: /zh/ was the Chinese home (now `/`), and these two were
-  # standalone pages that no longer exist.
-  handle_path /zh/* {
-    redir / permanent
-  }
+  # --- 旧站结构：Search Console 到 2026-11 还在抓的 404 ----------------------
+  # /zh/ 曾经是中文首页（现在的不带前缀 `/` 就是中文）。
   redir /zh / permanent
+  redir /zh/* / permanent
+  # 旧站的两个独立页面，内容已经不存在。
   redir /download.html /remotecrab/ permanent
   redir /join.html / permanent
 
-  # MacSlim → SlimDisk rename (2026-10-16) shipped without redirects, so the old
-  # routes 404'd. handle_path strips the prefix, so the target is built from the
-  # remainder and the hop lands directly on the new page.
+  # --- MacSlim → SlimDisk 改名（2026-10-16，当时没留跳转）-------------------
+  # handle_path 会剥掉 /macslim 前缀，所以内层用剩下的 path 拼目标，一跳直达。
+  # 裸路径 `/macslim` 不匹配 `/macslim/*`，各补一条。
   handle_path /macslim/* {
-    redir /slimdisk{http.request.uri.path} permanent
+    redir * /slimdisk{http.request.uri.path} permanent
   }
   redir /macslim /slimdisk/ permanent
   handle_path /en/macslim/* {
-    redir /en/slimdisk{http.request.uri.path} permanent
+    redir * /en/slimdisk{http.request.uri.path} permanent
   }
   redir /en/macslim /en/slimdisk/ permanent
 
