@@ -1,0 +1,21 @@
+{
+  "_comment": "线上 URL 契约。改路由 / 下线路由 / 改 Caddy 跳转时，这张表就是验收标准，由 scripts/check-urls.mjs 在部署最后一步逐条实测。新增一条 retired 需要三处同时改：vite.config.ts（或 public/）、deploy/vgoapp.caddy 的 redir、这里的 retired。",
+  "origin": "https://vgoapp.com",
+  "retired": [
+    { "from": "/zh", "to": "/", "code": 301 },
+    { "from": "/zh/", "to": "/", "code": 301 },
+    { "from": "/download.html", "to": "/remotecrab/", "code": 301 },
+    { "from": "/join.html", "to": "/", "code": 301 },
+    { "from": "/macslim", "to": "/slimdisk/", "code": 301 },
+    { "from": "/macslim/", "to": "/slimdisk/", "code": 301 },
+    { "from": "/macslim/privacy/", "to": "/slimdisk/privacy/", "code": 301 },
+    { "from": "/en/macslim/", "to": "/en/slimdisk/", "code": 301 },
+    { "from": "/en/macslim/privacy/", "to": "/en/slimdisk/privacy/", "code": 301 }
+  ],
+  "_httpsOnly": "共享 Caddyfile 里有 auto_https disable_redirects，所以「http 跳 https」不是默认行为，必须实测几条。",
+  "httpsOnly": ["/", "/remotecrab/", "/remotecrab/windows/"],
+  "_slashless": "目录页的裸路径必须 308 回带斜杠版本（Caddy file_server 提供）；这是 Search Console 里「网页会自动重定向」那条的唯一来源，属于正常行为。",
+  "slashless": ["/remotecrab/", "/slimdisk/", "/remotecrab/windows/"],
+  "_artifacts": "发布产物只存在于服务器，不在仓库里 —— 构建期无法验证，所以在这里验它真的能下载（只发 HEAD，不拉整个文件）。",
+  "artifacts": ["/downloads/RemoteCrab.dmg", "/downloads/RemoteCrab-Windows-setup.zip"]
+}

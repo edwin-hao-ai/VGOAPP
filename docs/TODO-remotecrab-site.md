@@ -11,8 +11,50 @@
   → 「它能到哪儿为止」→ 价格 → 安装四步 → FAQ → 结尾。
 - 产品页有自己的页头页脚（`ProductHeader` / `ProductFooter`），**产品页里不要出现 VGO**。
 
-- 站点在 `~/VGOAPP`，已合进 `main` 并**已部署线上**（54 个路由，预渲染 54/54，自检 0 失败）。
-- 构建门禁：`scripts/check-prerender.mjs`（空壳会 fail）；`scripts/sitemap.mjs`（lastmod 只在文字变化时更新，状态在 `.sitemap-dates.json`）。
+- 站点在 `~/VGOAPP`，已合进 `main` 并**已部署线上**（62 个路由，预渲染 56/56，自检 0 失败）。
+- 构建门禁：`scripts/check-prerender.mjs`（空壳会 fail）；`scripts/check-site.mjs`（canonical / 中英成对 / hreflang / 英文页被覆盖 / 站内死链，见下）；`scripts/sitemap.mjs`（lastmod 只在文字变化时更新，状态在 `.sitemap-dates.json`）。
+- 部署门禁：`scripts/check-urls.mjs` + `scripts/url-contract.json`（对着线上实测跳转与 sitemap，见下）。
+
+---
+
+## URL 契约（改路由前必读）
+
+2026-11-16 那次排查的完整记录在
+[`docs/superpowers/specs/2026-11-16-seo-url-contract-design.md`](superpowers/specs/2026-11-16-seo-url-contract-design.md)。
+当时的四处损坏（空 200、残留页、http 直出、6 条 404）**没有任何一步报错** ——
+构建打印「通过」，部署打印「done」。所以下面的约束全部是「让静默的错误变红灯」。
+
+### 改动 / 下线路由的四步
+
+1. 改 `vite.config.ts` 的 input（或把静态页放进 `public/`）
+2. 在 `deploy/vgoapp.caddy` 加一条 `redir <旧路径> <新路径> permanent`
+3. 在 `scripts/url-contract.json` 的 `retired` 里加一条同样的记录
+4. 部署 —— `check-urls` 会实测这条跳转、**以及它的落点是不是 200**
+
+漏第 2 步 → 部署红（`/旧路径` 不是 301）；漏第 3 步 → 没人检查它；
+只做第 2 步不做落点检查 → 可能跳到一个 404，那比不跳更糟。
+
+### 手写页面必须放 `public/`
+
+- 放在服务器上手工上传 = 下次 `VGOAPP_PRUNE=1` 的部署会删掉它，而且构建期
+  没有 canonical 检查盯着它（`/remotecrab/windows/` 就是这样当了两个月的孤儿页）
+- 中英两份都要有：`public/<route>/index.html` + `public/en/<route>/index.html`。
+  英文那份**不会**被 `i18n-routes.py` 覆盖（它按「`public/en/...` 是否存在」判断），
+  但你得自己写英文正文
+
+### 两个 Caddy 语法坑（写在 `deploy/vgoapp.caddy` 的注释里）
+
+- `redir` 只有两个参数时，**第一个是匹配器**：`redir / permanent` 等于
+  「匹配 `/`、目标 `permanent`」。无条件跳转要三个参数。
+- `handle` / `handle_path` 是终结性的：内层没指令命中时**不回落到兄弟 `handle`**，
+  而是返回空的 200。这个比 404 更坏 —— Google 会把空页面当正常页收录。
+
+### 部署脚本读什么
+
+- `DRIFT ...` 行：服务器上存在、仓库产物里没有的文件。**只报告不删**；
+  真要删才 `VGOAPP_PRUNE=1 ./scripts/deploy.sh`
+- `check-urls: N 项检查全部通过` 才是成功。它失败时**不会**打印 `done`，
+  但站点已经上线了 —— 不回滚，直接看红的是哪一条
 
 
 ---

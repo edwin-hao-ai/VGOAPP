@@ -54,11 +54,18 @@ PRODUCT_FALLBACK = {
 }
 
 # 手写的英文页（放在 public/en/... 里的静态 HTML）：它们自带真正的英文正文，
-# 不能像 React 路由那样「复制中文页再换 lang」—— 那会把英文正文换成中文。
-# 这些路由只补 locale/keywords，正文一律保留。
-HANDWRITTEN_EN = {
-    "/remotecrab/windows/",
-}
+# 不能像 React 路由那样「复制中文页再换 lang」—— 那会把英文正文换成中文
+# （2026-11-16 实测：构建把「Install for Windows」换回了「安装 Windows 版」）。
+#
+# 判据是「public/en/<route>/index.html 存在」，而不是一份写死的名单：
+# 名单会漂移（新加一页就忘），文件不会。
+PUBLIC_EN = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "public", "en"
+)
+
+
+def is_handwritten_en(route: str) -> bool:
+    return os.path.exists(os.path.join(PUBLIC_EN, route.strip("/"), "index.html"))
 
 
 def keywords_for(route: str, lang: str) -> str:
@@ -124,7 +131,7 @@ for f, route in sorted(zh_routes):
     # 英文镜像：lang / canonical / og:locale / keywords
     en_dir = os.path.join(DIST, en_route.strip("/"))
     en_path = os.path.join(en_dir, "index.html")
-    if route in HANDWRITTEN_EN:
+    if is_handwritten_en(route):
         # 正文已经是英文，只补 meta，绝不覆盖文件内容
         en_html = open(en_path, encoding="utf-8").read()
         en_html = set_meta(en_html, "og:locale", "en_US", attr="property")
