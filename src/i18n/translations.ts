@@ -22,6 +22,20 @@ export const translations = {
       primary: '主力产品',
       others: '其他项目',
     },
+    // 首页的大卡：浏览器观看。它不是另一个「产品」，所以不做成产品卡 ——
+    // 但它是这几条里唯一一条「别人也能用」的能力，值得一个横贯的整幅。
+    browserBand: {
+      eyebrow: '浏览器观看',
+      title: '一个链接，在别人的电脑上打开',
+      body: '在 Mac 上点一下「共享这台电脑」，得到一条链接和一个 6 位码。会议室那台电脑、朋友的笔记本、你自己的平板 —— 浏览器打开就能看见并操作这块屏幕。同一网络内免费且完整。',
+      points: [
+        '对方什么都不用装，不用注册',
+        '每个人各自的权限：能操作，或者只能看',
+        '关掉那一下，链接立刻失效',
+      ],
+      cta: '看看它是怎么工作的',
+      codeCta: '手上已经有码了？在这里打开',
+    },
     faq: {
       title: '常见问题',
       items: [
@@ -153,6 +167,18 @@ export const translations = {
       description: 'Each one is built from real workflow pain points — local, fast, and trustworthy.',
       primary: 'Flagship',
       others: 'Other projects',
+    },
+    browserBand: {
+      eyebrow: 'Browser viewing',
+      title: 'One link, opened on someone else’s computer',
+      body: 'Click “Share this computer” on the Mac and you get a link and a six-digit code. The meeting-room PC, a colleague’s laptop, your own tablet — open it in a browser and that screen is there to see and operate. Free and complete on the same network.',
+      points: [
+        'Nothing for the other person to install, no account',
+        'One permission each: control, or view only',
+        'Stop sharing and the link is dead',
+      ],
+      cta: 'See how it works',
+      codeCta: 'Already have a code? Open it here',
     },
     faq: {
       title: 'FAQ',

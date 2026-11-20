@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Products from './components/Products'
+import BrowserShareBand from './components/BrowserShareBand'
 import WhyVGO from './components/WhyVGO'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <main className="min-h-screen">
         <Hero />
         <Products />
+        <BrowserShareBand />
         <FAQ />
         <WhyVGO />
         <CTA />
