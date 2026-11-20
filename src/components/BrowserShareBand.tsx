@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, Check, Link2 } from 'lucide-react'
+import { ArrowRight, Check, Globe } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
 
@@ -49,7 +49,7 @@ export default function BrowserShareBand({
           }>
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-vgo-primary/30 bg-vgo-primary/10 px-3 py-1 text-xs tracking-[0.12em] text-vgo-primary">
-                <Link2 size={13} />
+                <Globe size={13} />
                 {t('browserBand.eyebrow')}
               </span>
 

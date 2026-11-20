@@ -143,6 +143,14 @@ export default function RemoteCrabPage() {
           </div>
         </section>
 
+        {/* **Right under the hero.** Asked for directly (2026-11-20): this is the
+            one capability whose sentence is new to a visitor ("someone else's
+            browser, nothing to install"), so it goes above the scenes and the
+            screenshots — everything below it assumes the person already knows
+            what the product is. The one-line code link stays in the remote
+            section, where a person who was *sent* a code ends up. */}
+        <BrowserShareBand id="browser-share" compact />
+
         {/* 四个高频场景 —— 每条一段真机片段（v2，中英各一套） */}
         <section id="scenes" className="px-6 py-16 scroll-mt-20">
           <div className="mx-auto max-w-6xl">
@@ -213,14 +221,6 @@ export default function RemoteCrabPage() {
             </div>
             <motion.div {...fade(0.2)}>
               <RemoteScenarios c={h.remote} />
-            </motion.div>
-            {/* **The big one.** A line was not enough: this is the capability
-                that stops the "install this first" conversation, and it belongs
-                at the end of "when you are not at the desk" — before the feature
-                list, the limits and the install steps, all of which assume the
-                person has already decided. */}
-            <motion.div {...fade(0.25)}>
-              <BrowserShareBand id="browser-share" compact />
             </motion.div>
             <motion.p {...fade(0.3)} className="mt-6">
               <a
