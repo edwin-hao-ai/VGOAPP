@@ -213,6 +213,18 @@ export default function RemoteCrabPage() {
             <motion.div {...fade(0.2)}>
               <RemoteScenarios c={h.remote} />
             </motion.div>
+            {/* **The one line for people who already have a code.** Not a form:
+                the product page is for deciding, and a code box here invites
+                random digits and an error message as a first impression. The
+                form lives on /features/browser/, one click away. */}
+            <motion.p {...fade(0.25)} className="mt-8">
+              <a
+                href={h.remote.codeHref}
+                className="text-sm text-vgo-primary border-b border-transparent transition-colors hover:border-vgo-primary/60"
+              >
+                {h.remote.codeCta} →
+              </a>
+            </motion.p>
           </div>
         </section>
 

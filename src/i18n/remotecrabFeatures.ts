@@ -26,6 +26,23 @@ export interface FeaturePageContent {
   requires: { title: string; items: string[]; note: string }
   next: { title: string; body: string; cta: string; href: string }
   cta: { title: string; body: string; download: string; ios: string }
+  /// **The viewer itself, on the page.** A 6-digit box that opens the real
+  /// `/remotecrab/r/?code=…`, next to a phone-shaped iframe of that same page —
+  /// so somebody who was sent a code does not have to find a link first, and
+  /// somebody who was not can see exactly what the thing looks like without
+  /// installing anything. Only the browser page has one.
+  liveEntry?: {
+    kicker: string
+    title: string
+    body: string
+    placeholder: string
+    action: string
+    note: string
+    error: string
+    caption: string
+    /// The line under the nineteen-second clip: what it shows, in words.
+    videoCaption: string
+  }
 }
 
 const ORDER = [
@@ -37,6 +54,7 @@ const ORDER = [
   'microphone',
   'speaker',
   'screen-mirror',
+  'browser',
   'trackpad',
   'keyboard',
   'voice',
@@ -64,6 +82,7 @@ export const FEATURE_SLUGS: Record<FeatureSlug, string> = {
   microphone: 'microphone',
   speaker: 'speaker',
   'screen-mirror': 'screen-mirror',
+  browser: 'browser',
   trackpad: 'trackpad',
   keyboard: 'keyboard',
   voice: 'voice',
@@ -673,6 +692,76 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     },
   },
 
+  browser: {
+    slug: 'browser',
+    nav: { back: '← 所有功能' },
+    hero: {
+      eyebrow: '浏览器观看',
+      title: '不装 App，也能操作这台电脑',
+      subtitle: '在 Mac 上点一下「共享这台电脑」，会得到一条链接和一个 6 位码。任何设备的浏览器打开那条链接，就能看见并操作这块屏幕。',
+      bullets: ['对方什么都不用装', '同一网络内免费且完整', '关掉那一下，链接立即失效'],
+    },
+    problem: {
+      title: '要给别人看屏幕，不能先让对方装东西',
+      body: '远程协助的常态是「你先装个软件」—— 会议室那台电脑、客户的机器、借来的笔记本。这一句「先装个软件」，往往就是整件事卡住的地方。',
+    },
+    how: {
+      title: '三步',
+      description: '',
+      steps: [
+        { title: '在电脑上点一下', body: '菜单栏 →「共享这台电脑…」，出现二维码和 6 位码。' },
+        { title: '在对方的浏览器里打开', body: '扫码，或打开链接输入 6 位码。不用注册、不用装插件、不会弹证书。' },
+        { title: '点、滚、打字', body: '能操作的部分和你坐在那台电脑前一样；不想给权限，就只给「看」。' },
+      ],
+    },
+    details: {
+      title: '它怎么工作',
+      description: '',
+      items: [
+        { title: '链接就是凭证', body: '6 位码是给这台电脑的，链接里也带着它。关掉共享，码立刻作废，换一次就是一条新链接。' },
+        { title: '每个人各自一把权限', body: '你可以给一个人「能操作」，给另一个人「只能看」；收回来是即时生效的。' },
+        { title: '画面不上云', body: '画面、声音、操作都走点对点。同一个网络时直接局域网直连；不在同一个网络时先打洞，打不通才走中继。' },
+        { title: '你决定它看哪一块', body: '共享整个屏幕，或者钉住某一个窗口 —— 换到别的应用，对方看到的不会跟着跑掉。' },
+      ],
+    },
+    tips: {
+      title: '几个实用的',
+      description: '',
+      items: [
+        '二维码比打字快：电脑上显示，手机扫一下就进去。',
+        '只想让对方看一个窗口？先切到那个窗口，再选「某个应用」把它钉住。',
+        '共享开着时，菜单栏那一行一直显示 6 位码，随时可以读给对方。',
+        '对方用的是 Windows 或 Linux 也没关系 —— 他需要的是一个浏览器，不是一台 Mac。',
+      ],
+    },
+    requires: {
+      title: '需要什么',
+      items: [
+        '电脑这边：RemoteCrab（macOS 26 或更新）',
+        '对方那边：一个浏览器，别的什么都不用',
+        '同一网络内免费；不在同一个网络时算远程访问',
+      ],
+      note: '屏幕缩放、键盘输入、双向滚动都在浏览器里直接可用；触摸设备还支持双指缩放与拖动画面。',
+    },
+    liveEntry: {
+      kicker: '已经有码了？',
+      title: '在这里直接打开',
+      body: '输入那台电脑给你的 6 位码。',
+      placeholder: '6 位码',
+      action: '打开',
+      note: '码是那台电脑给你的：在那台 Mac 上点「共享这台电脑…」时出现，6 位数字，10 分钟内有效。',
+      error: '这个码不对，或者那台电脑已经停止共享了。',
+      caption: '右边就是真实的观看页，可以直接在框里试',
+      videoCaption: '19 秒：输入码 → 出画面 → 钉住一个窗口 → 打字、滚动 → 关掉共享，链接立刻失效。',
+    },
+    next: { title: '它和在手机上的区别', body: '手机端有触控板、键盘、按住说话和情景模式；浏览器这边是「看得见的那块屏幕」加上够用的输入。', cta: '看看手机端能做什么', href: '/remotecrab/features/trackpad/' },
+    cta: {
+      title: '装在这台电脑上，共享给别人',
+      body: 'Mac 版 14 MB；对方什么都不用装。',
+      download: '下载 Mac 版',
+      ios: '在 App Store 看 iPhone 版',
+    },
+  },
   trackpad: {
     slug: 'trackpad',
     nav: { back: '← 所有功能' },
@@ -1953,6 +2042,76 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     },
   },
 
+  browser: {
+    slug: 'browser',
+    nav: { back: '← All features' },
+    hero: {
+      eyebrow: 'Browser viewing',
+      title: 'Operate this computer without installing anything',
+      subtitle: 'Click “Share this computer” on the Mac and you get a link and a 6-digit code. Open the link in any browser and you can see and operate that screen.',
+      bullets: ['Nothing for the other person to install', 'Free and complete on the same network', 'Close it and the link dies immediately'],
+    },
+    problem: {
+      title: 'Showing someone your screen should not start with an install',
+      body: 'Remote help usually begins with “install this first” — on the meeting-room PC, a client machine, a borrowed laptop. That one sentence is where the whole thing stalls.',
+    },
+    how: {
+      title: 'Three steps',
+      description: '',
+      steps: [
+        { title: 'Click once on the computer', body: 'Menu bar → “Share this computer…”, and a QR code plus a 6-digit code appear.' },
+        { title: 'Open it in their browser', body: 'Scan the code, or open the link and type the six digits. No account, no extension, no certificate warning.' },
+        { title: 'Click, scroll, type', body: 'The parts you allow behave like sitting at that computer. If you would rather not, give them view-only.' },
+      ],
+    },
+    details: {
+      title: 'How it works',
+      description: '',
+      items: [
+        { title: 'The link is the credential', body: 'The six digits belong to that computer and ride in the link. Stop sharing and the code is void; start again and it is a new link.' },
+        { title: 'One permission per person', body: 'Give one person control and another view-only; taking it back takes effect immediately.' },
+        { title: 'The picture does not go through a cloud', body: 'Video, sound and input are peer-to-peer. On the same network they go straight over the LAN; otherwise they punch through, and only fall back to a relay if that fails.' },
+        { title: 'You choose what it shows', body: 'Share the whole screen, or pin one window — switching apps on your side will not drag the picture with it.' },
+      ],
+    },
+    tips: {
+      title: 'Worth knowing',
+      description: '',
+      items: [
+        'The QR code is faster than typing: show it on the computer and scan it.',
+        'Only want them to see one window? Switch to it first, then pick it under “a specific app” to pin it.',
+        'While sharing, the menu-bar row keeps showing the six digits so you can read them out.',
+        'They can be on Windows or Linux — what they need is a browser, not a Mac.',
+      ],
+    },
+    requires: {
+      title: 'What it needs',
+      items: [
+        'On the computer: RemoteCrab (macOS 26 or later)',
+        'On their side: a browser, nothing else',
+        'Free on the same network; remote access elsewhere',
+      ],
+      note: 'Zooming, typing and two-way scrolling work in the browser; on a touch device two fingers zoom and move the picture.',
+    },
+    liveEntry: {
+      kicker: 'Already have a code?',
+      title: 'Open it right here',
+      body: 'Type the six digits that computer gave you.',
+      placeholder: '6-digit code',
+      action: 'Open',
+      note: 'The code comes from that computer: it appears when someone clicks “Share this computer…”, six digits, valid for ten minutes.',
+      error: 'That code is not right, or that computer has stopped sharing.',
+      caption: 'That is the real viewer on the right — try it in the frame',
+      videoCaption: 'Nineteen seconds: enter the code, see the screen, pin one window, type and scroll, then stop sharing — the link dies.',
+    },
+    next: { title: 'How it differs on the phone', body: 'The phone app adds a trackpad, a keyboard, hold-to-talk and context modes; the browser gives you the screen you can see plus enough input to work on it.', cta: 'See what the phone can do', href: '/remotecrab/features/trackpad/' },
+    cta: {
+      title: 'Install it here, share it there',
+      body: 'The Mac app is 14 MB; the other side installs nothing.',
+      download: 'Download for Mac',
+      ios: 'See the iPhone app',
+    },
+  },
   trackpad: {
     slug: 'trackpad',
     nav: { back: '← All features' },

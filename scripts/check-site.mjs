@@ -18,7 +18,12 @@ const ORIGIN = 'https://vgoapp.com'
 
 // 发布产物（DMG / MSI / zip）只存在于服务器，不在仓库里 —— 离线没法验证。
 // 它们的 200 由 scripts/check-urls.mjs 在线上验。
-const LIVE_ONLY = ['/downloads/']
+//
+// `/remotecab/r/` 是同一个道理的另一半：**观看页不属于这个站点的构建**。它是
+// RemoteCrab 自己产出的单文件（`web/index.html`，由宿主编进 `rc-link-host`，
+// 再把同一份拷到服务器），Vite 的 dist 里本来就不该有它。这里放行，不会掩盖死链 ——
+// 它的 200 由部署后的 `check-urls.mjs` 在线上验，和下载包一样。
+const LIVE_ONLY = ['/downloads/', '/remotecrab/r/']
 
 // 被覆盖成中文时，英文页正文会出现成百上千个汉字；真正的英文页只有语言
 // 切换器上的两三个字。判据用「与它自己的中文孪生页比」，不用绝对阈值 ——

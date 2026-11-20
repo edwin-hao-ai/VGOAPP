@@ -1,7 +1,7 @@
-import { Clock, FolderLock, ShieldCheck, ArrowRight } from 'lucide-react'
+import { Clock, FolderLock, Link2, ShieldCheck, ArrowRight } from 'lucide-react'
 import type { HomeContent } from '../../i18n/remotecrabHome'
 
-const ICONS = { clock: Clock, shield: ShieldCheck, folder: FolderLock }
+const ICONS = { clock: Clock, shield: ShieldCheck, folder: FolderLock, link: Link2 }
 
 /**
  * 「你不在电脑前的时候」—— 三个场景，不是三个功能。
@@ -13,7 +13,11 @@ const ICONS = { clock: Clock, shield: ShieldCheck, folder: FolderLock }
 export function RemoteScenarios({ c }: { c: HomeContent['remote'] }) {
   return (
     <div className="mt-10">
-      <div className="grid gap-4 md:grid-cols-3">
+      {/* **Two by two, not three and an orphan.** This block had three cards;
+          the browser-sharing one made it four, and four in a three-column grid
+          leaves the last card alone on its own row at a third of the width —
+          which reads as "one more thing" instead of "another situation". */}
+      <div className="grid gap-4 md:grid-cols-2">
         {c.items.map((item) => {
           const Icon = ICONS[item.icon as keyof typeof ICONS] ?? Clock
           return (

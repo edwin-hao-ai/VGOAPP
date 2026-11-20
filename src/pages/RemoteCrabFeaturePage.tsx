@@ -50,6 +50,8 @@ const FEATURE_ICONS: Record<FeatureSlug, ComponentType<{ size?: number; classNam
   microphone: Mic,
   speaker: Volume2,
   'screen-mirror': MonitorPlay,
+  // A link opened in a browser — `Globe` is already imported and is the honest glyph.
+  browser: Globe,
   trackpad: MousePointer2,
   keyboard: Keyboard,
   voice: AudioLines,
@@ -96,6 +98,103 @@ function slugFromPath(): FeatureSlug {
   const m = window.location.pathname.match(/\/features\/([a-z-]+)\/?$/)
   const slug = m?.[1] as FeatureSlug | undefined
   return slug && (FEATURE_ORDER as string[]).includes(slug) ? slug : FEATURE_ORDER[0]
+}
+
+/// **The viewer itself, on the page.**
+///
+/// Two jobs, and both are the point: somebody who was *sent* a six-digit code
+/// does not have to hunt for a link first, and somebody who was not can look at
+/// the real thing without installing anything. The frame on the right is the
+/// shipping page (`/remotecrab/r/`), not a mock — so it cannot drift from the
+/// product, and `loading="lazy"` keeps it off the first paint.
+///
+/// The copy above the box is not decoration: a visitor with no code will type
+/// six digits and see "that code is not right". Saying where a code comes from
+/// first is what makes that answer "I did it wrong" instead of "this is broken".
+function LiveEntry({ c }: { c: NonNullable<FeaturePageContent['liveEntry']> }) {
+  const [code, setCode] = useState('')
+  const [bad, setBad] = useState(false)
+
+  function submit(event: React.FormEvent) {
+    event.preventDefault()
+    const digits = code.replace(/\D/g, '').slice(0, 6)
+    if (digits.length !== 6 || Number(digits) < 100000) {
+      setBad(true)
+      return
+    }
+    window.location.assign(`/remotecrab/r/?code=${digits}`)
+  }
+
+  return (
+    <section id="open" className="px-6 py-10">
+      <div className="max-w-5xl mx-auto grid items-center gap-10 md:grid-cols-[1fr_280px]">
+        <div className="glass p-7">
+          <span className="text-xs uppercase tracking-[0.14em] text-vgo-secondary">{c.kicker}</span>
+          <h2 className="mt-3 text-2xl md:text-3xl font-bold">{c.title}</h2>
+          <p className="mt-3 text-vgo-muted">{c.body}</p>
+          <form onSubmit={submit} className="mt-5 flex gap-3">
+            <input
+              inputMode="numeric"
+              autoComplete="off"
+              maxLength={6}
+              placeholder={c.placeholder}
+              aria-label={c.placeholder}
+              value={code}
+              onChange={(e) => { setCode(e.target.value); setBad(false) }}
+              className="flex-1 min-w-0 rounded-xl border border-white/12 bg-black/40 px-4 py-3.5 text-center font-mono text-xl tracking-[0.35em] outline-none focus:border-vgo-primary/70"
+            />
+            <button
+              type="submit"
+              className="rounded-xl bg-gradient-to-r from-vgo-primary to-vgo-secondary px-6 font-semibold text-[#0a0a0f]"
+            >
+              {c.action}
+            </button>
+          </form>
+          {bad ? (
+            <p className="mt-3 text-sm text-red-300">{c.error}</p>
+          ) : (
+            <p className="mt-3 text-sm text-vgo-muted">{c.note}</p>
+          )}
+        </div>
+
+        <div>
+          <div className="mx-auto w-[280px] rounded-[34px] border border-white/12 bg-[#1a1a22] p-2.5 shadow-[0_24px_60px_rgba(0,0,0,.55)]">
+            <div className="relative overflow-hidden rounded-[26px] bg-black" style={{ aspectRatio: '390 / 620' }}>
+              <iframe
+                title={c.caption}
+                // **绝对地址，指向线上那一份。** 相对路径在 dev 里 404，
+                // 而这个框必须永远显示真正发布出去的观看页 —— 它和本地构建无关。
+                src="https://vgoapp.com/remotecrab/r/"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+          </div>
+          <p className="mt-3 text-center text-xs text-vgo-muted/80">{c.caption}</p>
+        </div>
+      </div>
+
+      {/* **Nineteen seconds of the real thing.** Recorded from the viewer itself
+          (CDP screencast at 390×844), so every pixel is the shipping page: the
+          code box, the connect, pinning one window, typing, scrolling, and the
+          link dying when the share stops. Silent and looping — a product page is
+          not the place for a voiceover. */}
+      <figure className="mx-auto mt-12 max-w-[420px]">
+        <video
+          className="w-full rounded-2xl border border-white/10"
+          src="/remotecrab/browser-demo.mp4"
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="metadata"
+        />
+        <figcaption className="mt-3 text-center text-xs text-vgo-muted/80">
+          {c.videoCaption}
+        </figcaption>
+      </figure>
+    </section>
+  )
 }
 
 export default function RemoteCrabFeaturePage() {
@@ -278,6 +377,8 @@ export default function RemoteCrabFeaturePage() {
             </ol>
           </div>
         </section>
+
+        {c.liveEntry ? <LiveEntry c={c.liveEntry} /> : null}
 
         {/* Details */}
         <section className="px-6 py-10">

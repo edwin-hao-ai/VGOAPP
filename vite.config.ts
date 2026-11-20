@@ -30,6 +30,8 @@ export default defineConfig({
         remotecrabFeatureMicrophone: 'remotecrab/features/microphone/index.html',
         remotecrabFeatureSpeaker: 'remotecrab/features/speaker/index.html',
         remotecrabFeatureScreenMirror: 'remotecrab/features/screen-mirror/index.html',
+        // 浏览器观看：链接 + 6 位码，对方不装任何东西（2026-11-20）
+        remotecrabFeatureBrowser: 'remotecrab/features/browser/index.html',
         remotecrabFeatureTrackpad: 'remotecrab/features/trackpad/index.html',
         remotecrabFeatureKeyboard: 'remotecrab/features/keyboard/index.html',
         remotecrabFeatureVoice: 'remotecrab/features/voice/index.html',

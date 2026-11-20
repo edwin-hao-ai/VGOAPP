@@ -43,6 +43,9 @@ export interface HomeContent {
     items: { icon: string; title: string; body: string; foot: string }[]
     cta: string
     href: string
+    /// 「已经有码了？」—— 一条路给手上已经拿到码的人，不必先去下载页。
+    codeCta: string
+    codeHref: string
   }
   limits: {
     kicker: string
@@ -117,8 +120,8 @@ const zh: HomeContent = {
   },
   features: {
     kicker: '全部功能',
-    title: '20 组功能，一次列全',
-    lead: '其中 14 组有独立说明页（就是原来的 /features/…），点标题进去看做法、细节和权限要求；另外 6 组暂时只有这一行。',
+    title: '21 组功能，一次列全',
+    lead: '其中 15 组有独立说明页（就是原来的 /features/…），点标题进去看做法、细节和权限要求；另外 6 组暂时只有这一行。',
     note: '带「视频」标记的有真机片段，点右下角的播放键看原片。',
     groups: [
       {
@@ -126,6 +129,7 @@ const zh: HomeContent = {
         items: [
           { name: '虚拟摄像头', body: '任何 App 的摄像头列表里都有它：会议里 1080p，最高能拍 4K。', href: `${F}camera/`, tag: 'video' },
           { name: '屏幕镜像', body: '把一个窗口搬到手机，点按、拖拽、滚动、捏合都是真操作。', href: `${F}screen-mirror/`, tag: 'video' },
+          { name: '浏览器观看', body: '一个链接和一个 6 位码，任何设备的浏览器打开就能看见并操作。', href: `${F}browser/` },
           { name: '第二显示器', body: '系统里真实多一块显示器，iPhone 和 iPad 都能当。', href: `${F}extended-display/`, tag: 'video' },
           { name: '电脑通知到手机', body: '实时到手机；点一下，电脑跳回发通知的那个窗口。', href: `${F}notifications/` },
           { name: '应用切换器', body: '看到电脑上开着什么，点一下就切过去，还能显示桌面。', href: `${F}app-switcher/` },
@@ -207,9 +211,17 @@ const zh: HomeContent = {
         body: '给它绑定一个工作区（比如某个项目目录）。越出这个范围的读写会被拒绝，不用靠「它应该不会乱来」。',
         foot: '边界是配置出来的，不是信任出来的。',
       },
+      {
+        icon: 'link',
+        title: '在别人的电脑上，打开一个链接',
+        body: '在这台 Mac 上点一下「共享这台电脑」，它给你一条链接和一个 6 位码。会议室那台电脑、朋友的笔记本、你自己的平板 —— 浏览器打开就能看见这块屏幕，点、拖、打字都行，什么都不用装。',
+        foot: '同一网络内免费且完整；不在同一个网络时算远程访问。',
+      },
     ],
     cta: '看看它是怎么工作的',
     href: '/remotecrab/features/ai/',
+    codeCta: '手上已经有码了？在这里打开',
+    codeHref: '/remotecrab/r/',
   },
   limits: {
     kicker: '它能到哪儿为止',
@@ -323,8 +335,8 @@ const en: HomeContent = {
   },
   features: {
     kicker: 'Every feature',
-    title: '20 groups of features, all of them',
-    lead: '14 of them have their own page (the existing /features/…) — click a title for how it works, the details and the permissions. The other 6 live here for now.',
+    title: '21 groups of features, all of them',
+    lead: '15 of them have their own page (the existing /features/…) — click a title for how it works, the details and the permissions. The other 6 live here for now.',
     note: 'Items marked “video” have real footage — tap the play button to watch.',
     groups: [
       {
@@ -332,6 +344,7 @@ const en: HomeContent = {
         items: [
           { name: 'Wireless camera', body: 'It’s in every app’s camera menu: 1080p in meetings, up to 4K capture.', href: `${F}camera/`, tag: 'video' },
           { name: 'Screen mirroring', body: 'A window on your phone; tap, drag, scroll and pinch are real input.', href: `${F}screen-mirror/`, tag: 'video' },
+          { name: 'Browser viewing', body: 'A link and a six-digit code; any device opens it and operates the screen.', href: `${F}browser/` },
           { name: 'Second display', body: 'A real extra display the system sees; iPhone or iPad.', href: `${F}extended-display/`, tag: 'video' },
           { name: 'Mac notifications', body: 'They land on the phone; tap one and the Mac jumps back to that window.', href: `${F}notifications/` },
           { name: 'App switcher', body: 'See what’s running and switch with a tap — or show the desktop.', href: `${F}app-switcher/` },
@@ -413,9 +426,17 @@ const en: HomeContent = {
         body: 'Bind it to a workspace — a project directory. Anything outside that scope is refused, instead of relying on “it probably won’t”.',
         foot: 'A boundary you configure, not one you trust.',
       },
+      {
+        icon: 'link',
+        title: 'Open a link on someone else’s computer',
+        body: 'Click “Share this computer” on the Mac and it gives you a link and a six-digit code. The meeting-room PC, a colleague’s laptop, your own tablet — open it in a browser and that screen is there to click, drag and type on. Nothing to install.',
+        foot: 'Free and complete on the same network; remote access is a subscription.',
+      },
     ],
     cta: 'See how it works',
     href: '/remotecrab/features/ai/',
+    codeCta: 'Already have a code? Open it here',
+    codeHref: '/remotecrab/r/',
   },
   limits: {
     kicker: 'Where it stops',
