@@ -97,7 +97,7 @@ export default function RemoteCrabPage() {
                 >
                   <Download size={18} />
                   {platform === 'windows' ? c.hero.downloadWindows : c.hero.downloadMac}
-                  <span className="text-xs font-medium opacity-70">14 MB</span>
+                  <span className="text-xs font-medium opacity-70">19 MB</span>
                 </a>
                 <a
                   href={APP_STORE_URL}

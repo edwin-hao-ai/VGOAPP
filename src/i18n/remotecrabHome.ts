@@ -241,7 +241,7 @@ const zh: HomeContent = {
       {
         num: '1',
         title: '下载 dmg，拖进「应用程序」',
-        body: '安装包 14 MB。第一次打开时系统会问你一次 —— 从网上下载的 App 都会问，点「打开」就好，不是报错。',
+        body: '安装包 19 MB。第一次打开时系统会问你一次 —— 从网上下载的 App 都会问，点「打开」就好，不是报错。',
         dialog: '“RemoteCrab” 是从互联网下载的 App。确定要打开吗？',
       },
       {
@@ -456,7 +456,7 @@ const en: HomeContent = {
       {
         num: '1',
         title: 'Download the dmg, drag it to Applications',
-        body: '14 MB. macOS asks once when you first open it — every app downloaded from the web gets that, and “Open” is all it needs.',
+        body: '19 MB. macOS asks once when you first open it — every app downloaded from the web gets that, and “Open” is all it needs.',
         dialog: '“RemoteCrab” is an app downloaded from the Internet. Are you sure you want to open it?',
       },
       {

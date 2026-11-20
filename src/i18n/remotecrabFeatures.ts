@@ -757,7 +757,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
     next: { title: '它和在手机上的区别', body: '手机端有触控板、键盘、按住说话和情景模式；浏览器这边是「看得见的那块屏幕」加上够用的输入。', cta: '看看手机端能做什么', href: '/remotecrab/features/trackpad/' },
     cta: {
       title: '装在这台电脑上，共享给别人',
-      body: 'Mac 版 14 MB；对方什么都不用装。',
+      body: '电脑上装一次；对方那边什么都不用装。',
       download: '下载 Mac 版',
       ios: '在 App Store 看 iPhone 版',
     },
@@ -2107,7 +2107,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
     next: { title: 'How it differs on the phone', body: 'The phone app adds a trackpad, a keyboard, hold-to-talk and context modes; the browser gives you the screen you can see plus enough input to work on it.', cta: 'See what the phone can do', href: '/remotecrab/features/trackpad/' },
     cta: {
       title: 'Install it here, share it there',
-      body: 'The Mac app is 14 MB; the other side installs nothing.',
+      body: 'Installed once on the computer; the other side installs nothing.',
       download: 'Download for Mac',
       ios: 'See the iPhone app',
     },
