@@ -121,6 +121,12 @@ export const translations = {
         features: [
           '1080p 无线摄像头,Zoom / Teams / OBS 直接可选',
           '虚拟麦克风 + 全功能触控板 + 系统输入法键盘',
+          // **The one sentence worth repeating on the family page.** Everything
+          // else here is "the phone is the peripheral"; this is the only line
+          // that says a *browser* on someone else's machine can drive this one.
+          // It stays a bullet: the tagline is fixed by the 90-day rule in
+          // GROWTH.md, and a product-family page is the wrong place for a form.
+          '一条链接,对方的浏览器打开就能看能操作: vgoapp.com/remotecrab/r/',
           '局域网免费完整;远程访问端到端加密',
         ],
         linkLabel: '了解更多',
@@ -247,6 +253,9 @@ export const translations = {
         features: [
           '1080p wireless camera, selectable in Zoom / Teams / OBS',
           'Virtual microphone + full trackpad + system keyboard',
+          // The browser line: the only one here that is not "the phone is the
+          // peripheral" — see the Chinese side for why it is a bullet.
+          'One link, opened in their browser — see and operate this computer: vgoapp.com/remotecrab/r/',
           'Free and complete on your LAN; remote access is end-to-end encrypted',
         ],
         linkLabel: 'Learn more',
