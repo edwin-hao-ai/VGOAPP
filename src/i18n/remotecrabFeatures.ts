@@ -752,7 +752,7 @@ const zh: Record<FeatureSlug, FeaturePageContent> = {
       note: '码是那台电脑给你的：在那台 Mac 上点「共享这台电脑…」时出现，6 位数字，10 分钟内有效。',
       error: '这个码不对，或者那台电脑已经停止共享了。',
       caption: '右边就是真实的观看页，可以直接在框里试',
-      videoCaption: '19 秒：输入码 → 出画面 → 钉住一个窗口 → 打字、滚动 → 关掉共享，链接立刻失效。',
+      videoCaption: '24 秒：点共享 → 输入码 → 出画面 → 钉住一个窗口 → 打字、滚动 → 关掉共享，链接立刻失效。',
     },
     next: { title: '它和在手机上的区别', body: '手机端有触控板、键盘、按住说话和情景模式；浏览器这边是「看得见的那块屏幕」加上够用的输入。', cta: '看看手机端能做什么', href: '/remotecrab/features/trackpad/' },
     cta: {
@@ -2102,7 +2102,7 @@ const en: Record<FeatureSlug, FeaturePageContent> = {
       note: 'The code comes from that computer: it appears when someone clicks “Share this computer…”, six digits, valid for ten minutes.',
       error: 'That code is not right, or that computer has stopped sharing.',
       caption: 'That is the real viewer on the right — try it in the frame',
-      videoCaption: 'Nineteen seconds: enter the code, see the screen, pin one window, type and scroll, then stop sharing — the link dies.',
+      videoCaption: 'Twenty-four seconds: share, enter the code, see the screen, pin one window, type and scroll, then stop sharing — the link dies.',
     },
     next: { title: 'How it differs on the phone', body: 'The phone app adds a trackpad, a keyboard, hold-to-talk and context modes; the browser gives you the screen you can see plus enough input to work on it.', cta: 'See what the phone can do', href: '/remotecrab/features/trackpad/' },
     cta: {
