@@ -17,6 +17,7 @@ import { InstallSteps } from '../components/remotecrab/InstallSteps'
 import { LimitsBlock } from '../components/remotecrab/LimitsBlock'
 import { ShotStrip } from '../components/remotecrab/ShotStrip'
 import { RemoteScenarios } from '../components/remotecrab/RemoteScenarios'
+import BrowserShareBand from '../components/BrowserShareBand'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
 export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
@@ -213,11 +214,15 @@ export default function RemoteCrabPage() {
             <motion.div {...fade(0.2)}>
               <RemoteScenarios c={h.remote} />
             </motion.div>
-            {/* **The one line for people who already have a code.** Not a form:
-                the product page is for deciding, and a code box here invites
-                random digits and an error message as a first impression. The
-                form lives on /features/browser/, one click away. */}
-            <motion.p {...fade(0.25)} className="mt-8">
+            {/* **The big one.** A line was not enough: this is the capability
+                that stops the "install this first" conversation, and it belongs
+                at the end of "when you are not at the desk" — before the feature
+                list, the limits and the install steps, all of which assume the
+                person has already decided. */}
+            <motion.div {...fade(0.25)}>
+              <BrowserShareBand id="browser-share" compact />
+            </motion.div>
+            <motion.p {...fade(0.3)} className="mt-6">
               <a
                 href={h.remote.codeHref}
                 className="text-sm text-vgo-primary border-b border-transparent transition-colors hover:border-vgo-primary/60"

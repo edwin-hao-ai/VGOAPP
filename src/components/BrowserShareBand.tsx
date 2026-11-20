@@ -14,7 +14,12 @@ import { translations } from '../i18n/translations'
 /// The media is the 19-second recording of the real page (CDP screencast of the
 /// shipping viewer, not a mock), silent and looping, with a poster frame so the
 /// band has something to show before it loads.
-export default function BrowserShareBand() {
+export default function BrowserShareBand({
+  /** The section's anchor. Two pages render this band, so the ids must differ. */
+  id = 'browser',
+  /** The product page already has its own hero type scale; the band steps down. */
+  compact = false,
+}: { id?: string; compact?: boolean } = {}) {
   const { t, language } = useLanguage()
   const shouldReduceMotion = useReducedMotion()
   // `t()` returns strings only, so the bullet list is read from the table it
@@ -32,20 +37,26 @@ export default function BrowserShareBand() {
         }
 
   return (
-    <section id="browser" className="px-6 py-20">
+    <section id={id} className={compact ? 'py-6' : 'px-6 py-20'}>
       <div className="mx-auto max-w-6xl">
         <motion.div
           {...reveal()}
-          className="glass overflow-hidden rounded-3xl border-vgo-primary/25"
+          className={'glass overflow-hidden rounded-3xl border-vgo-primary/25' + (compact ? '' : '')}
         >
-          <div className="grid items-center gap-10 p-8 md:grid-cols-[1.15fr_0.85fr] md:p-12">
+          <div className={
+            'grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr] ' +
+            (compact ? 'p-7 md:p-9' : 'p-8 md:p-12')
+          }>
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-vgo-primary/30 bg-vgo-primary/10 px-3 py-1 text-xs tracking-[0.12em] text-vgo-primary">
                 <Link2 size={13} />
                 {t('browserBand.eyebrow')}
               </span>
 
-              <h2 className="mt-5 text-3xl font-bold leading-tight md:text-[40px] md:leading-[1.12]">
+              <h2 className={
+                'mt-5 font-bold leading-tight ' +
+                (compact ? 'text-2xl md:text-3xl' : 'text-3xl md:text-[40px] md:leading-[1.12]')
+              }>
                 {t('browserBand.title')}
               </h2>
 
