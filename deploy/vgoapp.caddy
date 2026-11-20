@@ -47,6 +47,28 @@ vgoapp.com {
     reverse_proxy 172.18.0.1:8787
   }
 
+  # RemoteCrab 链接共享的信令（2026-11-18）。只做"门牌号与转发"，媒体走 P2P。
+  # 信令进程只绑 docker 桥关（172.18.0.1:8799），所以只有这个容器能连它；
+  # 公网是打不进来的（ufw 只放行 172.18.0.0/16）。
+  handle_path /remotecrab/r/signal* {
+    reverse_proxy 172.18.0.1:8799
+  }
+
+  # 短链（2026-11-21）：/l/<6 位码> → 观看页。宣传物料里出现的地址必须真的能打开。
+  handle /l/* {
+    @six path_regexp six ^/l/([0-9]{6})$
+    redir @six https://vgoapp.com/remotecrab/r/?code={re.six.1} temporary
+    redir https://vgoapp.com/remotecrab/r/ temporary
+  }
+
+  # 观看页必须每次回源（2026-11-20）：它是产品的一部分，改一次用户就得看见一次。
+  # Safari 会长期沿用旧 HTML，「我是不是还在用老版本」就是这么来的。
+  handle /remotecrab/r/* {
+    header Cache-Control "no-cache, must-revalidate"
+    root * /var/www/vgoapp
+    file_server
+  }
+
   handle {
     root * /var/www/vgoapp
     file_server
