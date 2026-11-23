@@ -1,7 +1,13 @@
 # vgoapp.com — owned by the VGOAPP repo.
 # Installed to /etc/caddy/sites/vgoapp.caddy by scripts/deploy.sh; the shared
-# /etc/caddy/Caddyfile in the MDDock deployment imports every *.caddy in that
-# directory. Keep MDDock's sites out of this file.
+# /etc/caddy/Caddyfile imports every *.caddy in that directory. Keep MDDock's
+# sites out of this file.
+#
+# The shared entrypoint (/etc/caddy/Caddyfile), the sites directory, UFW,
+# Docker and SSH hardening are owned by the platform repo `vps-infra`
+# (https://github.com/edwin-hao-ai/vps-infra). Do not write them from here:
+# an MDDock deploy applies vps-infra on every run, so anything written outside
+# `sites/vgoapp.caddy` is either overwritten or silently drifts.
 #
 # 语法坑（2026-11-16 实测）：
 #   `redir` 在只有两个参数时，第一个一定是**匹配器**、第二个才是目标。
