@@ -82,7 +82,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       titleLine1: '一部手机，',
       titleLine2: '补全你的电脑',
       appStore: 'App Store（iPhone / iPad）',
-      versionNote: '版本 1.4.3 · 19 MB · 2026-11-20',
+      versionNote: '版本 1.4.5 · 20 MB · 2026-11-23',
       switchPlatform: '这台电脑是 Windows？',
       switchAction: '换成 Windows 版',
       watchFull: '完整版 34 秒 · 有声',
@@ -91,7 +91,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
   compatibility: {
     title: '情景模式认识你电脑上的 49 个应用',
     body: '演示、终端、AI 助手、浏览器、邮件、会议、Xcode…… 你在哪个 App 里，手机上的按键就换成哪一套。没收录的应用也有兜底按键。',
-    cta: '看看全部 18 套',
+    cta: '看看情景模式',
   },
   scenes: {
     title: '人在哪，电脑的控制权就在哪',
@@ -247,7 +247,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     faq: {
       title: '常见问题',
       items: [
-        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费，没有广告、没有内购。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年，随时可在系统设置里取消。' },
+        { question: 'RemoteCrab 收费吗？', answer: '同一个 WiFi 里的全部功能永久免费，没有广告。离开局域网使用电脑是可选订阅:$3.99/月或 $29.99/年，随时可在系统设置里取消。' },
         {
           question: '为什么装的时候要授权好几次？',
           answer:
@@ -295,7 +295,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
       titleLine1: 'One phone completes',
       titleLine2: 'your computer.',
       appStore: 'App Store (iPhone / iPad)',
-      versionNote: 'Version 1.4.3 · 19 MB · Nov 20, 2026',
+      versionNote: 'Version 1.4.5 · 20 MB · Nov 23, 2026',
       switchPlatform: 'On Windows instead?',
       switchAction: 'Get the Windows build',
       watchFull: 'Full 34s · with sound',
@@ -304,7 +304,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
   compatibility: {
     title: 'Context modes know 49 apps on your computer',
     body: 'Presentations, terminals, AI assistants, browsers, mail, meetings, Xcode — the buttons on your phone become that app’s set. Anything unlisted still gets the fallback set.',
-    cta: 'See all 18 sets',
+    cta: 'See context modes',
   },
   scenes: {
     title: 'Wherever you are, the controls follow',
@@ -461,7 +461,7 @@ export const remoteCrabContent: Record<Language, RemoteCrabContent> = {
     faq: {
       title: 'FAQ',
       items: [
-        { question: 'Is RemoteCrab free?', answer: 'Everything on your local WiFi is free forever — no ads, no in-app purchases. Using your computer from another network is an optional subscription: $3.99/month or $29.99/year, cancellable anytime in Settings.' },
+        { question: 'Is RemoteCrab free?', answer: 'Everything on your local WiFi is free forever — no ads. Using your computer from another network is an optional subscription: $3.99/month or $29.99/year, cancellable anytime in Settings.' },
         {
           question: 'Why does installing ask for permission several times?',
           answer:

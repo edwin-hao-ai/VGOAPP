@@ -142,7 +142,7 @@ const zh: HomeContent = {
           { name: '键盘', body: '系统输入法：中文、emoji、候选词，文字落在电脑光标处。', href: `${F}keyboard/` },
           { name: '按住说话', body: '识别在手机上完成，声音不上传；中英文都行，松手就上屏。', href: `${F}voice/` },
           { name: '数字键盘', body: '和触控板共存；遇到数字类 App 会自动出现。', tag: 'video' },
-          { name: '情景模式', body: '18 套按键：你在用哪个 App，手机上就换成哪一套。', href: `${F}automation/`, sub: '含 系统控制：音量、亮度、媒体键、锁屏' },
+          { name: '情景模式', body: '18 套按键：你在用哪个 App，手机上就换成哪一套。', href: '/remotecrab/context-modes/', sub: '含 系统控制：音量、亮度、媒体键、锁屏' },
         ],
       },
       {
@@ -241,7 +241,7 @@ const zh: HomeContent = {
       {
         num: '1',
         title: '下载 dmg，拖进「应用程序」',
-        body: '安装包 19 MB。第一次打开时系统会问你一次 —— 从网上下载的 App 都会问，点「打开」就好，不是报错。',
+        body: '安装包 20 MB。第一次打开时系统会问你一次 —— 从网上下载的 App 都会问，点「打开」就好，不是报错。',
         dialog: '“RemoteCrab” 是从互联网下载的 App。确定要打开吗？',
       },
       {
@@ -275,7 +275,7 @@ const zh: HomeContent = {
       tag: '同一局域网',
       amount: '免费',
       unit: '永久',
-      items: ['全部功能，不设数量限制', '不需要账号，不需要登录', '没有广告，没有内购', 'Windows 端同样免费'],
+      items: ['全部功能，不设数量限制', '不需要账号，不需要登录', '没有广告', 'Windows 端同样免费'],
     },
     paid: {
       tag: '不在同一网络',
@@ -357,7 +357,7 @@ const en: HomeContent = {
           { name: 'Keyboard', body: 'System IME: Chinese, emoji, candidates; text lands at the cursor.', href: `${F}keyboard/` },
           { name: 'Hold to talk', body: 'Recognition happens on the phone, nothing uploaded; release and it’s typed.', href: `${F}voice/` },
           { name: 'Numeric pad', body: 'Coexists with the trackpad; auto-opens for number-heavy apps.', tag: 'video' },
-          { name: 'Context modes', body: '18 key sets: whichever app you’re in, the phone switches to match.', href: `${F}automation/`, sub: 'incl. system keys: volume, brightness, media, lock' },
+          { name: 'Context modes', body: '18 key sets: whichever app you’re in, the phone switches to match.', href: '/en/remotecrab/context-modes/', sub: 'incl. system keys: volume, brightness, media, lock' },
         ],
       },
       {
@@ -456,7 +456,7 @@ const en: HomeContent = {
       {
         num: '1',
         title: 'Download the dmg, drag it to Applications',
-        body: '19 MB. macOS asks once when you first open it — every app downloaded from the web gets that, and “Open” is all it needs.',
+        body: '20 MB. macOS asks once when you first open it — every app downloaded from the web gets that, and “Open” is all it needs.',
         dialog: '“RemoteCrab” is an app downloaded from the Internet. Are you sure you want to open it?',
       },
       {
@@ -490,7 +490,7 @@ const en: HomeContent = {
       tag: 'Same Wi-Fi',
       amount: 'Free',
       unit: 'forever',
-      items: ['Every feature, no device limits', 'No account, no sign-in', 'No ads, no in-app purchases', 'Free on Windows too'],
+      items: ['Every feature, no device limits', 'No account, no sign-in', 'No ads', 'Free on Windows too'],
     },
     paid: {
       tag: 'Different networks',

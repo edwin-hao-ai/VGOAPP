@@ -18,7 +18,10 @@ export function ProductHeader({ homeHref = '/remotecrab/' }: { homeHref?: string
 
   const links = [
     { label: language === 'zh' ? '功能' : 'Features', href: `${home}#features` },
-    { label: language === 'zh' ? '价格' : 'Pricing', href: `${home}#pricing` },
+    {
+      label: language === 'zh' ? '情景模式' : 'Context modes',
+      href: isEn ? '/en/remotecrab/context-modes/' : '/remotecrab/context-modes/',
+    },
     { label: language === 'zh' ? '对比' : 'Compare', href: isEn ? '/en/remotecrab/alternatives/' : '/remotecrab/alternatives/' },
   ]
 

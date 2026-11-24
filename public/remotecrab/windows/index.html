@@ -148,24 +148,24 @@
 
   <header>
     <span class="badge">Windows 10 / 11</span>
-    <h1>装 RemoteCrab 时，<br>Windows 会问你<em>两件事</em></h1>
+    <h1>装 RemoteCrab 时，<br>Windows 只会问你<em>一次</em></h1>
     <p class="lede">
-      两件事都是因为它<strong>第一次见到这个程序</strong>，不是因为它有病毒。
-      按下面的顺序做，只需要点两次"是"，不会出现红色的 SmartScreen 拦截页。
+      因为它<strong>第一次见到这个程序</strong>，不是因为有病毒。
+      按下面的顺序做，只在 UAC 里点一次「是」；先解除锁定通常也不会再遇到红色拦截页。
     </p>
 
     <div class="dl">
       <a class="btn" href="/downloads/RemoteCrab-Windows-setup.zip" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
         下载 Windows 版
-        <span class="size">约 7.5 MB</span>
+        <span class="size">约 11.9 MB</span>
       </a>
       <a class="ghost" href="/remotecrab/">先看看它能做什么</a>
     </div>
 
     <p class="sha">
       SHA256
-      <code id="sha">d00a62baa3a4a9e6f7f47f55022aea06c3aac14cf4c1f02151eec296bc468d8f</code>
+      <code id="sha">e4903472edd703095d1f10c0786db538cbe4443d064d1312d03361bc0f8d4a44</code>
       <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('sha').textContent).then(()=>{this.textContent='已复制';setTimeout(()=>this.textContent='复制',1500)})">复制</button>
       <a href="/downloads/RemoteCrab-Windows-setup.zip.sha256" style="color:var(--muted-2);text-decoration:underline">校验文件</a>
     </p>
@@ -186,13 +186,13 @@
       <div class="step">
         <span class="n">01</span>
         <h4>下载 ZIP</h4>
-        <p>文件名是 <code style="font-size:11px">RemoteCrab-1.0.16-setup.zip</code>。里面是安装包、程序本体和 <code style="font-size:11px">install.cmd</code>。</p>
+        <p>文件名是 <code style="font-size:11px">RemoteCrab-1.0.26-setup.zip</code>。里面是安装包、程序本体和 <code style="font-size:11px">install.cmd</code>。</p>
         <div class="win term">
           <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>下载<span class="g"></span></div>
           <pre><span class="dim">正在下载</span>
-RemoteCrab-1.0.16-setup.zip
+RemoteCrab-1.0.26-setup.zip
 <span class="ok">████████████████████</span> 100%
-<span class="dim">7.5 MB · 保存在「下载」</span></pre>
+<span class="dim">11.9 MB · 保存在「下载」</span></pre>
         </div>
       </div>
 
@@ -203,7 +203,7 @@ RemoteCrab-1.0.16-setup.zip
         <div class="win">
           <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>属性<span class="g">— □ ✕</span></div>
           <div class="pane" style="padding-top:7px">
-            <div class="row"><span>大小:</span>7.51 MB</div>
+            <div class="row"><span>大小:</span>11.9 MB</div>
             <div class="unblock"><span class="cb"></span><span><b>解除锁定</b><br>此文件来自其他计算机，可能被阻止以帮助保护该计算机。</span></div>
             <div class="btns"><span class="wbtn">取消</span><span class="wbtn p">确定</span></div>
           </div>
@@ -239,9 +239,9 @@ RemoteCrab-1.0.16-setup.zip
         <p>这不是"发现病毒"的提示。真实的病毒拦截长这样：红色的全屏页，只有一个「不运行」。</p>
       </div>
       <div class="card">
-        <h3>为什么会问你两次</h3>
-        <p>第一次是 UAC：安装程序要写入 <code style="font-size:11.5px">C:\Program Files</code>，需要管理员权限。这是 Windows 自己的规则，任何安装程序都会问。</p>
-        <p>第二次……其实没有第二次。按上面的顺序做，只有这一个提示。</p>
+        <h3>为什么只需要点一次「是」</h3>
+        <p>UAC 是因为安装程序要写入 <code style="font-size:11.5px">C:\Program Files</code>，需要管理员权限。这是 Windows 自己的规则，任何安装程序都会问。</p>
+        <p>先按第 2 步解除锁定，再运行 <code style="font-size:11.5px">install.cmd</code>，通常只会看到这一个提示。之后启动和自动更新都不再需要管理员权限。</p>
       </div>
     </div>
   </section>
@@ -271,7 +271,7 @@ RemoteCrab-1.0.16-setup.zip
     <div class="card">
       <div class="req"><span class="tick">✓</span><span><b>Windows 10 1809</b> 或更新版本（Windows 11 全部支持）</span></div>
       <div class="req"><span class="tick">✓</span><span><b>iPhone / iPad</b> 上安装 RemoteCrab App，iOS / iPadOS 17 或更新版本</span></div>
-      <div class="req"><span class="tick">✓</span><span>两台设备在<b>同一个 Wi-Fi</b>；远程访问是可选订阅</span></div>
+      <div class="req"><span class="tick">✓</span><span>两台设备在<b>同一个 Wi-Fi</b> 即可开始</span></div>
       <div class="req"><span class="tick">✓</span><span>约 20 MB 磁盘空间；不需要 .NET 或任何运行库</span></div>
     </div>
   </section>

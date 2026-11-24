@@ -131,24 +131,24 @@
 
   <header>
     <span class="badge">Windows 10 / 11</span>
-    <h1>Windows will ask you<br><em>two things</em></h1>
+    <h1>Windows only asks<br><em>once</em></h1>
     <p class="lede">
-      Both because it is <strong>the first time it has seen this program</strong>, not because it found a virus.
-      Follow the order below and you will click "Yes" twice — the red SmartScreen page never appears.
+      It is <strong>the first time Windows has seen this program</strong>, not a virus.
+      Follow the order below and you will click “Yes” once in UAC; unblocking the ZIP first usually avoids the red page too.
     </p>
 
     <div class="dl">
       <a class="btn" href="/downloads/RemoteCrab-Windows-setup.zip" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
         Download for Windows
-        <span class="size">7.5 MB</span>
+        <span class="size">11.9 MB</span>
       </a>
       <a class="ghost" href="/en/remotecrab/">See what it does</a>
     </div>
 
     <p class="sha">
       SHA256
-      <code id="sha">d00a62baa3a4a9e6f7f47f55022aea06c3aac14cf4c1f02151eec296bc468d8f</code>
+      <code id="sha">e4903472edd703095d1f10c0786db538cbe4443d064d1312d03361bc0f8d4a44</code>
       <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('sha').textContent).then(()=>{this.textContent='Copied';setTimeout(()=>this.textContent='Copy',1500)})">Copy</button>
       <a href="/downloads/RemoteCrab-Windows-setup.zip.sha256" style="color:var(--muted-2);text-decoration:underline">checksum file</a>
     </p>
@@ -168,13 +168,13 @@
       <div class="step">
         <span class="n">01</span>
         <h4>Download the ZIP</h4>
-        <p>It contains the installer, the app itself and <code style="font-size:11px">install.cmd</code>.</p>
+        <p>The file is <code style="font-size:11px">RemoteCrab-1.0.26-setup.zip</code>. It contains the installer, the app itself and <code style="font-size:11px">install.cmd</code>.</p>
         <div class="win term">
           <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Downloads<span class="g"></span></div>
           <pre><span class="dim">Downloading</span>
-RemoteCrab-1.0.16-setup.zip
+RemoteCrab-1.0.26-setup.zip
 <span class="ok">████████████████████</span> 100%
-<span class="dim">7.5 MB · saved to Downloads</span></pre>
+<span class="dim">11.9 MB · saved to Downloads</span></pre>
         </div>
       </div>
       <div class="step">
@@ -184,7 +184,7 @@ RemoteCrab-1.0.16-setup.zip
         <div class="win">
           <div class="tb"><span class="dot"></span><span class="dot"></span><span class="dot"></span>Properties<span class="g">— □ ✕</span></div>
           <div class="pane" style="padding-top:7px">
-            <div class="row"><span>Size:</span>7.51 MB</div>
+            <div class="row"><span>Size:</span>11.9 MB</div>
             <div class="unblock"><span class="cb"></span><span><b>Unblock</b><br>This file came from another computer and might be blocked to help protect this computer.</span></div>
             <div class="btns"><span class="wbtn">Cancel</span><span class="wbtn p">OK</span></div>
           </div>
@@ -218,9 +218,9 @@ RemoteCrab-1.0.16-setup.zip
         <p>This is not a virus warning. A real one is a red full-screen page with a single button: "Don't run".</p>
       </div>
       <div class="card">
-        <h3>Why twice?</h3>
-        <p>The first prompt is UAC: the installer writes to <code style="font-size:11.5px">C:\Program Files</code>, which needs administrator rights. Every installer asks.</p>
-        <p>The second one does not happen if you follow the order above — there is only the UAC prompt.</p>
+        <h3>Why only one “Yes”</h3>
+        <p>UAC appears because the installer writes to <code style="font-size:11.5px">C:\Program Files</code>, which needs administrator rights. Every installer asks.</p>
+        <p>Unblock the ZIP in step 2, then run <code style="font-size:11.5px">install.cmd</code>. You normally see this one prompt only; launching and auto-updating later do not need admin rights.</p>
       </div>
     </div>
   </section>
@@ -250,7 +250,7 @@ RemoteCrab-1.0.16-setup.zip
     <div class="card">
       <div class="req"><span class="tick">✓</span><span><b>Windows 10 version 1809</b> or newer (all of Windows 11)</span></div>
       <div class="req"><span class="tick">✓</span><span><b>iPhone / iPad</b> with the RemoteCrab app, iOS / iPadOS 17 or newer</span></div>
-      <div class="req"><span class="tick">✓</span><span>Both on <b>the same Wi-Fi</b>; remote access is an optional subscription</span></div>
+      <div class="req"><span class="tick">✓</span><span>Both on <b>the same Wi-Fi</b> to get started</span></div>
       <div class="req"><span class="tick">✓</span><span>About 20 MB of disk; no .NET or other runtime required</span></div>
     </div>
   </section>

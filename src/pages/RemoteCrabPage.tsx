@@ -20,7 +20,7 @@ import { RemoteScenarios } from '../components/remotecrab/RemoteScenarios'
 import BrowserShareBand from '../components/BrowserShareBand'
 
 export const DOWNLOAD_MAC_URL = '/downloads/RemoteCrab.dmg'
-export const DOWNLOAD_WINDOWS_URL = '/downloads/RemoteCrab-Windows.msi'
+export const DOWNLOAD_WINDOWS_URL = '/remotecrab/windows/'
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6811599153'
 export const TESTFLIGHT_URL = 'https://testflight.apple.com/join/6VNNHAyx'
 
@@ -97,7 +97,6 @@ export default function RemoteCrabPage() {
                 >
                   <Download size={18} />
                   {platform === 'windows' ? c.hero.downloadWindows : c.hero.downloadMac}
-                  <span className="text-xs font-medium opacity-70">19 MB</span>
                 </a>
                 <a
                   href={APP_STORE_URL}
@@ -107,14 +106,10 @@ export default function RemoteCrabPage() {
                 >
                   <Smartphone size={18} />
                   {c.hero.appStore}
-                  <span className="text-xs font-medium opacity-60">{language === 'zh' ? '免费' : 'Free'}</span>
                 </a>
               </motion.div>
 
-              <motion.p {...fade(0.4)} className="mt-4 font-mono text-xs text-vgo-muted/70">
-                {c.hero.versionNote}
-              </motion.p>
-              <motion.p {...fade(0.42)} className="mt-1 text-xs text-vgo-muted/60">
+              <motion.p {...fade(0.42)} className="mt-4 text-xs text-vgo-muted/60">
                 {c.hero.requirementsNote}
               </motion.p>
 
@@ -373,7 +368,7 @@ export default function RemoteCrabPage() {
             own page; this is the hook that makes people go there. */}
         <section className="px-6 pb-16">
           <motion.a
-            href="/remotecrab/suites/"
+            href={language === 'en' ? '/en/remotecrab/context-modes/' : '/remotecrab/context-modes/'}
             {...fade()}
             className="max-w-5xl mx-auto block glass glass-hover p-8 md:p-10 group"
           >
