@@ -27,6 +27,17 @@ http://vgoapp.com {
 vgoapp.com {
   encode zstd gzip
 
+  # 访问日志（2026-11-24 加）。目的：知道有没有人在下载/访问。
+  # 落在 /config 卷里，不在网站根目录，所以不会被当成静态文件对外提供。
+  # 读取端：RemoteCrab 仓库的 scripts/growth/site_stats.py
+  log {
+    output file /config/access-vgoapp.log {
+      roll_size 20MiB
+      roll_keep 8
+    }
+    format json
+  }
+
   # --- 旧站结构：Search Console 到 2026-11 还在抓的 404 ----------------------
   # /zh/ 曾经是中文首页（现在的不带前缀 `/` 就是中文）。
   redir /zh / permanent
